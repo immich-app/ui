@@ -1,0 +1,103 @@
+<script lang="ts">
+	import { Checkbox as CheckboxPrimitive, type WithoutChildrenOrChild } from 'bits-ui';
+	import { mdiCheck, mdiMinus } from '@mdi/js';
+	import Icon from '$lib/components/Icon.svelte';
+	import { tv } from 'tailwind-variants';
+	import type { Color, Shape, Size } from '$lib/types.js';
+	import { cleanClass } from '$lib/utils.js';
+
+	type CheckboxProps = WithoutChildrenOrChild<CheckboxPrimitive.RootProps> & {
+		color?: Color;
+		shape?: Shape;
+		size?: Size;
+	};
+
+	let {
+		ref = $bindable(null),
+		checked = $bindable(false),
+		class: className,
+		color = 'primary',
+		shape = 'semi-round',
+		size = 'small',
+		...restProps
+	}: CheckboxProps = $props();
+
+	const container = tv({
+		base: 'ring-offset-background focus-visible:ring-ring peer box-content border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[disabled=true]:cursor-not-allowed data-[state=checked]:bg-primary data-[disabled=true]:opacity-50 overflow-hidden',
+		variants: {
+			shape: {
+				rectangle: 'rounded-none',
+				'semi-round': 'rounded-lg',
+				round: 'rounded-full',
+			},
+			color: {
+				primary: 'border-primary',
+				secondary: 'border-secondary',
+				success: 'border-success',
+				danger: 'border-danger',
+				warning: 'border-warning',
+				info: 'border-info',
+			},
+			size: {
+				tiny: 'size-4',
+				small: 'size-6',
+				medium: 'size-8',
+				large: 'size-16',
+				giant: 'size-32',
+			},
+		},
+		compoundVariants: [
+			//
+			{ size: 'tiny', shape: 'semi-round', class: 'rounded' },
+			{ size: 'small', shape: 'semi-round', class: 'rounded-md' },
+			{ size: 'large', shape: 'semi-round', class: 'rounded-xl' },
+			{ size: 'giant', shape: 'semi-round', class: 'rounded-2xl' },
+		],
+	});
+
+	const parent = tv({
+		base: 'flex items-center justify-center text-current',
+		variants: {
+			size: {
+				tiny: 'size-4',
+				small: 'size-6',
+				medium: 'size-8',
+				large: 'size-16',
+				giant: 'size-32',
+			},
+		},
+	});
+
+	const icon = tv({
+		variants: {
+			fullWidth: {
+				true: 'w-full',
+			},
+			color: {
+				primary: 'bg-primary text-light hover:bg-primary/80',
+				secondary: 'bg-dark text-light hover:bg-dark/80',
+				success: 'bg-success text-light hover:bg-success/80',
+				danger: 'bg-danger text-light hover:bg-danger/80',
+				warning: 'bg-warning text-light hover:bg-warning/80',
+				info: 'bg-info text-light hover:bg-info/80',
+			},
+		},
+	});
+</script>
+
+<CheckboxPrimitive.Root
+	bind:ref
+	class={cleanClass(container({ size, color, shape }), className)}
+	bind:checked
+	{...restProps}
+>
+	{#snippet children({ checked })}
+		<div class={parent({ size })}>
+			{#if checked === true}
+				<Icon path={mdiCheck} size="100%" class={cleanClass(icon({ color }))} />
+			{:else if checked === 'indeterminate'}
+				<Icon path={mdiMinus} size="100%" class={cleanClass(icon({ color }))} />
+			{/if}
+		</div>
+	{/snippet}
+</CheckboxPrimitive.Root>
