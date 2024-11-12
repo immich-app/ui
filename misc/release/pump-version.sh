@@ -17,7 +17,7 @@ fi
 
 VERSION_BEFORE=v$(jq -r '.version' package.json)
 
-npm version $TYPE
+npm version $TYPE --no-git-tag-version
 
 VERSION_AFTER=v$(jq -r '.version' package.json)
 
