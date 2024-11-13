@@ -10,7 +10,10 @@
 
 <div
 	bind:this={ref}
-	class={cleanClass('rounded-lg border bg-light text-dark shadow-lg', className)}
+	class={cleanClass(
+		'rounded-lg border border-gray-300 bg-light text-dark shadow-lg dark:border-gray-600',
+		className,
+	)}
 	{...restProps}
 >
 	{@render children?.()}

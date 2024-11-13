@@ -17,7 +17,7 @@
 			<CardTitle>Shapes</CardTitle>
 		</CardHeader>
 		<CardBody>
-			<div class="flex gap-1">
+			<div class="flex flex-wrap gap-1">
 				{#each shapes as shape}
 					<Button {shape} class="capitalize">{shape}</Button>
 				{/each}
@@ -30,7 +30,7 @@
 			<CardTitle>Colors</CardTitle>
 		</CardHeader>
 		<CardBody>
-			<div class="flex gap-1">
+			<div class="flex flex-wrap gap-1">
 				{#each colors as color}
 					<Button {color} class="capitalize">{color}</Button>
 				{/each}
@@ -43,7 +43,7 @@
 			<CardTitle>Outline</CardTitle>
 		</CardHeader>
 		<CardBody>
-			<div class="flex gap-1">
+			<div class="flex flex-wrap gap-1">
 				{#each colors as color}
 					<Button variant="outline" {color}>Button</Button>
 				{/each}
@@ -56,7 +56,7 @@
 			<CardTitle>Ghost</CardTitle>
 		</CardHeader>
 		<CardBody>
-			<div class="flex gap-1">
+			<div class="flex flex-wrap gap-1">
 				{#each colors as color}
 					<Button variant="ghost" {color}>Button</Button>
 				{/each}
@@ -69,7 +69,7 @@
 			<CardTitle>Hero</CardTitle>
 		</CardHeader>
 		<CardBody>
-			<div class="flex gap-1">
+			<div class="flex flex-wrap gap-1">
 				{#each colors as color}
 					<Button variant="hero" {color}>Button</Button>
 				{/each}
@@ -82,7 +82,7 @@
 			<CardTitle>Disabled</CardTitle>
 		</CardHeader>
 		<CardBody>
-			<div class="flex gap-1">
+			<div class="flex flex-wrap gap-1">
 				{#each colors as color}
 					<Button {color} disabled>Button</Button>
 				{/each}
@@ -95,7 +95,7 @@
 			<CardTitle>Sizes</CardTitle>
 		</CardHeader>
 		<CardBody>
-			<div class="flex gap-1">
+			<div class="flex flex-wrap gap-1">
 				{#each sizes as size}
 					<div>
 						<Button {size} class="capitalize">{size}</Button>
