@@ -9,3 +9,4 @@ export { default as Checkbox } from '$lib/components/Checkbox.svelte';
 export { default as Icon } from '$lib/components/Icon.svelte';
 export { default as Input } from '$lib/components/Input.svelte';
 export { default as Label } from '$lib/components/Label.svelte';
+export { default as Logo } from '$lib/components/Logo.svelte';

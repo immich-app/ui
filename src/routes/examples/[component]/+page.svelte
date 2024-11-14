@@ -1,26 +1,32 @@
 <script lang="ts">
-	import { ThemeOption } from '$docs/constants.js';
+	import { Theme, DisplayOption } from '$docs/constants.js';
 	import { routes } from '$docs/routes.js';
 	import { Icon } from '$lib/index.js';
 	import { mdiCompare, mdiWeatherNight, mdiWeatherSunny } from '@mdi/js';
 
-	const themes = [ThemeOption.Both, ThemeOption.Light, ThemeOption.Dark];
-	const themeIcons: Record<ThemeOption, string> = {
-		[ThemeOption.Both]: mdiCompare,
-		[ThemeOption.Light]: mdiWeatherSunny,
-		[ThemeOption.Dark]: mdiWeatherNight,
+	const themes = [DisplayOption.Both, DisplayOption.Light, DisplayOption.Dark];
+	const themeIcons: Record<DisplayOption, string> = {
+		[DisplayOption.Both]: mdiCompare,
+		[DisplayOption.Light]: mdiWeatherSunny,
+		[DisplayOption.Dark]: mdiWeatherNight,
 	};
 
-	let themeOption = $state<ThemeOption>(ThemeOption.Both);
-	let themeIcon = $derived(themeIcons[themeOption]);
+	let displayOption = $state<DisplayOption>(DisplayOption.Both);
+	let themeIcon = $derived(themeIcons[displayOption]);
 
 	const { data } = $props();
 	const route = $derived(routes.find((route) => route.link === data.link));
-	const selectedThemes = $derived(themeOption === 'both' ? ['light', 'dark'] : [themeOption]);
+	const displayThemes = $derived<Theme[]>(
+		displayOption === 'both'
+			? [Theme.Light, Theme.Dark]
+			: displayOption === DisplayOption.Dark
+				? [Theme.Dark]
+				: [Theme.Light],
+	);
 
 	const handleClick = () => {
-		const currentIndex = themes.indexOf(themeOption);
-		themeOption = themes[(currentIndex + 1) % themes.length];
+		const currentIndex = themes.indexOf(displayOption);
+		displayOption = themes[(currentIndex + 1) % themes.length];
 	};
 </script>
 
@@ -46,11 +52,11 @@
 	</nav>
 
 	{#if route}
-		<div class="grid grow grid-cols-1 {selectedThemes.length === 2 ? 'md:grid-cols-2' : ''}">
-			{#each selectedThemes as theme}
+		<div class="grid grow grid-cols-1 {displayThemes.length === 2 ? 'md:grid-cols-2' : ''}">
+			{#each displayThemes as theme}
 				<div class="flex flex-col gap-4 {theme} h-full bg-light p-8">
 					<h2 class="text-2xl capitalize text-dark">{theme}</h2>
-					<route.component></route.component>
+					<route.component {theme}></route.component>
 				</div>
 			{/each}
 		</div>
