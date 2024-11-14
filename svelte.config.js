@@ -17,6 +17,7 @@ const config = {
 
 		alias: {
 			$docs: './src/docs',
+			'@immich/ui': './src/lib/index.js',
 		},
 	},
 };
