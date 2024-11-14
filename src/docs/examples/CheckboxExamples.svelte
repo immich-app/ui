@@ -17,9 +17,9 @@
 			<CardTitle>Colors</CardTitle>
 		</CardHeader>
 		<CardBody>
-			<div class="flex flex-col gap-1">
+			<div class="flex flex-col gap-4">
 				{#each colors as color}
-					<div class="flex gap-1">
+					<div class="flex gap-4">
 						<Checkbox checked {color} />
 						<Checkbox {color} />
 						<Checkbox checked="indeterminate" {color} />
@@ -34,9 +34,9 @@
 			<CardTitle>Sizes</CardTitle>
 		</CardHeader>
 		<CardBody>
-			<div class="flex flex-col gap-1">
+			<div class="flex flex-col gap-4">
 				{#each sizes as size}
-					<div class="flex gap-1">
+					<div class="flex gap-4">
 						<Checkbox checked {size} />
 						<Checkbox {size} />
 						<Checkbox checked="indeterminate" {size} />
@@ -51,9 +51,9 @@
 			<CardTitle>Shapes</CardTitle>
 		</CardHeader>
 		<CardBody>
-			<div class="flex flex-col gap-1">
+			<div class="flex flex-col gap-4">
 				{#each shapes as shape}
-					<div class="flex gap-1">
+					<div class="flex gap-4">
 						<Checkbox checked {shape} />
 						<Checkbox {shape} />
 						<Checkbox checked="indeterminate" {shape} />

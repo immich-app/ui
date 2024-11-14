@@ -11,7 +11,7 @@
 <div
 	bind:this={ref}
 	class={cleanClass(
-		'rounded-lg border border-gray-300 bg-light text-dark shadow-lg dark:border-gray-600',
+		'rounded-2xl border border-gray-300 bg-light text-dark shadow-sm dark:border-gray-600',
 		className,
 	)}
 	{...restProps}
