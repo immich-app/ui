@@ -29,7 +29,7 @@
 		spin = false,
 		role = 'img',
 		ariaLabelledby,
-		strokeColor = 'currentColor',
+		strokeColor = 'transparent',
 		strokeWidth = 2,
 		ariaLabel = '',
 		ariaHidden = false,

@@ -5,6 +5,7 @@
 	"scripts": {
 		"start": "npm run start:dev",
 		"start:dev": "vite dev",
+		"watch": "vite build --watch",
 		"build": "vite build && npm run package",
 		"preview": "vite preview",
 		"package": "npm run sync && svelte-package && publint",
