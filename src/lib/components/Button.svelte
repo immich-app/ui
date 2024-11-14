@@ -39,7 +39,7 @@
 		variants: {
 			shape: {
 				rectangle: 'rounded-none',
-				'semi-round': 'rounded-lg',
+				'semi-round': 'rounded-xl',
 				round: 'rounded-full',
 			},
 			size: {
