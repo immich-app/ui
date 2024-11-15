@@ -7,6 +7,7 @@ export { default as CardHeader } from '$lib/components/CardHeader.svelte';
 export { default as CardTitle } from '$lib/components/CardTitle.svelte';
 export { default as Checkbox } from '$lib/components/Checkbox.svelte';
 export { default as Icon } from '$lib/components/Icon.svelte';
+export { default as IconButton } from '$lib/components/IconButton.svelte';
 export { default as Input } from '$lib/components/Input.svelte';
 export { default as Label } from '$lib/components/Label.svelte';
 export { default as Logo } from '$lib/components/Logo.svelte';
