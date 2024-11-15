@@ -1,8 +1,15 @@
 <script lang="ts">
-	import { Theme, DisplayOption } from '$docs/constants.js';
-	import { routes } from '$docs/routes.js';
+	import { DisplayOption, Theme } from '$docs/constants.js';
 	import { Icon } from '$lib/index.js';
 	import { mdiCompare, mdiWeatherNight, mdiWeatherSunny } from '@mdi/js';
+	import type { Snippet } from 'svelte';
+
+	type Props = {
+		name: string;
+		component: Snippet<[{ theme: Theme }]>;
+	};
+
+	const { name, component }: Props = $props();
 
 	const themes = [DisplayOption.Both, DisplayOption.Light, DisplayOption.Dark];
 	const themeIcons: Record<DisplayOption, string> = {
@@ -14,8 +21,6 @@
 	let displayOption = $state<DisplayOption>(DisplayOption.Both);
 	let themeIcon = $derived(themeIcons[displayOption]);
 
-	const { data } = $props();
-	const route = $derived(routes.find((route) => route.link === data.link));
 	const displayThemes = $derived<Theme[]>(
 		displayOption === 'both'
 			? [Theme.Light, Theme.Dark]
@@ -47,22 +52,16 @@
 		<div class="flex items-center gap-2">
 			<a href="/" class="underline">Home</a>
 			<span>/</span>
-			<span class="capitalize">{data.component}</span>
+			<span class="capitalize">{name}</span>
 		</div>
 	</nav>
 
-	{#if route}
-		<div class="grid grow grid-cols-1 {displayThemes.length === 2 ? 'md:grid-cols-2' : ''}">
-			{#each displayThemes as theme}
-				<div class="flex flex-col gap-4 {theme} h-full bg-light p-8">
-					<h2 class="text-2xl capitalize text-dark">{theme}</h2>
-					<route.component {theme}></route.component>
-				</div>
-			{/each}
-		</div>
-	{:else}
-		<div class="p-8">
-			<h2 class="text-xl">No examples found for {data.component}</h2>
-		</div>
-	{/if}
+	<div class="grid grow grid-cols-1 {displayThemes.length === 2 ? 'md:grid-cols-2' : ''}">
+		{#each displayThemes as theme}
+			<div class="flex flex-col gap-4 {theme} h-full bg-light p-8">
+				<h2 class="text-2xl capitalize text-dark">{theme}</h2>
+				{@render component({ theme })}
+			</div>
+		{/each}
+	</div>
 </div>

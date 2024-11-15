@@ -14,3 +14,13 @@ export enum Theme {
 	Light = 'light',
 	Dark = 'dark',
 }
+
+type Route = { name: string; link: string };
+
+export const routes: Route[] = [
+	{ name: 'Button', link: '/examples/button' },
+	{ name: 'Checkbox', link: '/examples/checkbox' },
+	{ name: 'Card', link: '/examples/card' },
+	{ name: 'IconButton', link: '/examples/icon-button' },
+	{ name: 'Logo', link: '/examples/logo' },
+];
