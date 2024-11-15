@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Checkbox as CheckboxPrimitive, type WithoutChildrenOrChild } from 'bits-ui';
 	import { mdiCheck, mdiMinus } from '@mdi/js';
-	import Icon from '$lib/components/Icon.svelte';
+	import Icon from '$lib/components/Icon/Icon.svelte';
 	import { tv } from 'tailwind-variants';
 	import type { Color, Shape, Size } from '$lib/types.js';
 	import { cleanClass } from '$lib/utils.js';
@@ -84,9 +84,9 @@
 	{#snippet children({ checked })}
 		<div class={cleanClass('flex items-center justify-center text-current')}>
 			{#if checked === true}
-				<Icon path={mdiCheck} size="100%" class={cleanClass(icon({ color }))} />
+				<Icon icon={mdiCheck} size="100%" class={cleanClass(icon({ color }))} />
 			{:else if checked === 'indeterminate'}
-				<Icon path={mdiMinus} size="100%" class={cleanClass(icon({ color }))} />
+				<Icon icon={mdiMinus} size="100%" class={cleanClass(icon({ color }))} />
 			{/if}
 		</div>
 	{/snippet}

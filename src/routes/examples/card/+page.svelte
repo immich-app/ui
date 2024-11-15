@@ -1,5 +1,7 @@
 <script lang="ts">
 	import DualThemeLayout from '$docs/components/DualThemeLayout.svelte';
+	import Lorem from '$docs/components/Lorem.svelte';
+	import { colors } from '$docs/constants.js';
 	import { Card, CardBody, CardDescription, CardFooter, CardHeader, CardTitle } from '@immich/ui';
 </script>
 
@@ -8,13 +10,9 @@
 		<div class="flex flex-col gap-4">
 			<section class="flex flex-col gap-4">
 				<Card>
-					<CardBody>
-						<p>
-							Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam maxime illo sequi
-							ipsam possimus rem harum nostrum esse itaque vero blanditiis eius sit ducimus
-							doloremque, omnis, assumenda mollitia officia aliquid.
-						</p>
-					</CardBody>
+					<CardHeader>
+						<CardTitle>Title</CardTitle>
+					</CardHeader>
 				</Card>
 
 				<Card>
@@ -22,11 +20,7 @@
 						<CardTitle>Card with title</CardTitle>
 					</CardHeader>
 					<CardBody>
-						<p>
-							Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam maxime illo sequi
-							ipsam possimus rem harum nostrum esse itaque vero blanditiis eius sit ducimus
-							doloremque, omnis, assumenda mollitia officia aliquid.
-						</p>
+						<Lorem />
 					</CardBody>
 				</Card>
 
@@ -35,11 +29,7 @@
 						<CardTitle>Card with title and footer</CardTitle>
 					</CardHeader>
 					<CardBody>
-						<p>
-							Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam maxime illo sequi
-							ipsam possimus rem harum nostrum esse itaque vero blanditiis eius sit ducimus
-							doloremque, omnis, assumenda mollitia officia aliquid.
-						</p>
+						<Lorem />
 					</CardBody>
 					<CardFooter>Footer goes here</CardFooter>
 				</Card>
@@ -50,14 +40,62 @@
 						<CardDescription>This is the description</CardDescription>
 					</CardHeader>
 					<CardBody>
-						<p>
-							Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam maxime illo sequi
-							ipsam possimus rem harum nostrum esse itaque vero blanditiis eius sit ducimus
-							doloremque, omnis, assumenda mollitia officia aliquid.
-						</p>
+						<Lorem />
 					</CardBody>
 					<CardFooter>Footer</CardFooter>
 				</Card>
+
+				<div class="flex flex-wrap gap-4">
+					{#each colors as color}
+						<Card {color} variant="outline">
+							<CardHeader>
+								<CardTitle class="capitalize">{color}</CardTitle>
+							</CardHeader>
+							<CardBody>
+								<Lorem />
+							</CardBody>
+						</Card>
+					{/each}
+				</div>
+
+				<div class="flex flex-wrap gap-4">
+					{#each colors as color}
+						<Card {color} variant="filled">
+							<CardHeader>
+								<CardTitle class="capitalize">{color}</CardTitle>
+							</CardHeader>
+							<CardBody>
+								<Lorem />
+							</CardBody>
+						</Card>
+					{/each}
+				</div>
+
+				<div class="flex flex-wrap gap-4">
+					{#each colors as color}
+						<Card {color} expandable variant="outline">
+							<CardHeader>
+								<CardTitle class="capitalize">{color}</CardTitle>
+							</CardHeader>
+							<CardBody>
+								<Lorem />
+							</CardBody>
+						</Card>
+					{/each}
+				</div>
+
+				<div class="flex flex-wrap gap-4">
+					{#each colors as color}
+						<Card {color} expandable variant="filled">
+							<CardHeader>
+								<CardTitle class="capitalize">{color}</CardTitle>
+							</CardHeader>
+							<CardBody>
+								<Lorem />
+							</CardBody>
+						</Card>
+					{/each}
+				</div>
 			</section>
 		</div>
 	{/snippet}
