@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { routes } from '$docs/routes.js';
+	import { routes } from '$docs/constants.js';
 </script>
 
 <main>

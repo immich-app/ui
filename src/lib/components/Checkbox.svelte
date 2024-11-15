@@ -40,30 +40,17 @@
 			},
 			size: {
 				tiny: 'size-4',
-				small: 'size-6',
-				medium: 'size-8',
-				large: 'size-16',
-				giant: 'size-32',
+				small: 'size-5',
+				medium: 'size-6',
+				large: 'size-8',
+				giant: 'size-10',
 			},
-		},
-		compoundVariants: [
-			//
-			{ size: 'tiny', shape: 'semi-round', class: 'rounded' },
-			{ size: 'small', shape: 'semi-round', class: 'rounded-md' },
-			{ size: 'large', shape: 'semi-round', class: 'rounded-xl' },
-			{ size: 'giant', shape: 'semi-round', class: 'rounded-2xl' },
-		],
-	});
-
-	const parent = tv({
-		base: 'flex items-center justify-center text-current',
-		variants: {
-			size: {
-				tiny: 'size-4',
-				small: 'size-6',
-				medium: 'size-8',
-				large: 'size-16',
-				giant: 'size-32',
+			roundedSize: {
+				tiny: 'rounded-md',
+				small: 'rounded-md',
+				medium: 'rounded-md',
+				large: 'rounded-lg',
+				giant: 'rounded-xl',
 			},
 		},
 	});
@@ -87,12 +74,15 @@
 
 <CheckboxPrimitive.Root
 	bind:ref
-	class={cleanClass(container({ size, color, shape }), className)}
+	class={cleanClass(
+		container({ size, color, shape, roundedSize: shape === 'semi-round' ? size : undefined }),
+		className,
+	)}
 	bind:checked
 	{...restProps}
 >
 	{#snippet children({ checked })}
-		<div class={parent({ size })}>
+		<div class={cleanClass('flex items-center justify-center text-current')}>
 			{#if checked === true}
 				<Icon path={mdiCheck} size="100%" class={cleanClass(icon({ color }))} />
 			{:else if checked === 'indeterminate'}
