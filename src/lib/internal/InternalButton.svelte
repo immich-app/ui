@@ -3,6 +3,7 @@
 	import { cleanClass } from '$lib/utils.js';
 	import { Button as ButtonPrimitive } from 'bits-ui';
 	import type { HTMLAnchorAttributes, HTMLButtonAttributes } from 'svelte/elements';
+	import { twMerge } from 'tailwind-merge';
 	import { tv } from 'tailwind-variants';
 
 	const buttonVariants = tv({
@@ -95,19 +96,21 @@
 
 	const classList = $derived(
 		cleanClass(
-			buttonVariants({
-				shape,
-				fullWidth,
-				textPadding: icon ? undefined : size,
-				textSize: size,
-				iconSize: icon ? size : undefined,
-				roundedSize: shape === 'semi-round' ? size : undefined,
-				filledColor: variant === 'filled' ? color : undefined,
-				outlineColor: variant === 'outline' ? color : undefined,
-				heroColor: variant === 'hero' ? color : undefined,
-				ghostColor: variant === 'ghost' ? color : undefined,
-			}),
-			className,
+			twMerge(
+				buttonVariants({
+					shape,
+					fullWidth,
+					textPadding: icon ? undefined : size,
+					textSize: size,
+					iconSize: icon ? size : undefined,
+					roundedSize: shape === 'semi-round' ? size : undefined,
+					filledColor: variant === 'filled' ? color : undefined,
+					outlineColor: variant === 'outline' ? color : undefined,
+					heroColor: variant === 'hero' ? color : undefined,
+					ghostColor: variant === 'ghost' ? color : undefined,
+				}),
+				className,
+			),
 		),
 	);
 </script>

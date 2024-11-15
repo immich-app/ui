@@ -43,7 +43,7 @@
 		</a>
 		<div>
 			<button onclick={handleClick}>
-				<Icon path={themeIcon} size="24" class="cursor" />
+				<Icon icon={themeIcon} size="24" class="cursor" />
 			</button>
 		</div>
 	</nav>
