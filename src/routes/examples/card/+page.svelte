@@ -49,7 +49,7 @@
 					{#each colors as color}
 						<Card {color} variant="outline">
 							<CardHeader>
-								<CardTitle class="capitalize">{color}</CardTitle>
+								<CardTitle class="capitalize">Outline ({color})</CardTitle>
 							</CardHeader>
 							<CardBody>
 								<Lorem />
@@ -62,7 +62,20 @@
 					{#each colors as color}
 						<Card {color} variant="filled">
 							<CardHeader>
-								<CardTitle class="capitalize">{color}</CardTitle>
+								<CardTitle class="capitalize">Filled ({color})</CardTitle>
+							</CardHeader>
+							<CardBody>
+								<Lorem />
+							</CardBody>
+						</Card>
+					{/each}
+				</div>
+
+				<div class="flex flex-wrap gap-4">
+					{#each colors as color}
+						<Card {color} variant="subtle">
+							<CardHeader>
+								<CardTitle class="capitalize">Subtle ({color})</CardTitle>
 							</CardHeader>
 							<CardBody>
 								<Lorem />
@@ -75,7 +88,7 @@
 					{#each colors as color}
 						<Card {color} expandable variant="outline">
 							<CardHeader>
-								<CardTitle class="capitalize">{color}</CardTitle>
+								<CardTitle class="capitalize">Outline ({color})</CardTitle>
 							</CardHeader>
 							<CardBody>
 								<Lorem />
@@ -88,7 +101,20 @@
 					{#each colors as color}
 						<Card {color} expandable variant="filled">
 							<CardHeader>
-								<CardTitle class="capitalize">{color}</CardTitle>
+								<CardTitle class="capitalize">Filled ({color})</CardTitle>
+							</CardHeader>
+							<CardBody>
+								<Lorem />
+							</CardBody>
+						</Card>
+					{/each}
+				</div>
+
+				<div class="flex flex-wrap gap-4">
+					{#each colors as color}
+						<Card {color} expandable variant="subtle">
+							<CardHeader>
+								<CardTitle class="capitalize">Subtle ({color})</CardTitle>
 							</CardHeader>
 							<CardBody>
 								<Lorem />

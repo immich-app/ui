@@ -12,7 +12,7 @@
 	type Props = HTMLAttributes<HTMLDivElement> & {
 		color?: Color;
 		shape?: Shape;
-		variant?: 'filled' | 'outline';
+		variant?: 'filled' | 'outline' | 'subtle';
 		expandable?: boolean;
 		children: Snippet;
 	};
@@ -42,26 +42,13 @@
 				warning: 'border border-warning',
 				info: 'border border-info',
 			},
-		},
-	});
-
-	const iconColor = tv({
-		variants: {
-			filledColor: {
-				primary: 'text-light',
-				secondary: 'text-light',
-				success: 'text-light',
-				danger: 'text-light',
-				warning: 'text-light',
-				info: 'text-light',
-			},
-			outlineColor: {
-				primary: 'text-primary',
-				secondary: 'text-dark',
-				success: 'text-success',
-				danger: 'text-danger',
-				warning: 'text-warning',
-				info: 'text-info',
+			subtleColor: {
+				primary: 'bg-primary/50 dark:bg-primary/25',
+				secondary: 'bg-dark/15 text-dark',
+				success: 'bg-success/25 dark:bg-success/50',
+				danger: 'bg-danger/25 dark:bg-danger/50',
+				warning: 'bg-warning/25 dark:bg-warning/50',
+				info: 'bg-info/25',
 			},
 		},
 	});
@@ -77,8 +64,29 @@
 				secondary: 'bg-dark text-light rounded-t-xl',
 				success: 'bg-success text-light rounded-t-xl',
 				danger: 'bg-danger text-light rounded-t-xl',
-				warning: 'bg-warning text-light rounded-t-xl',
+				warning: 'bg-warning text-black rounded-t-xl',
 				info: 'bg-info text-light rounded-t-xl',
+			},
+			outlineColor: {
+				primary: 'text-primary',
+				secondary: 'text-dark',
+				success: 'text-success',
+				danger: 'text-danger',
+				warning: 'text-warning',
+				info: 'text-info',
+			},
+		},
+	});
+
+	const iconStyles = tv({
+		variants: {
+			filledColor: {
+				primary: 'text-light',
+				secondary: 'text-light',
+				success: 'text-light',
+				danger: 'text-light',
+				warning: 'text-dark',
+				info: 'text-light',
 			},
 			outlineColor: {
 				primary: 'text-primary',
@@ -105,7 +113,7 @@
 	const headerContainerClasses = $derived(
 		cleanClass(
 			headerContainerStyles({
-				bottomPadding: !expanded || !bodyChildren || variant === 'filled' || variant === 'outline',
+				bottomPadding: variant === 'filled' || !bodyChildren,
 				outlineColor: variant === 'outline' ? color : undefined,
 				filledColor: variant === 'filled' ? color : undefined,
 			}),
@@ -122,7 +130,7 @@
 				</div>
 				<div>
 					<IconButton
-						class={iconColor({
+						class={iconStyles({
 							filledColor: variant === 'filled' ? color : undefined,
 							outlineColor: variant === 'outline' ? color : undefined,
 						}) as Color}
@@ -143,9 +151,7 @@
 {/snippet}
 
 {#snippet body()}
-	<div class="p-4">
-		{@render bodyChildren?.()}
-	</div>
+	{@render bodyChildren?.()}
 {/snippet}
 
 {#snippet footer()}
@@ -159,6 +165,7 @@
 		cardStyles({
 			defaultStyle: variant === undefined,
 			outlineColor: variant === 'outline' || variant === 'filled' ? color : undefined,
+			subtleColor: variant === 'subtle' ? color : undefined,
 		}),
 		className,
 	)}

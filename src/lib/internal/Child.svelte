@@ -11,6 +11,7 @@
 	};
 
 	const { for: key, as, children }: Props = $props();
+
 	const context = getContext<ContextType>(withPrefix(key));
 	if (context) {
 		context.register(as, children);

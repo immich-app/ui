@@ -1,8 +1,8 @@
 <script lang="ts">
-	import InternalButton from '$lib/internal/InternalButton.svelte';
+	import Button from '$lib/internal/Button.svelte';
 	import type { ButtonProps } from '$lib/types.js';
 
 	const props: ButtonProps = $props();
 </script>
 
-<InternalButton {...props} />
+<Button {...props} />
