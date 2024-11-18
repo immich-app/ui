@@ -28,5 +28,6 @@ export const routes: Route[] = [
 	{ name: 'Link', link: '/examples/link' },
 	{ name: 'Logo', link: '/examples/logo' },
 	{ name: 'Stack', link: '/examples/stack' },
+	{ name: 'SupporterBadge', link: '/examples/supporter-badge' },
 	{ name: 'Text', link: '/examples/text' },
 ];
