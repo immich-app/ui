@@ -1,6 +1,6 @@
 {
 	"name": "@immich/ui",
-	"version": "0.4.0",
+	"version": "0.5.0",
 	"license": "GNU Affero General Public License version 3",
 	"scripts": {
 		"start": "npm run start:dev",
