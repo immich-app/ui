@@ -6,6 +6,7 @@ export { default as CardDescription } from '$lib/components/Card/CardDescription
 export { default as CardFooter } from '$lib/components/Card/CardFooter.svelte';
 export { default as CardHeader } from '$lib/components/Card/CardHeader.svelte';
 export { default as CardTitle } from '$lib/components/Card/CardTitle.svelte';
+export { default as CloseButton } from '$lib/components/CloseButton/CloseButton.svelte';
 export { default as Checkbox } from '$lib/components/Form/Checkbox.svelte';
 export { default as Input } from '$lib/components/Form/Input.svelte';
 export { default as Label } from '$lib/components/Form/Label.svelte';
