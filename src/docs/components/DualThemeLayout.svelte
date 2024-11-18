@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { DisplayOption, Theme } from '$docs/constants.js';
 	import { Icon } from '$lib/index.js';
+	import { VStack } from '@immich/ui';
 	import { mdiCompare, mdiWeatherNight, mdiWeatherSunny } from '@mdi/js';
 	import type { Snippet } from 'svelte';
 
@@ -60,7 +61,9 @@
 		{#each displayThemes as theme}
 			<div class="flex flex-col gap-4 {theme} h-full bg-light p-8">
 				<h2 class="text-2xl capitalize text-dark">{theme}</h2>
-				{@render component({ theme })}
+				<VStack gap={4}>
+					{@render component({ theme })}
+				</VStack>
 			</div>
 		{/each}
 	</div>

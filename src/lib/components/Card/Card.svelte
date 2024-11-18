@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { withChildrenSnippets } from '$lib/common/use-context.svelte.js';
+	import IconButton from '$lib/components/IconButton/IconButton.svelte';
 	import { ContextKey } from '$lib/constants.js';
 	import type { Color, Shape } from '$lib/types.js';
 	import { cleanClass } from '$lib/utils.js';
-	import { IconButton } from '@immich/ui';
 	import { mdiChevronDown } from '@mdi/js';
 	import { type Snippet } from 'svelte';
 	import type { HTMLAttributes } from 'svelte/elements';

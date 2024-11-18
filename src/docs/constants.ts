@@ -25,5 +25,6 @@ export const routes: Route[] = [
 	{ name: 'Heading', link: '/examples/heading' },
 	{ name: 'IconButton', link: '/examples/icon-button' },
 	{ name: 'Logo', link: '/examples/logo' },
+	{ name: 'Stack', link: '/examples/stack' },
 	{ name: 'Text', link: '/examples/text' },
 ];
