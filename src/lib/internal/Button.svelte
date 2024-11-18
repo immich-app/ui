@@ -1,10 +1,29 @@
 <script lang="ts">
-	import type { InternalButtonProps } from '$lib/types.js';
+	import type { ButtonProps } from '$lib/types.js';
 	import { cleanClass } from '$lib/utils.js';
 	import { Button as ButtonPrimitive } from 'bits-ui';
 	import type { HTMLAnchorAttributes, HTMLButtonAttributes } from 'svelte/elements';
 	import { twMerge } from 'tailwind-merge';
 	import { tv } from 'tailwind-variants';
+
+	type InternalButtonProps = ButtonProps & {
+		/** when true, button width to height ratio is 1:1 */
+		icon?: boolean;
+	};
+
+	const {
+		type = 'button',
+		href,
+		variant = 'filled',
+		color = 'primary',
+		shape = 'semi-round',
+		size = 'medium',
+		fullWidth = false,
+		icon = false,
+		class: className = '',
+		children,
+		...restProps
+	}: InternalButtonProps = $props();
 
 	const buttonVariants = tv({
 		base: 'ring-offset-background focus-visible:ring-ring flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
@@ -79,20 +98,6 @@
 			},
 		},
 	});
-
-	const {
-		type = 'button',
-		href,
-		variant = 'filled',
-		color = 'primary',
-		shape = 'semi-round',
-		size = 'medium',
-		fullWidth = false,
-		icon = false,
-		class: className = '',
-		children,
-		...restProps
-	}: InternalButtonProps = $props();
 
 	const classList = $derived(
 		cleanClass(

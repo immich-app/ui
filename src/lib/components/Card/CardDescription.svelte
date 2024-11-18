@@ -1,16 +1,16 @@
 <script lang="ts">
-	import type { WithElementRef } from 'bits-ui';
-	import type { HTMLAttributes } from 'svelte/elements';
+	import Text from '$lib/components/Text/Text.svelte';
 	import { cleanClass } from '$lib/utils.js';
+	import type { Snippet } from 'svelte';
 
-	let {
-		ref = $bindable(null),
-		class: className,
-		children,
-		...restProps
-	}: WithElementRef<HTMLAttributes<HTMLParagraphElement>> = $props();
+	type Props = {
+		class?: string;
+		children: Snippet;
+	};
+
+	let { children, class: className }: Props = $props();
 </script>
 
-<p bind:this={ref} class={cleanClass('text-muted-foreground text-sm', className)} {...restProps}>
+<Text size="small" class={cleanClass('text-dark/75', className)}>
 	{@render children?.()}
-</p>
+</Text>

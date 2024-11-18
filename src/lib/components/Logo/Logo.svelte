@@ -15,6 +15,8 @@
 		class?: string;
 	};
 
+	const { theme = 'light', variant = 'logo', size = 'medium', class: className }: Props = $props();
+
 	const getUrl = ({ theme, variant }: Required<Pick<Props, 'theme' | 'variant'>>): string => {
 		switch (variant) {
 			case 'stacked': {
@@ -31,7 +33,7 @@
 		}
 	};
 
-	const logo = tv({
+	const styles = tv({
 		variants: {
 			size: {
 				tiny: 'h-8',
@@ -51,8 +53,7 @@
 		},
 	});
 
-	const { theme = 'light', variant = 'logo', size = 'medium', class: className }: Props = $props();
 	const src = $derived(getUrl({ theme, variant }));
 </script>
 
-<img {src} class={cleanClass(logo({ size, variant }), className)} alt="Immich logo" />
+<img {src} class={cleanClass(styles({ size, variant }), className)} alt="Immich logo" />

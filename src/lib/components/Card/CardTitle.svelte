@@ -1,25 +1,17 @@
 <script lang="ts">
-	import type { WithElementRef } from 'bits-ui';
-	import type { HTMLAttributes } from 'svelte/elements';
-	import { cleanClass } from '$lib/utils.js';
+	import Heading from '$lib/components/Heading/Heading.svelte';
+	import type { HeadingSize } from '$lib/types.js';
+	import type { Snippet } from 'svelte';
 
-	let {
-		ref = $bindable(null),
-		class: className,
-		level = 3,
-		children,
-		...restProps
-	}: WithElementRef<HTMLAttributes<HTMLDivElement>> & {
-		level?: 1 | 2 | 3 | 4 | 5 | 6;
-	} = $props();
+	type Props = {
+		class?: string;
+		size?: HeadingSize;
+		children: Snippet;
+	};
+
+	const { size = 'small', class: className, children }: Props = $props();
 </script>
 
-<div
-	role="heading"
-	aria-level={level}
-	bind:this={ref}
-	class={cleanClass('text-lg font-semibold leading-none tracking-tight', className)}
-	{...restProps}
->
+<Heading {size} class={className}>
 	{@render children?.()}
-</div>
+</Heading>

@@ -2,6 +2,7 @@ import type { HTMLAnchorAttributes, HTMLButtonAttributes } from 'svelte/elements
 
 export type Color = 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info';
 export type Size = 'tiny' | 'small' | 'medium' | 'large' | 'giant';
+export type HeadingSize = Size | 'title';
 export type Shape = 'rectangle' | 'semi-round' | 'round';
 export type Variants = 'filled' | 'outline' | 'ghost' | 'hero';
 
@@ -34,7 +35,3 @@ export type IconProps = {
 
 export type IconButtonProps = ButtonBaseProps & IconProps;
 export type ButtonProps = ButtonBaseProps & { fullWidth?: boolean };
-export type InternalButtonProps = ButtonProps & {
-	/** when true, button width to height ratio is 1:1 */
-	icon?: boolean;
-};
