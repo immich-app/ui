@@ -8,6 +8,7 @@
 		size: HeadingSize;
 		color?: Color;
 		class?: string;
+
 		children: Snippet;
 	};
 
@@ -23,7 +24,7 @@
 	};
 
 	const styles = tv({
-		base: 'leading-none tracking-tight',
+		base: 'font-bold leading-none tracking-tight',
 		variants: {
 			color: {
 				primary: 'text-primary',
@@ -34,12 +35,12 @@
 				info: 'text-info',
 			},
 			size: {
-				tiny: 'text-lg font-bold',
-				small: 'text-xl font-bold',
-				medium: 'text-2xl font-bold',
-				large: 'text-3xl font-bold',
-				giant: 'text-4xl font-bold',
-				title: 'text-5xl font-bold',
+				tiny: 'text-lg',
+				small: 'text-xl',
+				medium: 'text-2xl',
+				large: 'text-3xl',
+				giant: 'text-4xl',
+				title: 'text-5xl',
 			},
 		},
 	});
