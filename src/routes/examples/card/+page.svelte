@@ -7,122 +7,106 @@
 
 <DualThemeLayout name="Card">
 	{#snippet component()}
-		<div class="flex flex-col gap-4">
-			<section class="flex flex-col gap-4">
-				<Card>
-					<CardHeader>
-						<CardTitle>Title</CardTitle>
-					</CardHeader>
-				</Card>
+		<Card>
+			<CardHeader>
+				<CardTitle>Title</CardTitle>
+			</CardHeader>
+		</Card>
 
-				<Card>
-					<CardHeader>
-						<CardTitle>Card with title</CardTitle>
-					</CardHeader>
-					<CardBody>
-						<Lorem />
-					</CardBody>
-				</Card>
+		<Card>
+			<CardHeader>
+				<CardTitle>Card with title</CardTitle>
+			</CardHeader>
+			<CardBody>
+				<Lorem />
+			</CardBody>
+		</Card>
 
-				<Card>
-					<CardHeader>
-						<CardTitle>Card with title and footer</CardTitle>
-					</CardHeader>
-					<CardBody>
-						<Lorem />
-					</CardBody>
-					<CardFooter>Footer goes here</CardFooter>
-				</Card>
+		<Card>
+			<CardHeader>
+				<CardTitle>Card with title and footer</CardTitle>
+			</CardHeader>
+			<CardBody>
+				<Lorem />
+			</CardBody>
+			<CardFooter>Footer goes here</CardFooter>
+		</Card>
 
-				<Card>
-					<CardHeader>
-						<CardTitle>Card with title, description, and footer</CardTitle>
-						<CardDescription>This is the description</CardDescription>
-					</CardHeader>
-					<CardBody>
-						<Lorem />
-					</CardBody>
-					<CardFooter>Footer</CardFooter>
-				</Card>
+		<Card>
+			<CardHeader>
+				<CardTitle>Card with title, description, and footer</CardTitle>
+				<CardDescription>This is the description</CardDescription>
+			</CardHeader>
+			<CardBody>
+				<Lorem />
+			</CardBody>
+			<CardFooter>Footer</CardFooter>
+		</Card>
 
-				<div class="flex flex-wrap gap-4">
-					{#each colors as color}
-						<Card {color} variant="outline">
-							<CardHeader>
-								<CardTitle class="capitalize">Outline ({color})</CardTitle>
-							</CardHeader>
-							<CardBody>
-								<Lorem />
-							</CardBody>
-						</Card>
-					{/each}
-				</div>
+		{#each colors as color}
+			<Card {color} variant="outline">
+				<CardHeader>
+					<CardTitle class="capitalize">Outline ({color})</CardTitle>
+				</CardHeader>
+				<CardBody>
+					<Lorem />
+				</CardBody>
+			</Card>
+		{/each}
 
-				<div class="flex flex-wrap gap-4">
-					{#each colors as color}
-						<Card {color} variant="filled">
-							<CardHeader>
-								<CardTitle class="capitalize">Filled ({color})</CardTitle>
-							</CardHeader>
-							<CardBody>
-								<Lorem />
-							</CardBody>
-						</Card>
-					{/each}
-				</div>
+		{#each colors as color}
+			<Card {color} variant="filled">
+				<CardHeader>
+					<CardTitle class="capitalize">Filled ({color})</CardTitle>
+				</CardHeader>
+				<CardBody>
+					<Lorem />
+				</CardBody>
+			</Card>
+		{/each}
 
-				<div class="flex flex-wrap gap-4">
-					{#each colors as color}
-						<Card {color} variant="subtle">
-							<CardHeader>
-								<CardTitle class="capitalize">Subtle ({color})</CardTitle>
-							</CardHeader>
-							<CardBody>
-								<Lorem />
-							</CardBody>
-						</Card>
-					{/each}
-				</div>
+		{#each colors as color}
+			<Card {color} variant="subtle">
+				<CardHeader>
+					<CardTitle class="capitalize">Subtle ({color})</CardTitle>
+				</CardHeader>
+				<CardBody>
+					<Lorem />
+				</CardBody>
+			</Card>
+		{/each}
 
-				<div class="flex flex-wrap gap-4">
-					{#each colors as color}
-						<Card {color} expandable variant="outline">
-							<CardHeader>
-								<CardTitle class="capitalize">Outline ({color})</CardTitle>
-							</CardHeader>
-							<CardBody>
-								<Lorem />
-							</CardBody>
-						</Card>
-					{/each}
-				</div>
+		{#each colors as color}
+			<Card {color} expandable variant="outline">
+				<CardHeader>
+					<CardTitle class="capitalize">Outline ({color})</CardTitle>
+				</CardHeader>
+				<CardBody>
+					<Lorem />
+				</CardBody>
+			</Card>
+		{/each}
 
-				<div class="flex flex-wrap gap-4">
-					{#each colors as color}
-						<Card {color} expandable variant="filled">
-							<CardHeader>
-								<CardTitle class="capitalize">Filled ({color})</CardTitle>
-							</CardHeader>
-							<CardBody>
-								<Lorem />
-							</CardBody>
-						</Card>
-					{/each}
-				</div>
+		{#each colors as color}
+			<Card {color} expandable variant="filled">
+				<CardHeader>
+					<CardTitle class="capitalize">Filled ({color})</CardTitle>
+				</CardHeader>
+				<CardBody>
+					<Lorem />
+				</CardBody>
+			</Card>
+		{/each}
 
-				<div class="flex flex-wrap gap-4">
-					{#each colors as color}
-						<Card {color} expandable variant="subtle">
-							<CardHeader>
-								<CardTitle class="capitalize">Subtle ({color})</CardTitle>
-							</CardHeader>
-							<CardBody>
-								<Lorem />
-							</CardBody>
-						</Card>
-					{/each}
-				</div>
-			</section>
-		</div>
+		{#each colors as color}
+			<Card {color} expandable variant="subtle">
+				<CardHeader>
+					<CardTitle class="capitalize">Subtle ({color})</CardTitle>
+				</CardHeader>
+				<CardBody>
+					<Lorem />
+				</CardBody>
+			</Card>
+		{/each}
 	{/snippet}
 </DualThemeLayout>

@@ -13,5 +13,8 @@ export { default as Heading } from '$lib/components/Heading/Heading.svelte';
 export { default as Icon } from '$lib/components/Icon/Icon.svelte';
 export { default as IconButton } from '$lib/components/IconButton/IconButton.svelte';
 export { default as Logo } from '$lib/components/Logo/Logo.svelte';
+export { default as HStack } from '$lib/components/Stack/HStack.svelte';
+export { default as Stack } from '$lib/components/Stack/Stack.svelte';
+export { default as VStack } from '$lib/components/Stack/VStack.svelte';
 export { default as Text } from '$lib/components/Text/Text.svelte';
 export * from '$lib/types.js';
