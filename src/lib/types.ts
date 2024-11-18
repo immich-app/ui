@@ -12,12 +12,15 @@ type ButtonOrAnchor =
 	| ({ href?: never } & HTMLButtonAttributes)
 	| ({ href: string } & HTMLAnchorAttributes);
 
-type ButtonBaseProps = {
+export type CloseButtonProps = {
+	size?: Size;
+	variant?: Variants;
+};
+
+type ButtonBaseProps = CloseButtonProps & {
 	class?: string;
 	color?: Color;
-	size?: Size;
 	shape?: Shape;
-	variant?: Variants;
 } & ButtonOrAnchor;
 
 export type IconProps = {

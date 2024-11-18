@@ -20,8 +20,9 @@ type Route = { name: string; link: string };
 export const routes: Route[] = [
 	{ name: 'Alert', link: '/examples/alert' },
 	{ name: 'Button', link: '/examples/button' },
-	{ name: 'Checkbox', link: '/examples/checkbox' },
 	{ name: 'Card', link: '/examples/card' },
+	{ name: 'Checkbox', link: '/examples/checkbox' },
+	{ name: 'CloseButton', link: '/examples/close-button' },
 	{ name: 'Heading', link: '/examples/heading' },
 	{ name: 'IconButton', link: '/examples/icon-button' },
 	{ name: 'Logo', link: '/examples/logo' },
