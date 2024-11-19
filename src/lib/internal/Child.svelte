@@ -1,12 +1,12 @@
 <script lang="ts">
-	import { ContextKey } from '$lib/constants.js';
+	import { ChildKey } from '$lib/constants.js';
 	import { withPrefix } from '$lib/utils.js';
 	import { getContext, type Snippet } from 'svelte';
 
-	type ContextType = { register: (key: ContextKey, snippet: Snippet) => void };
+	type ContextType = { register: (key: ChildKey, snippet: Snippet) => void };
 	type Props = {
-		for: ContextKey;
-		as: ContextKey;
+		for: ChildKey;
+		as: ChildKey;
 		children: Snippet;
 	};
 

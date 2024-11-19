@@ -1,5 +1,3 @@
-import type { ContextKey } from '$lib/constants.js';
-
 export const cleanClass = (...classNames: unknown[]) => {
 	return classNames
 		.filter((className) => {
@@ -12,4 +10,7 @@ export const cleanClass = (...classNames: unknown[]) => {
 		.join(' ');
 };
 
-export const withPrefix = (key: ContextKey) => `immich-ui-${key}`;
+export const withPrefix = (key: string) => `immich-ui-${key}`;
+
+let _count = 0;
+export const generateId = (): string => `id-${_count++}`;

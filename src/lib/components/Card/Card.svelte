@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { withChildrenSnippets } from '$lib/common/use-context.svelte.js';
+	import { withChildrenSnippets } from '$lib/common/use-child.svelte.js';
 	import IconButton from '$lib/components/IconButton/IconButton.svelte';
-	import { ContextKey } from '$lib/constants.js';
+	import { ChildKey } from '$lib/constants.js';
 	import type { Color, Shape } from '$lib/types.js';
 	import { cleanClass } from '$lib/utils.js';
 	import { mdiChevronDown } from '@mdi/js';
@@ -104,10 +104,10 @@
 		expanded = !expanded;
 	};
 
-	const { getChildren: getChildSnippet } = withChildrenSnippets(ContextKey.Card);
-	const headerChildren = $derived(getChildSnippet(ContextKey.CardHeader));
-	const bodyChildren = $derived(getChildSnippet(ContextKey.CardBody));
-	const footerChildren = $derived(getChildSnippet(ContextKey.CardFooter));
+	const { getChildren: getChildSnippet } = withChildrenSnippets(ChildKey.Card);
+	const headerChildren = $derived(getChildSnippet(ChildKey.CardHeader));
+	const bodyChildren = $derived(getChildSnippet(ChildKey.CardBody));
+	const footerChildren = $derived(getChildSnippet(ChildKey.CardFooter));
 
 	const headerClasses = 'flex flex-col space-y-1.5';
 	const headerContainerClasses = $derived(
