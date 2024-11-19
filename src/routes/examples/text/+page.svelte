@@ -1,26 +1,26 @@
 <script lang="ts">
 	import DualThemeLayout from '$docs/components/DualThemeLayout.svelte';
 	import { colors } from '$docs/constants.js';
-	import { Card, CardBody, CardHeader, CardTitle, Text, VStack } from '@immich/ui';
+	import { Card, CardBody, CardHeader, CardTitle, Stack, Text } from '@immich/ui';
 
 	const text = 'The quick brown fox jumps over the lazy dog';
 </script>
 
 <DualThemeLayout name="Text">
 	{#snippet component()}
-		<VStack gap={4}>
+		<Stack gap={4}>
 			<Card>
 				<CardHeader>
 					<CardTitle>Sizes</CardTitle>
 				</CardHeader>
 				<CardBody>
-					<VStack>
+					<Stack>
 						<Text size="tiny">{text} (tiny)</Text>
 						<Text size="small">{text} (small)</Text>
 						<Text size="medium">{text} (medium)</Text>
 						<Text size="large">{text} (large)</Text>
 						<Text size="giant">{text} (giant)</Text>
-					</VStack>
+					</Stack>
 				</CardBody>
 			</Card>
 
@@ -29,13 +29,13 @@
 					<CardTitle>Colors</CardTitle>
 				</CardHeader>
 				<CardBody>
-					<VStack>
+					<Stack>
 						{#each colors as color}
 							<Text size="medium" {color} class="capitalize">{text} ({color})</Text>
 						{/each}
-					</VStack>
+					</Stack>
 				</CardBody>
 			</Card>
-		</VStack>
+		</Stack>
 	{/snippet}
 </DualThemeLayout>

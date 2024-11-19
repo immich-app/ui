@@ -1,7 +1,7 @@
 <script lang="ts">
 	import DualThemeLayout from '$docs/components/DualThemeLayout.svelte';
 	import { colors, shapes, sizes } from '$docs/constants.js';
-	import { Card, CardBody, CardHeader, CardTitle, Checkbox, HStack, VStack } from '@immich/ui';
+	import { Card, CardBody, CardHeader, CardTitle, Checkbox, HStack, Stack } from '@immich/ui';
 </script>
 
 <DualThemeLayout name="Checkbox">
@@ -11,7 +11,7 @@
 				<CardTitle>Colors</CardTitle>
 			</CardHeader>
 			<CardBody>
-				<VStack>
+				<Stack>
 					{#each colors as color}
 						<HStack>
 							<Checkbox checked {color} />
@@ -19,7 +19,7 @@
 							<Checkbox checked="indeterminate" {color} />
 						</HStack>
 					{/each}
-				</VStack>
+				</Stack>
 			</CardBody>
 		</Card>
 
@@ -28,7 +28,7 @@
 				<CardTitle>Sizes</CardTitle>
 			</CardHeader>
 			<CardBody>
-				<VStack>
+				<Stack>
 					{#each sizes as size}
 						<HStack>
 							<Checkbox checked {size} />
@@ -36,7 +36,7 @@
 							<Checkbox checked="indeterminate" {size} />
 						</HStack>
 					{/each}
-				</VStack>
+				</Stack>
 			</CardBody>
 		</Card>
 
@@ -45,7 +45,7 @@
 				<CardTitle>Shapes</CardTitle>
 			</CardHeader>
 			<CardBody>
-				<VStack>
+				<Stack>
 					{#each shapes as shape}
 						<HStack>
 							<Checkbox checked {shape} />
@@ -53,7 +53,7 @@
 							<Checkbox checked="indeterminate" {shape} />
 						</HStack>
 					{/each}
-				</VStack>
+				</Stack>
 			</CardBody>
 		</Card>
 	{/snippet}

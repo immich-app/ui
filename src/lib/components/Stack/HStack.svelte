@@ -5,6 +5,6 @@
 	const { class: className, children, ...props }: HStackProps = $props();
 </script>
 
-<Stack direction="row" class={className} {...props}>
+<Stack direction="row" align="center" class={className} {...props}>
 	{@render children()}
 </Stack>

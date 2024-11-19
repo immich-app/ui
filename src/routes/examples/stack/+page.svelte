@@ -21,13 +21,26 @@
 
 		<Card>
 			<CardHeader>
+				<CardTitle>Stack (row)</CardTitle>
+			</CardHeader>
+			<CardBody>
+				<Stack direction="row">
+					<DecorativeBlock />
+					<DecorativeBlock />
+					<DecorativeBlock />
+				</Stack>
+			</CardBody>
+		</Card>
+
+		<Card>
+			<CardHeader>
 				<CardTitle>HStack</CardTitle>
 			</CardHeader>
 			<CardBody>
 				<HStack>
-					<DecorativeBlock />
-					<DecorativeBlock />
-					<DecorativeBlock />
+					<DecorativeBlock width="full" height="medium" />
+					<DecorativeBlock width="full" height="small" />
+					<DecorativeBlock width="full" height="large" />
 				</HStack>
 			</CardBody>
 		</Card>
@@ -38,9 +51,9 @@
 			</CardHeader>
 			<CardBody>
 				<VStack>
-					<DecorativeBlock />
-					<DecorativeBlock />
-					<DecorativeBlock />
+					<DecorativeBlock width="medium" height="large" />
+					<DecorativeBlock width="small" height="large" />
+					<DecorativeBlock width="large" height="large" />
 				</VStack>
 			</CardBody>
 		</Card>
