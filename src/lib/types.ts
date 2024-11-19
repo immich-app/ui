@@ -56,3 +56,11 @@ export type StackProps = StackBaseProps & {
 };
 export type HStackProps = StackBaseProps;
 export type VStackProps = StackBaseProps;
+
+export type FieldContext = {
+	label?: string;
+	invalid?: boolean;
+	disabled?: boolean;
+	required?: boolean;
+	readOnly?: boolean;
+};

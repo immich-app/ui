@@ -6,11 +6,11 @@
 
 	type Props = {
 		color?: Color;
+		class?: string;
 		size?: Size;
 		children: Snippet;
 		variant?: 'italic';
 		fontWeight?: 'light' | 'normal' | 'semi-bold' | 'bold';
-		class?: string;
 	};
 
 	const { color, size, fontWeight = 'normal', children, class: className }: Props = $props();

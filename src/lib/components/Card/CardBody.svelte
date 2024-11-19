@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ContextKey } from '$lib/constants.js';
+	import { ChildKey } from '$lib/constants.js';
 	import Child from '$lib/internal/Child.svelte';
 	import { cleanClass } from '$lib/utils.js';
 	import type { Snippet } from 'svelte';
@@ -13,7 +13,7 @@
 	let { class: className, children }: Props = $props();
 </script>
 
-<Child for={ContextKey.Card} as={ContextKey.CardBody}>
+<Child for={ChildKey.Card} as={ChildKey.CardBody}>
 	<div class={twMerge(cleanClass('w-full p-4', className))}>
 		{@render children?.()}
 	</div>

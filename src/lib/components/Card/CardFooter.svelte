@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ContextKey } from '$lib/constants.js';
+	import { ChildKey } from '$lib/constants.js';
 	import Child from '$lib/internal/Child.svelte';
 	import type { Snippet } from 'svelte';
 
@@ -10,6 +10,6 @@
 	let { children }: Props = $props();
 </script>
 
-<Child for={ContextKey.Card} as={ContextKey.CardFooter}>
+<Child for={ChildKey.Card} as={ChildKey.CardFooter}>
 	{@render children?.()}
 </Child>

@@ -1,13 +1,13 @@
-import { ContextKey } from '$lib/constants.js';
+import { ChildKey } from '$lib/constants.js';
 import { withPrefix } from '$lib/utils.js';
 import { setContext, type Snippet } from 'svelte';
 import { SvelteMap } from 'svelte/reactivity';
 
-export const withChildrenSnippets = (key: ContextKey) => {
-	const map = $state(new SvelteMap<ContextKey, Snippet>());
+export const withChildrenSnippets = (key: ChildKey) => {
+	const map = $state(new SvelteMap<ChildKey, Snippet>());
 
 	setContext(withPrefix(key), {
-		register: async (child: ContextKey, snippet: Snippet) => {
+		register: async (child: ChildKey, snippet: Snippet) => {
 			if (map.has(child)) {
 				console.warn(`Snippet with key ${child} already exists in the context`);
 				return;
@@ -18,6 +18,6 @@ export const withChildrenSnippets = (key: ContextKey) => {
 	});
 
 	return {
-		getChildren: (key: ContextKey) => map.get(key),
+		getChildren: (key: ChildKey) => map.get(key),
 	};
 };
