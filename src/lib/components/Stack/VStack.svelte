@@ -5,6 +5,6 @@
 	const { class: className, children, ...props }: VStackProps = $props();
 </script>
 
-<Stack direction="column" class={className} {...props}>
+<Stack direction="column" align="center" class={className} {...props}>
 	{@render children()}
 </Stack>

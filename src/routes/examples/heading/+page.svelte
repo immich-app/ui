@@ -1,7 +1,7 @@
 <script lang="ts">
 	import DualThemeLayout from '$docs/components/DualThemeLayout.svelte';
 	import { colors } from '$docs/constants.js';
-	import { Card, CardBody, CardHeader, CardTitle, Heading, VStack } from '@immich/ui';
+	import { Card, CardBody, CardHeader, CardTitle, Heading, Stack } from '@immich/ui';
 
 	const text = 'Heading';
 </script>
@@ -13,14 +13,14 @@
 				<CardTitle>Sizes</CardTitle>
 			</CardHeader>
 			<CardBody>
-				<VStack>
+				<Stack>
 					<Heading size="tiny">{text} (tiny)</Heading>
 					<Heading size="small">{text} (small)</Heading>
 					<Heading size="medium">{text} (medium)</Heading>
 					<Heading size="large">{text} (large)</Heading>
 					<Heading size="giant">{text} (giant)</Heading>
 					<Heading size="title">{text} (title)</Heading>
-				</VStack>
+				</Stack>
 			</CardBody>
 		</Card>
 
@@ -29,11 +29,11 @@
 				<CardTitle>Colors</CardTitle>
 			</CardHeader>
 			<CardBody>
-				<VStack>
+				<Stack>
 					{#each colors as color}
 						<Heading size="medium" {color} class="capitalize">{text} ({color})</Heading>
 					{/each}
-				</VStack>
+				</Stack>
 			</CardBody>
 		</Card>
 	{/snippet}

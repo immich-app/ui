@@ -1,6 +1,6 @@
 <script lang="ts">
 	import DualThemeLayout from '$docs/components/DualThemeLayout.svelte';
-	import { Card, CardBody, CardHeader, CardTitle, CloseButton, VStack } from '@immich/ui';
+	import { Card, CardBody, CardHeader, CardTitle, CloseButton, Stack } from '@immich/ui';
 </script>
 
 <DualThemeLayout name="CloseButton">
@@ -10,9 +10,9 @@
 				<CardTitle>Basic</CardTitle>
 			</CardHeader>
 			<CardBody>
-				<VStack>
+				<Stack>
 					<CloseButton />
-				</VStack>
+				</Stack>
 			</CardBody>
 		</Card>
 
@@ -21,9 +21,9 @@
 				<CardTitle>Filled</CardTitle>
 			</CardHeader>
 			<CardBody>
-				<VStack>
+				<Stack>
 					<CloseButton variant="filled" />
-				</VStack>
+				</Stack>
 			</CardBody>
 		</Card>
 
@@ -32,9 +32,9 @@
 				<CardTitle>Outline</CardTitle>
 			</CardHeader>
 			<CardBody>
-				<VStack>
+				<Stack>
 					<CloseButton variant="outline" />
-				</VStack>
+				</Stack>
 			</CardBody>
 		</Card>
 	{/snippet}

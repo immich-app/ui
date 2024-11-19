@@ -2,7 +2,7 @@
 	import DualThemeLayout from '$docs/components/DualThemeLayout.svelte';
 	import Lorem from '$docs/components/Lorem.svelte';
 	import { colors } from '$docs/constants.js';
-	import { Alert, Card, CardBody, CardHeader, CardTitle, VStack } from '@immich/ui';
+	import { Alert, Card, CardBody, CardHeader, CardTitle, Stack } from '@immich/ui';
 	import { mdiHelpCircleOutline } from '@mdi/js';
 </script>
 
@@ -13,11 +13,11 @@
 				<CardTitle>Basic</CardTitle>
 			</CardHeader>
 			<CardBody>
-				<VStack>
+				<Stack>
 					{#each colors as color}
 						<Alert {color} title="This is an alert" />
 					{/each}
-				</VStack>
+				</Stack>
 			</CardBody>
 		</Card>
 
@@ -26,13 +26,13 @@
 				<CardTitle>Colors</CardTitle>
 			</CardHeader>
 			<CardBody>
-				<VStack>
+				<Stack>
 					{#each colors as color}
 						<Alert {color} title="This is an alert">
 							<Lorem />
 						</Alert>
 					{/each}
-				</VStack>
+				</Stack>
 			</CardBody>
 		</Card>
 
@@ -52,13 +52,13 @@
 				<CardTitle>Colors</CardTitle>
 			</CardHeader>
 			<CardBody>
-				<VStack>
+				<Stack>
 					{#each colors as color}
 						<Alert {color} title="This is an alert">
 							<Lorem />
 						</Alert>
 					{/each}
-				</VStack>
+				</Stack>
 			</CardBody>
 		</Card>
 	{/snippet}

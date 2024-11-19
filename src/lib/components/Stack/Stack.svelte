@@ -24,14 +24,6 @@
 				center: 'items-center',
 				end: 'items-end',
 			},
-			fullWidth: {
-				true: 'w-full',
-				false: '',
-			},
-			fullHeight: {
-				true: 'h-full',
-				false: '',
-			},
 			gap: {
 				0: 'gap-0',
 				1: 'gap-1',
@@ -58,8 +50,6 @@
 			direction,
 			gap,
 			wrap,
-			fullWidth: direction === 'row',
-			fullHeight: direction === 'column',
 		}),
 		className,
 	)}

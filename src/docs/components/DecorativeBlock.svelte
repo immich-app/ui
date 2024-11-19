@@ -5,8 +5,8 @@
 
 	type Props = {
 		color?: Color;
-		width?: Size;
-		height?: Size;
+		width?: Size | 'full';
+		height?: Size | 'full';
 	};
 
 	const { width = 'medium', height = 'medium', color = 'primary' }: Props = $props();
@@ -28,6 +28,7 @@
 				medium: 'w-16',
 				large: 'w-32',
 				giant: 'w-64',
+				full: 'w-full',
 			},
 			height: {
 				tiny: 'h-4',
@@ -35,6 +36,7 @@
 				medium: 'h-16',
 				large: 'h-32',
 				giant: 'h-64',
+				full: 'h-full',
 			},
 		},
 	});

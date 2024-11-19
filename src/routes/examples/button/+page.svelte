@@ -1,7 +1,7 @@
 <script lang="ts">
 	import DualThemeLayout from '$docs/components/DualThemeLayout.svelte';
 	import { colors, shapes, sizes } from '$docs/constants.js';
-	import { Button, HStack, VStack, Card, CardBody, CardHeader, CardTitle } from '@immich/ui';
+	import { Button, Card, CardBody, CardHeader, CardTitle, HStack, Stack } from '@immich/ui';
 </script>
 
 <DualThemeLayout name="Button">
@@ -104,13 +104,13 @@
 				<CardTitle>Full width</CardTitle>
 			</CardHeader>
 			<CardBody>
-				<VStack>
+				<Stack>
 					{#each colors as color}
 						<div>
 							<Button fullWidth {color}>Button</Button>
 						</div>
 					{/each}
-				</VStack>
+				</Stack>
 			</CardBody>
 		</Card>
 	{/snippet}

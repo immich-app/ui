@@ -44,12 +44,14 @@ export type ButtonProps = ButtonBaseProps & { fullWidth?: boolean };
 type StackBaseProps = {
 	class?: string;
 	children: Snippet;
-	align?: 'start' | 'center' | 'end';
 	gap?: Gap;
 	wrap?: boolean;
+	fullWidth?: boolean;
+	fullHeight?: boolean;
 };
 
 export type StackProps = StackBaseProps & {
+	align?: 'start' | 'center' | 'end';
 	direction?: 'row' | 'column';
 };
 export type HStackProps = StackBaseProps;
