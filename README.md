@@ -1,58 +1,52 @@
-# create-svelte
+# @immich/ui
 
-Everything you need to build a Svelte library, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+A component library for [Immich](https://immich.app), written in [Svelte](https://svelte.dev).
 
-Read more about creating a library [in the docs](https://svelte.dev/docs/kit/packaging).
-
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
+## Install
 
 ```bash
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
+npm i -D @immich/ui
 ```
 
-## Developing
+## Usage
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Import components from `@immich/ui`. For example:
 
-```bash
-npm run dev
+```html
+<script lang="ts">
+	import {
+		Card,
+		CardBody,
+		CardHeader,
+		CardTitle,
+		CardDescription,
+		Heading,
+		Text,
+	} from '@immich/ui';
+</script>
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+<Card>
+	<CardHeader>
+		<CardTitle>@immich/ui</CardTitle>
+		<CardDescription>A component library</CardDescription>
+	</CardHeader>
+	<CardBody>
+		<Lorem />
+	</CardBody>
+	<CardFooter>Privacy should not be a luxury</CardFooter>
+</Card>
 ```
 
-Everything inside `src/lib` is part of your library, everything inside `src/routes` can be used as a showcase or preview app.
+## Documentation
 
-## Building
+To view the examples located at `src/routes/examples`, run `npm start` and navigate to http://localhost:5173/.
 
-To build your library:
+## Contributing
 
-```bash
-npm run package
-```
+PR's are welcome! Also feel free to reach out to the team on [Discord](https://discord.immich.app).
 
-To create a production version of your showcase app:
+## Technology
 
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
-
-## Publishing
-
-Go into the `package.json` and give your package the desired name through the `"name"` option. Also consider adding a `"license"` field and point it to a `LICENSE` file which you can create from a template (one popular option is the [MIT license](https://opensource.org/license/mit/)).
-
-To publish your library to [npm](https://www.npmjs.com):
-
-```bash
-npm publish
-```
+- [Svelte](https//svelte.dev)
+- [tailwindcss](https://tailwindcss.com)
+- [Material Design icons (@mdi/js)](https://pictogrammers.com/library/mdi/)
