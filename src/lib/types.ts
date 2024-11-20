@@ -1,5 +1,9 @@
 import type { Snippet } from 'svelte';
-import type { HTMLAnchorAttributes, HTMLButtonAttributes } from 'svelte/elements';
+import type {
+	HTMLAnchorAttributes,
+	HTMLButtonAttributes,
+	HTMLInputAttributes,
+} from 'svelte/elements';
 
 export type Color = 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info';
 export type Size = 'tiny' | 'small' | 'medium' | 'large' | 'giant';
@@ -39,7 +43,10 @@ export type IconProps = {
 };
 
 export type IconButtonProps = ButtonBaseProps & IconProps;
-export type ButtonProps = ButtonBaseProps & { fullWidth?: boolean };
+export type ButtonProps = ButtonBaseProps & {
+	fullWidth?: boolean;
+	loading?: boolean;
+};
 
 type StackBaseProps = {
 	class?: string;
@@ -63,4 +70,23 @@ export type FieldContext = {
 	disabled?: boolean;
 	required?: boolean;
 	readOnly?: boolean;
+};
+
+type BaseInputProps = {
+	class?: string;
+	value?: string;
+	size?: Size;
+	shape?: Shape;
+	inputSize?: HTMLInputAttributes['size'];
+} & Omit<HTMLInputAttributes, 'size' | 'type'>;
+
+export type InputProps = BaseInputProps & {
+	type?: HTMLInputAttributes['type'];
+	trailingIcon?: Snippet;
+};
+
+export type PasswordInputProps = BaseInputProps & {
+	showLabel?: string;
+	hideLabel?: string;
+	isVisible?: boolean;
 };

@@ -1,6 +1,7 @@
 <script lang="ts">
-	import type { ButtonProps } from '$lib/types.js';
+	import type { ButtonProps, Size } from '$lib/types.js';
 	import { cleanClass } from '$lib/utils.js';
+	import { LoadingSpinner } from '@immich/ui';
 	import { Button as ButtonPrimitive } from 'bits-ui';
 	import type { HTMLAnchorAttributes, HTMLButtonAttributes } from 'svelte/elements';
 	import { twMerge } from 'tailwind-merge';
@@ -18,12 +19,15 @@
 		color = 'primary',
 		shape = 'semi-round',
 		size = 'medium',
+		loading = false,
 		fullWidth = false,
 		icon = false,
 		class: className = '',
 		children,
 		...restProps
 	}: InternalButtonProps = $props();
+
+	const disabled = $derived((restProps as HTMLButtonAttributes).disabled || loading);
 
 	const buttonVariants = tv({
 		base: 'ring-offset-background focus-visible:ring-ring flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
@@ -58,11 +62,11 @@
 				giant: 'h-12 w-12 text-lg',
 			},
 			roundedSize: {
-				tiny: 'rounded-md',
-				small: 'rounded-md',
-				medium: 'rounded-lg',
-				large: 'rounded-lg',
-				giant: 'rounded-lg',
+				tiny: 'rounded-lg',
+				small: 'rounded-lg',
+				medium: 'rounded-xl',
+				large: 'rounded-xl',
+				giant: 'rounded-2xl',
 			},
 			filledColor: {
 				primary: 'bg-primary text-light hover:bg-primary/80',
@@ -99,6 +103,14 @@
 		},
 	});
 
+	const spinnerSizes: Record<Size, Size> = {
+		tiny: 'tiny',
+		small: 'tiny',
+		medium: 'small',
+		large: 'medium',
+		giant: 'large',
+	};
+
 	const classList = $derived(
 		cleanClass(
 			twMerge(
@@ -129,7 +141,16 @@
 		class={classList}
 		type={type as HTMLButtonAttributes['type']}
 		{...restProps as HTMLButtonAttributes}
+		{disabled}
+		aria-disabled={disabled}
 	>
-		{@render children?.()}
+		{#if loading}
+			<div class="flex items-center justify-center gap-2">
+				<LoadingSpinner {color} size={spinnerSizes[size]} />
+				{@render children?.()}
+			</div>
+		{:else}
+			{@render children?.()}
+		{/if}
 	</ButtonPrimitive.Root>
 {/if}
