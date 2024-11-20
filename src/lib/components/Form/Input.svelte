@@ -1,25 +1,17 @@
 <script lang="ts">
 	import { getFieldContext } from '$lib/common/context.svelte.js';
-	import type { Shape, Size } from '$lib/types.js';
+	import type { InputProps } from '$lib/types.js';
 	import { cleanClass, generateId } from '$lib/utils.js';
-	import type { HTMLInputAttributes } from 'svelte/elements';
 	import { tv } from 'tailwind-variants';
-
-	type Props = {
-		class?: string;
-		value?: string;
-		size?: Size;
-		shape?: Shape;
-		inputSize?: HTMLInputAttributes['size'];
-	} & Omit<HTMLInputAttributes, 'size'>;
 
 	let {
 		shape = 'semi-round',
 		size = 'medium',
 		class: className,
 		value = $bindable<string>(),
+		trailingIcon,
 		...restProps
-	}: Props = $props();
+	}: InputProps = $props();
 
 	const {
 		label,
@@ -43,7 +35,7 @@
 	});
 
 	const inputStyles = tv({
-		base: 'outline-none disabled:cursor-not-allowed bg-gray-200 dark:bg-gray-600 disabled:bg-gray-300 disabled:text-gray-200 dark:disabled:bg-gray-800 aria-readonly:text-dark/50 dark:aria-readonly:text-dark/75',
+		base: 'w-full outline-none disabled:cursor-not-allowed bg-gray-200 dark:bg-gray-600 disabled:bg-gray-300 disabled:text-gray-200 dark:disabled:bg-gray-800 aria-readonly:text-dark/50 dark:aria-readonly:text-dark/75',
 		variants: {
 			shape: {
 				rectangle: 'rounded-none',
@@ -84,26 +76,41 @@
 	{#if label}
 		<label id={labelId} for={inputId} class={labelStyles({ size })}>{label}</label>
 	{/if}
-	<input
-		id={label && inputId}
-		aria-labelledby={label && labelId}
-		{required}
-		aria-required={required}
-		{disabled}
-		aria-disabled={disabled}
-		readonly={readOnly}
-		aria-readonly={readOnly}
-		class={cleanClass(
-			inputStyles({
-				shape,
-				textSize: size,
-				padding: shape === 'round' ? 'round' : 'base',
-				roundedSize: shape === 'semi-round' ? size : undefined,
-				invalid,
-			}),
-			className,
-		)}
-		bind:value
-		{...restProps}
-	/>
+
+	<div class="relative">
+		<input
+			id={label && inputId}
+			aria-labelledby={label && labelId}
+			{required}
+			aria-required={required}
+			{disabled}
+			aria-disabled={disabled}
+			readonly={readOnly}
+			aria-readonly={readOnly}
+			class={cleanClass(
+				inputStyles({
+					shape,
+					textSize: size,
+					padding: shape === 'round' ? 'round' : 'base',
+					roundedSize: shape === 'semi-round' ? size : undefined,
+					invalid,
+				}),
+				trailingIcon && '!pr-10',
+				className,
+			)}
+			bind:value
+			{...restProps}
+		/>
+		{#if trailingIcon}
+			<div tabindex="-1" class={cleanClass('absolute inset-y-0 end-0 flex items-center')}>
+				{@render trailingIcon()}
+			</div>
+		{/if}
+	</div>
 </div>
+
+<style>
+	input::-ms-reveal {
+		display: none;
+	}
+</style>

@@ -29,6 +29,8 @@ export const routes: Route[] = [
 	{ name: 'Input', link: '/examples/input' },
 	{ name: 'Link', link: '/examples/link' },
 	{ name: 'Logo', link: '/examples/logo' },
+	{ name: 'LoadingSpinner', link: '/examples/loading-spinner' },
+	{ name: 'PasswordInput', link: '/examples/password-input' },
 	{ name: 'Stack', link: '/examples/stack' },
 	{ name: 'SupporterBadge', link: '/examples/supporter-badge' },
 	{ name: 'Text', link: '/examples/text' },

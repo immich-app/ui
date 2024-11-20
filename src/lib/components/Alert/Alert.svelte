@@ -14,8 +14,8 @@
 
 	type Props = {
 		color?: Color;
-		icon?: string;
-		title: string;
+		icon?: string | false;
+		title?: string;
 		children?: Snippet;
 	};
 
@@ -27,7 +27,9 @@
 		danger: mdiCloseCircleOutline,
 	};
 
-	const icon = $derived(iconOverride || (icons[color] ?? mdiInformationOutline));
+	const icon = $derived(
+		iconOverride === false ? undefined : iconOverride || (icons[color] ?? mdiInformationOutline),
+	);
 </script>
 
 <Card {color} variant="subtle">
@@ -40,7 +42,9 @@
 			{/if}
 
 			<div class="flex flex-col gap-2">
-				<Text size="large" fontWeight={children ? 'bold' : undefined}>{title}</Text>
+				{#if title}
+					<Text size="large" fontWeight={children ? 'bold' : undefined}>{title}</Text>
+				{/if}
 				{#if children}
 					{@render children()}
 				{/if}

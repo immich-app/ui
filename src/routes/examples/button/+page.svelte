@@ -86,18 +86,45 @@
 
 		<Card>
 			<CardHeader>
-				<CardTitle>Sizes</CardTitle>
+				<CardTitle>Loading</CardTitle>
 			</CardHeader>
 			<CardBody>
-				<HStack wrap>
-					{#each sizes as size}
-						<div>
-							<Button {size} class="capitalize">{size}</Button>
-						</div>
-					{/each}
-				</HStack>
+				<Stack gap={4}>
+					<HStack wrap>
+						{#each colors as color}
+							<Button {color} loading>Button</Button>
+						{/each}
+					</HStack>
+					<HStack wrap>
+						{#each colors as color}
+							<Button variant="outline" {color} loading>Button</Button>
+						{/each}
+					</HStack>
+					<HStack wrap>
+						{#each colors as color}
+							<Button variant="ghost" {color} loading>Button</Button>
+						{/each}
+					</HStack>
+				</Stack>
 			</CardBody>
 		</Card>
+
+		{#each shapes as shape}
+			<Card>
+				<CardHeader>
+					<CardTitle class="capitalize">{shape}</CardTitle>
+				</CardHeader>
+				<CardBody>
+					<Stack>
+						{#each sizes as size}
+							<div>
+								<Button {shape} {size} class="capitalize">{size}</Button>
+							</div>
+						{/each}
+					</Stack>
+				</CardBody>
+			</Card>
+		{/each}
 
 		<Card>
 			<CardHeader>
