@@ -81,12 +81,12 @@
 	bind:checked
 	{...restProps}
 >
-	{#snippet children({ checked })}
+	{#snippet children({ checked, indeterminate })}
 		<div class={cleanClass('flex items-center justify-center text-current')}>
-			{#if checked === true}
-				<Icon icon={mdiCheck} size="100%" class={cleanClass(icon({ color }))} />
-			{:else if checked === 'indeterminate'}
+			{#if indeterminate}
 				<Icon icon={mdiMinus} size="100%" class={cleanClass(icon({ color }))} />
+			{:else if checked}
+				<Icon icon={mdiCheck} size="100%" class={cleanClass(icon({ color }))} />
 			{/if}
 		</div>
 	{/snippet}

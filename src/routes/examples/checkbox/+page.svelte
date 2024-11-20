@@ -16,7 +16,7 @@
 						<HStack>
 							<Checkbox checked {color} />
 							<Checkbox {color} />
-							<Checkbox checked="indeterminate" {color} />
+							<Checkbox indeterminate {color} />
 						</HStack>
 					{/each}
 				</Stack>
@@ -33,7 +33,7 @@
 						<HStack>
 							<Checkbox checked {size} />
 							<Checkbox {size} />
-							<Checkbox checked="indeterminate" {size} />
+							<Checkbox indeterminate {size} />
 						</HStack>
 					{/each}
 				</Stack>
@@ -50,7 +50,7 @@
 						<HStack>
 							<Checkbox checked {shape} />
 							<Checkbox {shape} />
-							<Checkbox checked="indeterminate" {shape} />
+							<Checkbox indeterminate {shape} />
 						</HStack>
 					{/each}
 				</Stack>
