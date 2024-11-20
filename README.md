@@ -47,6 +47,6 @@ PR's are welcome! Also feel free to reach out to the team on [Discord](https://d
 
 ## Technology
 
-- [Svelte](https//svelte.dev)
+- [Svelte](https://svelte.dev)
 - [tailwindcss](https://tailwindcss.com)
 - [Material Design icons (@mdi/js)](https://pictogrammers.com/library/mdi/)
