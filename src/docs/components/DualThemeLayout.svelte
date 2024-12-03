@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Navbar from '$docs/components/Navbar.svelte';
 	import { DisplayOption, Theme } from '$docs/constants.js';
 	import { Icon, Stack } from '@immich/ui';
 	import { mdiCompare, mdiWeatherNight, mdiWeatherSunny } from '@mdi/js';
@@ -29,6 +30,8 @@
 				: [Theme.Light],
 	);
 
+	const navbarTheme = $derived(displayOption === DisplayOption.Light ? Theme.Light : Theme.Dark);
+
 	const handleClick = () => {
 		const currentIndex = themes.indexOf(displayOption);
 		displayOption = themes[(currentIndex + 1) % themes.length];
@@ -36,19 +39,18 @@
 </script>
 
 <div class="flex min-h-screen flex-col overflow-y-auto">
-	<!-- TODO replace with breadcrumb component -->
-	<nav class="flex items-center justify-between gap-2 border-b border-gray-300 px-8 py-2">
-		<a href="/" class="flex gap-2 text-4xl">
-			<h1 class="text-2xl">@immich/ui</h1>
-		</a>
+	<Navbar theme={navbarTheme}>
 		<div>
 			<button onclick={handleClick}>
 				<Icon icon={themeIcon} size="24" class="cursor" />
 			</button>
 		</div>
-	</nav>
+	</Navbar>
 
-	<nav class="flex justify-between border-b border-gray-300 px-8 py-2">
+	<!-- TODO replace with breadcrumb component -->
+	<nav
+		class="{navbarTheme} flex justify-between border-b border-gray-300 bg-light px-8 py-2 text-dark"
+	>
 		<div class="flex items-center gap-2">
 			<a href="/" class="underline">Home</a>
 			<span>/</span>
