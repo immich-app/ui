@@ -1,61 +1,20 @@
 <script lang="ts">
-	import DecorativeBlock from '$docs/components/DecorativeBlock.svelte';
 	import DualThemeLayout from '$docs/components/DualThemeLayout.svelte';
-	import { Card, CardBody, CardHeader, CardTitle, HStack, Stack, VStack } from '@immich/ui';
+	import basicExample from './BasicExample.svelte?raw';
+	import BasicExample from './BasicExample.svelte';
+	import rowExample from './RowExample.svelte?raw';
+	import RowExample from './RowExample.svelte';
+	import verticalExample from './VerticalExample.svelte?raw';
+	import VerticalExample from './VerticalExample.svelte';
+	import horizontalExample from './HorizontalExample.svelte?raw';
+	import HorizontalExample from './HorizontalExample.svelte';
+
+	const examples = [
+		{ title: 'Stack', code: basicExample, component: BasicExample },
+		{ title: 'Stack (row)', code: rowExample, component: RowExample },
+		{ title: 'Vertical Stack', code: verticalExample, component: VerticalExample },
+		{ title: 'Horizontal Stack', code: horizontalExample, component: HorizontalExample },
+	];
 </script>
 
-<DualThemeLayout name="Stack">
-	{#snippet component()}
-		<Card>
-			<CardHeader>
-				<CardTitle>Stack</CardTitle>
-			</CardHeader>
-			<CardBody>
-				<Stack>
-					<DecorativeBlock />
-					<DecorativeBlock />
-					<DecorativeBlock />
-				</Stack>
-			</CardBody>
-		</Card>
-
-		<Card>
-			<CardHeader>
-				<CardTitle>Stack (row)</CardTitle>
-			</CardHeader>
-			<CardBody>
-				<Stack direction="row">
-					<DecorativeBlock />
-					<DecorativeBlock />
-					<DecorativeBlock />
-				</Stack>
-			</CardBody>
-		</Card>
-
-		<Card>
-			<CardHeader>
-				<CardTitle>HStack</CardTitle>
-			</CardHeader>
-			<CardBody>
-				<HStack>
-					<DecorativeBlock width="full" height="medium" />
-					<DecorativeBlock width="full" height="small" />
-					<DecorativeBlock width="full" height="large" />
-				</HStack>
-			</CardBody>
-		</Card>
-
-		<Card>
-			<CardHeader>
-				<CardTitle>VStack</CardTitle>
-			</CardHeader>
-			<CardBody>
-				<VStack>
-					<DecorativeBlock width="medium" height="large" />
-					<DecorativeBlock width="small" height="large" />
-					<DecorativeBlock width="large" height="large" />
-				</VStack>
-			</CardBody>
-		</Card>
-	{/snippet}
-</DualThemeLayout>
+<DualThemeLayout name="Stack" {examples}></DualThemeLayout>

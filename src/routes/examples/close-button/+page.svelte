@@ -1,41 +1,17 @@
 <script lang="ts">
 	import DualThemeLayout from '$docs/components/DualThemeLayout.svelte';
-	import { Card, CardBody, CardHeader, CardTitle, CloseButton, Stack } from '@immich/ui';
+	import BasicExample from './BasicExample.svelte';
+	import basicExample from './BasicExample.svelte?raw';
+	import FilledExample from './FilledExample.svelte';
+	import filledExample from './FilledExample.svelte?raw';
+	import OutlineExample from './OutlineExample.svelte';
+	import outlineExample from './OutlineExample.svelte?raw';
+
+	const examples = [
+		{ title: 'Basic', code: basicExample, component: BasicExample },
+		{ title: 'Outline', code: outlineExample, component: OutlineExample },
+		{ title: 'Filled', code: filledExample, component: FilledExample },
+	];
 </script>
 
-<DualThemeLayout name="CloseButton">
-	{#snippet component()}
-		<Card>
-			<CardHeader>
-				<CardTitle>Basic</CardTitle>
-			</CardHeader>
-			<CardBody>
-				<Stack>
-					<CloseButton />
-				</Stack>
-			</CardBody>
-		</Card>
-
-		<Card>
-			<CardHeader>
-				<CardTitle>Filled</CardTitle>
-			</CardHeader>
-			<CardBody>
-				<Stack>
-					<CloseButton variant="filled" />
-				</Stack>
-			</CardBody>
-		</Card>
-
-		<Card>
-			<CardHeader>
-				<CardTitle>Outline</CardTitle>
-			</CardHeader>
-			<CardBody>
-				<Stack>
-					<CloseButton variant="outline" />
-				</Stack>
-			</CardBody>
-		</Card>
-	{/snippet}
-</DualThemeLayout>
+<DualThemeLayout name="CloseButton" {examples} />

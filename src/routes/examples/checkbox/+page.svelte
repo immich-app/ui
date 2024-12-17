@@ -1,60 +1,17 @@
 <script lang="ts">
 	import DualThemeLayout from '$docs/components/DualThemeLayout.svelte';
-	import { colors, shapes, sizes } from '$docs/constants.js';
-	import { Card, CardBody, CardHeader, CardTitle, Checkbox, HStack, Stack } from '@immich/ui';
+	import ColorExample from './ColorExample.svelte';
+	import colorExample from './ColorExample.svelte?raw';
+	import ShapeExample from './ShapeExample.svelte';
+	import shapeExample from './ShapeExample.svelte?raw';
+	import SizeExample from './SizeExample.svelte';
+	import sizeExample from './SizeExample.svelte?raw';
+
+	const examples = [
+		{ title: 'Shape', code: shapeExample, component: ShapeExample },
+		{ title: 'Color', code: colorExample, component: ColorExample },
+		{ title: 'Size', code: sizeExample, component: SizeExample },
+	];
 </script>
 
-<DualThemeLayout name="Checkbox">
-	{#snippet component()}
-		<Card>
-			<CardHeader>
-				<CardTitle>Colors</CardTitle>
-			</CardHeader>
-			<CardBody>
-				<Stack>
-					{#each colors as color}
-						<HStack>
-							<Checkbox checked {color} />
-							<Checkbox {color} />
-							<Checkbox indeterminate {color} />
-						</HStack>
-					{/each}
-				</Stack>
-			</CardBody>
-		</Card>
-
-		<Card>
-			<CardHeader>
-				<CardTitle>Sizes</CardTitle>
-			</CardHeader>
-			<CardBody>
-				<Stack>
-					{#each sizes as size}
-						<HStack>
-							<Checkbox checked {size} />
-							<Checkbox {size} />
-							<Checkbox indeterminate {size} />
-						</HStack>
-					{/each}
-				</Stack>
-			</CardBody>
-		</Card>
-
-		<Card>
-			<CardHeader>
-				<CardTitle>Shapes</CardTitle>
-			</CardHeader>
-			<CardBody>
-				<Stack>
-					{#each shapes as shape}
-						<HStack>
-							<Checkbox checked {shape} />
-							<Checkbox {shape} />
-							<Checkbox indeterminate {shape} />
-						</HStack>
-					{/each}
-				</Stack>
-			</CardBody>
-		</Card>
-	{/snippet}
-</DualThemeLayout>
+<DualThemeLayout name="Checkbox" {examples} />

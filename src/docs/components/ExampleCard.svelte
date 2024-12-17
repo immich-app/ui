@@ -1,24 +1,16 @@
 <script lang="ts">
-	import type { Theme } from '$docs/constants.js';
+	import type { ExampleCardProps } from '$docs/constants.js';
 	import { Button, Card, CardBody, CardHeader, CardTitle, HStack, Icon } from '@immich/ui';
 	import { mdiEye, mdiXml } from '@mdi/js';
-	import type { Component as SvelteComponent } from 'svelte';
 	import { HighlightSvelte, LineNumbers } from 'svelte-highlight';
 	import atomOneDark from 'svelte-highlight/styles/atom-one-dark';
 
-	type Props = {
-		title: string;
-		example: string;
-		component: SvelteComponent;
-		theme: Theme;
-	};
+	const { theme, title, component: Component, code }: ExampleCardProps = $props();
 
-	const { title, component: Component, example }: Props = $props();
-
-	let viewMode = $state<'code' | 'example'>('example');
+	let viewMode = $state<'code' | 'preview'>('preview');
 
 	const handleToggle = () => {
-		viewMode = viewMode === 'code' ? 'example' : 'code';
+		viewMode = viewMode === 'code' ? 'preview' : 'code';
 	};
 </script>
 
@@ -32,7 +24,7 @@
 		<div class="flex justify-between">
 			<CardTitle>{title}</CardTitle>
 			<HStack gap={1}>
-				<Button disabled={viewMode === 'example'} onclick={handleToggle} size="small">
+				<Button disabled={viewMode === 'preview'} onclick={handleToggle} size="small">
 					<Icon icon={mdiEye} size="1.5em" />
 					<span>Preview</span>
 				</Button>
@@ -44,10 +36,10 @@
 		</div>
 	</CardHeader>
 	<CardBody class={viewMode === 'code' ? 'p-0 pt-4' : ''}>
-		{#if viewMode === 'example'}
-			<Component />
+		{#if viewMode === 'preview'}
+			<Component {theme} />
 		{:else}
-			<HighlightSvelte code={example.trim()} let:highlighted>
+			<HighlightSvelte code={code.trim().replaceAll(/\t/gm, '  ')} let:highlighted>
 				<LineNumbers {highlighted} hideBorder wrapLines />
 			</HighlightSvelte>
 		{/if}

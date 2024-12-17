@@ -1,144 +1,38 @@
 <script lang="ts">
 	import DualThemeLayout from '$docs/components/DualThemeLayout.svelte';
-	import { colors, shapes, sizes } from '$docs/constants.js';
-	import { Button, Card, CardBody, CardHeader, CardTitle, HStack, Stack } from '@immich/ui';
+	import BasicExample from './BasicExample.svelte';
+	import basicExample from './BasicExample.svelte?raw';
+	import ColorExample from './ColorExample.svelte';
+	import colorExample from './ColorExample.svelte?raw';
+	import DisabledExample from './DisabledExample.svelte';
+	import disabledExample from './DisabledExample.svelte?raw';
+	import FullWidthExample from './FullWidthExample.svelte';
+	import fullWidthExample from './FullWidthExample.svelte?raw';
+	import GhostExample from './GhostExample.svelte';
+	import ghostExample from './GhostExample.svelte?raw';
+	import HeroExample from './HeroExample.svelte';
+	import heroExample from './HeroExample.svelte?raw';
+	import LoadingExample from './LoadingExample.svelte';
+	import loadingExample from './LoadingExample.svelte?raw';
+	import OutlineExample from './OutlineExample.svelte';
+	import outlineExample from './OutlineExample.svelte?raw';
+	import ShapeExample from './ShapeExample.svelte';
+	import shapeExample from './ShapeExample.svelte?raw';
+	import SizeExample from './SizeExample.svelte';
+	import sizeExample from './SizeExample.svelte?raw';
+
+	const examples = [
+		{ title: 'Basic', code: basicExample, component: BasicExample },
+		{ title: 'Shape', code: shapeExample, component: ShapeExample },
+		{ title: 'Color', code: colorExample, component: ColorExample },
+		{ title: 'Outline', code: outlineExample, component: OutlineExample },
+		{ title: 'Ghost', code: ghostExample, component: GhostExample },
+		{ title: 'Hero', code: heroExample, component: HeroExample },
+		{ title: 'Disabled', code: disabledExample, component: DisabledExample },
+		{ title: 'Loading', code: loadingExample, component: LoadingExample },
+		{ title: 'Size', code: sizeExample, component: SizeExample },
+		{ title: 'Full width', code: fullWidthExample, component: FullWidthExample },
+	];
 </script>
 
-<DualThemeLayout name="Button">
-	{#snippet component()}
-		<Card>
-			<CardHeader>
-				<CardTitle>Shapes</CardTitle>
-			</CardHeader>
-			<CardBody>
-				<HStack wrap>
-					{#each shapes as shape}
-						<Button {shape} class="capitalize">{shape}</Button>
-					{/each}
-				</HStack>
-			</CardBody>
-		</Card>
-
-		<Card>
-			<CardHeader>
-				<CardTitle>Colors</CardTitle>
-			</CardHeader>
-			<CardBody>
-				<HStack wrap>
-					{#each colors as color}
-						<Button {color} class="capitalize">{color}</Button>
-					{/each}
-				</HStack>
-			</CardBody>
-		</Card>
-
-		<Card>
-			<CardHeader>
-				<CardTitle>Outline</CardTitle>
-			</CardHeader>
-			<CardBody>
-				<HStack wrap>
-					{#each colors as color}
-						<Button variant="outline" {color}>Button</Button>
-					{/each}
-				</HStack>
-			</CardBody>
-		</Card>
-
-		<Card>
-			<CardHeader>
-				<CardTitle>Ghost</CardTitle>
-			</CardHeader>
-			<CardBody>
-				<HStack wrap>
-					{#each colors as color}
-						<Button variant="ghost" {color}>Button</Button>
-					{/each}
-				</HStack>
-			</CardBody>
-		</Card>
-
-		<Card>
-			<CardHeader>
-				<CardTitle>Hero</CardTitle>
-			</CardHeader>
-			<CardBody>
-				<HStack wrap>
-					{#each colors as color}
-						<Button variant="hero" {color}>Button</Button>
-					{/each}
-				</HStack>
-			</CardBody>
-		</Card>
-
-		<Card>
-			<CardHeader>
-				<CardTitle>Disabled</CardTitle>
-			</CardHeader>
-			<CardBody>
-				<HStack wrap>
-					{#each colors as color}
-						<Button {color} disabled>Button</Button>
-					{/each}
-				</HStack>
-			</CardBody>
-		</Card>
-
-		<Card>
-			<CardHeader>
-				<CardTitle>Loading</CardTitle>
-			</CardHeader>
-			<CardBody>
-				<Stack gap={4}>
-					<HStack wrap>
-						{#each colors as color}
-							<Button {color} loading>Button</Button>
-						{/each}
-					</HStack>
-					<HStack wrap>
-						{#each colors as color}
-							<Button variant="outline" {color} loading>Button</Button>
-						{/each}
-					</HStack>
-					<HStack wrap>
-						{#each colors as color}
-							<Button variant="ghost" {color} loading>Button</Button>
-						{/each}
-					</HStack>
-				</Stack>
-			</CardBody>
-		</Card>
-
-		{#each shapes as shape}
-			<Card>
-				<CardHeader>
-					<CardTitle class="capitalize">{shape}</CardTitle>
-				</CardHeader>
-				<CardBody>
-					<Stack>
-						{#each sizes as size}
-							<div>
-								<Button {shape} {size} class="capitalize">{size}</Button>
-							</div>
-						{/each}
-					</Stack>
-				</CardBody>
-			</Card>
-		{/each}
-
-		<Card>
-			<CardHeader>
-				<CardTitle>Full width</CardTitle>
-			</CardHeader>
-			<CardBody>
-				<Stack>
-					{#each colors as color}
-						<div>
-							<Button fullWidth {color}>Button</Button>
-						</div>
-					{/each}
-				</Stack>
-			</CardBody>
-		</Card>
-	{/snippet}
-</DualThemeLayout>
+<DualThemeLayout name="Button" {examples} />
