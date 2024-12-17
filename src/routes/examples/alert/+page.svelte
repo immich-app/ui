@@ -1,65 +1,23 @@
 <script lang="ts">
 	import DualThemeLayout from '$docs/components/DualThemeLayout.svelte';
-	import Lorem from '$docs/components/Lorem.svelte';
-	import { colors } from '$docs/constants.js';
-	import { Alert, Card, CardBody, CardHeader, CardTitle, Stack } from '@immich/ui';
-	import { mdiHelpCircleOutline } from '@mdi/js';
+	import ExampleCard from '$docs/components/ExampleCard.svelte';
+	import BasicExample from './BasicExample.svelte';
+	import basicExample from './BasicExample.svelte?raw';
+	import ColorExample from './ColorExample.svelte';
+	import colorExample from './ColorExample.svelte?raw';
+	import CustomIconExample from './CustomIconExample.svelte';
+	import customIconExample from './CustomIconExample.svelte?raw';
 </script>
 
 <DualThemeLayout name="Alert">
-	{#snippet component()}
-		<Card>
-			<CardHeader>
-				<CardTitle>Basic</CardTitle>
-			</CardHeader>
-			<CardBody>
-				<Stack>
-					{#each colors as color}
-						<Alert {color} title="This is an alert" />
-					{/each}
-				</Stack>
-			</CardBody>
-		</Card>
-
-		<Card>
-			<CardHeader>
-				<CardTitle>Colors</CardTitle>
-			</CardHeader>
-			<CardBody>
-				<Stack>
-					{#each colors as color}
-						<Alert {color} title="This is an alert">
-							<Lorem />
-						</Alert>
-					{/each}
-				</Stack>
-			</CardBody>
-		</Card>
-
-		<Card>
-			<CardHeader>
-				<CardTitle>Custom icon</CardTitle>
-			</CardHeader>
-			<CardBody>
-				<Alert icon={mdiHelpCircleOutline} title="This is an alert">
-					<Lorem />
-				</Alert>
-			</CardBody>
-		</Card>
-
-		<Card>
-			<CardHeader>
-				<CardTitle>Colors</CardTitle>
-			</CardHeader>
-			<CardBody>
-				<Stack>
-					{#each colors as color}
-						<Alert {color} title="This is an alert">
-							<Lorem />
-						</Alert>
-					{/each}
-				</Stack>
-			</CardBody>
-		</Card>
+	{#snippet component({ theme })}
+		<ExampleCard {theme} title="Basic" example={basicExample} component={BasicExample} />
+		<ExampleCard {theme} title="Colors" example={colorExample} component={ColorExample} />
+		<ExampleCard
+			{theme}
+			title="Custom Icon"
+			example={customIconExample}
+			component={CustomIconExample}
+		/>
 	{/snippet}
 </DualThemeLayout>
