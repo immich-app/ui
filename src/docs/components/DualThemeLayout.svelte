@@ -1,16 +1,16 @@
 <script lang="ts">
+	import Examples from '$docs/components/Examples.svelte';
 	import Navbar from '$docs/components/Navbar.svelte';
-	import { DisplayOption, Theme } from '$docs/constants.js';
+	import { DisplayOption, Theme, type ExampleItem } from '$docs/constants.js';
 	import { Icon, Stack } from '@immich/ui';
 	import { mdiCompare, mdiWeatherNight, mdiWeatherSunny } from '@mdi/js';
-	import type { Snippet } from 'svelte';
 
 	type Props = {
 		name: string;
-		component: Snippet<[{ theme: Theme }]>;
+		examples: ExampleItem[];
 	};
 
-	const { name, component }: Props = $props();
+	const { name, examples }: Props = $props();
 
 	const themes = [DisplayOption.Both, DisplayOption.Light, DisplayOption.Dark];
 	const themeIcons: Record<DisplayOption, string> = {
@@ -63,7 +63,7 @@
 			<div class="flex flex-col gap-4 {theme} h-full bg-light p-8">
 				<h2 class="text-2xl capitalize text-dark">{theme}</h2>
 				<Stack gap={4}>
-					{@render component({ theme })}
+					<Examples {theme} {examples} />
 				</Stack>
 			</div>
 		{/each}

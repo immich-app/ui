@@ -1,53 +1,17 @@
 <script lang="ts">
 	import DualThemeLayout from '$docs/components/DualThemeLayout.svelte';
-	import { sizes } from '$docs/constants.js';
-	import { Card, CardBody, CardHeader, CardTitle, Field, PasswordInput, Stack } from '@immich/ui';
+	import basicExample from './BasicExample.svelte?raw';
+	import BasicExample from './BasicExample.svelte';
+	import shapeExample from './ShapeExample.svelte?raw';
+	import ShapeExample from './ShapeExample.svelte';
+	import sizeExample from './SizeExample.svelte?raw';
+	import SizeExample from './SizeExample.svelte';
 
-	const value = 'super-secret-password';
+	const examples = [
+		{ title: 'States', code: basicExample, component: BasicExample },
+		{ title: 'Shapes', code: shapeExample, component: ShapeExample },
+		{ title: 'Sizes', code: sizeExample, component: SizeExample },
+	];
 </script>
 
-<DualThemeLayout name="PasswordInput">
-	{#snippet component()}
-		<Card>
-			<CardHeader>
-				<CardTitle>States</CardTitle>
-			</CardHeader>
-			<CardBody>
-				<Stack gap={4}>
-					<Field label="Empty">
-						<PasswordInput />
-					</Field>
-					<Field label="Password">
-						<PasswordInput {value} />
-					</Field>
-				</Stack>
-			</CardBody>
-		</Card>
-
-		<Card>
-			<CardHeader>
-				<CardTitle>Shapes</CardTitle>
-			</CardHeader>
-			<CardBody>
-				<Stack>
-					<PasswordInput {value} placeholder="Round" shape="round"></PasswordInput>
-					<PasswordInput {value} placeholder="Semi-Round" shape="semi-round"></PasswordInput>
-					<PasswordInput {value} placeholder="Rectangle" shape="rectangle"></PasswordInput>
-				</Stack>
-			</CardBody>
-		</Card>
-
-		<Card>
-			<CardHeader>
-				<CardTitle>Sizes</CardTitle>
-			</CardHeader>
-			<CardBody>
-				<Stack>
-					{#each sizes as size}
-						<PasswordInput {value} placeholder={size} {size}></PasswordInput>
-					{/each}
-				</Stack>
-			</CardBody>
-		</Card>
-	{/snippet}
-</DualThemeLayout>
+<DualThemeLayout name="PasswordInput" {examples}></DualThemeLayout>

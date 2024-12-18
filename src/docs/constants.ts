@@ -1,8 +1,4 @@
-import type { Color, Shape, Size } from '@immich/ui';
-
-export const shapes: Shape[] = ['rectangle', 'semi-round', 'round'];
-export const colors: Color[] = ['primary', 'secondary', 'success', 'info', 'warning', 'danger'];
-export const sizes: Size[] = ['tiny', 'small', 'medium', 'large', 'giant'];
+import type { Component } from 'svelte';
 
 export enum DisplayOption {
 	Both = 'both',
@@ -14,3 +10,11 @@ export enum Theme {
 	Light = 'light',
 	Dark = 'dark',
 }
+
+export type ExampleItem = {
+	title: string;
+	code: string;
+	component: Component | Component<{ theme: Theme }>;
+};
+
+export type ExampleCardProps = ExampleItem & { theme: Theme };

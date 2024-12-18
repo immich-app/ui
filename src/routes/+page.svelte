@@ -14,6 +14,7 @@
 		mdiFormatText,
 		mdiFormTextbox,
 		mdiFormTextboxPassword,
+		mdiHomeCircle,
 		mdiImage,
 		mdiLink,
 		mdiListBoxOutline,
@@ -73,6 +74,7 @@
 
 							<Grid>
 								<ComponentCard icon={mdiButtonCursor} title="Button" />
+								<ComponentCard icon={mdiHomeCircle} title="IconButton" />
 								<ComponentCard icon={mdiCheckboxMarked} title="Checkbox" />
 								<ComponentCard icon={mdiCloseCircle} title="CloseButton" />
 								<ComponentCard icon={mdiListBoxOutline} title="Field" />
