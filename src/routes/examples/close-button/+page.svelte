@@ -1,5 +1,5 @@
 <script lang="ts">
-	import DualThemeLayout from '$docs/components/DualThemeLayout.svelte';
+	import ExampleLayout from '$docs/components/ExampleLayout.svelte';
 	import BasicExample from './BasicExample.svelte';
 	import basicExample from './BasicExample.svelte?raw';
 	import FilledExample from './FilledExample.svelte';
@@ -14,4 +14,4 @@
 	];
 </script>
 
-<DualThemeLayout name="CloseButton" {examples} />
+<ExampleLayout name="CloseButton" {examples} />

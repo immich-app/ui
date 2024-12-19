@@ -6,4 +6,4 @@
 	const examples = [{ title: 'Basic', code: basicExample, component: BasicExample }];
 </script>
 
-<ExampleLayout name="Field" {examples} />
+<ExampleLayout name="AppShell" {examples} />

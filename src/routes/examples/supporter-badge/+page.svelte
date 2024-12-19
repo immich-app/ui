@@ -1,5 +1,5 @@
 <script lang="ts">
-	import DualThemeLayout from '$docs/components/DualThemeLayout.svelte';
+	import ExampleLayout from '$docs/components/ExampleLayout.svelte';
 	import CustomExample from './CustomExample.svelte';
 	import customExample from './CustomExample.svelte?raw';
 	import EffectExample from './EffectExample.svelte';
@@ -14,4 +14,4 @@
 	];
 </script>
 
-<DualThemeLayout name="SupporterBadge" {examples}></DualThemeLayout>
+<ExampleLayout name="SupporterBadge" {examples}></ExampleLayout>

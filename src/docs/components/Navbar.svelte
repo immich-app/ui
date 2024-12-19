@@ -11,9 +11,7 @@
 	const { children, theme = Theme.Dark }: Props = $props();
 </script>
 
-<nav
-	class="{theme} flex items-center justify-between gap-2 border-b border-gray-300 bg-light px-8 py-4 text-dark"
->
+<nav class="{theme} flex items-center justify-between gap-2 p-2">
 	<a href="/" class="flex gap-2 text-4xl">
 		<Logo variant="inline" {theme} />
 	</a>
