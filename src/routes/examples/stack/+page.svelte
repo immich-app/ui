@@ -1,5 +1,5 @@
 <script lang="ts">
-	import DualThemeLayout from '$docs/components/DualThemeLayout.svelte';
+	import ExampleLayout from '$docs/components/ExampleLayout.svelte';
 	import basicExample from './BasicExample.svelte?raw';
 	import BasicExample from './BasicExample.svelte';
 	import rowExample from './RowExample.svelte?raw';
@@ -17,4 +17,4 @@
 	];
 </script>
 
-<DualThemeLayout name="Stack" {examples}></DualThemeLayout>
+<ExampleLayout name="Stack" {examples}></ExampleLayout>

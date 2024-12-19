@@ -1,5 +1,5 @@
 <script lang="ts">
-	import DualThemeLayout from '$docs/components/DualThemeLayout.svelte';
+	import ExampleLayout from '$docs/components/ExampleLayout.svelte';
 	import basicExample from './BasicExample.svelte?raw';
 	import BasicExample from './BasicExample.svelte';
 	import shapeExample from './ShapeExample.svelte?raw';
@@ -14,4 +14,4 @@
 	];
 </script>
 
-<DualThemeLayout name="PasswordInput" {examples}></DualThemeLayout>
+<ExampleLayout name="PasswordInput" {examples}></ExampleLayout>
