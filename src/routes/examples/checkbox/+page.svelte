@@ -1,5 +1,5 @@
 <script lang="ts">
-	import DualThemeLayout from '$docs/components/DualThemeLayout.svelte';
+	import ExampleLayout from '$docs/components/ExampleLayout.svelte';
 	import ColorExample from './ColorExample.svelte';
 	import colorExample from './ColorExample.svelte?raw';
 	import ShapeExample from './ShapeExample.svelte';
@@ -14,4 +14,4 @@
 	];
 </script>
 
-<DualThemeLayout name="Checkbox" {examples} />
+<ExampleLayout name="Checkbox" {examples} />

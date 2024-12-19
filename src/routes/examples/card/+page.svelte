@@ -1,5 +1,5 @@
 <script lang="ts">
-	import DualThemeLayout from '$docs/components/DualThemeLayout.svelte';
+	import ExampleLayout from '$docs/components/ExampleLayout.svelte';
 	import BasicExample from './BasicExample.svelte';
 	import basicExample from './BasicExample.svelte?raw';
 	import ExpandableExample from './ExpandableExample.svelte';
@@ -20,4 +20,4 @@
 	];
 </script>
 
-<DualThemeLayout name="Card" {examples} />
+<ExampleLayout name="Card" {examples} />

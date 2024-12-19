@@ -1,5 +1,5 @@
 <script lang="ts">
-	import DualThemeLayout from '$docs/components/DualThemeLayout.svelte';
+	import ExampleLayout from '$docs/components/ExampleLayout.svelte';
 	import BasicExample from './BasicExample.svelte';
 	import basicExample from './BasicExample.svelte?raw';
 	import ColorExample from './ColorExample.svelte';
@@ -29,4 +29,4 @@
 	];
 </script>
 
-<DualThemeLayout name="IconButton" {examples} />
+<ExampleLayout name="IconButton" {examples} />

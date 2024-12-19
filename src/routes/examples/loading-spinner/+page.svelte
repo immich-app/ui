@@ -1,5 +1,5 @@
 <script lang="ts">
-	import DualThemeLayout from '$docs/components/DualThemeLayout.svelte';
+	import ExampleLayout from '$docs/components/ExampleLayout.svelte';
 	import sizeExample from './SizeExample.svelte?raw';
 	import SizeExample from './SizeExample.svelte';
 	import colorExample from './ColorExample.svelte?raw';
@@ -11,4 +11,4 @@
 	];
 </script>
 
-<DualThemeLayout name="LoadingSpinner" {examples}></DualThemeLayout>
+<ExampleLayout name="LoadingSpinner" {examples}></ExampleLayout>
