@@ -1,26 +1,8 @@
 <script lang="ts">
 	import ComponentCard from '$docs/components/ComponentCard.svelte';
 	import Grid from '$docs/components/Grid.svelte';
+	import { componentGroups } from '$docs/constants.js';
 	import { Heading, Link, Stack, Text } from '@immich/ui';
-	import {
-		mdiAlertCircleOutline,
-		mdiApplicationOutline,
-		mdiButtonCursor,
-		mdiCardOutline,
-		mdiCheckboxMarked,
-		mdiCircleOutline,
-		mdiCloseCircle,
-		mdiFormatHeaderPound,
-		mdiFormatText,
-		mdiFormTextbox,
-		mdiFormTextboxPassword,
-		mdiHomeCircle,
-		mdiImage,
-		mdiLink,
-		mdiListBoxOutline,
-		mdiPartyPopper,
-		mdiViewSequential,
-	} from '@mdi/js';
 </script>
 
 <div class="max-w-screen-lg p-2">
@@ -41,48 +23,16 @@
 
 		<Heading size="large">Components</Heading>
 		<Stack gap={8}>
-			<Stack>
-				<Heading size="medium">Layout</Heading>
-				<Grid>
-					<ComponentCard icon={mdiAlertCircleOutline} title="Alert" />
-					<ComponentCard icon={mdiApplicationOutline} title="AppShell" />
-					<ComponentCard icon={mdiCardOutline} title="Card" />
-					<ComponentCard icon={mdiViewSequential} title="Stack" />
-				</Grid>
-			</Stack>
-
-			<Stack>
-				<Heading size="medium">Forms</Heading>
-
-				<Grid>
-					<ComponentCard icon={mdiButtonCursor} title="Button" />
-					<ComponentCard icon={mdiHomeCircle} title="IconButton" />
-					<ComponentCard icon={mdiCheckboxMarked} title="Checkbox" />
-					<ComponentCard icon={mdiCloseCircle} title="CloseButton" />
-					<ComponentCard icon={mdiListBoxOutline} title="Field" />
-					<ComponentCard icon={mdiFormTextbox} title="Input" />
-					<ComponentCard icon={mdiCircleOutline} title="LoadingSpinner" />
-					<ComponentCard icon={mdiFormTextboxPassword} title="PasswordInput" />
-				</Grid>
-			</Stack>
-
-			<Stack>
-				<Heading size="medium">Text</Heading>
-
-				<Grid>
-					<ComponentCard icon={mdiFormatHeaderPound} title="Heading" />
-					<ComponentCard icon={mdiFormatText} title="Text" />
-					<ComponentCard icon={mdiLink} title="Link" />
-				</Grid>
-			</Stack>
-
-			<Stack>
-				<Heading size="medium">Immich</Heading>
-				<Grid>
-					<ComponentCard icon={mdiImage} title="Logo" />
-					<ComponentCard icon={mdiPartyPopper} title="SupporterBadge" />
-				</Grid>
-			</Stack>
+			{#each componentGroups as group}
+				<Stack>
+					<Heading size="medium">{group.name}</Heading>
+					<Grid>
+						{#each group.components as component}
+							<ComponentCard {component} />
+						{/each}
+					</Grid>
+				</Stack>
+			{/each}
 		</Stack>
 	</Stack>
 </div>

@@ -1,7 +1,6 @@
 <script lang="ts">
 	import DecorativeBlock from '$docs/components/DecorativeBlock.svelte';
-	import Stack from '$lib/components/Stack/Stack.svelte';
-	import { AppShell, AppShellHeader, AppShellSidebar, Heading } from '@immich/ui';
+	import { AppShell, AppShellHeader, AppShellSidebar, Heading, Stack } from '@immich/ui';
 </script>
 
 <Stack>

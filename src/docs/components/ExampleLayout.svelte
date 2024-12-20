@@ -19,6 +19,8 @@
 		<div class="flex items-center gap-2">
 			<a href="/" class="underline">Home</a>
 			<span>/</span>
+			<a href="/" class="underline">Components</a>
+			<span>/</span>
 			<span class="capitalize">{name}</span>
 		</div>
 	</nav>

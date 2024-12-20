@@ -1,7 +1,14 @@
 <script lang="ts">
 	import Lorem from '$docs/components/Lorem.svelte';
-	import CardBody from '$lib/components/Card/CardBody.svelte';
-	import { Card, CardDescription, CardFooter, CardHeader, CardTitle, Stack } from '@immich/ui';
+	import {
+		Card,
+		CardBody,
+		CardDescription,
+		CardFooter,
+		CardHeader,
+		CardTitle,
+		Stack,
+	} from '@immich/ui';
 </script>
 
 <Stack>
