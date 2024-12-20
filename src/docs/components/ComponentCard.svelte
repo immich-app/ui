@@ -1,20 +1,17 @@
 <script lang="ts">
+	import { asComponentHref } from '$docs/utilities.js';
 	import { Button, Heading, Icon, VStack } from '@immich/ui';
 
 	type Props = {
-		title: string;
-		icon: string;
+		component: { name: string; icon: string };
 	};
 
-	const { title, icon }: Props = $props();
-
-	const asSlug = (value: string) =>
-		value.replace(/[A-Z]/g, (letter) => `-${letter.toLowerCase()}`).replace(/^-/, '');
+	const { component }: Props = $props();
 </script>
 
-<Button href="/examples/{asSlug(title)}" variant="outline" color="primary" class="h-24 w-40">
+<Button href={asComponentHref(component.name)} variant="outline" color="primary" class="h-24 w-40">
 	<VStack gap={2} class="p-6">
-		<Icon {icon} size="2em" />
-		<Heading size="tiny">{title}</Heading>
+		<Icon icon={component.icon} size="2em" />
+		<Heading size="tiny">{component.name}</Heading>
 	</VStack>
 </Button>

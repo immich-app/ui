@@ -1,6 +1,5 @@
 <script>
-	import Text from '$lib/components/Text/Text.svelte';
-	import { Link } from '@immich/ui';
+	import { Link, Text } from '@immich/ui';
 </script>
 
 <Text><Link href="#">Visit Immich UI</Link></Text>

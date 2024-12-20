@@ -1,6 +1,5 @@
 <script lang="ts">
-	import HStack from '$lib/components/Stack/HStack.svelte';
-	import { Checkbox, Stack } from '@immich/ui';
+	import { Checkbox, HStack, Stack } from '@immich/ui';
 </script>
 
 <Stack>
