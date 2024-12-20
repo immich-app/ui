@@ -23,6 +23,8 @@ export { default as IconButton } from '$lib/components/IconButton/IconButton.sve
 export { default as Link } from '$lib/components/Link/Link.svelte';
 export { default as LoadingSpinner } from '$lib/components/LoadingSpinner/LoadingSpinner.svelte';
 export { default as Logo } from '$lib/components/Logo/Logo.svelte';
+export { default as NavbarGroup } from '$lib/components/Navbar/NavbarGroup.svelte';
+export { default as NavbarItem } from '$lib/components/Navbar/NavbarItem.svelte';
 export { default as Scrollable } from '$lib/components/Scrollable/Scrollable.svelte';
 export { default as HStack } from '$lib/components/Stack/HStack.svelte';
 export { default as Stack } from '$lib/components/Stack/Stack.svelte';

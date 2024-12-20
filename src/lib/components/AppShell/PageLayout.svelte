@@ -24,7 +24,7 @@
 <section class="relative">
 	{#if title || buttons}
 		<div
-			class="dark:border-immich-dark-gray dark:text-immich-dark-fg absolute flex h-16 w-full place-items-center justify-between border-b p-4"
+			class="dark:border-immich-neutral dark:text-immich-dark-fg absolute flex h-16 w-full place-items-center justify-between border-b p-4"
 		>
 			<div class="flex items-center gap-2">
 				{#if title}

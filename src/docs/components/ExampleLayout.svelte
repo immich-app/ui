@@ -14,7 +14,7 @@
 <div class="flex h-full flex-col">
 	<!-- TODO replace with breadcrumb component -->
 	<nav
-		class="flex shrink-0 justify-between border-b border-gray-300 bg-light px-8 py-2 text-dark dark:border-gray-700"
+		class="flex shrink-0 justify-between border-b border-gray-300 bg-light p-4 text-dark dark:border-gray-700"
 	>
 		<div class="flex items-center gap-2">
 			<a href="/" class="underline">Home</a>

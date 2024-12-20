@@ -5,7 +5,7 @@ import {
 	mdiCardOutline,
 	mdiCheckboxMarked,
 	mdiCloseCircle,
-	mdiCreditCardOutline,
+	mdiDotsCircle,
 	mdiFormatHeaderPound,
 	mdiFormTextbox,
 	mdiFormTextboxPassword,
@@ -13,6 +13,7 @@ import {
 	mdiImage,
 	mdiLink,
 	mdiListBoxOutline,
+	mdiMenu,
 	mdiNumeric,
 	mdiPartyPopper,
 	mdiViewSequential,
@@ -40,16 +41,17 @@ export type ExampleCardProps = ExampleItem & { theme: Theme };
 
 export const componentGroups = [
 	{
-		name: 'Layout',
+		title: 'Layout',
 		components: [
 			{ name: 'Alert', icon: mdiAlertCircleOutline },
 			{ name: 'AppShell', icon: mdiApplicationOutline },
 			{ name: 'Card', icon: mdiCardOutline },
+			{ name: 'Navbar', icon: mdiMenu },
 			{ name: 'Stack', icon: mdiViewSequential },
 		],
 	},
 	{
-		name: 'Forms',
+		title: 'Forms',
 		components: [
 			{ name: 'Button', icon: mdiButtonCursor },
 			{ name: 'IconButton', icon: mdiHomeCircle },
@@ -57,12 +59,12 @@ export const componentGroups = [
 			{ name: 'CloseButton', icon: mdiCloseCircle },
 			{ name: 'Field', icon: mdiListBoxOutline },
 			{ name: 'Input', icon: mdiFormTextbox },
-			{ name: 'LoadingSpinner', icon: mdiCreditCardOutline },
+			{ name: 'LoadingSpinner', icon: mdiDotsCircle },
 			{ name: 'PasswordInput', icon: mdiFormTextboxPassword },
 		],
 	},
 	{
-		name: 'Text',
+		title: 'Text',
 		components: [
 			{ name: 'Text', icon: mdiFormatHeaderPound },
 			{ name: 'Heading', icon: mdiFormTextbox },
@@ -71,7 +73,7 @@ export const componentGroups = [
 		],
 	},
 	{
-		name: 'Immich',
+		title: 'Immich',
 		components: [
 			{ name: 'Logo', icon: mdiImage },
 			{ name: 'SupporterBadge', icon: mdiPartyPopper },

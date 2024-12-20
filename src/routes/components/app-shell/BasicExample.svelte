@@ -1,6 +1,13 @@
 <script lang="ts">
-	import DecorativeBlock from '$docs/components/DecorativeBlock.svelte';
-	import { AppShell, AppShellHeader, AppShellSidebar, Heading, Stack } from '@immich/ui';
+	import {
+		AppShell,
+		AppShellHeader,
+		AppShellSidebar,
+		Heading,
+		NavbarItem,
+		Stack,
+	} from '@immich/ui';
+	import { mdiHome } from '@mdi/js';
 </script>
 
 <Stack>
@@ -46,30 +53,17 @@
 				</div>
 			</AppShellHeader>
 
-			<AppShellSidebar>
-				<div class="p-4">
-					<Heading size="tiny">Sidebar Overflow</Heading>
-					<Stack>
-						<DecorativeBlock />
-						<DecorativeBlock />
-						<DecorativeBlock />
-						<DecorativeBlock />
-						<DecorativeBlock />
-						<DecorativeBlock />
-					</Stack>
-				</div>
+			<AppShellSidebar noBorder class="pt-2">
+				<Stack>
+					<NavbarItem icon={mdiHome} title="Home" href="/" active />
+					<NavbarItem icon={mdiHome} title="Home" href="/" />
+					<NavbarItem icon={mdiHome} title="Home" href="/" />
+					<NavbarItem icon={mdiHome} title="Home" href="/" />
+				</Stack>
 			</AppShellSidebar>
 
 			<div class="p-4">
-				<Heading size="tiny">Content Overflow</Heading>
-				<Stack>
-					<DecorativeBlock />
-					<DecorativeBlock />
-					<DecorativeBlock />
-					<DecorativeBlock />
-					<DecorativeBlock />
-					<DecorativeBlock />
-				</Stack>
+				<Heading size="tiny">Content</Heading>
 			</div>
 		</AppShell>
 	</div>
