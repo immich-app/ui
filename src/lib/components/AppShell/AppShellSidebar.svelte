@@ -8,16 +8,18 @@
 	type Props = {
 		class?: string;
 		children: Snippet;
+		noBorder?: boolean;
 	};
 
-	let { class: className, children }: Props = $props();
+	let { class: className, children, noBorder = false }: Props = $props();
 </script>
 
 <Child for={ChildKey.AppShell} as={ChildKey.AppShellSidebar}>
 	<Scrollable
 		class={cleanClass(
-			'hidden h-full shrink-0 border-r border-gray-200 dark:border-gray-700 lg:block',
+			'hidden h-full shrink-0 border-gray-200 dark:border-gray-700 lg:block',
 			className,
+			noBorder || 'border-r',
 		)}
 	>
 		{@render children?.()}

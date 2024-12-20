@@ -25,7 +25,7 @@
 		<Stack gap={8}>
 			{#each componentGroups as group}
 				<Stack>
-					<Heading size="medium">{group.name}</Heading>
+					<Heading size="medium">{group.title}</Heading>
 					<Grid>
 						{#each group.components as component}
 							<ComponentCard {component} />

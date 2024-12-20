@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { page } from '$app/state';
 	import Navbar from '$docs/components/Navbar.svelte';
 	import { componentGroups, Theme } from '$docs/constants.js';
 	import { asComponentHref } from '$docs/utilities.js';
@@ -7,19 +8,20 @@
 		AppShell,
 		AppShellHeader,
 		AppShellSidebar,
-		Heading,
 		IconButton,
-		Link,
-		Stack,
+		NavbarGroup,
+		NavbarItem,
 	} from '@immich/ui';
-	import { mdiWeatherNight, mdiWeatherSunny } from '@mdi/js';
+	import { mdiHome, mdiWeatherNight, mdiWeatherSunny } from '@mdi/js';
 	import '../app.css';
+
 	let { children } = $props();
 
 	const handleToggleTheme = () =>
 		(theme.value = theme.value === Theme.Dark ? Theme.Light : Theme.Dark);
 
 	const themeIcon = $derived(theme.value === Theme.Light ? mdiWeatherSunny : mdiWeatherNight);
+	const isActive = (path: string) => path === page.url.pathname;
 </script>
 
 <AppShell class="{theme.value} bg-light text-dark">
@@ -36,17 +38,15 @@
 		</Navbar>
 	</AppShellHeader>
 
-	<AppShellSidebar class="p-4">
-		<Stack class="min-w-[200px]">
-			{#each componentGroups as group}
-				<Heading size="tiny">{group.name}</Heading>
-				<Stack class="pl-4">
-					{#each group.components as component}
-						<Link href={asComponentHref(component.name)}>{component.name}</Link>
-					{/each}
-				</Stack>
+	<AppShellSidebar class="min-w-[225px] py-4 pr-4">
+		<NavbarItem active={isActive('/')} title="Home" icon={mdiHome} href="/" />
+		{#each componentGroups as group}
+			<NavbarGroup title={group.title} />
+			{#each group.components as component}
+				{@const href = asComponentHref(component.name)}
+				<NavbarItem active={isActive(href)} title={component.name} icon={component.icon} {href} />
 			{/each}
-		</Stack>
+		{/each}
 	</AppShellSidebar>
 
 	<div class="h-full">
