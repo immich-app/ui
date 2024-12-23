@@ -1,6 +1,5 @@
 <script lang="ts">
-	import NavbarGroup from '$lib/components/Navbar/NavbarGroup.svelte';
-	import { NavbarItem } from '@immich/ui';
+	import { NavbarGroup, NavbarItem } from '@immich/ui';
 	import { mdiButtonPointer, mdiCardOutline, mdiHome } from '@mdi/js';
 </script>
 

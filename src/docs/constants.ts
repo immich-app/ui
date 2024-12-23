@@ -15,7 +15,9 @@ import {
 	mdiListBoxOutline,
 	mdiMenu,
 	mdiNumeric,
+	mdiPanVertical,
 	mdiPartyPopper,
+	mdiToggleSwitch,
 	mdiViewSequential,
 } from '@mdi/js';
 import type { Component } from 'svelte';
@@ -47,6 +49,7 @@ export const componentGroups = [
 			{ name: 'AppShell', icon: mdiApplicationOutline },
 			{ name: 'Card', icon: mdiCardOutline },
 			{ name: 'Navbar', icon: mdiMenu },
+			{ name: 'Scrollable', icon: mdiPanVertical },
 			{ name: 'Stack', icon: mdiViewSequential },
 		],
 	},
@@ -61,6 +64,7 @@ export const componentGroups = [
 			{ name: 'Input', icon: mdiFormTextbox },
 			{ name: 'LoadingSpinner', icon: mdiDotsCircle },
 			{ name: 'PasswordInput', icon: mdiFormTextboxPassword },
+			{ name: 'Switch', icon: mdiToggleSwitch },
 		],
 	},
 	{

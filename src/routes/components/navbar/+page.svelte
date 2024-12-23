@@ -11,4 +11,4 @@
 	];
 </script>
 
-<ExampleLayout name="Basic" {examples} />
+<ExampleLayout name="Navbar" {examples} />
