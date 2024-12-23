@@ -1,14 +1,16 @@
 <script lang="ts">
 	import Examples from '$docs/components/Examples.svelte';
 	import { Theme, type ExampleItem } from '$docs/constants.js';
-	import { Scrollable, Stack } from '@immich/ui';
+	import { Heading, Scrollable, Stack } from '@immich/ui';
+	import type { Snippet } from 'svelte';
 
 	type Props = {
 		name: string;
 		examples: ExampleItem[];
+		children?: Snippet;
 	};
 
-	const { name, examples }: Props = $props();
+	const { name, examples, children }: Props = $props();
 </script>
 
 <div class="flex h-full flex-col">
@@ -25,8 +27,10 @@
 		</div>
 	</nav>
 
-	<Scrollable>
-		<Stack gap={4} class="max-w-screen-lg p-4">
+	<Scrollable class="p-4">
+		<Heading size="large">{name}</Heading>
+		{@render children?.()}
+		<Stack gap={4} class="mt-4 max-w-screen-md">
 			<Examples theme={Theme.Dark} {examples} />
 		</Stack>
 	</Scrollable>

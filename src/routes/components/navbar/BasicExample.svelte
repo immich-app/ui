@@ -3,6 +3,6 @@
 	import { mdiHome } from '@mdi/js';
 </script>
 
-<div class="w-[200px]">
+<div class="max-w-[200px]">
 	<NavbarItem icon={mdiHome} title="Home" href="#" active />
 </div>

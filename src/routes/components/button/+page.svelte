@@ -1,5 +1,6 @@
 <script lang="ts">
 	import ExampleLayout from '$docs/components/ExampleLayout.svelte';
+	import { Text } from '@immich/ui';
 	import BasicExample from './BasicExample.svelte';
 	import basicExample from './BasicExample.svelte?raw';
 	import ColorExample from './ColorExample.svelte';
@@ -35,4 +36,6 @@
 	];
 </script>
 
-<ExampleLayout name="Button" {examples} />
+<ExampleLayout name="Button" {examples}>
+	<Text>A button component, which can also be used to render links</Text>
+</ExampleLayout>

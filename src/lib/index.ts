@@ -30,6 +30,7 @@ export { default as HStack } from '$lib/components/Stack/HStack.svelte';
 export { default as Stack } from '$lib/components/Stack/Stack.svelte';
 export { default as VStack } from '$lib/components/Stack/VStack.svelte';
 export { default as SupporterBadge } from '$lib/components/SupporterBadge/SupporterBadge.svelte';
+export { default as Switch } from '$lib/components/Switch/Switch.svelte';
 export { default as Text } from '$lib/components/Text/Text.svelte';
 export * from '$lib/types.js';
 export * from '$lib/utilities/byte-units.js';

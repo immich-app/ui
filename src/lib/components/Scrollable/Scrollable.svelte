@@ -10,7 +10,7 @@
 	const { class: className, children }: Props = $props();
 </script>
 
-<div class={cleanClass('immich-scrollbar overflow-y-auto', className)}>
+<div class={cleanClass('immich-scrollbar h-full w-full overflow-auto', className)}>
 	{@render children?.()}
 </div>
 
@@ -18,6 +18,7 @@
 	/* width */
 	.immich-scrollbar::-webkit-scrollbar {
 		width: 8px;
+		height: 8px;
 	}
 
 	/* Track */
