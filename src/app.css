@@ -27,3 +27,11 @@
 		--immich-gray: 33 33 33;
 	}
 }
+
+body.dark {
+	color-scheme: dark;
+}
+
+body:not(.dark) {
+	color-scheme: light;
+}

@@ -3,7 +3,7 @@
 	import Navbar from '$docs/components/Navbar.svelte';
 	import { componentGroups, Theme } from '$docs/constants.js';
 	import { asComponentHref } from '$docs/utilities.js';
-	import { theme } from '$lib/services/theme.svelte.js';
+	import { syncToDom, theme } from '$lib/services/theme.svelte.js';
 	import {
 		AppShell,
 		AppShellHeader,
@@ -22,9 +22,13 @@
 
 	const themeIcon = $derived(theme.value === Theme.Light ? mdiWeatherSunny : mdiWeatherNight);
 	const isActive = (path: string) => path === page.url.pathname;
+
+	$effect(() => {
+		syncToDom();
+	});
 </script>
 
-<AppShell class="{theme.value} bg-light text-dark">
+<AppShell>
 	<AppShellHeader>
 		<Navbar theme={theme.value}>
 			<IconButton
