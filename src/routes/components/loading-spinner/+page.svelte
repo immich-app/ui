@@ -7,7 +7,7 @@
 
 	const examples = [
 		{ title: 'Sizes', code: sizeExample, component: SizeExample },
-		{ title: 'Colors', code: colorExample, component: ColorExample },
+		{ title: 'Color', code: colorExample, component: ColorExample },
 	];
 </script>
 
