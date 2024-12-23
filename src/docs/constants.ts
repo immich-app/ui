@@ -5,6 +5,7 @@ import {
 	mdiCardOutline,
 	mdiCheckboxMarked,
 	mdiCloseCircle,
+	mdiCodeBraces,
 	mdiDotsCircle,
 	mdiFormatHeaderPound,
 	mdiFormTextbox,
@@ -70,6 +71,7 @@ export const componentGroups = [
 	{
 		title: 'Text',
 		components: [
+			{ name: 'Code', icon: mdiCodeBraces },
 			{ name: 'Text', icon: mdiFormatHeaderPound },
 			{ name: 'Heading', icon: mdiFormTextbox },
 			{ name: 'Link', icon: mdiLink },
