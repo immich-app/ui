@@ -4,14 +4,14 @@
 	import basicExample from './BasicExample.svelte?raw';
 	import ColorExample from './ColorExample.svelte';
 	import colorExample from './ColorExample.svelte?raw';
-	import CustomIconExample from './CustomIconExample.svelte';
-	import customIconExample from './CustomIconExample.svelte?raw';
+	import SizeExample from './SizeExample.svelte';
+	import sizeExample from './SizeExample.svelte?raw';
 
 	const examples = [
 		{ title: 'Basic', code: basicExample, component: BasicExample },
 		{ title: 'Color', code: colorExample, component: ColorExample },
-		{ title: 'Custom Icon', code: customIconExample, component: CustomIconExample },
+		{ title: 'Size', code: sizeExample, component: SizeExample },
 	];
 </script>
 
-<ExampleLayout name="Alert" {examples} />
+<ExampleLayout name="Avatar" {examples} />

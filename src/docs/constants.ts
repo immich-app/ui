@@ -1,4 +1,5 @@
 import {
+	mdiAccountCircle,
 	mdiAlertCircleOutline,
 	mdiApplicationOutline,
 	mdiButtonCursor,
@@ -79,8 +80,9 @@ export const componentGroups = [
 		],
 	},
 	{
-		title: 'Immich',
+		title: 'Miscellaneous',
 		components: [
+			{ name: 'Avatar', icon: mdiAccountCircle },
 			{ name: 'Logo', icon: mdiImage },
 			{ name: 'SupporterBadge', icon: mdiPartyPopper },
 		],

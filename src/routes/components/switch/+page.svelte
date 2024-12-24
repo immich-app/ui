@@ -10,7 +10,7 @@
 
 	const examples = [
 		{ title: 'Basic', code: basicExample, component: BasicExample },
-		{ title: 'Colors', code: colorExample, component: ColorExample },
+		{ title: 'Color', code: colorExample, component: ColorExample },
 		{ title: 'Form', code: formExample, component: FormExample },
 	];
 </script>

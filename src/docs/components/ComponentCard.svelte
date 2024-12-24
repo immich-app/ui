@@ -9,9 +9,15 @@
 	const { component }: Props = $props();
 </script>
 
-<Button href={asComponentHref(component.name)} variant="outline" color="primary" class="h-24 w-40">
-	<VStack gap={2} class="p-6">
-		<Icon icon={component.icon} size="2em" />
+<Button
+	href={asComponentHref(component.name)}
+	variant="outline"
+	color="secondary"
+	class="h-24 w-40"
+	size="large"
+>
+	<VStack gap={2}>
+		<Icon icon={component.icon} size="3rem" />
 		<Heading size="tiny">{component.name}</Heading>
 	</VStack>
 </Button>
