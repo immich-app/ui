@@ -15,9 +15,7 @@
 
 <div class="flex h-full flex-col">
 	<!-- TODO replace with breadcrumb component -->
-	<nav
-		class="flex shrink-0 justify-between border-b border-gray-300 bg-light p-4 text-dark dark:border-gray-700"
-	>
+	<nav class="flex shrink-0 justify-between border-b bg-light p-4 text-dark">
 		<div class="flex items-center gap-2">
 			<a href="/" class="underline">Home</a>
 			<span>/</span>
@@ -27,10 +25,12 @@
 		</div>
 	</nav>
 
-	<Scrollable class="p-4">
-		<Heading size="large">{name}</Heading>
-		{@render children?.()}
-		<Stack gap={4} class="mt-4 max-w-screen-md">
+	<Scrollable class="mt-4 flex max-w-screen-md flex-col gap-2 p-4">
+		<Stack>
+			<Heading size="large">{name}</Heading>
+			{@render children?.()}
+		</Stack>
+		<Stack gap={4}>
 			<Examples theme={Theme.Dark} {examples} />
 		</Stack>
 	</Scrollable>

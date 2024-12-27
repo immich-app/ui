@@ -13,8 +13,12 @@ export default {
 				danger: 'rgb(var(--immich-danger) / <alpha-value>)',
 				warning: 'rgb(var(--immich-warning) / <alpha-value>)',
 				info: 'rgb(var(--immich-info) / <alpha-value>)',
-				neutral: 'rgb(var(--immich-gray) / <alpha-value>)',
+				subtle: 'rgb(var(--immich-gray) / <alpha-value>)',
 			},
+			borderColor: ({ theme }) => ({
+				...theme('colors'),
+				DEFAULT: 'rgb(var(--immich-default-border) / <alpha-value>)',
+			}),
 		},
 	},
 

@@ -19,7 +19,7 @@
 
 <div class={cleanClass('flex h-screen flex-col overflow-hidden', className)}>
 	{#if header}
-		<header class="border-b border-gray-300 dark:border-gray-700">
+		<header class="border-b">
 			{@render header?.()}
 		</header>
 	{/if}

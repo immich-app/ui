@@ -16,11 +16,7 @@
 
 <Child for={ChildKey.AppShell} as={ChildKey.AppShellSidebar}>
 	<Scrollable
-		class={cleanClass(
-			'hidden h-full w-min shrink-0 border-gray-200 dark:border-gray-700 lg:block',
-			className,
-			noBorder || 'border-r',
-		)}
+		class={cleanClass('hidden h-full w-min shrink-0 lg:block', className, noBorder || 'border-r')}
 	>
 		{@render children?.()}
 	</Scrollable>

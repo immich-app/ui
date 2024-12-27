@@ -27,16 +27,16 @@
 	}: Props = $props();
 
 	const cardStyles = tv({
-		base: 'rounded-2xl bg-light text-dark shadow-sm dark:border-gray-600 w-full overflow-hidden',
+		base: 'rounded-2xl bg-light text-dark shadow-sm w-full overflow-hidden',
 		variants: {
 			defaultStyle: {
-				true: 'border border-gray-300 dark:border-gray-600',
+				true: 'border',
 				false: '',
 				default: '',
 			},
 			outlineColor: {
 				primary: 'border border-primary',
-				secondary: 'border border-gray-300 dark:border-gray-600',
+				secondary: 'border',
 				success: 'border border-success',
 				danger: 'border border-danger',
 				warning: 'border border-warning',

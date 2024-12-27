@@ -5,7 +5,7 @@
 	import { tv } from 'tailwind-variants';
 
 	type Props = {
-		color?: Color;
+		color?: Color | 'muted';
 		class?: string;
 		size?: Size;
 		children: Snippet;
@@ -13,17 +13,29 @@
 		fontWeight?: 'light' | 'normal' | 'semi-bold' | 'bold';
 	};
 
-	const { color, size, fontWeight = 'normal', children, class: className }: Props = $props();
+	const {
+		color,
+		size,
+		variant,
+		fontWeight = 'normal',
+		children,
+		class: className,
+	}: Props = $props();
 
 	const styles = tv({
 		variants: {
 			color: {
+				muted: 'text-gray-600 dark:text-gray-400',
 				primary: 'text-primary',
 				secondary: 'text-dark',
 				success: 'text-success',
 				danger: 'text-danger',
 				warning: 'text-warning',
 				info: 'text-info',
+			},
+
+			variant: {
+				italic: 'italic',
 			},
 
 			size: {
@@ -44,6 +56,6 @@
 	});
 </script>
 
-<p class={cleanClass(styles({ color, size, fontWeight }), className)}>
+<p class={cleanClass(styles({ color, size, fontWeight, variant }), className)}>
 	{@render children()}
 </p>
