@@ -81,6 +81,7 @@ type BaseInputProps = {
 } & Omit<HTMLInputAttributes, 'size' | 'type'>;
 
 export type InputProps = BaseInputProps & {
+	containerRef?: HTMLElement | null;
 	type?: HTMLInputAttributes['type'];
 	trailingIcon?: Snippet;
 };
@@ -89,4 +90,29 @@ export type PasswordInputProps = BaseInputProps & {
 	showLabel?: string;
 	hideLabel?: string;
 	isVisible?: boolean;
+};
+
+export type SelectItem = {
+	label?: string;
+	value: string;
+	disabled?: boolean;
+};
+
+export type SelectCommonProps<T extends SelectItem> = {
+	data: string[] | T[];
+	size?: Size;
+	color?: Color;
+	shape?: Shape;
+	placeholder?: string;
+	class?: string;
+};
+
+export type SelectProps<T extends SelectItem> = SelectCommonProps<T> & {
+	value?: T;
+	onChange?: (value: T) => void;
+};
+
+export type MultiSelectProps<T extends SelectItem> = SelectCommonProps<T> & {
+	value?: T[];
+	onChange?: (values: T[]) => void;
 };

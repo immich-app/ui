@@ -13,6 +13,8 @@
 		--immich-warning: 255 170 0;
 		--immich-info: 14 165 233;
 		--immich-gray: 246 246 246;
+
+		--immich-default-border: 209 213 219;
 	}
 
 	.dark {
@@ -25,6 +27,8 @@
 		--immich-warning: 255 170 0;
 		--immich-info: 14 165 233;
 		--immich-gray: 33 33 33;
+
+		--immich-default-border: 55 65 81;
 	}
 }
 

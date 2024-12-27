@@ -3,6 +3,7 @@
 	"version": "0.7.0",
 	"license": "GNU Affero General Public License version 3",
 	"scripts": {
+		"create": "node scripts/create.js",
 		"start": "npm run start:dev",
 		"start:dev": "vite dev",
 		"watch": "vite build --watch",

@@ -5,6 +5,7 @@
 	import { tv } from 'tailwind-variants';
 
 	let {
+		containerRef = $bindable(null),
 		shape = 'semi-round',
 		size = 'medium',
 		class: className,
@@ -72,7 +73,7 @@
 	const labelId = `label-${id}`;
 </script>
 
-<div class="flex flex-col gap-1">
+<div class="flex flex-col gap-1" bind:this={containerRef}>
 	{#if label}
 		<label id={labelId} for={inputId} class={labelStyles({ size })}>{label}</label>
 	{/if}

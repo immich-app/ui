@@ -11,7 +11,7 @@
 </script>
 
 <Stack>
-	<div class="border border-gray-300 dark:border-gray-700">
+	<div class="border">
 		<AppShell class="h-[400px]">
 			<AppShellHeader>
 				<div class="p-4">
@@ -25,7 +25,7 @@
 		</AppShell>
 	</div>
 
-	<div class="border border-gray-300 dark:border-gray-700">
+	<div class="border">
 		<AppShell class="h-[400px]">
 			<AppShellHeader>
 				<div class="p-4">
@@ -45,7 +45,7 @@
 		</AppShell>
 	</div>
 
-	<div class="border border-gray-300 dark:border-gray-700">
+	<div class="border">
 		<AppShell class="h-[400px]">
 			<AppShellHeader>
 				<div class="p-4">
@@ -56,9 +56,9 @@
 			<AppShellSidebar noBorder class="pt-2">
 				<Stack>
 					<NavbarItem icon={mdiHome} title="Home" href="/" active />
-					<NavbarItem icon={mdiHome} title="Home" href="/" />
-					<NavbarItem icon={mdiHome} title="Home" href="/" />
-					<NavbarItem icon={mdiHome} title="Home" href="/" />
+					<NavbarItem icon={mdiHome} title="Item 1" href="#" />
+					<NavbarItem icon={mdiHome} title="Item 2" href="#" />
+					<NavbarItem icon={mdiHome} title="Item 3" href="#" />
 				</Stack>
 			</AppShellSidebar>
 

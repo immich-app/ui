@@ -4,6 +4,7 @@
 	import Icon from '$lib/components/Icon/Icon.svelte';
 	import Text from '$lib/components/Text/Text.svelte';
 	import type { Color } from '$lib/types.js';
+	import { cleanClass } from '$lib/utils.js';
 	import {
 		mdiAlertOutline,
 		mdiCheckCircleOutline,
@@ -16,10 +17,11 @@
 		color?: Color;
 		icon?: string | false;
 		title?: string;
+		class?: string;
 		children?: Snippet;
 	};
 
-	const { color = 'info', icon: iconOverride, title, children }: Props = $props();
+	const { color = 'info', icon: iconOverride, title, class: className, children }: Props = $props();
 
 	const icons: Partial<Record<Color, string>> = {
 		success: mdiCheckCircleOutline,
@@ -32,9 +34,9 @@
 	);
 </script>
 
-<Card {color} variant="subtle">
+<Card {color} variant="subtle" class={cleanClass(className)}>
 	<CardHeader>
-		<div class="flex gap-2">
+		<div class={cleanClass('flex gap-2')}>
 			{#if icon}
 				<div>
 					<Icon {icon} size="1.5em" class="h-7" />
