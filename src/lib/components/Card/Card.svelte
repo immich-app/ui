@@ -27,7 +27,7 @@
 	}: Props = $props();
 
 	const cardStyles = tv({
-		base: 'rounded-2xl bg-light text-dark shadow-sm w-full overflow-hidden',
+		base: 'flex flex-col rounded-2xl bg-light text-dark shadow-sm w-full overflow-hidden',
 		variants: {
 			defaultStyle: {
 				true: 'border',
@@ -43,12 +43,12 @@
 				info: 'border border-info',
 			},
 			subtleColor: {
-				primary: 'bg-primary/50 dark:bg-primary/25',
+				primary: 'bg-primary/25 dark:bg-primary/25',
 				secondary: 'bg-dark/15 text-dark',
-				success: 'bg-success/25 dark:bg-success/50',
+				success: 'bg-success/15 dark:bg-success/30',
 				danger: 'bg-danger/25 dark:bg-danger/50',
 				warning: 'bg-warning/25 dark:bg-warning/50',
-				info: 'bg-info/25',
+				info: 'bg-info/25 dark:bg-info/50',
 			},
 		},
 	});
@@ -155,9 +155,7 @@
 {/snippet}
 
 {#snippet footer()}
-	<div class="flex items-center p-4 pt-0">
-		{@render footerChildren?.()}
-	</div>
+	{@render footerChildren?.()}
 {/snippet}
 
 <div

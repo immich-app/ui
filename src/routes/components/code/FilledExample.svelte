@@ -3,6 +3,7 @@
 </script>
 
 <Stack>
+	<Code variant="filled" color="muted">console.log('hello world!')</Code>
 	<Code variant="filled" color="primary">console.log('hello world!')</Code>
 	<Code variant="filled" color="secondary">console.log('hello world!')</Code>
 	<Code variant="filled" color="success">console.log('hello world!')</Code>

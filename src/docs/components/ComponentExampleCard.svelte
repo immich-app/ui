@@ -5,7 +5,7 @@
 	import { HighlightSvelte, LineNumbers } from 'svelte-highlight';
 	import atomOneDark from 'svelte-highlight/styles/atom-one-dark';
 
-	const { theme, title, component: Component, code }: ExampleCardProps = $props();
+	const { title, component: Component, code }: ExampleCardProps = $props();
 
 	let viewMode = $state<'code' | 'preview'>('preview');
 
@@ -37,7 +37,7 @@
 	</CardHeader>
 	<CardBody class={viewMode === 'code' ? 'p-0 pt-4' : ''}>
 		{#if viewMode === 'preview'}
-			<Component {theme} />
+			<Component />
 		{:else}
 			<HighlightSvelte code={code.trim().replaceAll(/\t/gm, '  ')} let:highlighted>
 				<LineNumbers {highlighted} hideBorder wrapLines />

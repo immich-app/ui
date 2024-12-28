@@ -14,7 +14,7 @@
 </script>
 
 <Child for={ChildKey.Card} as={ChildKey.CardBody}>
-	<div class={twMerge(cleanClass('w-full p-4', className))}>
+	<div class={twMerge(cleanClass('w-full grow p-4', className))}>
 		{@render children?.()}
 	</div>
 </Child>

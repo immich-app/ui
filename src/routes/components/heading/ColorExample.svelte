@@ -3,6 +3,7 @@
 </script>
 
 <Stack>
+	<Heading size="medium" color="muted">Heading</Heading>
 	<Heading size="medium" color="primary">Heading</Heading>
 	<Heading size="medium" color="secondary">Heading</Heading>
 	<Heading size="medium" color="success">Heading</Heading>

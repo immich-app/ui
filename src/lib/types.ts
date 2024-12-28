@@ -9,8 +9,13 @@ export type Color = 'primary' | 'secondary' | 'success' | 'danger' | 'warning' |
 export type Size = 'tiny' | 'small' | 'medium' | 'large' | 'giant';
 export type HeadingSize = Size | 'title';
 export type Shape = 'rectangle' | 'semi-round' | 'round';
-export type Variants = 'filled' | 'outline' | 'ghost' | 'hero';
+export type Variants = 'filled' | 'outline' | 'ghost';
 export type Gap = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
+
+export enum Theme {
+	Light = 'light',
+	Dark = 'dark',
+}
 
 type ButtonOrAnchor =
 	| ({ href?: never } & HTMLButtonAttributes)

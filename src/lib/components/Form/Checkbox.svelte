@@ -1,10 +1,11 @@
 <script lang="ts">
-	import { Checkbox as CheckboxPrimitive, type WithoutChildrenOrChild } from 'bits-ui';
-	import { mdiCheck, mdiMinus } from '@mdi/js';
+	import { getFieldContext } from '$lib/common/context.svelte.js';
 	import Icon from '$lib/components/Icon/Icon.svelte';
-	import { tv } from 'tailwind-variants';
 	import type { Color, Shape, Size } from '$lib/types.js';
-	import { cleanClass } from '$lib/utils.js';
+	import { cleanClass, generateId } from '$lib/utils.js';
+	import { mdiCheck, mdiMinus } from '@mdi/js';
+	import { Checkbox as CheckboxPrimitive, type WithoutChildrenOrChild } from 'bits-ui';
+	import { tv } from 'tailwind-variants';
 
 	type CheckboxProps = WithoutChildrenOrChild<CheckboxPrimitive.RootProps> & {
 		color?: Color;
@@ -22,8 +23,16 @@
 		...restProps
 	}: CheckboxProps = $props();
 
-	const container = tv({
-		base: 'ring-offset-background focus-visible:ring-ring peer box-content border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[disabled=true]:cursor-not-allowed data-[state=checked]:bg-primary data-[disabled=true]:opacity-50 overflow-hidden',
+	const {
+		label,
+		readOnly = false,
+		required = false,
+		invalid = false,
+		disabled = false,
+	} = $derived(getFieldContext());
+
+	const containerStyles = tv({
+		base: 'border-2 ring-offset-background focus-visible:ring-ring peer box-content focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[disabled=true]:cursor-not-allowed data-[state=checked]:bg-primary data-[disabled=true]:opacity-50 overflow-hidden',
 		variants: {
 			shape: {
 				rectangle: 'rounded-none',
@@ -32,7 +41,7 @@
 			},
 			color: {
 				primary: 'border-primary',
-				secondary: 'border-secondary',
+				secondary: 'border-dark',
 				success: 'border-success',
 				danger: 'border-danger',
 				warning: 'border-warning',
@@ -55,7 +64,7 @@
 		},
 	});
 
-	const icon = tv({
+	const iconStyles = tv({
 		variants: {
 			fullWidth: {
 				true: 'w-full',
@@ -70,24 +79,55 @@
 			},
 		},
 	});
+
+	const labelStyles = tv({
+		base: '',
+		variants: {
+			size: {
+				tiny: 'text-xs',
+				small: 'text-sm',
+				medium: 'text-md',
+				large: 'text-lg',
+				giant: 'text-xl',
+			},
+		},
+	});
+
+	const id = generateId();
+	const inputId = `input-${id}`;
+	const labelId = `label-${id}`;
 </script>
 
-<CheckboxPrimitive.Root
-	bind:ref
-	class={cleanClass(
-		container({ size, color, shape, roundedSize: shape === 'semi-round' ? size : undefined }),
-		className,
-	)}
-	bind:checked
-	{...restProps}
->
-	{#snippet children({ checked, indeterminate })}
-		<div class={cleanClass('flex items-center justify-center text-current')}>
-			{#if indeterminate}
-				<Icon icon={mdiMinus} size="100%" class={cleanClass(icon({ color }))} />
-			{:else if checked}
-				<Icon icon={mdiCheck} size="100%" class={cleanClass(icon({ color }))} />
-			{/if}
-		</div>
-	{/snippet}
-</CheckboxPrimitive.Root>
+<div class="flex flex-col gap-1">
+	{#if label}
+		<label id={labelId} for={inputId} class={labelStyles({ size })}>{label}</label>
+	{/if}
+
+	<CheckboxPrimitive.Root
+		bind:ref
+		class={cleanClass(
+			containerStyles({
+				size,
+				color: invalid ? 'danger' : color,
+				shape,
+				roundedSize: shape === 'semi-round' ? size : undefined,
+			}),
+			className,
+		)}
+		bind:checked
+		disabled={disabled || readOnly}
+		{required}
+		aria-readonly={disabled || readOnly}
+		{...restProps}
+	>
+		{#snippet children({ checked, indeterminate })}
+			<div class={cleanClass('flex items-center justify-center text-current')}>
+				{#if indeterminate}
+					<Icon icon={mdiMinus} size="100%" class={cleanClass(iconStyles({ color }))} />
+				{:else if checked}
+					<Icon icon={mdiCheck} size="100%" class={cleanClass(iconStyles({ color }))} />
+				{/if}
+			</div>
+		{/snippet}
+	</CheckboxPrimitive.Root>
+</div>

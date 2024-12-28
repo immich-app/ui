@@ -3,9 +3,7 @@
 </script>
 
 <Stack>
-	<PasswordInput value="super-secret-password" placeholder="Round" shape="round"></PasswordInput>
-	<PasswordInput value="super-secret-password" placeholder="Semi-Round" shape="semi-round"
-	></PasswordInput>
-	<PasswordInput value="super-secret-password" placeholder="Rectangle" shape="rectangle"
-	></PasswordInput>
+	<PasswordInput value="super-secret-password" placeholder="Round" shape="round" />
+	<PasswordInput value="super-secret-password" placeholder="Semi-Round" shape="semi-round" />
+	<PasswordInput value="super-secret-password" placeholder="Rectangle" shape="rectangle" />
 </Stack>

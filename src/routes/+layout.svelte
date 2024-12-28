@@ -1,9 +1,8 @@
 <script lang="ts">
 	import { page } from '$app/state';
 	import Navbar from '$docs/components/Navbar.svelte';
-	import { componentGroups, Theme } from '$docs/constants.js';
+	import { componentGroups } from '$docs/constants.js';
 	import { asComponentHref } from '$docs/utilities.js';
-	import { syncToDom, theme } from '$lib/services/theme.svelte.js';
 	import {
 		AppShell,
 		AppShellHeader,
@@ -11,6 +10,9 @@
 		IconButton,
 		NavbarGroup,
 		NavbarItem,
+		syncToDom,
+		theme,
+		Theme,
 	} from '@immich/ui';
 	import { mdiHome, mdiWeatherNight, mdiWeatherSunny } from '@mdi/js';
 	import '../app.css';

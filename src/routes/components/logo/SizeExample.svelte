@@ -1,21 +1,14 @@
 <script lang="ts">
-	import type { Theme } from '$docs/constants.js';
 	import { Card, CardBody, HStack, Logo, Stack } from '@immich/ui';
-
-	type Props = {
-		theme: Theme;
-	};
-
-	let { theme }: Props = $props();
 </script>
 
 <Stack>
 	<Card color="secondary" variant="subtle">
 		<CardBody>
 			<HStack>
-				<Logo size="tiny" {theme} variant="logo"></Logo>
-				<Logo size="tiny" {theme} variant="logo"></Logo>
-				<Logo size="tiny" {theme} variant="logo"></Logo>
+				<Logo size="tiny" variant="logo" />
+				<Logo size="tiny" variant="logo" />
+				<Logo size="tiny" variant="logo" />
 			</HStack>
 		</CardBody>
 	</Card>
@@ -23,9 +16,9 @@
 	<Card color="secondary" variant="subtle">
 		<CardBody>
 			<HStack>
-				<Logo size="small" {theme} variant="logo"></Logo>
-				<Logo size="small" {theme} variant="logo"></Logo>
-				<Logo size="small" {theme} variant="logo"></Logo>
+				<Logo size="small" variant="logo" />
+				<Logo size="small" variant="logo" />
+				<Logo size="small" variant="logo" />
 			</HStack>
 		</CardBody>
 	</Card>
@@ -33,9 +26,9 @@
 	<Card color="secondary" variant="subtle">
 		<CardBody>
 			<HStack>
-				<Logo size="medium" {theme} variant="logo"></Logo>
-				<Logo size="medium" {theme} variant="logo"></Logo>
-				<Logo size="medium" {theme} variant="logo"></Logo>
+				<Logo size="medium" variant="logo" />
+				<Logo size="medium" variant="logo" />
+				<Logo size="medium" variant="logo" />
 			</HStack>
 		</CardBody>
 	</Card>
@@ -43,9 +36,9 @@
 	<Card color="secondary" variant="subtle">
 		<CardBody>
 			<HStack>
-				<Logo size="large" {theme} variant="logo"></Logo>
-				<Logo size="large" {theme} variant="logo"></Logo>
-				<Logo size="large" {theme} variant="logo"></Logo>
+				<Logo size="large" variant="logo" />
+				<Logo size="large" variant="logo" />
+				<Logo size="large" variant="logo" />
 			</HStack>
 		</CardBody>
 	</Card>
@@ -53,9 +46,9 @@
 	<Card color="secondary" variant="subtle">
 		<CardBody>
 			<HStack>
-				<Logo size="giant" {theme} variant="logo"></Logo>
-				<Logo size="giant" {theme} variant="logo"></Logo>
-				<Logo size="giant" {theme} variant="logo"></Logo>
+				<Logo size="giant" variant="logo" />
+				<Logo size="giant" variant="logo" />
+				<Logo size="giant" variant="logo" />
 			</HStack>
 		</CardBody>
 	</Card>
@@ -63,9 +56,9 @@
 	<Card color="secondary" variant="subtle">
 		<CardBody>
 			<HStack>
-				<Logo size="landing" {theme} variant="logo"></Logo>
-				<Logo size="landing" {theme} variant="logo"></Logo>
-				<Logo size="landing" {theme} variant="logo"></Logo>
+				<Logo size="landing" variant="logo" />
+				<Logo size="landing" variant="logo" />
+				<Logo size="landing" variant="logo" />
 			</HStack>
 		</CardBody>
 	</Card>

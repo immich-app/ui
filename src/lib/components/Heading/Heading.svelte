@@ -6,7 +6,7 @@
 
 	type Props = {
 		size: HeadingSize;
-		color?: Color;
+		color?: Color | 'muted';
 		class?: string;
 
 		children: Snippet;
@@ -27,6 +27,7 @@
 		base: 'font-bold leading-none tracking-tight',
 		variants: {
 			color: {
+				muted: 'text-gray-600 dark:text-gray-400',
 				primary: 'text-primary',
 				secondary: 'text-dark',
 				success: 'text-success',
