@@ -1,5 +1,7 @@
 <script lang="ts">
-	import { IconButton, Input, type PasswordInputProps } from '@immich/ui';
+	import Input from '$lib/components/Form/Input.svelte';
+	import IconButton from '$lib/components/IconButton/IconButton.svelte';
+	import type { PasswordInputProps } from '$lib/types.js';
 	import { mdiEyeOffOutline, mdiEyeOutline } from '@mdi/js';
 
 	let {

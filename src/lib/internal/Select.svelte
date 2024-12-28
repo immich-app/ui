@@ -3,9 +3,9 @@
 	import Field from '$lib/components/Form/Field.svelte';
 	import Input from '$lib/components/Form/Input.svelte';
 	import Icon from '$lib/components/Icon/Icon.svelte';
+	import IconButton from '$lib/components/IconButton/IconButton.svelte';
 	import type { SelectCommonProps, SelectItem } from '$lib/types.js';
 	import { cleanClass, generateId } from '$lib/utils.js';
-	import { IconButton } from '@immich/ui';
 	import { mdiArrowDown, mdiArrowUp, mdiCheck, mdiUnfoldMoreHorizontal } from '@mdi/js';
 	import { Select } from 'bits-ui';
 	import { tv } from 'tailwind-variants';
@@ -125,7 +125,7 @@
 							class="m-1"
 							icon={mdiUnfoldMoreHorizontal}
 							{disabled}
-						></IconButton>
+						/>
 					{/snippet}
 				</Input>
 			</Field>
@@ -137,7 +137,7 @@
 				sideOffset={10}
 			>
 				<Select.ScrollUpButton class="flex w-full items-center justify-center">
-					<Icon icon={mdiArrowUp}></Icon>
+					<Icon icon={mdiArrowUp} />
 				</Select.ScrollUpButton>
 				<Select.Viewport>
 					{#each options as { value, label, disabled }, i (i + value)}
@@ -166,7 +166,7 @@
 					{/each}
 				</Select.Viewport>
 				<Select.ScrollDownButton class="flex w-full items-center justify-center">
-					<Icon icon={mdiArrowDown}></Icon>
+					<Icon icon={mdiArrowDown} />
 				</Select.ScrollDownButton>
 			</Select.Content>
 		</Select.Portal>

@@ -1,4 +1,4 @@
-import { Theme } from '$docs/constants.js';
+import { Theme } from '$lib/types.js';
 
 export const theme = $state<{ value: Theme }>({ value: Theme.Dark });
 

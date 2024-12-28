@@ -4,7 +4,7 @@
 	import { tv } from 'tailwind-variants';
 
 	type Props = {
-		color?: Color;
+		color?: Color | 'muted';
 		size?: Size;
 		variant?: 'filled';
 		children: Snippet;
@@ -16,6 +16,7 @@
 		base: 'font-monospace',
 		variants: {
 			textColor: {
+				muted: 'text-gray-600 dark:text-gray-400',
 				primary: 'text-primary',
 				secondary: 'text-dark',
 				success: 'text-success',
@@ -31,6 +32,7 @@
 
 			filledColor: {
 				false: '',
+				muted: 'bg-gray-600 dark:bg-gray-800 text-light',
 				primary: 'bg-primary text-light',
 				secondary: 'bg-dark text-light',
 				success: 'bg-success text-light',

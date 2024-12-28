@@ -20,17 +20,15 @@ const readTemplate = (filename) => readFile(join(import.meta.dirname, 'templates
 const getPageData = (component) => {
 	return svelte`
 <script lang="ts">
-	import ExampleLayout from '$docs/components/ExampleLayout.svelte';
+	import ComponentExamples from '$docs/components/ComponentExamples.svelte';
+	import ComponentPage from '$docs/components/ComponentPage.svelte';
 	import BasicExample from './BasicExample.svelte';
 	import basicExample from './BasicExample.svelte?raw';
-
-	const examples = [
-		//
-		{ title: 'Basic', code: basicExample, component: BasicExample },
-	];
 </script>
 
-<ExampleLayout name="${component}" {examples} />
+<ComponentPage name="${component}">
+  <ComponentExamples examples={[{ title: 'Basic', code: basicExample, component: BasicExample }]}/>
+</ComponentPage
 `;
 };
 

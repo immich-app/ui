@@ -3,9 +3,9 @@
 </script>
 
 <HStack wrap>
-	<LoadingSpinner color="primary" size="tiny"></LoadingSpinner>
-	<LoadingSpinner color="primary" size="small"></LoadingSpinner>
-	<LoadingSpinner color="primary" size="medium"></LoadingSpinner>
-	<LoadingSpinner color="primary" size="large"></LoadingSpinner>
-	<LoadingSpinner color="primary" size="giant"></LoadingSpinner>
+	<LoadingSpinner color="primary" size="tiny" />
+	<LoadingSpinner color="primary" size="small" />
+	<LoadingSpinner color="primary" size="medium" />
+	<LoadingSpinner color="primary" size="large" />
+	<LoadingSpinner color="primary" size="giant" />
 </HStack>

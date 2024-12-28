@@ -1,9 +1,10 @@
 <script lang="ts">
-	import ExampleLayout from '$docs/components/ExampleLayout.svelte';
-	import basicExample from './BasicExample.svelte?raw';
+	import ComponentExamples from '$docs/components/ComponentExamples.svelte';
+	import ComponentPage from '$docs/components/ComponentPage.svelte';
 	import BasicExample from './BasicExample.svelte';
-
-	const examples = [{ title: 'Basic', code: basicExample, component: BasicExample }];
+	import basicExample from './BasicExample.svelte?raw';
 </script>
 
-<ExampleLayout name="Link" {examples}></ExampleLayout>
+<ComponentPage name="Link">
+	<ComponentExamples examples={[{ title: 'Basic', code: basicExample, component: BasicExample }]} />
+</ComponentPage>

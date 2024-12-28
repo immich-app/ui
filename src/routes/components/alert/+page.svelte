@@ -1,17 +1,20 @@
 <script lang="ts">
-	import ExampleLayout from '$docs/components/ExampleLayout.svelte';
+	import ComponentExamples from '$docs/components/ComponentExamples.svelte';
+	import ComponentPage from '$docs/components/ComponentPage.svelte';
 	import BasicExample from './BasicExample.svelte';
 	import basicExample from './BasicExample.svelte?raw';
 	import ColorExample from './ColorExample.svelte';
 	import colorExample from './ColorExample.svelte?raw';
 	import CustomIconExample from './CustomIconExample.svelte';
 	import customIconExample from './CustomIconExample.svelte?raw';
-
-	const examples = [
-		{ title: 'Basic', code: basicExample, component: BasicExample },
-		{ title: 'Color', code: colorExample, component: ColorExample },
-		{ title: 'Custom Icon', code: customIconExample, component: CustomIconExample },
-	];
 </script>
 
-<ExampleLayout name="Alert" {examples} />
+<ComponentPage name="Alert">
+	<ComponentExamples
+		examples={[
+			{ title: 'Basic', code: basicExample, component: BasicExample },
+			{ title: 'Color', code: colorExample, component: ColorExample },
+			{ title: 'Custom Icon', code: customIconExample, component: CustomIconExample },
+		]}
+	/>
+</ComponentPage>

@@ -27,5 +27,4 @@
 		<Icon size="1.5em" class="shrink-0" aria-hidden={true} {...iconProps} />
 		<span class="text-sm font-medium">{title}</span>
 	</div>
-	<div></div>
 </a>

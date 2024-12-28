@@ -32,18 +32,13 @@ export enum DisplayOption {
 	Dark = 'dark',
 }
 
-export enum Theme {
-	Light = 'light',
-	Dark = 'dark',
-}
-
 export type ExampleItem = {
 	title: string;
 	code: string;
-	component: Component | Component<{ theme: Theme }>;
+	component: Component;
 };
 
-export type ExampleCardProps = ExampleItem & { theme: Theme };
+export type ExampleCardProps = ExampleItem;
 
 export const componentGroups = [
 	{

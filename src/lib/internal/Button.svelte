@@ -1,7 +1,7 @@
 <script lang="ts">
+	import LoadingSpinner from '$lib/components/LoadingSpinner/LoadingSpinner.svelte';
 	import type { ButtonProps, Size } from '$lib/types.js';
 	import { cleanClass } from '$lib/utils.js';
-	import { LoadingSpinner } from '@immich/ui';
 	import { Button as ButtonPrimitive } from 'bits-ui';
 	import type { HTMLAnchorAttributes, HTMLButtonAttributes } from 'svelte/elements';
 	import { twMerge } from 'tailwind-merge';
@@ -84,14 +84,6 @@
 				warning: 'bg-warning/10 text-warning border border-warning hover:bg-warning/20',
 				info: 'bg-info/10 text-info border border-info hover:bg-info/20',
 			},
-			heroColor: {
-				primary: 'bg-gradient-to-tr from-primary to-primary/60 text-light hover:bg-primary',
-				secondary: 'bg-gradient-to-tr from-dark to-dark/60 text-light hover:bg-dark',
-				success: 'bg-gradient-to-tr from-success to-success/60 text-light hover:bg-success',
-				danger: 'bg-gradient-to-tr from-danger to-danger/60 text-light hover:bg-danger',
-				warning: 'bg-gradient-to-tr from-warning to-warning/60 text-light hover:bg-warning',
-				info: 'bg-gradient-to-tr from-info to-info/60 text-light hover:bg-info',
-			},
 			ghostColor: {
 				primary: 'text-primary hover:bg-primary/10',
 				secondary: 'text-dark hover:bg-dark/10',
@@ -123,7 +115,6 @@
 					roundedSize: shape === 'semi-round' ? size : undefined,
 					filledColor: variant === 'filled' ? color : undefined,
 					outlineColor: variant === 'outline' ? color : undefined,
-					heroColor: variant === 'hero' ? color : undefined,
 					ghostColor: variant === 'ghost' ? color : undefined,
 				}),
 				className,
