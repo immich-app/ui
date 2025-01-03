@@ -6,6 +6,8 @@ import type {
 } from 'svelte/elements';
 
 export type Color = 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info';
+export type TextColor = Color | 'muted';
+export type HeadingColor = TextColor;
 export type Size = 'tiny' | 'small' | 'medium' | 'large' | 'giant';
 export type HeadingSize = Size | 'title';
 export type Shape = 'rectangle' | 'semi-round' | 'round';
@@ -16,21 +18,6 @@ export enum Theme {
 	Light = 'light',
 	Dark = 'dark',
 }
-
-type ButtonOrAnchor =
-	| ({ href?: never } & HTMLButtonAttributes)
-	| ({ href: string } & HTMLAnchorAttributes);
-
-export type CloseButtonProps = {
-	size?: Size;
-	variant?: Variants;
-};
-
-type ButtonBaseProps = CloseButtonProps & {
-	class?: string;
-	color?: Color;
-	shape?: Shape;
-} & ButtonOrAnchor;
 
 export type IconProps = {
 	icon: string;
@@ -47,11 +34,34 @@ export type IconProps = {
 	strokeColor?: string;
 };
 
-export type IconButtonProps = ButtonBaseProps & IconProps;
-export type ButtonProps = ButtonBaseProps & {
+type ButtonOrAnchor =
+	| ({ href?: never } & HTMLButtonAttributes)
+	| ({ href: string } & HTMLAnchorAttributes);
+
+type ButtonBase = {
+	size?: Size;
+	variant?: Variants;
+	class?: string;
+	color?: Color;
+	shape?: Shape;
+};
+
+export type ButtonProps = ButtonBase & {
 	fullWidth?: boolean;
 	loading?: boolean;
-};
+} & ButtonOrAnchor;
+
+export type CloseButtonProps = {
+	size?: Size;
+	variant?: Variants;
+	class?: string;
+} & ButtonOrAnchor;
+
+export type IconButtonProps = ButtonBase & {
+	icon: string;
+	flipped?: boolean;
+	flopped?: boolean;
+} & ButtonOrAnchor;
 
 type StackBaseProps = {
 	class?: string;

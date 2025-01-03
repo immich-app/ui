@@ -1,5 +1,13 @@
 <script lang="ts">
+	import Button from '$lib/internal/Button.svelte';
 	import { CloseButton } from '@immich/ui';
+
+	let isOpen = $state(true);
+	const handleToggle = () => (isOpen = !isOpen);
 </script>
 
-<CloseButton />
+{#if isOpen}
+	<CloseButton onclick={handleToggle} />
+{:else}
+	<Button variant="ghost" shape="round" onclick={handleToggle}>Reset</Button>
+{/if}

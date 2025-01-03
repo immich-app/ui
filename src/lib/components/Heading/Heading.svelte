@@ -1,12 +1,12 @@
 <script lang="ts">
-	import type { Color, HeadingSize } from '$lib/types.js';
+	import type { HeadingColor, HeadingSize } from '$lib/types.js';
 	import { cleanClass } from '$lib/utils.js';
 	import type { Snippet } from 'svelte';
 	import { tv } from 'tailwind-variants';
 
 	type Props = {
 		size: HeadingSize;
-		color?: Color | 'muted';
+		color?: HeadingColor;
 		class?: string;
 
 		children: Snippet;
