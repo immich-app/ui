@@ -2,17 +2,17 @@
 	import Text from '$lib/components/Text/Text.svelte';
 	import { ChildKey } from '$lib/constants.js';
 	import Child from '$lib/internal/Child.svelte';
-	import type { Color } from '$lib/types.js';
+	import type { TextColor } from '$lib/types.js';
 	import { cleanClass } from '$lib/utils.js';
 	import type { Snippet } from 'svelte';
 
 	type Props = {
-		color?: Color;
+		color?: TextColor;
 		class?: string;
 		children?: Snippet;
 	};
 
-	let { class: className, children, color }: Props = $props();
+	let { class: className, children, color = 'muted' }: Props = $props();
 </script>
 
 <Child for={ChildKey.Field} as={ChildKey.HelperText}>

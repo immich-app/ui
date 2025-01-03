@@ -1,11 +1,11 @@
 <script lang="ts">
-	import type { Color, Size } from '$lib/types.js';
+	import type { Size, TextColor } from '$lib/types.js';
 	import { cleanClass } from '$lib/utils.js';
 	import type { Snippet } from 'svelte';
 	import { tv } from 'tailwind-variants';
 
 	type Props = {
-		color?: Color | 'muted';
+		color?: TextColor;
 		class?: string;
 		size?: Size;
 		children: Snippet;
