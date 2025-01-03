@@ -40,10 +40,6 @@
 
 	let open = $state(true);
 
-	if (duration) {
-		setTimeout(() => handleClose(), duration);
-	}
-
 	const handleClose = () => {
 		if (!open) {
 			return;
@@ -55,6 +51,10 @@
 
 		onClose?.();
 	};
+
+	if (duration) {
+		setTimeout(handleClose, duration);
+	}
 
 	const icons: Partial<Record<Color, string>> = {
 		success: mdiCheckCircleOutline,
