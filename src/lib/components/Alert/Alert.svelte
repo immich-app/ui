@@ -4,7 +4,7 @@
 	import Icon from '$lib/components/Icon/Icon.svelte';
 	import Text from '$lib/components/Text/Text.svelte';
 	import CloseButton from '$lib/components/CloseButton/CloseButton.svelte';
-	import type { Color } from '$lib/types.js';
+	import type { Color, Size } from '$lib/types.js';
 	import { cleanClass } from '$lib/utils.js';
 	import {
 		mdiAlertOutline,
@@ -16,6 +16,7 @@
 
 	type Props = {
 		color?: Color;
+		size?: Size;
 		icon?: string | false;
 		title?: string;
 		class?: string;
@@ -29,6 +30,7 @@
 	const {
 		color = 'primary',
 		icon: iconOverride,
+		size = 'large',
 		title,
 		class: className,
 		duration,
@@ -39,6 +41,14 @@
 	}: Props = $props();
 
 	let open = $state(true);
+
+	const iconSizes: Record<Size, string> = {
+		tiny: '1em',
+		small: '1.25em',
+		medium: '1.5em',
+		large: '1.75em',
+		giant: '1.85em',
+	};
 
 	const handleClose = () => {
 		if (!open) {
@@ -74,13 +84,13 @@
 				<div class={cleanClass('flex gap-2')}>
 					{#if icon}
 						<div>
-							<Icon {icon} size="1.5em" class="h-7" />
+							<Icon {icon} size={iconSizes[size]} />
 						</div>
 					{/if}
 
 					<div class="flex flex-col gap-2">
 						{#if title}
-							<Text size="large" fontWeight={children ? 'bold' : undefined}>{title}</Text>
+							<Text {size} fontWeight={children ? 'bold' : undefined}>{title}</Text>
 						{/if}
 						{#if children}
 							{@render children()}
