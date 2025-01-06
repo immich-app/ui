@@ -44,9 +44,9 @@
 			},
 			subtleColor: {
 				primary: 'bg-primary/25 dark:bg-primary/25',
-				secondary: 'bg-dark/15 text-dark',
+				secondary: 'bg-dark/5 dark:bg-dark/25 text-dark',
 				success: 'bg-success/15 dark:bg-success/30',
-				danger: 'bg-danger/25 dark:bg-danger/50',
+				danger: 'bg-danger/15 dark:bg-danger/50',
 				warning: 'bg-warning/25 dark:bg-warning/50',
 				info: 'bg-info/25 dark:bg-info/50',
 			},
