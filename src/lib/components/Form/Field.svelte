@@ -3,6 +3,7 @@
 	import { withChildrenSnippets } from '$lib/common/use-child.svelte.js';
 	import { ChildKey } from '$lib/constants.js';
 	import type { FieldContext } from '$lib/types.js';
+	import { cleanClass } from '$lib/utils.js';
 	import { type Snippet } from 'svelte';
 
 	type Props = FieldContext & {
@@ -22,8 +23,8 @@
 <div>
 	{@render children()}
 	{#if helperTextChildren}
-		<div class="pt-1">
-			{@render helperTextChildren?.()}
+		<div class={cleanClass('pt-1', helperTextChildren.class)}>
+			{@render helperTextChildren.snippet()}
 		</div>
 	{/if}
 </div>

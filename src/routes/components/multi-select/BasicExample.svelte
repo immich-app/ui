@@ -1,6 +1,5 @@
 <script>
-	import Stack from '$lib/components/Stack/Stack.svelte';
-	import { Field, MultiSelect } from '@immich/ui';
+	import { Field, MultiSelect, Stack } from '@immich/ui';
 </script>
 
 <Stack class="mb-8 max-w-[250px]" gap={8}>

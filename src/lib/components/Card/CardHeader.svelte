@@ -4,12 +4,13 @@
 	import type { Snippet } from 'svelte';
 
 	type Props = {
+		class?: string;
 		children: Snippet;
 	};
 
-	let { children }: Props = $props();
+	let { class: className, children }: Props = $props();
 </script>
 
-<Child for={ChildKey.Card} as={ChildKey.CardHeader}>
+<Child for={ChildKey.Card} as={ChildKey.CardHeader} class={className}>
 	{@render children?.()}
 </Child>

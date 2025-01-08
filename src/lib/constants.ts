@@ -8,4 +8,8 @@ export enum ChildKey {
 	CardHeader = 'card-header',
 	CardBody = 'card-body',
 	CardFooter = 'card-footer',
+	Modal = 'modal',
+	ModalHeader = 'modal-header',
+	ModalBody = 'modal-body',
+	ModalFooter = 'modal-footer',
 }

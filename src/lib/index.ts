@@ -22,6 +22,9 @@ export { default as CardDescription } from '$lib/components/Card/CardDescription
 export { default as CardFooter } from '$lib/components/Card/CardFooter.svelte';
 export { default as CardHeader } from '$lib/components/Card/CardHeader.svelte';
 export { default as CardTitle } from '$lib/components/Card/CardTitle.svelte';
+export { default as Modal } from '$lib/components/Modal/Modal.svelte';
+export { default as ModalBody } from '$lib/components/Modal/ModalBody.svelte';
+export { default as ModalFooter } from '$lib/components/Modal/ModalFooter.svelte';
 export { default as CloseButton } from '$lib/components/CloseButton/CloseButton.svelte';
 export { default as Code } from '$lib/components/Code/Code.svelte';
 export { default as Checkbox } from '$lib/components/Form/Checkbox.svelte';

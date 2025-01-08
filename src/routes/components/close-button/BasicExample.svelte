@@ -1,6 +1,5 @@
 <script lang="ts">
-	import Button from '$lib/internal/Button.svelte';
-	import { CloseButton } from '@immich/ui';
+	import { Button, CloseButton } from '@immich/ui';
 
 	let isOpen = $state(true);
 	const handleToggle = () => (isOpen = !isOpen);

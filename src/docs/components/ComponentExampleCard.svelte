@@ -35,7 +35,7 @@
 			</HStack>
 		</div>
 	</CardHeader>
-	<CardBody class={viewMode === 'code' ? 'p-0 pt-4' : ''}>
+	<CardBody class={viewMode === 'code' ? 'p-0' : ''}>
 		{#if viewMode === 'preview'}
 			<Component />
 		{:else}
