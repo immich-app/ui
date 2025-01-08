@@ -12,7 +12,7 @@
 		children: Snippet;
 	};
 
-	const { color, size, class: className, children }: Props = $props();
+	const { color, size = 'medium', class: className, children }: Props = $props();
 
 	const sizes = {
 		title: 'h1',
