@@ -103,7 +103,7 @@
 			onclick={onToggle}
 			class={cleanClass('flex w-full items-center justify-between px-4', headerContainerClasses)}
 		>
-			<div class="flex flex-col space-y-1.5">
+			<div class="flex flex-col">
 				{@render headerChild?.snippet()}
 			</div>
 			<div>
@@ -118,7 +118,7 @@
 			</div>
 		</button>
 	{:else}
-		<div class={cleanClass('flex flex-col space-y-1.5', headerContainerClasses)}>
+		<div class={cleanClass('flex flex-col', headerContainerClasses)}>
 			{@render headerChild?.snippet()}
 		</div>
 	{/if}
