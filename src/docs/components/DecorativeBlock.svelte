@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Color, Size } from '$lib/types.js';
+	import type { Color, Size } from '@immich/ui';
 	import { cleanClass } from '$lib/utils.js';
 	import { tv } from 'tailwind-variants';
 

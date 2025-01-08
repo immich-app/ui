@@ -1,48 +1,52 @@
 <script lang="ts">
 	import { withChildrenSnippets } from '$lib/common/use-child.svelte.js';
 	import IconButton from '$lib/components/IconButton/IconButton.svelte';
+	import Scrollable from '$lib/components/Scrollable/Scrollable.svelte';
 	import { ChildKey } from '$lib/constants.js';
-	import type { Color, Shape } from '$lib/types.js';
+	import type { Color } from '$lib/types.js';
 	import { cleanClass } from '$lib/utils.js';
 	import { mdiChevronDown } from '@mdi/js';
 	import { type Snippet } from 'svelte';
 	import type { HTMLAttributes } from 'svelte/elements';
+	import { twMerge } from 'tailwind-merge';
 	import { tv } from 'tailwind-variants';
 
 	type Props = HTMLAttributes<HTMLDivElement> & {
 		color?: Color;
-		shape?: Shape;
-		variant?: 'filled' | 'outline' | 'subtle';
+		shape?: 'round' | 'rectangle';
+		expanded?: boolean;
 		expandable?: boolean;
 		children: Snippet;
 	};
 
 	let {
-		color = 'secondary',
+		color,
 		class: className,
+		shape = 'round',
+		expanded = $bindable(true),
 		expandable = false,
-		variant,
 		children,
 		...restProps
 	}: Props = $props();
 
-	const cardStyles = tv({
-		base: 'flex flex-col rounded-2xl bg-light text-dark shadow-sm w-full overflow-hidden',
+	const containerStyles = tv({
+		base: 'w-full overflow-hidden bg-light text-dark shadow-sm',
 		variants: {
-			defaultStyle: {
+			shape: {
+				rectangle: '',
+				round: 'rounded-2xl',
+			},
+			border: {
 				true: 'border',
 				false: '',
-				default: '',
 			},
-			outlineColor: {
-				primary: 'border border-primary',
-				secondary: 'border',
-				success: 'border border-success',
-				danger: 'border border-danger',
-				warning: 'border border-warning',
-				info: 'border border-info',
-			},
-			subtleColor: {
+		},
+	});
+
+	const cardStyles = tv({
+		base: 'flex flex-col w-full h-full',
+		variants: {
+			color: {
 				primary: 'bg-primary/25 dark:bg-primary/25',
 				secondary: 'bg-dark/5 dark:bg-dark/25 text-dark',
 				success: 'bg-success/15 dark:bg-success/30',
@@ -54,132 +58,103 @@
 	});
 
 	const headerContainerStyles = tv({
+		base: 'p-4',
 		variants: {
-			bottomPadding: {
+			padding: {
 				true: '',
 				false: 'pb-0',
 			},
-			filledColor: {
-				primary: 'bg-primary text-light rounded-t-xl',
-				secondary: 'bg-dark text-light rounded-t-xl',
-				success: 'bg-success text-light rounded-t-xl',
-				danger: 'bg-danger text-light rounded-t-xl',
-				warning: 'bg-warning text-black rounded-t-xl',
-				info: 'bg-info text-light rounded-t-xl',
-			},
-			outlineColor: {
-				primary: 'text-primary',
-				secondary: 'text-dark',
-				success: 'text-success',
-				danger: 'text-danger',
-				warning: 'text-warning',
-				info: 'text-info',
+			border: {
+				true: 'border-b',
+				false: '',
 			},
 		},
 	});
 
-	const iconStyles = tv({
-		variants: {
-			filledColor: {
-				primary: 'text-light',
-				secondary: 'text-light',
-				success: 'text-light',
-				danger: 'text-light',
-				warning: 'text-dark',
-				info: 'text-light',
-			},
-			outlineColor: {
-				primary: 'text-primary',
-				secondary: 'text-dark',
-				success: 'text-success',
-				danger: 'text-danger',
-				warning: 'text-warning',
-				info: 'text-info',
-			},
-		},
-	});
-
-	let expanded = $state(!expandable);
 	const onToggle = () => {
 		expanded = !expanded;
 	};
 
 	const { getChildren: getChildSnippet } = withChildrenSnippets(ChildKey.Card);
-	const headerChildren = $derived(getChildSnippet(ChildKey.CardHeader));
-	const bodyChildren = $derived(getChildSnippet(ChildKey.CardBody));
-	const footerChildren = $derived(getChildSnippet(ChildKey.CardFooter));
+	const headerChild = $derived(getChildSnippet(ChildKey.CardHeader));
+	const bodyChild = $derived(getChildSnippet(ChildKey.CardBody));
+	const footerChild = $derived(getChildSnippet(ChildKey.CardFooter));
 
-	const headerClasses = 'flex flex-col space-y-1.5';
+	const headerBorder = $derived(!color);
+	const headerPadding = $derived(headerBorder || !expanded);
+
 	const headerContainerClasses = $derived(
-		cleanClass(
-			headerContainerStyles({
-				bottomPadding: variant === 'filled' || !bodyChildren,
-				outlineColor: variant === 'outline' ? color : undefined,
-				filledColor: variant === 'filled' ? color : undefined,
-			}),
+		twMerge(
+			cleanClass(
+				headerContainerStyles({
+					padding: headerPadding,
+					border: headerBorder,
+				}),
+				headerChild?.class,
+			),
 		),
 	);
 </script>
 
 {#snippet header()}
 	{#if expandable}
-		<button type="button" onclick={onToggle} class="w-full">
-			<div class={cleanClass(headerContainerClasses, 'flex items-center justify-between px-4')}>
-				<div class={cleanClass(headerClasses, 'py-4')}>
-					{@render headerChildren?.()}
-				</div>
-				<div>
-					<IconButton
-						class={iconStyles({
-							filledColor: variant === 'filled' ? color : undefined,
-							outlineColor: variant === 'outline' ? color : undefined,
-						}) as Color}
-						icon={mdiChevronDown}
-						flopped={expanded}
-						variant="ghost"
-						shape="round"
-						size="large"
-					/>
-				</div>
+		<button
+			type="button"
+			onclick={onToggle}
+			class={cleanClass('flex w-full items-center justify-between px-4', headerContainerClasses)}
+		>
+			<div class="flex flex-col space-y-1.5">
+				{@render headerChild?.snippet()}
+			</div>
+			<div>
+				<IconButton
+					color="secondary"
+					icon={mdiChevronDown}
+					flopped={expanded}
+					variant="ghost"
+					shape="round"
+					size="large"
+				/>
 			</div>
 		</button>
 	{:else}
-		<div class={cleanClass(headerClasses, headerContainerClasses, 'p-4')}>
-			{@render headerChildren?.()}
+		<div class={cleanClass('flex flex-col space-y-1.5', headerContainerClasses)}>
+			{@render headerChild?.snippet()}
 		</div>
 	{/if}
 {/snippet}
 
-{#snippet body()}
-	{@render bodyChildren?.()}
-{/snippet}
-
-{#snippet footer()}
-	{@render footerChildren?.()}
-{/snippet}
-
 <div
 	class={cleanClass(
-		cardStyles({
-			defaultStyle: variant === undefined,
-			outlineColor: variant === 'outline' || variant === 'filled' ? color : undefined,
-			subtleColor: variant === 'subtle' ? color : undefined,
+		containerStyles({
+			shape,
+			border: !color,
 		}),
 		className,
 	)}
 	{...restProps}
 >
-	{#if headerChildren}
-		{@render header()}
-	{/if}
+	<div class={cleanClass(cardStyles({ color }))}>
+		{#if headerChild}
+			{@render header()}
+		{/if}
 
-	{#if bodyChildren && expanded}
-		{@render body()}
-	{/if}
+		{#if bodyChild && expanded}
+			<Scrollable class={twMerge(cleanClass('p-4', bodyChild?.class))}>
+				{@render bodyChild?.snippet()}
+			</Scrollable>
+		{/if}
 
-	{#if footerChildren}
-		{@render footer()}
-	{/if}
+		{#if footerChild}
+			<div
+				class={twMerge(
+					cleanClass('flex items-center border-t border-t-subtle p-4', footerChild.class),
+				)}
+			>
+				{@render footerChild.snippet()}
+			</div>
+		{/if}
 
-	{@render children()}
+		{@render children()}
+	</div>
 </div>

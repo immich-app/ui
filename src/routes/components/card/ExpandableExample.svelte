@@ -13,25 +13,7 @@
 		</CardBody>
 	</Card>
 
-	<Card variant="outline" color="primary" expandable>
-		<CardHeader>
-			<CardTitle>Title</CardTitle>
-		</CardHeader>
-		<CardBody>
-			<Lorem />
-		</CardBody>
-	</Card>
-
-	<Card variant="subtle" color="primary" expandable>
-		<CardHeader>
-			<CardTitle>Title</CardTitle>
-		</CardHeader>
-		<CardBody>
-			<Lorem />
-		</CardBody>
-	</Card>
-
-	<Card variant="filled" color="secondary" expandable>
+	<Card color="primary" expandable>
 		<CardHeader>
 			<CardTitle>Title</CardTitle>
 		</CardHeader>

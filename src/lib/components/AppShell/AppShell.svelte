@@ -20,12 +20,12 @@
 <div class={cleanClass('flex h-screen flex-col overflow-hidden', className)}>
 	{#if header}
 		<header class="border-b">
-			{@render header?.()}
+			{@render header?.snippet()}
 		</header>
 	{/if}
 	<div class="flex w-full grow overflow-y-auto">
 		{#if sidebar}
-			{@render sidebar()}
+			{@render sidebar?.snippet()}
 		{/if}
 		<Scrollable class="grow">
 			{@render children?.()}

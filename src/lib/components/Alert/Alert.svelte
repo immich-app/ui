@@ -1,9 +1,9 @@
 <script lang="ts">
 	import Card from '$lib/components/Card/Card.svelte';
-	import CardHeader from '$lib/components/Card/CardHeader.svelte';
+	import CardBody from '$lib/components/Card/CardBody.svelte';
+	import CloseButton from '$lib/components/CloseButton/CloseButton.svelte';
 	import Icon from '$lib/components/Icon/Icon.svelte';
 	import Text from '$lib/components/Text/Text.svelte';
-	import CloseButton from '$lib/components/CloseButton/CloseButton.svelte';
 	import type { Color, Size } from '$lib/types.js';
 	import { cleanClass } from '$lib/utils.js';
 	import {
@@ -78,9 +78,9 @@
 </script>
 
 {#if open}
-	<Card {color} variant="subtle" class={cleanClass(className)}>
-		<CardHeader>
-			<div class="flex justify-between">
+	<Card {color} class={cleanClass(className)}>
+		<CardBody>
+			<div class="flex items-center justify-between">
 				<div class={cleanClass('flex gap-2')}>
 					{#if icon}
 						<div>
@@ -103,6 +103,6 @@
 					</div>
 				{/if}
 			</div>
-		</CardHeader>
+		</CardBody>
 	</Card>
 {/if}

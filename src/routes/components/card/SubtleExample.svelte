@@ -4,7 +4,7 @@
 </script>
 
 <Stack>
-	<Card variant="subtle" color="primary">
+	<Card color="primary">
 		<CardHeader>
 			<CardTitle>Title</CardTitle>
 		</CardHeader>
@@ -13,7 +13,7 @@
 		</CardBody>
 	</Card>
 
-	<Card variant="subtle" color="secondary">
+	<Card color="secondary">
 		<CardHeader>
 			<CardTitle>Title</CardTitle>
 		</CardHeader>
@@ -22,7 +22,7 @@
 		</CardBody>
 	</Card>
 
-	<Card variant="subtle" color="success">
+	<Card color="success">
 		<CardHeader>
 			<CardTitle>Title</CardTitle>
 		</CardHeader>
@@ -31,7 +31,7 @@
 		</CardBody>
 	</Card>
 
-	<Card variant="subtle" color="info">
+	<Card color="info">
 		<CardHeader>
 			<CardTitle>Title</CardTitle>
 		</CardHeader>
@@ -40,7 +40,7 @@
 		</CardBody>
 	</Card>
 
-	<Card variant="subtle" color="warning">
+	<Card color="warning">
 		<CardHeader>
 			<CardTitle>Title</CardTitle>
 		</CardHeader>
@@ -49,7 +49,7 @@
 		</CardBody>
 	</Card>
 
-	<Card variant="subtle" color="danger">
+	<Card color="danger">
 		<CardHeader>
 			<CardTitle>Title</CardTitle>
 		</CardHeader>

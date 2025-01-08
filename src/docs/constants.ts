@@ -24,6 +24,7 @@ import {
 	mdiPartyPopper,
 	mdiToggleSwitch,
 	mdiViewSequential,
+	mdiWindowMaximize,
 } from '@mdi/js';
 import type { Component } from 'svelte';
 
@@ -49,6 +50,7 @@ export const componentGroups = [
 			{ name: 'AppShell', icon: mdiApplicationOutline },
 			{ name: 'Card', icon: mdiCardOutline },
 			{ name: 'Navbar', icon: mdiMenu },
+			{ name: 'Modal', icon: mdiWindowMaximize },
 			{ name: 'Scrollable', icon: mdiPanVertical },
 			{ name: 'Stack', icon: mdiViewSequential },
 		],

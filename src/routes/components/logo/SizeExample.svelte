@@ -3,7 +3,7 @@
 </script>
 
 <Stack>
-	<Card color="secondary" variant="subtle">
+	<Card color="secondary">
 		<CardBody>
 			<HStack>
 				<Logo size="tiny" variant="logo" />
@@ -13,7 +13,7 @@
 		</CardBody>
 	</Card>
 
-	<Card color="secondary" variant="subtle">
+	<Card color="secondary">
 		<CardBody>
 			<HStack>
 				<Logo size="small" variant="logo" />
@@ -23,7 +23,7 @@
 		</CardBody>
 	</Card>
 
-	<Card color="secondary" variant="subtle">
+	<Card color="secondary">
 		<CardBody>
 			<HStack>
 				<Logo size="medium" variant="logo" />
@@ -33,7 +33,7 @@
 		</CardBody>
 	</Card>
 
-	<Card color="secondary" variant="subtle">
+	<Card color="secondary">
 		<CardBody>
 			<HStack>
 				<Logo size="large" variant="logo" />
@@ -43,7 +43,7 @@
 		</CardBody>
 	</Card>
 
-	<Card color="secondary" variant="subtle">
+	<Card color="secondary">
 		<CardBody>
 			<HStack>
 				<Logo size="giant" variant="logo" />
@@ -53,7 +53,7 @@
 		</CardBody>
 	</Card>
 
-	<Card color="secondary" variant="subtle">
+	<Card color="secondary">
 		<CardBody>
 			<HStack>
 				<Logo size="landing" variant="logo" />
