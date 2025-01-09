@@ -34,6 +34,7 @@ export { default as FormatBytes } from '$lib/components/FormatBytes/FormatBytes.
 export { default as Heading } from '$lib/components/Heading/Heading.svelte';
 export { default as Icon } from '$lib/components/Icon/Icon.svelte';
 export { default as IconButton } from '$lib/components/IconButton/IconButton.svelte';
+export { default as Kbd } from '$lib/components/Kbd/Kbd.svelte';
 export { default as Link } from '$lib/components/Link/Link.svelte';
 export { default as LoadingSpinner } from '$lib/components/LoadingSpinner/LoadingSpinner.svelte';
 export { default as Logo } from '$lib/components/Logo/Logo.svelte';
