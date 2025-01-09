@@ -16,6 +16,7 @@ import {
 	mdiHelpBoxOutline,
 	mdiHomeCircle,
 	mdiImage,
+	mdiKeyboardVariant,
 	mdiLink,
 	mdiListBoxOutline,
 	mdiMenu,
@@ -77,6 +78,7 @@ export const componentGroups = [
 		title: 'Text',
 		components: [
 			{ name: 'Code', icon: mdiCodeBraces },
+			{ name: 'Kbd', icon: mdiKeyboardVariant },
 			{ name: 'Text', icon: mdiFormatHeaderPound },
 			{ name: 'Heading', icon: mdiFormTextbox },
 			{ name: 'Link', icon: mdiLink },
