@@ -24,11 +24,11 @@
 		base: 'flex h-full w-full select-none items-center justify-center font-medium',
 		variants: {
 			size: {
-				tiny: 'w-5 h-5 text-xs',
-				small: 'w-7 h-7 text-sm',
-				medium: 'w-10 h-10 text-md',
-				large: 'w-12 h-12 text-lg',
-				giant: 'w-16 h-16 text-xl',
+				tiny: 'h-5 w-5 text-xs',
+				small: 'h-7 w-7 text-sm',
+				medium: 'text-md h-10 w-10',
+				large: 'h-12 w-12 text-lg',
+				giant: 'h-16 w-16 text-xl',
 			},
 			color: {
 				primary: 'bg-primary text-light',
@@ -46,7 +46,7 @@
 	});
 
 	const wrapper = tv({
-		base: 'overflow-hidden shadow-md rounded rounded-full',
+		base: 'overflow-hidden rounded-full shadow-md',
 	});
 
 	const getInitials = (name: string) => {

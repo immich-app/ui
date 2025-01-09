@@ -32,7 +32,7 @@
 
 			filledColor: {
 				false: '',
-				muted: 'bg-gray-600 dark:bg-gray-800 text-light',
+				muted: 'bg-gray-600 text-light dark:bg-gray-800',
 				primary: 'bg-primary text-light',
 				secondary: 'bg-dark text-light',
 				success: 'bg-success text-light',

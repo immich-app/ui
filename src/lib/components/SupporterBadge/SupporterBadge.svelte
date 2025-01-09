@@ -24,7 +24,7 @@
 	};
 
 	const containerStyles = tv({
-		base: 'bg-secondary flex place-items-center gap-2 overflow-hidden rounded-lg  transition-all',
+		base: 'bg-secondary flex place-items-center gap-2 overflow-hidden rounded-lg transition-all',
 		variants: {
 			size: {
 				tiny: 'px-2 py-1',
@@ -34,8 +34,8 @@
 				giant: 'px-3 py-2',
 			},
 			effect: {
-				hover: 'border border-dark/25 supporter-effect-hover',
-				always: 'shadow supporter-effect',
+				hover: 'supporter-effect-hover border border-dark/25',
+				always: 'supporter-effect shadow',
 			},
 		},
 	});

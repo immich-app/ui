@@ -43,7 +43,7 @@
 	});
 
 	const bar = tv({
-		base: 'w-12 h-3 my-2 rounded-full border border-transparent',
+		base: 'my-2 h-3 w-12 rounded-full border border-transparent',
 		variants: {
 			fillColor: {
 				default: 'bg-gray-400',
@@ -58,7 +58,7 @@
 	});
 
 	const dot = tv({
-		base: 'absolute transition-colors h-6 w-6 rounded-full transition-transform duration-[400ms]',
+		base: 'absolute h-6 w-6 rounded-full transition-transform duration-[400ms]',
 		variants: {
 			checked: {
 				true: 'translate-x-6',

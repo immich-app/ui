@@ -32,7 +32,7 @@
 	} = $derived(getFieldContext());
 
 	const containerStyles = tv({
-		base: 'border-2 ring-offset-background focus-visible:ring-ring peer box-content focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[disabled=true]:cursor-not-allowed data-[state=checked]:bg-primary data-[disabled=true]:opacity-50 overflow-hidden',
+		base: 'ring-offset-background focus-visible:ring-ring peer box-content overflow-hidden border-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[disabled=true]:cursor-not-allowed data-[state=checked]:bg-primary data-[disabled=true]:opacity-50',
 		variants: {
 			shape: {
 				rectangle: 'rounded-none',

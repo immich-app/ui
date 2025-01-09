@@ -12,7 +12,7 @@
 	let { href, title, active = false, ...iconProps }: Props = $props();
 
 	const styles = tv({
-		base: 'hover:bg-subtle hover:text-primary flex w-full place-items-center gap-4 rounded-r-full py-3 transition-[padding] delay-100 duration-100 pl-5 group-hover:sm:px-5 md:px-5',
+		base: 'flex w-full place-items-center gap-4 rounded-r-full py-3 pl-5 transition-[padding] delay-100 duration-100 hover:bg-subtle hover:text-primary group-hover:sm:px-5 md:px-5',
 		variants: {
 			active: {
 				true: 'bg-primary/10 text-primary',
