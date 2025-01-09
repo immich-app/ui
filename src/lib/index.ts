@@ -22,9 +22,6 @@ export { default as CardDescription } from '$lib/components/Card/CardDescription
 export { default as CardFooter } from '$lib/components/Card/CardFooter.svelte';
 export { default as CardHeader } from '$lib/components/Card/CardHeader.svelte';
 export { default as CardTitle } from '$lib/components/Card/CardTitle.svelte';
-export { default as Modal } from '$lib/components/Modal/Modal.svelte';
-export { default as ModalBody } from '$lib/components/Modal/ModalBody.svelte';
-export { default as ModalFooter } from '$lib/components/Modal/ModalFooter.svelte';
 export { default as CloseButton } from '$lib/components/CloseButton/CloseButton.svelte';
 export { default as Code } from '$lib/components/Code/Code.svelte';
 export { default as Checkbox } from '$lib/components/Form/Checkbox.svelte';
@@ -40,6 +37,9 @@ export { default as IconButton } from '$lib/components/IconButton/IconButton.sve
 export { default as Link } from '$lib/components/Link/Link.svelte';
 export { default as LoadingSpinner } from '$lib/components/LoadingSpinner/LoadingSpinner.svelte';
 export { default as Logo } from '$lib/components/Logo/Logo.svelte';
+export { default as Modal } from '$lib/components/Modal/Modal.svelte';
+export { default as ModalBody } from '$lib/components/Modal/ModalBody.svelte';
+export { default as ModalFooter } from '$lib/components/Modal/ModalFooter.svelte';
 export { default as MultiSelect } from '$lib/components/MultiSelect/MultiSelect.svelte';
 export { default as NavbarGroup } from '$lib/components/Navbar/NavbarGroup.svelte';
 export { default as NavbarItem } from '$lib/components/Navbar/NavbarItem.svelte';
@@ -51,6 +51,7 @@ export { default as VStack } from '$lib/components/Stack/VStack.svelte';
 export { default as SupporterBadge } from '$lib/components/SupporterBadge/SupporterBadge.svelte';
 export { default as Switch } from '$lib/components/Switch/Switch.svelte';
 export { default as Text } from '$lib/components/Text/Text.svelte';
+export { default as ThemeSwitcher } from '$lib/components/ThemeSwitcher/ThemeSwitcher.svelte';
 
 // helpers
 export * from '$lib/services/theme.svelte.js';
