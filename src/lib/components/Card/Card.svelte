@@ -44,11 +44,11 @@
 	});
 
 	const cardStyles = tv({
-		base: 'flex flex-col w-full h-full',
+		base: 'flex h-full w-full flex-col',
 		variants: {
 			color: {
 				primary: 'bg-primary/25 dark:bg-primary/25',
-				secondary: 'bg-dark/5 dark:bg-dark/25 text-dark',
+				secondary: 'bg-dark/5 text-dark dark:bg-dark/25',
 				success: 'bg-success/15 dark:bg-success/30',
 				danger: 'bg-danger/15 dark:bg-danger/50',
 				warning: 'bg-warning/25 dark:bg-warning/50',

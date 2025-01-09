@@ -57,7 +57,7 @@
 			iconSize: {
 				tiny: 'h-4 w-4 text-xs',
 				small: 'h-6 w-6 text-sm',
-				medium: 'h-8 w-8 text-md',
+				medium: 'text-md h-8 w-8',
 				large: 'h-10 w-10 text-lg',
 				giant: 'h-12 w-12 text-lg',
 			},
@@ -77,12 +77,12 @@
 				info: 'bg-info text-light hover:bg-info/80',
 			},
 			outlineColor: {
-				primary: 'bg-primary/10 text-primary border border-primary hover:bg-primary/20',
-				secondary: 'bg-dark/10 text-dark border border-dark hover:bg-dark/20',
-				success: 'bg-success/10 text-success border border-success hover:bg-success/20',
-				danger: 'bg-danger/10 text-danger border border-danger hover:bg-danger/20',
-				warning: 'bg-warning/10 text-warning border border-warning hover:bg-warning/20',
-				info: 'bg-info/10 text-info border border-info hover:bg-info/20',
+				primary: 'border border-primary bg-primary/10 text-primary hover:bg-primary/20',
+				secondary: 'border border-dark bg-dark/10 text-dark hover:bg-dark/20',
+				success: 'border border-success bg-success/10 text-success hover:bg-success/20',
+				danger: 'border border-danger bg-danger/10 text-danger hover:bg-danger/20',
+				warning: 'border border-warning bg-warning/10 text-warning hover:bg-warning/20',
+				info: 'border border-info bg-info/10 text-info hover:bg-info/20',
 			},
 			ghostColor: {
 				primary: 'text-primary hover:bg-primary/10',

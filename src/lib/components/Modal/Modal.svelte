@@ -32,7 +32,7 @@
 	}: Props = $props();
 
 	const modalStyles = tv({
-		base: 'flex  rounded-none border border-subtle bg-subtle  sm:rounded-2xl',
+		base: 'flex rounded-none border border-subtle bg-subtle sm:rounded-2xl',
 		variants: {
 			size: {
 				tiny: 'h-full sm:h-min md:max-w-64',
