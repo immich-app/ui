@@ -22,6 +22,7 @@ import {
 	mdiNumeric,
 	mdiPanVertical,
 	mdiPartyPopper,
+	mdiThemeLightDark,
 	mdiToggleSwitch,
 	mdiViewSequential,
 	mdiWindowMaximize,
@@ -88,6 +89,7 @@ export const componentGroups = [
 			{ name: 'Avatar', icon: mdiAccountCircle },
 			{ name: 'Logo', icon: mdiImage },
 			{ name: 'SupporterBadge', icon: mdiPartyPopper },
+			{ name: 'ThemeSwitcher', icon: mdiThemeLightDark },
 		],
 	},
 ];

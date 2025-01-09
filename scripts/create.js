@@ -28,7 +28,7 @@ const getPageData = (component) => {
 
 <ComponentPage name="${component}">
   <ComponentExamples examples={[{ title: 'Basic', code: basicExample, component: BasicExample }]}/>
-</ComponentPage
+</ComponentPage>
 `;
 };
 
