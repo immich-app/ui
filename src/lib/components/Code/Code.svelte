@@ -33,8 +33,8 @@
 			filledColor: {
 				false: '',
 				muted: 'bg-gray-600 text-light dark:bg-gray-800',
-				primary: 'bg-primary text-light',
-				secondary: 'bg-dark text-light',
+				primary: 'bg-gray-200 text-primary dark:bg-gray-700',
+				secondary: 'bg-gray-700 text-light dark:bg-gray-200',
 				success: 'bg-success text-light',
 				danger: 'bg-danger text-light',
 				warning: 'bg-warning text-light',
