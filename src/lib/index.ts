@@ -58,3 +58,4 @@ export { default as ThemeSwitcher } from '$lib/components/ThemeSwitcher/ThemeSwi
 export * from '$lib/services/theme.svelte.js';
 export * from '$lib/types.js';
 export * from '$lib/utilities/byte-units.js';
+export * from '$lib/services/translation.svelte.js';

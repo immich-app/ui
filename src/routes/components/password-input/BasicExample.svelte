@@ -1,5 +1,7 @@
 <script lang="ts">
-	import { Stack, Field, PasswordInput } from '@immich/ui';
+	import { Field, PasswordInput, Stack } from '@immich/ui';
+
+	let value = $state('super-secret-password');
 </script>
 
 <Stack gap={4}>
@@ -7,6 +9,6 @@
 		<PasswordInput />
 	</Field>
 	<Field label="Password">
-		<PasswordInput value="super-secret-password" />
+		<PasswordInput bind:value />
 	</Field>
 </Stack>

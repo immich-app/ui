@@ -1,3 +1,4 @@
+import type { Translations } from '$lib/services/translation.svelte.js';
 import type { Snippet } from 'svelte';
 import type {
 	HTMLAnchorAttributes,
@@ -19,6 +20,8 @@ export enum Theme {
 	Light = 'light',
 	Dark = 'dark',
 }
+
+export type TranslationProps<T extends keyof Translations> = { [K in T]?: string };
 
 export type IconProps = {
 	icon: string;
@@ -56,6 +59,7 @@ export type CloseButtonProps = {
 	size?: Size;
 	variant?: Variants;
 	class?: string;
+	translations?: TranslationProps<'close'>;
 } & ButtonOrAnchor;
 
 export type IconButtonProps = ButtonBase & {
@@ -108,8 +112,7 @@ export type InputProps = BaseInputProps & {
 };
 
 export type PasswordInputProps = BaseInputProps & {
-	showLabel?: string;
-	hideLabel?: string;
+	translations?: TranslationProps<'showPassword' | 'hidePassword'>;
 	isVisible?: boolean;
 };
 
