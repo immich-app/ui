@@ -1,18 +1,25 @@
 <script lang="ts">
 	import IconButton from '$lib/components/IconButton/IconButton.svelte';
 	import { theme } from '$lib/services/theme.svelte.js';
-	import { Theme, type Size, type Variants } from '$lib/types.js';
+	import { Theme, type Color, type Size, type Variants } from '$lib/types.js';
 	import { cleanClass } from '$lib/utils.js';
 	import { mdiWeatherNight, mdiWeatherSunny } from '@mdi/js';
 
 	type Props = {
 		size?: Size;
 		class?: string;
+		color?: Color;
 		variant?: Variants;
 		onChange?: (theme: Theme) => void;
 	};
 
-	const { variant = 'ghost', size, class: className, onChange }: Props = $props();
+	const {
+		color = 'primary',
+		variant = 'ghost',
+		size,
+		class: className,
+		onChange,
+	}: Props = $props();
 
 	const handleToggleTheme = () => {
 		theme.value = theme.value === Theme.Dark ? Theme.Light : Theme.Dark;
@@ -24,7 +31,7 @@
 
 <IconButton
 	shape="round"
-	color="primary"
+	{color}
 	{size}
 	{variant}
 	icon={themeIcon}

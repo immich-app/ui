@@ -1,11 +1,11 @@
 <script lang="ts">
-	import { Stack, ThemeSwitcher } from '@immich/ui';
+	import { HStack, ThemeSwitcher } from '@immich/ui';
 </script>
 
-<Stack>
+<HStack>
 	<ThemeSwitcher size="tiny" />
 	<ThemeSwitcher size="small" />
 	<ThemeSwitcher size="medium" />
 	<ThemeSwitcher size="large" />
 	<ThemeSwitcher size="giant" />
-</Stack>
+</HStack>
