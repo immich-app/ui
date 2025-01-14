@@ -44,8 +44,8 @@
 				round: 'rounded-full',
 			},
 			padding: {
-				base: 'px-3 py-2',
-				round: 'px-4 py-2',
+				base: 'px-4 py-3',
+				round: 'px-5 py-3',
 			},
 			roundedSize: {
 				tiny: 'rounded-xl',
@@ -78,7 +78,7 @@
 		<label id={labelId} for={inputId} class={labelStyles({ size })}>{label}</label>
 	{/if}
 
-	<div class="relative">
+	<div class="relative mt-1.5">
 		<input
 			id={label && inputId}
 			aria-labelledby={label && labelId}
