@@ -2,6 +2,7 @@
 	import type { HeadingColor, HeadingSize } from '$lib/types.js';
 	import { cleanClass } from '$lib/utils.js';
 	import type { Snippet } from 'svelte';
+	import type { HTMLAttributes } from 'svelte/elements';
 	import { tv } from 'tailwind-variants';
 
 	type Props = {
@@ -10,9 +11,9 @@
 		class?: string;
 
 		children: Snippet;
-	};
+	} & HTMLAttributes<HTMLHeadingElement>;
 
-	const { color, size = 'medium', class: className, children }: Props = $props();
+	const { color, size = 'medium', class: className, children, ...restProps }: Props = $props();
 
 	const sizes = {
 		title: 'h1',
@@ -50,6 +51,6 @@
 	const classList = $derived(cleanClass(styles({ color, size }), className));
 </script>
 
-<svelte:element this={tag} class={classList} role="heading">
+<svelte:element this={tag} class={classList} role="heading" {...restProps}>
 	{@render children()}
 </svelte:element>
