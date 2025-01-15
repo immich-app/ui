@@ -1,5 +1,7 @@
 <script>
 	import { Field, Stack, Switch, Text } from '@immich/ui';
+
+	let { form = $bindable({ status: false }) } = $props();
 </script>
 
 <Stack>
@@ -14,4 +16,11 @@
 			<Text>Disabled</Text>
 		</Switch>
 	</Field>
+
+	<Field label="Status">
+		<Switch bind:checked={form.status} class="flex justify-between">
+			<Text>Status</Text>
+		</Switch>
+	</Field>
+	<Text>Status Enabled: {form.status}</Text>
 </Stack>

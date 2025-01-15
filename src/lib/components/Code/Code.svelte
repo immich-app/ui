@@ -1,16 +1,26 @@
 <script lang="ts">
 	import type { Size, TextColor } from '$lib/types.js';
+	import { cleanClass } from '$lib/utils.js';
 	import type { Snippet } from 'svelte';
+	import type { HTMLAttributes } from 'svelte/elements';
 	import { tv } from 'tailwind-variants';
 
 	type Props = {
 		color?: TextColor;
 		size?: Size;
 		variant?: 'filled';
+		class?: string;
 		children: Snippet;
-	};
+	} & HTMLAttributes<HTMLElement>;
 
-	const { size = 'medium', variant, color = 'secondary', children }: Props = $props();
+	const {
+		class: className,
+		size = 'medium',
+		variant,
+		color = 'secondary',
+		children,
+		...restProps
+	}: Props = $props();
 
 	const styles = tv({
 		base: 'font-monospace',
@@ -53,10 +63,14 @@
 </script>
 
 <code
-	class={styles({
-		filled: variant === 'filled',
-		filledColor: variant === 'filled' && color,
-		textColor: color,
-		size,
-	})}>{@render children()}</code
+	class={cleanClass(
+		styles({
+			filled: variant === 'filled',
+			filledColor: variant === 'filled' && color,
+			textColor: color,
+			size,
+		}),
+		className,
+	)}
+	{...restProps}>{@render children()}</code
 >

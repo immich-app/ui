@@ -20,7 +20,7 @@
 	const helperTextChildren = $derived(getChildSnippet(ChildKey.HelperText));
 </script>
 
-<div>
+<div class="w-full">
 	{@render children()}
 	{#if helperTextChildren}
 		<div class={cleanClass('pt-1', helperTextChildren.class)}>
