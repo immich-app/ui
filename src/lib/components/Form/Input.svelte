@@ -73,12 +73,12 @@
 	const labelId = `label-${id}`;
 </script>
 
-<div class="flex flex-col gap-1" bind:this={containerRef}>
+<div class="flex w-full flex-col gap-1" bind:this={containerRef}>
 	{#if label}
 		<label id={labelId} for={inputId} class={labelStyles({ size })}>{label}</label>
 	{/if}
 
-	<div class="relative mt-1.5">
+	<div class="relative mt-1.5 w-full">
 		<input
 			id={label && inputId}
 			aria-labelledby={label && labelId}
