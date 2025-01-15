@@ -41,11 +41,11 @@
 				true: 'w-full',
 			},
 			textPadding: {
-				tiny: 'px-2 py-1',
-				small: 'px-2 py-1',
-				medium: 'px-4 py-2',
-				large: 'px-4 py-2',
-				giant: 'px-8 py-4',
+				tiny: 'px-3 py-1',
+				small: 'px-4 py-1.5',
+				medium: 'px-5 py-2',
+				large: 'px-8 py-2.5',
+				giant: 'px-10 py-3',
 			},
 			textSize: {
 				tiny: 'text-xs',

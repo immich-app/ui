@@ -48,7 +48,7 @@
 		variants: {
 			color: {
 				primary: 'bg-primary/25 dark:bg-primary/25',
-				secondary: 'bg-gray-100 text-dark dark:bg-neutral-900',
+				secondary: 'bg-gray-50 text-dark dark:bg-neutral-900 dark:text-white',
 				success: 'bg-success/15 dark:bg-success/30',
 				danger: 'bg-danger/15 dark:bg-danger/50',
 				warning: 'bg-warning/25 dark:bg-warning/50',
