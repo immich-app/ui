@@ -1,5 +1,4 @@
 import {
-	mdiAccountCircle,
 	mdiAccountCircleOutline,
 	mdiAlertCircleOutline,
 	mdiApplicationOutline,
@@ -16,7 +15,6 @@ import {
 	mdiFormTextboxPassword,
 	mdiHelpBoxOutline,
 	mdiHomeCircleOutline,
-	mdiImage,
 	mdiImageOutline,
 	mdiKeyboardVariant,
 	mdiLink,
