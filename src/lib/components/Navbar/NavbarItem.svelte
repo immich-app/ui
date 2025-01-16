@@ -24,7 +24,7 @@
 
 <a {href} draggable="false" aria-current={active ? 'page' : undefined} class={styles({ active })}>
 	<div class="flex w-full place-items-center gap-4 overflow-hidden truncate">
-		<Icon size="1.5em" class="shrink-0" aria-hidden={true} {...iconProps} />
+		<Icon size="1.375em" class="shrink-0" aria-hidden={true} {...iconProps} />
 		<span class="text-sm font-medium">{title}</span>
 	</div>
 </a>

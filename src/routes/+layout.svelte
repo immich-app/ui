@@ -34,7 +34,7 @@
 	<AppShellHeader>
 		<Navbar theme={theme.value}>
 			<IconButton
-				size="large"
+				size="giant"
 				shape="round"
 				color="primary"
 				variant="ghost"
