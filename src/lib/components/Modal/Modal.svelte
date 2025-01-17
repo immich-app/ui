@@ -56,7 +56,7 @@
 
 <Dialog.Root bind:open {...restProps}>
 	<Dialog.Portal>
-		<Dialog.Overlay class="absolute left-0 top-0 flex h-screen w-screen backdrop-blur" />
+		<Dialog.Overlay class="absolute left-0 top-0 flex h-dvh w-screen backdrop-blur" />
 		<Dialog.Content
 			class={cleanClass(
 				'absolute left-0 top-0 flex h-dvh w-screen items-center justify-center overflow-hidden sm:p-4',

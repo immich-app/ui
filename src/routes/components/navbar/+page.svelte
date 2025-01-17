@@ -8,6 +8,8 @@
 	import basicExample from './BasicExample.svelte?raw';
 	import GroupExample from './GroupExample.svelte';
 	import groupExample from './GroupExample.svelte?raw';
+	import VariantExample from './VariantExample.svelte';
+	import variantExample from './VariantExample.svelte?raw';
 </script>
 
 <ComponentPage name="Navbar">
@@ -19,6 +21,7 @@
 		examples={[
 			{ title: 'Basic', code: basicExample, component: BasicExample },
 			{ title: 'Group', code: groupExample, component: GroupExample },
+			{ title: 'Variant', code: variantExample, component: VariantExample },
 		]}
 	/>
 </ComponentPage>

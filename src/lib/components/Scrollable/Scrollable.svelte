@@ -5,6 +5,7 @@
 	type Props = {
 		class?: string;
 		children?: Snippet;
+		transition?: TransitionEvent;
 	};
 
 	const { class: className, children }: Props = $props();

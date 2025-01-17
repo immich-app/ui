@@ -1,8 +1,11 @@
 <script lang="ts">
+	import { afterNavigate } from '$app/navigation';
+	import IconButton from '$lib/components/IconButton/IconButton.svelte';
+	import Scrollable from '$lib/components/Scrollable/Scrollable.svelte';
 	import { ChildKey } from '$lib/constants.js';
 	import Child from '$lib/internal/Child.svelte';
 	import { cleanClass } from '$lib/utils.js';
-	import Scrollable from '$lib/components/Scrollable/Scrollable.svelte';
+	import { mdiClose, mdiMenu } from '@mdi/js';
 	import type { Snippet } from 'svelte';
 
 	type Props = {
@@ -12,11 +15,34 @@
 	};
 
 	let { class: className, children, noBorder = false }: Props = $props();
+
+	afterNavigate(() => {
+		if (!hidden) {
+			hidden = true;
+		}
+	});
+
+	let hidden = $state(true);
 </script>
 
 <Child for={ChildKey.AppShell} as={ChildKey.AppShellSidebar}>
+	<IconButton
+		size="giant"
+		onclick={() => (hidden = !hidden)}
+		icon={hidden ? mdiMenu : mdiClose}
+		shape="round"
+		color={hidden ? 'primary' : 'secondary'}
+		variant="filled"
+		class="absolute bottom-2 right-4 z-[100] m-2 opacity-100 md:hidden"
+	/>
 	<Scrollable
-		class={cleanClass('hidden h-full w-min shrink-0 lg:block', className, noBorder || 'border-r')}
+		class={cleanClass(
+			'z-[90] h-dvh w-full shrink-0 bg-light pb-16 text-dark md:relative md:block md:w-min md:pb-0',
+
+			hidden ? 'hidden' : '',
+			className,
+			noBorder || 'border-r',
+		)}
 	>
 		{@render children?.()}
 	</Scrollable>
