@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/state';
+	import Footer from '$docs/components/Footer.svelte';
 	import Navbar from '$docs/components/Navbar.svelte';
 	import { componentGroups } from '$docs/constants.js';
 	import { asComponentHref } from '$docs/utilities.js';
@@ -44,7 +45,7 @@
 		</Navbar>
 	</AppShellHeader>
 
-	<AppShellSidebar class="min-w-[225px] py-4 pr-4">
+	<AppShellSidebar class="min-w-[225px]">
 		<NavbarItem active={isActive('/')} title="Home" icon={mdiHome} href="/" />
 		{#each componentGroups as group}
 			<NavbarGroup title={group.title} />
@@ -55,7 +56,10 @@
 		{/each}
 	</AppShellSidebar>
 
-	<div class="h-full">
-		{@render children()}
-	</div>
+	<section class="flex h-full flex-col">
+		<div class="grow">
+			{@render children?.()}
+		</div>
+		<Footer />
+	</section>
 </AppShell>

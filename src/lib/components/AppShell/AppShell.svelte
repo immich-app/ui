@@ -17,7 +17,7 @@
 	const sidebar = $derived(getChildSnippet(ChildKey.AppShellSidebar));
 </script>
 
-<div class={cleanClass('flex h-screen flex-col overflow-hidden', className)}>
+<div class={cleanClass('flex h-dvh flex-col overflow-hidden', className)}>
 	{#if header}
 		<header class="border-b">
 			{@render header?.snippet()}
