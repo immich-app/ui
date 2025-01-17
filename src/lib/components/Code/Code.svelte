@@ -36,14 +36,14 @@
 			},
 
 			filled: {
-				true: 'rounded px-2 py-1',
+				true: 'rounded-lg p-3',
 				false: '',
 			},
 
 			filledColor: {
 				false: '',
 				muted: 'bg-gray-600 text-light dark:bg-gray-800',
-				primary: 'bg-gray-200 text-primary dark:bg-gray-700',
+				primary: 'bg-gray-200 text-primary dark:bg-primary/20 dark:text-gray-200',
 				secondary: 'bg-gray-700 text-light dark:bg-gray-200',
 				success: 'bg-success text-light',
 				danger: 'bg-danger text-light',

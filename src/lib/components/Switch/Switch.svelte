@@ -46,8 +46,8 @@
 		base: 'my-2 h-3 w-12 rounded-full border border-transparent',
 		variants: {
 			fillColor: {
-				default: 'bg-gray-400',
-				primary: 'bg-primary/50',
+				default: 'bg-gray-300 dark:bg-gray-400',
+				primary: 'bg-primary/60',
 				secondary: 'bg-dark/50',
 				success: 'bg-success/50',
 				danger: 'bg-danger/50',
@@ -61,11 +61,11 @@
 		base: 'absolute h-6 w-6 rounded-full transition-transform duration-[400ms]',
 		variants: {
 			checked: {
-				true: 'translate-x-6',
+				true: 'translate-x-6 border border-gray-500/10 shadow-sm dark:border-gray-800/50',
 				false: '',
 			},
 			fillColor: {
-				default: 'bg-gray-600',
+				default: 'bg-gray-400 dark:bg-gray-500',
 				primary: 'bg-primary',
 				secondary: 'bg-dark',
 				success: 'bg-success',

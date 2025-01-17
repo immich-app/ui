@@ -16,7 +16,7 @@
 
 		<Heading size="large">Install</Heading>
 		<Text>@immich/ui is published as an npm package. You can install it using npm.</Text>
-		<Code color="secondary">npm i --save-dev @immich/ui</Code>
+		<Code color="primary" variant="filled">npm i --save-dev @immich/ui</Code>
 
 		<Heading size="large">Components</Heading>
 		<Stack gap={8}>
