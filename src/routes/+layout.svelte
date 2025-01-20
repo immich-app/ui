@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { page } from '$app/state';
 	import Footer from '$docs/components/Footer.svelte';
 	import Navbar from '$docs/components/Navbar.svelte';
 	import { componentGroups } from '$docs/constants.js';
@@ -24,7 +23,6 @@
 		(theme.value = theme.value === Theme.Dark ? Theme.Light : Theme.Dark);
 
 	const themeIcon = $derived(theme.value === Theme.Light ? mdiWeatherSunny : mdiWeatherNight);
-	const isActive = (path: string) => path === page.url.pathname;
 
 	$effect(() => {
 		syncToDom();
@@ -46,12 +44,15 @@
 	</AppShellHeader>
 
 	<AppShellSidebar class="min-w-[225px]">
-		<NavbarItem active={isActive('/')} title="Home" icon={mdiHome} href="/" />
+		<NavbarItem title="Home" icon={mdiHome} href="/" />
 		{#each componentGroups as group}
 			<NavbarGroup title={group.title} />
 			{#each group.components as component}
-				{@const href = asComponentHref(component.name)}
-				<NavbarItem active={isActive(href)} title={component.name} icon={component.icon} {href} />
+				<NavbarItem
+					href={asComponentHref(component.name)}
+					title={component.name}
+					icon={component.icon}
+				/>
 			{/each}
 		{/each}
 	</AppShellSidebar>

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { page } from '$app/state';
 	import Icon from '$lib/components/Icon/Icon.svelte';
 	import type { IconProps } from '$lib/types.js';
 	import { tv } from 'tailwind-variants';
@@ -8,9 +9,22 @@
 		active?: boolean;
 		href: string;
 		variant?: 'compact';
+		isActive?: () => boolean;
 	} & { icon?: string & Omit<IconProps, 'icon'> };
 
-	let { href, title, variant, active = false, ...iconProps }: Props = $props();
+	const startsWithHref = () => page.url.pathname.startsWith(href);
+
+	let {
+		href,
+		isActive: isActiveOverride,
+		title,
+		variant,
+		active: activeOverride,
+		...iconProps
+	}: Props = $props();
+
+	const isActive = isActiveOverride ?? startsWithHref;
+	let active = $derived(activeOverride ?? isActive());
 
 	const styles = tv({
 		base: 'flex w-full place-items-center gap-4 transition-[padding] delay-100 duration-100 hover:bg-subtle hover:text-primary group-hover:sm:px-5 md:rounded-r-full md:px-5',
