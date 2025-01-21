@@ -20,12 +20,14 @@
 		open?: boolean;
 		expandable?: boolean;
 		children: Snippet;
+		onClose?: () => void;
 	};
 
 	let {
 		title,
 		size = 'medium',
 		open = $bindable(true),
+		onClose,
 		class: className,
 		children,
 		...restProps
@@ -51,6 +53,8 @@
 
 	const handleClose = () => {
 		open = false;
+		onClose?.();
+		restProps?.onOpenChange?.(false);
 	};
 </script>
 

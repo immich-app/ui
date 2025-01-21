@@ -4,6 +4,8 @@
 	import ComponentPage from '$docs/components/ComponentPage.svelte';
 	import BasicExample from './BasicExample.svelte';
 	import basicExample from './BasicExample.svelte?raw';
+	import RouteExample from './RouteExample.svelte';
+	import routeExample from './RouteExample.svelte?raw';
 	import SizeExample from './SizeExample.svelte';
 	import sizeExample from './SizeExample.svelte?raw';
 	import { Text } from '@immich/ui';
@@ -17,6 +19,7 @@
 		examples={[
 			{ title: 'Basic', code: basicExample, component: BasicExample },
 			{ title: 'Size', code: sizeExample, component: SizeExample },
+			{ title: 'Route', code: routeExample, component: RouteExample },
 		]}
 	/>
 </ComponentPage>

@@ -33,11 +33,11 @@
 		shape="round"
 		color={hidden ? 'primary' : 'secondary'}
 		variant="filled"
-		class="absolute bottom-2 right-4 z-[100] m-2 opacity-100 md:hidden"
+		class="absolute bottom-2 right-4 m-2 opacity-100 md:hidden"
 	/>
 	<Scrollable
 		class={cleanClass(
-			'z-[90] h-dvh w-full shrink-0 bg-light pb-16 text-dark md:relative md:block md:w-min md:pb-0',
+			'h-dvh w-full shrink-0 bg-light pb-16 text-dark md:relative md:block md:w-min md:pb-0',
 
 			hidden ? 'hidden' : '',
 			className,
