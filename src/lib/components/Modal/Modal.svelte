@@ -13,7 +13,7 @@
 	import { type Snippet } from 'svelte';
 	import { tv } from 'tailwind-variants';
 
-	type Props = Dialog.RootProps & {
+	type Props = {
 		title: string;
 		size?: ModalSize;
 		class?: string;
@@ -26,11 +26,10 @@
 	let {
 		title,
 		size = 'medium',
-		open = $bindable(true),
+		open = true,
 		onClose,
 		class: className,
 		children,
-		...restProps
 	}: Props = $props();
 
 	const modalStyles = tv({
@@ -51,14 +50,14 @@
 	const bodyChildren = $derived(getChildSnippet(ChildKey.ModalBody));
 	const footerChildren = $derived(getChildSnippet(ChildKey.ModalFooter));
 
-	const handleClose = () => {
-		open = false;
-		onClose?.();
-		restProps?.onOpenChange?.(false);
+	const onChange = (value: boolean) => {
+		if (!value) {
+			onClose?.();
+		}
 	};
 </script>
 
-<Dialog.Root bind:open {...restProps}>
+<Dialog.Root {open} onOpenChange={onChange}>
 	<Dialog.Portal>
 		<Dialog.Overlay class="absolute left-0 top-0 flex h-dvh w-screen backdrop-blur" />
 		<Dialog.Content
@@ -71,7 +70,9 @@
 					<CardHeader class="border-0 py-2">
 						<div class="flex items-center justify-between">
 							<CardTitle>{title}</CardTitle>
-							<CloseButton size="large" onclick={handleClose} />
+							<Dialog.Close>
+								<CloseButton size="large" onclick={() => onChange(false)} />
+							</Dialog.Close>
 						</div>
 					</CardHeader>
 

@@ -7,8 +7,10 @@
 
 <Button onclick={() => (open = true)}>Open</Button>
 
-<Modal title="Modal Title" bind:open>
-	<ModalBody>
-		<Lorem />
-	</ModalBody>
-</Modal>
+{#if open}
+	<Modal title="Modal Title" onClose={() => (open = false)}>
+		<ModalBody>
+			<Lorem />
+		</ModalBody>
+	</Modal>
+{/if}

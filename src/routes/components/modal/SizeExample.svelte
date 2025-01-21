@@ -30,21 +30,23 @@
 	<Button onclick={() => handleOpen('full')}>Full</Button>
 </HStack>
 
-<Modal title="Modal Title" {size} bind:open>
-	<ModalBody>
-		<Stack gap={4}>
-			<Text><Lorem /></Text>
-			<Text><Lorem /></Text>
-			<Text><Lorem /></Text>
-			<Text><Lorem /></Text>
-			<Text><Lorem /></Text>
-			<Text><Lorem /></Text>
-		</Stack>
-	</ModalBody>
-	<ModalFooter>
-		<div class="grid w-full grid-cols-1 gap-2 sm:grid-cols-2">
-			<Button onclick={handleClose} shape="round">Button 1</Button>
-			<Button onclick={handleClose} shape="round" color="secondary">Button 2</Button>
-		</div>
-	</ModalFooter>
-</Modal>
+{#if open}
+	<Modal title="Modal Title" {size} onClose={() => (open = false)}>
+		<ModalBody>
+			<Stack gap={4}>
+				<Text><Lorem /></Text>
+				<Text><Lorem /></Text>
+				<Text><Lorem /></Text>
+				<Text><Lorem /></Text>
+				<Text><Lorem /></Text>
+				<Text><Lorem /></Text>
+			</Stack>
+		</ModalBody>
+		<ModalFooter>
+			<div class="grid w-full grid-cols-1 gap-2 sm:grid-cols-2">
+				<Button onclick={handleClose} shape="round">Button 1</Button>
+				<Button onclick={handleClose} shape="round" color="secondary">Button 2</Button>
+			</div>
+		</ModalFooter>
+	</Modal>
+{/if}
