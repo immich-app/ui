@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { ExampleCardProps } from '$docs/constants.js';
-	import { Button, Card, CardBody, CardHeader, CardTitle, HStack, Icon } from '@immich/ui';
+	import { Button, Card, CardBody, CardHeader, CardTitle, HStack } from '@immich/ui';
 	import { mdiEye, mdiXml } from '@mdi/js';
 	import { HighlightSvelte, LineNumbers } from 'svelte-highlight';
 	import atomOneDark from 'svelte-highlight/styles/atom-one-dark';
@@ -24,14 +24,18 @@
 		<div class="flex justify-between">
 			<CardTitle>{title}</CardTitle>
 			<HStack gap={1}>
-				<Button disabled={viewMode === 'preview'} onclick={handleToggle} size="small">
-					<Icon icon={mdiEye} size="1.5em" />
-					<span>Preview</span>
-				</Button>
-				<Button disabled={viewMode === 'code'} onclick={handleToggle} size="small">
-					<Icon icon={mdiXml} size="1.5em" />
-					<span>Code</span>
-				</Button>
+				<Button
+					leadingIcon={mdiEye}
+					disabled={viewMode === 'preview'}
+					onclick={handleToggle}
+					size="small">Preview</Button
+				>
+				<Button
+					leadingIcon={mdiXml}
+					disabled={viewMode === 'code'}
+					onclick={handleToggle}
+					size="small">Code</Button
+				>
 			</HStack>
 		</div>
 	</CardHeader>

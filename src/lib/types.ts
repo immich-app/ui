@@ -53,6 +53,8 @@ type ButtonBase = {
 export type ButtonProps = ButtonBase & {
 	fullWidth?: boolean;
 	loading?: boolean;
+	leadingIcon?: string;
+	trailingIcon?: string;
 } & ButtonOrAnchor;
 
 export type CloseButtonProps = {
