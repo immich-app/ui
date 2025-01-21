@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Icon from '$lib/components/Icon/Icon.svelte';
 	import LoadingSpinner from '$lib/components/LoadingSpinner/LoadingSpinner.svelte';
 	import type { ButtonProps, Size } from '$lib/types.js';
 	import { cleanClass } from '$lib/utils.js';
@@ -21,6 +22,8 @@
 		size = 'medium',
 		loading = false,
 		fullWidth = false,
+		leadingIcon,
+		trailingIcon,
 		icon = false,
 		class: className = '',
 		children,
@@ -30,8 +33,12 @@
 	const disabled = $derived((restProps as HTMLButtonAttributes).disabled || loading);
 
 	const buttonVariants = tv({
-		base: 'ring-offset-background focus-visible:ring-ring flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
+		base: 'ring-offset-background focus-visible:ring-ring flex items-center justify-center gap-1 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
 		variants: {
+			disabled: {
+				true: 'disabled:pointer-events-none disabled:opacity-50 aria-disabled:opacity-50',
+				false: '',
+			},
 			shape: {
 				rectangle: 'rounded-none',
 				'semi-round': 'rounded-xl',
@@ -112,6 +119,7 @@
 					textPadding: icon ? undefined : size,
 					textSize: size,
 					iconSize: icon ? size : undefined,
+					disabled,
 					roundedSize: shape === 'semi-round' ? size : undefined,
 					filledColor: variant === 'filled' ? color : undefined,
 					outlineColor: variant === 'outline' ? color : undefined,
@@ -123,9 +131,26 @@
 	);
 </script>
 
+{#snippet content()}
+	{#if leadingIcon && !loading}
+		<Icon size="1.15rem" icon={leadingIcon} />
+	{/if}
+	{@render children?.()}
+	{#if trailingIcon}
+		<Icon size="1.15rem" icon={trailingIcon} />
+	{/if}
+{/snippet}
+
 {#if href}
-	<a {href} class={classList} {...restProps as HTMLAnchorAttributes}>
-		{@render children?.()}
+	<a {href} class={classList} aria-disabled={disabled} {...restProps as HTMLAnchorAttributes}>
+		{#if loading}
+			<div class="flex items-center justify-center gap-2">
+				<LoadingSpinner {color} size={spinnerSizes[size]} />
+				{@render content()}
+			</div>
+		{:else}
+			{@render content()}
+		{/if}
 	</a>
 {:else}
 	<ButtonPrimitive.Root
@@ -138,10 +163,10 @@
 		{#if loading}
 			<div class="flex items-center justify-center gap-2">
 				<LoadingSpinner {color} size={spinnerSizes[size]} />
-				{@render children?.()}
+				{@render content()}
 			</div>
 		{:else}
-			{@render children?.()}
+			{@render content()}
 		{/if}
 	</ButtonPrimitive.Root>
 {/if}

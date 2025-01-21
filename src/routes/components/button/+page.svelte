@@ -12,6 +12,10 @@
 	import fullWidthExample from './FullWidthExample.svelte?raw';
 	import GhostExample from './GhostExample.svelte';
 	import ghostExample from './GhostExample.svelte?raw';
+	import IconExample from './IconExample.svelte';
+	import iconExample from './IconExample.svelte?raw';
+	import LinkExample from './LinkExample.svelte';
+	import linkExample from './LinkExample.svelte?raw';
 	import LoadingExample from './LoadingExample.svelte';
 	import loadingExample from './LoadingExample.svelte?raw';
 	import OutlineExample from './OutlineExample.svelte';
@@ -33,10 +37,12 @@
 			{ title: 'Color', code: colorExample, component: ColorExample },
 			{ title: 'Outline', code: outlineExample, component: OutlineExample },
 			{ title: 'Ghost', code: ghostExample, component: GhostExample },
+			{ title: 'Icon', code: iconExample, component: IconExample },
 			{ title: 'Disabled', code: disabledExample, component: DisabledExample },
 			{ title: 'Loading', code: loadingExample, component: LoadingExample },
 			{ title: 'Size', code: sizeExample, component: SizeExample },
 			{ title: 'Full width', code: fullWidthExample, component: FullWidthExample },
+			{ title: 'Link', code: linkExample, component: LinkExample },
 		]}
 	/>
 </ComponentPage>
