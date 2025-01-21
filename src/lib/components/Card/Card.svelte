@@ -30,7 +30,7 @@
 	}: Props = $props();
 
 	const containerStyles = tv({
-		base: 'w-full overflow-hidden bg-light text-dark shadow-sm',
+		base: 'w-full overflow-hidden shadow-sm',
 		variants: {
 			shape: {
 				rectangle: '',
@@ -124,16 +124,7 @@
 	{/if}
 {/snippet}
 
-<div
-	class={cleanClass(
-		containerStyles({
-			shape,
-			border: !color,
-		}),
-		className,
-	)}
-	{...restProps}
->
+<div class={cleanClass(containerStyles({ shape, border: !color }), className)} {...restProps}>
 	<div class={cleanClass(cardStyles({ color }))}>
 		{#if headerChild}
 			{@render header()}
