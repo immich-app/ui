@@ -43,18 +43,20 @@
 		</Navbar>
 	</AppShellHeader>
 
-	<AppShellSidebar class="min-w-[225px]">
-		<NavbarItem title="Home" icon={mdiHome} href="/" />
-		{#each componentGroups as group}
-			<NavbarGroup title={group.title} />
-			{#each group.components as component}
-				<NavbarItem
-					href={asComponentHref(component.name)}
-					title={component.name}
-					icon={component.icon}
-				/>
+	<AppShellSidebar class="min-w-[250px]">
+		<div class="mr-0 mt-4 md:mr-4">
+			<NavbarItem title="Home" icon={mdiHome} href="/" />
+			{#each componentGroups as group}
+				<NavbarGroup title={group.title} />
+				{#each group.components as component}
+					<NavbarItem
+						href={asComponentHref(component.name)}
+						title={component.name}
+						icon={component.icon}
+					/>
+				{/each}
 			{/each}
-		{/each}
+		</div>
 	</AppShellSidebar>
 
 	<section class="flex h-full flex-col">
