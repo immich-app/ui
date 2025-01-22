@@ -8,4 +8,5 @@
 	<Heading size="medium">Heading</Heading>
 	<Heading size="large">Heading</Heading>
 	<Heading size="giant">Heading</Heading>
+	<Heading size="title">Heading</Heading>
 </Stack>

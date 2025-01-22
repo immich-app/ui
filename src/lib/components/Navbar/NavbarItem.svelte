@@ -12,7 +12,7 @@
 		isActive?: () => boolean;
 	} & { icon?: string & Omit<IconProps, 'icon'> };
 
-	const startsWithHref = () => page.url.pathname.startsWith(href);
+	const matchesPath = () => page.url.pathname === href;
 
 	let {
 		href,
@@ -23,7 +23,7 @@
 		...iconProps
 	}: Props = $props();
 
-	const isActive = isActiveOverride ?? startsWithHref;
+	const isActive = isActiveOverride ?? matchesPath;
 	let active = $derived(activeOverride ?? isActive());
 
 	const styles = tv({
