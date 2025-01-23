@@ -1,6 +1,7 @@
 <script lang="ts">
 	import {
 		Card,
+		Container,
 		Heading,
 		HStack,
 		Icon,
@@ -33,7 +34,7 @@
 </script>
 
 <div class="mt-16 rounded-t-3xl bg-dark/10 p-8">
-	<div class="mx-auto max-w-screen-md lg:py-8">
+	<Container size="medium" center class="lg:py-8">
 		<Stack gap={8}>
 			<div class="place-center grid grid-cols-2 gap-8 lg:grid-cols-4">
 				<Stack>
@@ -144,5 +145,5 @@
 				/>
 			</VStack>
 		</Stack>
-	</div>
+	</Container>
 </div>
