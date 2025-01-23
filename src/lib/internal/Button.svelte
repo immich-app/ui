@@ -62,11 +62,11 @@
 				giant: 'text-xl',
 			},
 			iconSize: {
-				tiny: 'h-4 w-4 text-xs',
-				small: 'h-6 w-6 text-sm',
-				medium: 'text-md h-8 w-8',
-				large: 'h-10 w-10 text-lg',
-				giant: 'h-12 w-12 text-lg',
+				tiny: 'h-6 w-6',
+				small: 'h-8 w-8',
+				medium: 'h-10 w-10',
+				large: 'h-12 w-12',
+				giant: 'h-14 w-14',
 			},
 			roundedSize: {
 				tiny: 'rounded-lg',

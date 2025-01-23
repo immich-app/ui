@@ -4,11 +4,11 @@
 	import Input from '$lib/components/Form/Input.svelte';
 	import Icon from '$lib/components/Icon/Icon.svelte';
 	import IconButton from '$lib/components/IconButton/IconButton.svelte';
+	import Label from '$lib/components/Label/Label.svelte';
 	import type { SelectCommonProps, SelectItem } from '$lib/types.js';
 	import { cleanClass, generateId } from '$lib/utils.js';
 	import { mdiArrowDown, mdiArrowUp, mdiCheck, mdiUnfoldMoreHorizontal } from '@mdi/js';
 	import { Select } from 'bits-ui';
-	import { tv } from 'tailwind-variants';
 
 	type T = SelectItem;
 
@@ -45,26 +45,8 @@
 
 	const options = $derived(asOptions(data));
 
-	const {
-		label,
-		readOnly = false,
-		required = false,
-		invalid = false,
-		disabled = false,
-	} = $derived(getFieldContext());
-
-	const labelStyles = tv({
-		base: '',
-		variants: {
-			size: {
-				tiny: 'text-xs',
-				small: 'text-sm',
-				medium: 'text-md',
-				large: 'text-lg',
-				giant: 'text-xl',
-			},
-		},
-	});
+	const { readOnly, required, invalid, disabled, label, ...labelProps } =
+		$derived(getFieldContext());
 
 	const id = generateId();
 	const inputId = `input-${id}`;
@@ -95,7 +77,7 @@
 
 <div class={cleanClass('flex flex-col gap-1', className)} bind:this={ref}>
 	{#if label}
-		<label id={labelId} for={inputId} class={labelStyles({ size })}>{label}</label>
+		<Label id={labelId} for={inputId} {label} {...labelProps} />
 	{/if}
 
 	<Select.Root type={multiple ? 'multiple' : 'single'} {onValueChange}>
