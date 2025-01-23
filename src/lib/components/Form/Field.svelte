@@ -7,10 +7,11 @@
 	import { type Snippet } from 'svelte';
 
 	type Props = FieldContext & {
+		class?: string;
 		children: Snippet;
 	};
 
-	const { children, ...props }: Props = $props();
+	const { class: className, children, ...props }: Props = $props();
 
 	const state = $state(props);
 
@@ -20,7 +21,7 @@
 	const helperTextChildren = $derived(getChildSnippet(ChildKey.HelperText));
 </script>
 
-<div class="w-full">
+<div class={cleanClass('w-full', className)}>
 	{@render children()}
 	{#if helperTextChildren}
 		<div class={cleanClass('pt-1', helperTextChildren.class)}>

@@ -10,22 +10,24 @@
 		translations,
 		isVisible = $bindable<boolean>(false),
 		color = 'secondary',
+		size,
 		...props
 	}: PasswordInputProps = $props();
 </script>
 
-<Input bind:value type={isVisible ? 'text' : 'password'} {color} {...props}>
+<Input bind:value {size} type={isVisible ? 'text' : 'password'} {color} {...props}>
 	{#snippet trailingIcon()}
 		{#if value?.length > 0}
 			<IconButton
 				variant="ghost"
 				shape="round"
 				color="secondary"
-				class="m-1"
+				{size}
+				class="mr-1"
 				icon={isVisible ? mdiEyeOffOutline : mdiEyeOutline}
 				onclick={() => (isVisible = !isVisible)}
 				title={isVisible ? t('hidePassword', translations) : t('showPassword', translations)}
-			></IconButton>
+			/>
 		{/if}
 	{/snippet}
 </Input>

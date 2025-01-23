@@ -4,6 +4,7 @@ import type {
 	HTMLAnchorAttributes,
 	HTMLButtonAttributes,
 	HTMLInputAttributes,
+	HTMLLabelAttributes,
 } from 'svelte/elements';
 
 export type Color = 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info';
@@ -91,13 +92,21 @@ export type StackProps = StackBaseProps & {
 export type HStackProps = StackBaseProps;
 export type VStackProps = StackBaseProps;
 
+export type LabelProps = {
+	label?: string;
+	class?: string;
+	size?: Size;
+	color?: TextColor;
+	children?: Snippet;
+} & HTMLLabelAttributes;
+
 export type FieldContext = {
 	label?: string;
 	invalid?: boolean;
 	disabled?: boolean;
 	required?: boolean;
 	readOnly?: boolean;
-};
+} & LabelProps;
 
 type BaseInputProps = {
 	class?: string;

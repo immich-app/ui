@@ -7,5 +7,5 @@
 </script>
 
 <Button icon {...buttonProps}>
-	<Icon {icon} {flipped} {flopped} size="45%"></Icon>
+	<Icon {icon} {flipped} {flopped} size="45%" />
 </Button>

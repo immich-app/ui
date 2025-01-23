@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { getFieldContext } from '$lib/common/context.svelte.js';
 	import Icon from '$lib/components/Icon/Icon.svelte';
+	import Label from '$lib/components/Label/Label.svelte';
 	import type { Color, Shape, Size } from '$lib/types.js';
 	import { cleanClass, generateId } from '$lib/utils.js';
 	import { mdiCheck, mdiMinus } from '@mdi/js';
@@ -23,13 +24,8 @@
 		...restProps
 	}: CheckboxProps = $props();
 
-	const {
-		label,
-		readOnly = false,
-		required = false,
-		invalid = false,
-		disabled = false,
-	} = $derived(getFieldContext());
+	const { readOnly, required, invalid, disabled, label, ...labelProps } =
+		$derived(getFieldContext());
 
 	const containerStyles = tv({
 		base: 'ring-offset-background focus-visible:ring-ring peer box-content overflow-hidden border-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[disabled=true]:cursor-not-allowed data-[state=checked]:bg-primary data-[disabled=true]:opacity-50',
@@ -80,19 +76,6 @@
 		},
 	});
 
-	const labelStyles = tv({
-		base: '',
-		variants: {
-			size: {
-				tiny: 'text-xs',
-				small: 'text-sm',
-				medium: 'text-md',
-				large: 'text-lg',
-				giant: 'text-xl',
-			},
-		},
-	});
-
 	const id = generateId();
 	const inputId = `input-${id}`;
 	const labelId = `label-${id}`;
@@ -100,7 +83,7 @@
 
 <div class="flex flex-col gap-1">
 	{#if label}
-		<label id={labelId} for={inputId} class={labelStyles({ size })}>{label}</label>
+		<Label id={labelId} for={inputId} {label} {...labelProps} />
 	{/if}
 
 	<CheckboxPrimitive.Root

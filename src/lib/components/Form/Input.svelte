@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { getFieldContext } from '$lib/common/context.svelte.js';
+	import Label from '$lib/components/Label/Label.svelte';
 	import type { InputProps } from '$lib/types.js';
 	import { cleanClass, generateId } from '$lib/utils.js';
 	import { tv } from 'tailwind-variants';
@@ -14,26 +15,8 @@
 		...restProps
 	}: InputProps = $props();
 
-	const {
-		label,
-		readOnly = false,
-		required = false,
-		invalid = false,
-		disabled = false,
-	} = $derived(getFieldContext());
-
-	const labelStyles = tv({
-		base: '',
-		variants: {
-			size: {
-				tiny: 'text-xs',
-				small: 'text-sm',
-				medium: 'text-md',
-				large: 'text-lg',
-				giant: 'text-xl',
-			},
-		},
-	});
+	const { label, readOnly, required, invalid, disabled, ...labelProps } =
+		$derived(getFieldContext());
 
 	const inputStyles = tv({
 		base: 'w-full bg-gray-200 outline-none disabled:cursor-not-allowed disabled:bg-gray-300 disabled:text-gray-200 aria-readonly:text-dark/50 dark:bg-gray-600 dark:disabled:bg-gray-800 dark:aria-readonly:text-dark/75',
@@ -53,6 +36,14 @@
 				medium: 'rounded-2xl',
 				large: 'rounded-2xl',
 				giant: 'rounded-2xl',
+			},
+			// match with Button `iconSize` variants
+			paddingRight: {
+				tiny: 'pr-6',
+				small: 'pr-8',
+				medium: 'pr-10',
+				large: 'pr-12',
+				giant: 'pr-14',
 			},
 			textSize: {
 				tiny: 'text-xs',
@@ -75,12 +66,12 @@
 
 <div class="flex w-full flex-col gap-1" bind:this={containerRef}>
 	{#if label}
-		<label id={labelId} for={inputId} class={labelStyles({ size })}>{label}</label>
+		<Label id={labelId} for={inputId} {label} {...labelProps} />
 	{/if}
 
 	<div class="relative mt-1.5 w-full">
 		<input
-			id={label && inputId}
+			id={inputId}
 			aria-labelledby={label && labelId}
 			{required}
 			aria-required={required}
@@ -93,10 +84,10 @@
 					shape,
 					textSize: size,
 					padding: shape === 'round' ? 'round' : 'base',
+					paddingRight: trailingIcon ? size : undefined,
 					roundedSize: shape === 'semi-round' ? size : undefined,
 					invalid,
 				}),
-				trailingIcon && '!pr-10',
 				className,
 			)}
 			bind:value

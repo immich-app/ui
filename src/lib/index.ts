@@ -28,13 +28,13 @@ export { default as Checkbox } from '$lib/components/Form/Checkbox.svelte';
 export { default as Field } from '$lib/components/Form/Field.svelte';
 export { default as HelperText } from '$lib/components/Form/HelperText.svelte';
 export { default as Input } from '$lib/components/Form/Input.svelte';
-export { default as Label } from '$lib/components/Form/Label.svelte';
 export { default as PasswordInput } from '$lib/components/Form/PasswordInput.svelte';
 export { default as FormatBytes } from '$lib/components/FormatBytes/FormatBytes.svelte';
 export { default as Heading } from '$lib/components/Heading/Heading.svelte';
 export { default as Icon } from '$lib/components/Icon/Icon.svelte';
 export { default as IconButton } from '$lib/components/IconButton/IconButton.svelte';
 export { default as Kbd } from '$lib/components/Kbd/Kbd.svelte';
+export { default as Label } from '$lib/components/Label/Label.svelte';
 export { default as Link } from '$lib/components/Link/Link.svelte';
 export { default as LoadingSpinner } from '$lib/components/LoadingSpinner/LoadingSpinner.svelte';
 export { default as Logo } from '$lib/components/Logo/Logo.svelte';
@@ -56,6 +56,6 @@ export { default as ThemeSwitcher } from '$lib/components/ThemeSwitcher/ThemeSwi
 
 // helpers
 export * from '$lib/services/theme.svelte.js';
+export * from '$lib/services/translation.svelte.js';
 export * from '$lib/types.js';
 export * from '$lib/utilities/byte-units.js';
-export * from '$lib/services/translation.svelte.js';

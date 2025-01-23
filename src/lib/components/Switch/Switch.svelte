@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { getFieldContext } from '$lib/common/context.svelte.js';
+	import Label from '$lib/components/Label/Label.svelte';
 	import type { Color } from '$lib/types.js';
-	import { cleanClass } from '$lib/utils.js';
+	import { cleanClass, generateId } from '$lib/utils.js';
 	import type { HTMLInputAttributes } from 'svelte/elements';
 	import { tv } from 'tailwind-variants';
 
@@ -11,22 +12,19 @@
 		disabled?: boolean;
 		class?: string;
 		onToggle?: ((checked: boolean) => void) | undefined;
-	} & HTMLInputAttributes;
+		inputSize?: HTMLInputAttributes['size'];
+	} & Omit<HTMLInputAttributes, 'size'>;
 
 	let {
 		checked = $bindable(false),
 		class: className,
 		color = 'primary',
 		onToggle = undefined,
+		inputSize,
 		...restProps
 	}: Props = $props();
 
-	const {
-		label,
-		readOnly = false,
-		required = false,
-		disabled = false,
-	} = $derived(getFieldContext());
+	const { readOnly, required, disabled, label, ...labelProps } = $derived(getFieldContext());
 
 	const enabled = $derived(checked && !disabled);
 
@@ -75,12 +73,21 @@
 			},
 		},
 	});
+
+	const id = generateId();
+	const inputId = `input-${id}`;
+	const labelId = `label-${id}`;
 </script>
 
-<label class={cleanClass(className)}>
-	{label}
-	<span class={wrapper({ disabled })}>
+<div class="flex w-full justify-between gap-1">
+	{#if label}
+		<Label id={labelId} for={inputId} {label} {...labelProps} />
+	{/if}
+
+	<span class={cleanClass(wrapper({ disabled }), className)}>
 		<input
+			id={inputId}
+			aria-labelledby={label && labelId}
 			class="hidden"
 			type="checkbox"
 			bind:checked
@@ -91,9 +98,10 @@
 			aria-disabled={disabled}
 			readonly={readOnly}
 			aria-readonly={readOnly}
+			size={inputSize}
 			{...restProps}
 		/>
 		<span class={bar({ fillColor: enabled ? color : 'default' })}> </span>
 		<span class={dot({ checked: enabled, fillColor: enabled ? color : 'default' })}></span>
 	</span>
-</label>
+</div>
