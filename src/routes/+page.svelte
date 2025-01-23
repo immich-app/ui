@@ -2,12 +2,12 @@
 	import ComponentCard from '$docs/components/ComponentCard.svelte';
 	import Grid from '$docs/components/Grid.svelte';
 	import { componentGroups } from '$docs/constants.js';
-	import { Code, Heading, Link, Stack, Text } from '@immich/ui';
+	import { Code, Container, Heading, Link, Stack, Text } from '@immich/ui';
 </script>
 
-<div class="max-w-screen-lg p-2">
+<Container size="large" class="p-2">
 	<Stack class="flex flex-col gap-4 px-8 py-8" gap={8}>
-		<Heading size="large">@immich/ui</Heading>
+		<Heading size="title">@immich/ui</Heading>
 		<Text>
 			@immich/ui is a collection of <Link href="https://svelte.dev">Svelte</Link> components that are
 			shared across all Immich projects. It is designed to be a simple and easy-to-use library that provides
@@ -32,4 +32,4 @@
 			{/each}
 		</Stack>
 	</Stack>
-</div>
+</Container>

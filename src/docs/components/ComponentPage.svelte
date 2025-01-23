@@ -1,13 +1,14 @@
 <script lang="ts">
-	import { Heading, Scrollable } from '@immich/ui';
+	import { Container, Heading, Scrollable, type ContainerSize } from '@immich/ui';
 	import type { Snippet } from 'svelte';
 
 	type Props = {
 		name: string;
+		size?: ContainerSize;
 		children?: Snippet;
 	};
 
-	const { name, children }: Props = $props();
+	const { size = 'medium', name, children }: Props = $props();
 </script>
 
 <div class="flex h-full flex-col">
@@ -23,9 +24,9 @@
 	</nav>
 
 	<Scrollable>
-		<div class="flex max-w-screen-md flex-col p-4">
+		<Container {size} class="flex flex-col p-4">
 			<Heading size="large">{name}</Heading>
 			{@render children?.()}
-		</div>
+		</Container>
 	</Scrollable>
 </div>

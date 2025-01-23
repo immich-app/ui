@@ -11,6 +11,7 @@ export type TextColor = Color | 'muted';
 export type HeadingColor = TextColor;
 export type Size = 'tiny' | 'small' | 'medium' | 'large' | 'giant';
 export type ModalSize = Size | 'full';
+export type ContainerSize = ModalSize;
 export type HeadingSize = Size | 'title';
 export type Shape = 'rectangle' | 'semi-round' | 'round';
 export type Variants = 'filled' | 'outline' | 'ghost';
