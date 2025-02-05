@@ -17,7 +17,7 @@
 	size="large"
 >
 	<VStack gap={2}>
-		<Icon icon={component.icon} size="1.5rem" />
+		<Icon icon={component.icon} size="1.5rem" aria-hidden />
 		<Text size="small">{component.name}</Text>
 	</VStack>
 </Button>

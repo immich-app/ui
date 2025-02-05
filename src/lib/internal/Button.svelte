@@ -133,11 +133,11 @@
 
 {#snippet content()}
 	{#if leadingIcon && !loading}
-		<Icon size="1.15rem" icon={leadingIcon} />
+		<Icon size="1.15rem" icon={leadingIcon} aria-hidden />
 	{/if}
 	{@render children?.()}
 	{#if trailingIcon}
-		<Icon size="1.15rem" icon={trailingIcon} />
+		<Icon size="1.15rem" icon={trailingIcon} aria-hidden />
 	{/if}
 {/snippet}
 
