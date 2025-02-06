@@ -9,18 +9,13 @@
 		AppShellSidebar,
 		NavbarGroup,
 		NavbarItem,
-		syncToDom,
 		theme,
+		ThemeSwitcher,
 	} from '@immich/ui';
 	import { mdiHome } from '@mdi/js';
 	import '../app.css';
-	import ThemeSwitcher from '$lib/components/ThemeSwitcher/ThemeSwitcher.svelte';
 
 	let { children } = $props();
-
-	$effect(() => {
-		syncToDom();
-	});
 </script>
 
 <AppShell>

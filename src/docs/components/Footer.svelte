@@ -1,6 +1,16 @@
 <script lang="ts">
-	import ThemeSwitcher from '$lib/components/ThemeSwitcher/ThemeSwitcher.svelte';
-	import { Card, Container, Heading, HStack, Icon, Link, Stack, Text, VStack } from '@immich/ui';
+	import {
+		Card,
+		Container,
+		Heading,
+		HStack,
+		Icon,
+		Link,
+		Stack,
+		Text,
+		ThemeSwitcher,
+		VStack,
+	} from '@immich/ui';
 	import {
 		mdiAndroid,
 		mdiApple,
