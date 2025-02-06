@@ -1,18 +1,6 @@
 <script lang="ts">
-	import {
-		Card,
-		Container,
-		Heading,
-		HStack,
-		Icon,
-		IconButton,
-		Link,
-		Stack,
-		Text,
-		theme,
-		Theme,
-		VStack,
-	} from '@immich/ui';
+	import ThemeSwitcher from '$lib/components/ThemeSwitcher/ThemeSwitcher.svelte';
+	import { Card, Container, Heading, HStack, Icon, Link, Stack, Text, VStack } from '@immich/ui';
 	import {
 		mdiAndroid,
 		mdiApple,
@@ -21,16 +9,8 @@
 		mdiOfficeBuildingOutline,
 		mdiReddit,
 		mdiServerOutline,
-		mdiWeatherNight,
-		mdiWeatherSunny,
 		mdiWeb,
 	} from '@mdi/js';
-
-	const handleToggleTheme = () => {
-		theme.value = theme.value === Theme.Dark ? Theme.Light : Theme.Dark;
-	};
-
-	const themeIcon = $derived(theme.value === Theme.Light ? mdiWeatherSunny : mdiWeatherNight);
 </script>
 
 <div class="mt-16 rounded-t-3xl bg-dark/10 p-8">
@@ -135,14 +115,7 @@
 			<VStack class="text-center">
 				<Text size="large">This project is available under GNU AGPL v3 license.</Text>
 				<Text color="muted" variant="italic">Privacy should not be a luxury</Text>
-				<IconButton
-					size="large"
-					shape="round"
-					color="secondary"
-					variant="ghost"
-					icon={themeIcon}
-					onclick={handleToggleTheme}
-				/>
+				<ThemeSwitcher color="secondary" size="large" />
 			</VStack>
 		</Stack>
 	</Container>

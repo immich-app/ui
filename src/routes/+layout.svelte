@@ -7,22 +7,16 @@
 		AppShell,
 		AppShellHeader,
 		AppShellSidebar,
-		IconButton,
 		NavbarGroup,
 		NavbarItem,
 		syncToDom,
 		theme,
-		Theme,
 	} from '@immich/ui';
-	import { mdiHome, mdiWeatherNight, mdiWeatherSunny } from '@mdi/js';
+	import { mdiHome } from '@mdi/js';
 	import '../app.css';
+	import ThemeSwitcher from '$lib/components/ThemeSwitcher/ThemeSwitcher.svelte';
 
 	let { children } = $props();
-
-	const handleToggleTheme = () =>
-		(theme.value = theme.value === Theme.Dark ? Theme.Light : Theme.Dark);
-
-	const themeIcon = $derived(theme.value === Theme.Light ? mdiWeatherSunny : mdiWeatherNight);
 
 	$effect(() => {
 		syncToDom();
@@ -32,14 +26,7 @@
 <AppShell>
 	<AppShellHeader>
 		<Navbar theme={theme.value}>
-			<IconButton
-				size="giant"
-				shape="round"
-				color="primary"
-				variant="ghost"
-				icon={themeIcon}
-				onclick={handleToggleTheme}
-			/>
+			<ThemeSwitcher size="giant" />
 		</Navbar>
 	</AppShellHeader>
 

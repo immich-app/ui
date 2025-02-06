@@ -6,7 +6,7 @@
 </script>
 
 <HStack wrap>
-	<IconButton {icon} shape="rectangle">Rectangle</IconButton>
-	<IconButton {icon} shape="semi-round">Semi-Round</IconButton>
-	<IconButton {icon} shape="round">Round</IconButton>
+	<IconButton {icon} shape="rectangle" aria-label="Rectangle" />
+	<IconButton {icon} shape="semi-round" aria-label="Semi-Round" />
+	<IconButton {icon} shape="round" aria-label="Round" />
 </HStack>

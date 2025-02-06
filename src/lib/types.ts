@@ -70,6 +70,7 @@ export type IconButtonProps = ButtonBase & {
 	icon: string;
 	flipped?: boolean;
 	flopped?: boolean;
+	'aria-label': string;
 } & ButtonOrAnchor;
 
 type StackBaseProps = {

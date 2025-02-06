@@ -13,4 +13,4 @@ export const cleanClass = (...classNames: unknown[]) => {
 export const withPrefix = (key: string) => `immich-ui-${key}`;
 
 let _count = 0;
-export const generateId = (): string => `id-${_count++}`;
+export const generateId = (): string => `ui-id-${_count++}`;

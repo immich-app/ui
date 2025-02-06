@@ -19,5 +19,5 @@
 	{variant}
 	{size}
 	color="secondary"
-	title={t('close', translations)}
+	aria-label={t('close', translations)}
 />

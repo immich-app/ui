@@ -4,6 +4,7 @@ const defaultTranslations = {
 	close: 'Close',
 	showPassword: 'Show password',
 	hidePassword: 'Hide password',
+	darkTheme: 'Toggle dark theme',
 };
 
 export type Translations = typeof defaultTranslations;

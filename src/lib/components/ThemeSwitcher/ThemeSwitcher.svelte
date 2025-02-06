@@ -1,7 +1,14 @@
 <script lang="ts">
 	import IconButton from '$lib/components/IconButton/IconButton.svelte';
 	import { theme } from '$lib/services/theme.svelte.js';
-	import { Theme, type Color, type Size, type Variants } from '$lib/types.js';
+	import { t } from '$lib/services/translation.svelte.js';
+	import {
+		Theme,
+		type Color,
+		type Size,
+		type TranslationProps,
+		type Variants,
+	} from '$lib/types.js';
 	import { cleanClass } from '$lib/utils.js';
 	import { mdiWeatherNight, mdiWeatherSunny } from '@mdi/js';
 
@@ -10,6 +17,7 @@
 		class?: string;
 		color?: Color;
 		variant?: Variants;
+		translations?: TranslationProps<'darkTheme'>;
 		onChange?: (theme: Theme) => void;
 	};
 
@@ -18,6 +26,7 @@
 		variant = 'ghost',
 		size,
 		class: className,
+		translations,
 		onChange,
 	}: Props = $props();
 
@@ -37,4 +46,7 @@
 	icon={themeIcon}
 	onclick={handleToggleTheme}
 	class={cleanClass(className)}
+	aria-label={t('darkTheme', translations)}
+	role="switch"
+	aria-checked={theme.value === Theme.Dark}
 />
