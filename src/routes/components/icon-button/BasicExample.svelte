@@ -4,5 +4,5 @@
 </script>
 
 <HStack wrap>
-	<IconButton icon={mdiMagnify}>Click me!</IconButton>
+	<IconButton icon={mdiMagnify} aria-label="Click me!" />
 </HStack>

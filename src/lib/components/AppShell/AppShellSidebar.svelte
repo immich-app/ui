@@ -34,6 +34,7 @@
 		color={hidden ? 'primary' : 'secondary'}
 		variant="filled"
 		class="absolute bottom-2 right-4 m-2 opacity-100 md:hidden"
+		aria-label="Menu"
 	/>
 	<Scrollable
 		class={cleanClass(

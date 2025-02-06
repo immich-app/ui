@@ -107,6 +107,7 @@
 							class="m-1"
 							icon={mdiUnfoldMoreHorizontal}
 							{disabled}
+							aria-label="Expand"
 						/>
 					{/snippet}
 				</Input>

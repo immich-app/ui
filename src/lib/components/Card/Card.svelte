@@ -114,6 +114,7 @@
 					variant="ghost"
 					shape="round"
 					size="large"
+					aria-label="Expand"
 				/>
 			</div>
 		</button>
