@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { afterNavigate } from '$app/navigation';
 	import { cleanClass } from '$lib/utils.js';
 	import type { Snippet } from 'svelte';
 
@@ -6,12 +7,20 @@
 		class?: string;
 		children?: Snippet;
 		transition?: TransitionEvent;
+		ref?: HTMLDivElement;
+		resetOnNavigate?: boolean;
 	};
 
-	const { class: className, children }: Props = $props();
+	let { resetOnNavigate = false, class: className, children, ref = $bindable() }: Props = $props();
+
+	afterNavigate(() => {
+		if (resetOnNavigate) {
+			ref?.scrollTo(0, 0);
+		}
+	});
 </script>
 
-<div class={cleanClass('immich-scrollbar h-full w-full overflow-auto', className)}>
+<div bind:this={ref} class={cleanClass('immich-scrollbar h-full w-full overflow-auto', className)}>
 	{@render children?.()}
 </div>
 

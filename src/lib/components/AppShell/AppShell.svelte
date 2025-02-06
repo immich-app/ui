@@ -27,7 +27,7 @@
 		{#if sidebar}
 			{@render sidebar?.snippet()}
 		{/if}
-		<Scrollable class="grow">
+		<Scrollable class="grow" resetOnNavigate>
 			{@render children?.()}
 		</Scrollable>
 	</div>
