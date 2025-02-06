@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Container, Heading, Scrollable, type ContainerSize } from '@immich/ui';
+	import { Container, Heading, type ContainerSize } from '@immich/ui';
 	import type { Snippet } from 'svelte';
 
 	type Props = {
@@ -23,10 +23,8 @@
 		</div>
 	</nav>
 
-	<Scrollable>
-		<Container {size} class="flex flex-col p-4">
-			<Heading size="large">{name}</Heading>
-			{@render children?.()}
-		</Container>
-	</Scrollable>
+	<Container {size} class="flex flex-col p-4">
+		<Heading size="large">{name}</Heading>
+		{@render children?.()}
+	</Container>
 </div>
