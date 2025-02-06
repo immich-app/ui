@@ -10,7 +10,7 @@
 		mdiAlertOutline,
 		mdiCheckCircleOutline,
 		mdiCloseCircleOutline,
-		mdiInformationOutline,
+		mdiInformationVariantCircleOutline,
 	} from '@mdi/js';
 	import type { Snippet } from 'svelte';
 
@@ -73,7 +73,9 @@
 	};
 
 	const icon = $derived(
-		iconOverride === false ? undefined : iconOverride || (icons[color] ?? mdiInformationOutline),
+		iconOverride === false
+			? undefined
+			: iconOverride || (icons[color] ?? mdiInformationVariantCircleOutline),
 	);
 </script>
 
@@ -88,7 +90,7 @@
 						</div>
 					{/if}
 
-					<div class="flex flex-col gap-2">
+					<div class="flex flex-col gap-2 self-center">
 						{#if title}
 							<Text {size} fontWeight={children ? 'bold' : undefined}>{title}</Text>
 						{/if}

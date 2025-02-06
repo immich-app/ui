@@ -1,25 +1,20 @@
 <script lang="ts">
 	import Lorem from '$docs/components/Lorem.svelte';
-	import { Alert, Stack } from '@immich/ui';
+	import { Alert, Stack, type Color } from '@immich/ui';
+
+	const colors: Color[] = ['primary', 'secondary', 'success', 'info', 'warning', 'danger'];
 </script>
 
-<Stack>
-	<Alert color="primary" title="This is a primary alert">
-		<Lorem />
-	</Alert>
-	<Alert color="secondary" title="This is a secondary alert">
-		<Lorem />
-	</Alert>
-	<Alert color="success" title="This is a success alert">
-		<Lorem />
-	</Alert>
-	<Alert color="info" title="This is an info alert">
-		<Lorem />
-	</Alert>
-	<Alert color="warning" title="This is a warning alert">
-		<Lorem />
-	</Alert>
-	<Alert color="danger" title="This is a danger alert">
-		<Lorem />
-	</Alert>
+<Stack gap={4}>
+	<Stack gap={2}>
+		{#each colors as color}
+			<Alert {color} title="This is an alert" />
+			<Alert {color}>
+				<p>This is an alert</p>
+			</Alert>
+			<Alert {color} title="This is a primary alert">
+				<Lorem />
+			</Alert>
+		{/each}
+	</Stack>
 </Stack>
