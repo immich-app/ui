@@ -1,6 +1,6 @@
 <script lang="ts">
 	import IconButton from '$lib/components/IconButton/IconButton.svelte';
-	import { theme } from '$lib/services/theme.svelte.js';
+	import { onThemeChange, theme } from '$lib/services/theme.svelte.js';
 	import { t } from '$lib/services/translation.svelte.js';
 	import {
 		Theme,
@@ -33,6 +33,7 @@
 	const handleToggleTheme = () => {
 		theme.value = theme.value === Theme.Dark ? Theme.Light : Theme.Dark;
 		onChange?.(theme.value);
+		onThemeChange();
 	};
 
 	const themeIcon = $derived(theme.value === Theme.Light ? mdiWeatherSunny : mdiWeatherNight);
