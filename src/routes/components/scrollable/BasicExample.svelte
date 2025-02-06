@@ -4,7 +4,7 @@
 </script>
 
 <Stack gap={4}>
-	<Heading size="tiny">Vertical</Heading>
+	<Heading tag="p" size="tiny">Vertical</Heading>
 	<div class="h-64 w-32">
 		<Scrollable>
 			<Text>
@@ -13,7 +13,7 @@
 		</Scrollable>
 	</div>
 
-	<Heading size="tiny">Horizontal</Heading>
+	<Heading tag="p" size="tiny">Horizontal</Heading>
 	<Scrollable>
 		<Text class="h-8 w-[2000px]">
 			<Lorem />

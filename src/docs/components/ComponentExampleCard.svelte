@@ -22,7 +22,7 @@
 <Card>
 	<CardHeader>
 		<div class="flex justify-between">
-			<CardTitle>{title}</CardTitle>
+			<CardTitle tag="h2">{title}</CardTitle>
 			<HStack gap={1}>
 				<Button
 					leadingIcon={mdiEye}

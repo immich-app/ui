@@ -3,9 +3,9 @@
 </script>
 
 <Stack class="w-[200px]">
-	<Heading size="tiny">On Hover</Heading>
+	<Heading tag="p" size="tiny">On Hover</Heading>
 	<SupporterBadge />
 
-	<Heading size="tiny">Always</Heading>
+	<Heading tag="p" size="tiny">Always</Heading>
 	<SupporterBadge effect="always" />
 </Stack>

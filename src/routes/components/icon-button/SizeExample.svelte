@@ -7,7 +7,7 @@
 
 <HStack gap={4}>
 	<Stack>
-		<Heading size="tiny">Semi-Round</Heading>
+		<Heading tag="p" size="tiny">Semi-Round</Heading>
 		<div>
 			<IconButton {icon} size="tiny" aria-label="Tiny" />
 		</div>
@@ -26,7 +26,7 @@
 	</Stack>
 
 	<Stack>
-		<Heading size="tiny">Round</Heading>
+		<Heading tag="p" size="tiny">Round</Heading>
 		<div>
 			<IconButton {icon} shape="round" size="tiny" aria-label="Tiny" />
 		</div>
@@ -45,7 +45,7 @@
 	</Stack>
 
 	<Stack>
-		<Heading size="tiny">Rectangle</Heading>
+		<Heading tag="p" size="tiny">Rectangle</Heading>
 		<div>
 			<IconButton {icon} shape="rectangle" size="tiny" aria-label="Tiny" />
 		</div>

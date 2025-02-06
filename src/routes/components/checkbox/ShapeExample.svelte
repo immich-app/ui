@@ -3,21 +3,21 @@
 </script>
 
 <Stack>
-	<Heading size="tiny">Semi-Round</Heading>
+	<Heading tag="p" size="tiny">Semi-Round</Heading>
 	<HStack>
 		<Checkbox checked />
 		<Checkbox />
 		<Checkbox indeterminate />
 	</HStack>
 
-	<Heading size="tiny">Round</Heading>
+	<Heading tag="p" size="tiny">Round</Heading>
 	<HStack>
 		<Checkbox checked />
 		<Checkbox />
 		<Checkbox indeterminate />
 	</HStack>
 
-	<Heading size="tiny">Rectangle</Heading>
+	<Heading tag="p" size="tiny">Rectangle</Heading>
 	<HStack>
 		<Checkbox shape="rectangle" checked />
 		<Checkbox shape="rectangle" />

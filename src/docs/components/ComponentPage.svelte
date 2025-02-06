@@ -24,7 +24,7 @@
 	</nav>
 
 	<Container {size} class="flex flex-col p-4">
-		<Heading size="large">{name}</Heading>
+		<Heading tag="h1" size="large">{name}</Heading>
 		{@render children?.()}
 	</Container>
 </div>

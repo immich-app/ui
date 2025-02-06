@@ -6,7 +6,7 @@
 <Stack>
 	<Card expandable>
 		<CardHeader>
-			<CardTitle>Title</CardTitle>
+			<CardTitle tag="p">Title</CardTitle>
 		</CardHeader>
 		<CardBody>
 			<Lorem />
@@ -15,7 +15,7 @@
 
 	<Card color="primary" expandable>
 		<CardHeader>
-			<CardTitle>Title</CardTitle>
+			<CardTitle tag="p">Title</CardTitle>
 		</CardHeader>
 		<CardBody>
 			<Lorem />
