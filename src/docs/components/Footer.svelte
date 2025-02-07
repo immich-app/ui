@@ -28,7 +28,7 @@
 		<Stack gap={8}>
 			<div class="place-center grid grid-cols-2 gap-8 lg:grid-cols-4">
 				<Stack>
-					<Heading size="tiny">Social</Heading>
+					<Heading tag="h2" size="tiny">Social</Heading>
 					<Link
 						href="https://github.com/immich-app/immich"
 						target="_blank"
@@ -54,7 +54,7 @@
 				</Stack>
 
 				<Stack>
-					<Heading size="tiny">Download</Heading>
+					<Heading tag="h2" size="tiny">Download</Heading>
 					<Link
 						href="https://play.google.com/store/apps/details?id=app.alextran.immich"
 						target="_blank"
@@ -88,7 +88,7 @@
 				</Stack>
 
 				<Stack>
-					<Heading size="tiny">Sites</Heading>
+					<Heading tag="h2" size="tiny">Sites</Heading>
 					<Link href="https://immich.app" target="_blank" rel="noopener noreferrer">
 						<HStack>
 							<Icon icon={mdiWeb} size="1.5em" />
@@ -110,7 +110,7 @@
 				</Stack>
 
 				<Stack>
-					<Heading size="tiny">Company</Heading>
+					<Heading tag="h2" size="tiny">Company</Heading>
 					<Link href="https://futo.org/" target="_blank" rel="noopener noreferrer">
 						<HStack>
 							<Icon icon={mdiOfficeBuildingOutline} size="1.5em" />

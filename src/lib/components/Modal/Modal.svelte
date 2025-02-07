@@ -69,7 +69,7 @@
 				<Card class={cleanClass(modalStyles({ size }), className)}>
 					<CardHeader class="border-0 py-2">
 						<div class="flex items-center justify-between">
-							<CardTitle>{title}</CardTitle>
+							<CardTitle tag="h1">{title}</CardTitle>
 							<Dialog.Close>
 								<CloseButton size="large" onclick={() => onChange(false)} />
 							</Dialog.Close>

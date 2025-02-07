@@ -14,6 +14,7 @@ export type Size = 'tiny' | 'small' | 'medium' | 'large' | 'giant';
 export type ModalSize = Size | 'full';
 export type ContainerSize = ModalSize;
 export type HeadingSize = Size | 'title';
+export type HeadingTag = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p';
 export type Shape = 'rectangle' | 'semi-round' | 'round';
 export type Variants = 'filled' | 'outline' | 'ghost';
 export type Gap = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
