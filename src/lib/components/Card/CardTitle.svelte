@@ -1,13 +1,13 @@
 <script lang="ts">
 	import Heading from '$lib/components/Heading/Heading.svelte';
-	import type { HeadingSize, HeadingTags } from '$lib/types.js';
+	import type { HeadingSize, HeadingTag } from '$lib/types.js';
 	import type { Snippet } from 'svelte';
 
 	type Props = {
 		/**
 		 * The HTML element type.
 		 */
-		tag: HeadingTags;
+		tag: HeadingTag;
 		class?: string;
 		size?: HeadingSize;
 		children: Snippet;

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { HeadingColor, HeadingSize, HeadingTags } from '$lib/types.js';
+	import type { HeadingColor, HeadingSize, HeadingTag } from '$lib/types.js';
 	import { cleanClass } from '$lib/utils.js';
 	import type { Snippet } from 'svelte';
 	import type { HTMLAttributes } from 'svelte/elements';
@@ -10,7 +10,7 @@
 		/**
 		 * The HTML element type.
 		 */
-		tag: HeadingTags;
+		tag: HeadingTag;
 		color?: HeadingColor;
 		class?: string;
 
