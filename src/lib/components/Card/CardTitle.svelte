@@ -7,7 +7,7 @@
 		/**
 		 * The HTML element type.
 		 */
-		tag: HeadingTag;
+		tag?: HeadingTag;
 		class?: string;
 		size?: HeadingSize;
 		children: Snippet;

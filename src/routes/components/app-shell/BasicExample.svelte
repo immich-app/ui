@@ -15,12 +15,12 @@
 		<AppShell class="h-[400px]">
 			<AppShellHeader>
 				<div class="p-4">
-					<Heading tag="p" size="tiny">Header</Heading>
+					<Heading size="tiny">Header</Heading>
 				</div>
 			</AppShellHeader>
 
 			<div class="p-4">
-				<Heading tag="p" size="tiny">Content</Heading>
+				<Heading size="tiny">Content</Heading>
 			</div>
 		</AppShell>
 	</div>
@@ -29,18 +29,18 @@
 		<AppShell class="h-[400px]">
 			<AppShellHeader>
 				<div class="p-4">
-					<Heading tag="p" size="tiny">Header</Heading>
+					<Heading size="tiny">Header</Heading>
 				</div>
 			</AppShellHeader>
 
 			<AppShellSidebar>
 				<div class="p-4">
-					<Heading tag="p" size="tiny">Sidebar</Heading>
+					<Heading size="tiny">Sidebar</Heading>
 				</div>
 			</AppShellSidebar>
 
 			<div class="p-4">
-				<Heading tag="p" size="tiny">Content</Heading>
+				<Heading size="tiny">Content</Heading>
 			</div>
 		</AppShell>
 	</div>
@@ -49,7 +49,7 @@
 		<AppShell class="h-[400px]">
 			<AppShellHeader>
 				<div class="p-4">
-					<Heading tag="p" size="tiny">Header</Heading>
+					<Heading size="tiny">Header</Heading>
 				</div>
 			</AppShellHeader>
 
@@ -63,7 +63,7 @@
 			</AppShellSidebar>
 
 			<div class="p-4">
-				<Heading tag="p" size="tiny">Content</Heading>
+				<Heading size="tiny">Content</Heading>
 			</div>
 		</AppShell>
 	</div>

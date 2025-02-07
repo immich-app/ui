@@ -14,7 +14,7 @@
 <Stack>
 	<Card>
 		<CardHeader>
-			<CardTitle tag="p">Card</CardTitle>
+			<CardTitle>Card</CardTitle>
 			<CardBody>
 				<Lorem />
 			</CardBody>
@@ -23,7 +23,7 @@
 
 	<Card>
 		<CardHeader>
-			<CardTitle tag="p">Card with footer</CardTitle>
+			<CardTitle>Card with footer</CardTitle>
 		</CardHeader>
 		<CardBody>
 			<Lorem />
@@ -33,7 +33,7 @@
 
 	<Card>
 		<CardHeader>
-			<CardTitle tag="p">Card with description</CardTitle>
+			<CardTitle>Card with description</CardTitle>
 			<CardDescription>This is the description</CardDescription>
 		</CardHeader>
 		<CardBody>

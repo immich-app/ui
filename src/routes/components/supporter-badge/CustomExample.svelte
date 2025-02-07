@@ -8,7 +8,7 @@
 	</Stack>
 
 	<Stack>
-		<Heading tag="p" size="tiny">Title</Heading>
+		<Heading size="tiny">Title</Heading>
 		<SupporterBadge effect="always">
 			<Logo size="large" variant="icon" />
 			<Heading tag="h1" size="large" color="primary">Purchase Immich</Heading>

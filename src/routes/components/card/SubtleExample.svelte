@@ -6,7 +6,7 @@
 <Stack>
 	<Card color="primary">
 		<CardHeader>
-			<CardTitle tag="p">Title</CardTitle>
+			<CardTitle>Title</CardTitle>
 		</CardHeader>
 		<CardBody>
 			<Lorem />
@@ -15,7 +15,7 @@
 
 	<Card color="secondary">
 		<CardHeader>
-			<CardTitle tag="p">Title</CardTitle>
+			<CardTitle>Title</CardTitle>
 		</CardHeader>
 		<CardBody>
 			<Lorem />
@@ -24,7 +24,7 @@
 
 	<Card color="success">
 		<CardHeader>
-			<CardTitle tag="p">Title</CardTitle>
+			<CardTitle>Title</CardTitle>
 		</CardHeader>
 		<CardBody>
 			<Lorem />
@@ -33,7 +33,7 @@
 
 	<Card color="info">
 		<CardHeader>
-			<CardTitle tag="p">Title</CardTitle>
+			<CardTitle>Title</CardTitle>
 		</CardHeader>
 		<CardBody>
 			<Lorem />
@@ -42,7 +42,7 @@
 
 	<Card color="warning">
 		<CardHeader>
-			<CardTitle tag="p">Title</CardTitle>
+			<CardTitle>Title</CardTitle>
 		</CardHeader>
 		<CardBody>
 			<Lorem />
@@ -51,7 +51,7 @@
 
 	<Card color="danger">
 		<CardHeader>
-			<CardTitle tag="p">Title</CardTitle>
+			<CardTitle>Title</CardTitle>
 		</CardHeader>
 		<CardBody>
 			<Lorem />

@@ -10,14 +10,21 @@
 		/**
 		 * The HTML element type.
 		 */
-		tag: HeadingTag;
+		tag?: HeadingTag;
 		color?: HeadingColor;
 		class?: string;
 
 		children: Snippet;
 	} & HTMLAttributes<HTMLHeadingElement>;
 
-	const { color, tag, size = 'medium', class: className, children, ...restProps }: Props = $props();
+	const {
+		color,
+		tag = 'p',
+		size = 'medium',
+		class: className,
+		children,
+		...restProps
+	}: Props = $props();
 
 	const styles = tv({
 		base: 'font-bold leading-none tracking-tight',

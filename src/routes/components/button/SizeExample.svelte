@@ -5,7 +5,7 @@
 <section class="grid grid-cols-[70px_1fr_1fr_1fr] gap-4">
 	<!-- Size Column -->
 	<div class="grid grid-cols-1 grid-rows-6 place-items-center justify-items-start gap-2">
-		<Heading tag="p" size="tiny">Size</Heading>
+		<Heading size="tiny">Size</Heading>
 		<Code size="tiny">Tiny</Code>
 		<Code size="tiny">Small</Code>
 		<Code size="tiny">Medium</Code>
@@ -15,7 +15,7 @@
 
 	<!-- Round Column -->
 	<div class="grid grid-cols-1 grid-rows-6 place-items-center justify-items-start gap-2">
-		<Heading tag="p" size="tiny">Round</Heading>
+		<Heading size="tiny">Round</Heading>
 		<Button shape="round" size="tiny">Click me</Button>
 		<Button shape="round" size="small">Click me</Button>
 		<Button shape="round" size="medium">Click me</Button>
@@ -25,7 +25,7 @@
 
 	<!-- Semi-Round Column -->
 	<div class="grid grid-cols-1 grid-rows-6 place-items-center justify-items-start gap-2">
-		<Heading tag="p" size="tiny">Semi-Rounded</Heading>
+		<Heading size="tiny">Semi-Rounded</Heading>
 		<Button size="tiny">Click me</Button>
 		<Button size="small">Click me</Button>
 		<Button size="medium">Click me</Button>
@@ -35,7 +35,7 @@
 
 	<!-- Rectangle Column -->
 	<div class="grid grid-cols-1 grid-rows-6 place-items-center justify-items-start gap-2">
-		<Heading tag="p" size="tiny">Rectangle</Heading>
+		<Heading size="tiny">Rectangle</Heading>
 		<Button shape="rectangle" size="tiny">Click me</Button>
 		<Button shape="rectangle" size="small">Click me</Button>
 		<Button shape="rectangle" size="medium">Click me</Button>
