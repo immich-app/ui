@@ -54,6 +54,11 @@ const syncToDom = () => {
 			if (darkClass) {
 				element.classList.add(darkClass);
 			}
+
+			const darkReaderLock = document.createElement('meta');
+			darkReaderLock.name = 'darkreader-lock';
+			document.head.appendChild(darkReaderLock);
+
 			break;
 		}
 
@@ -65,6 +70,12 @@ const syncToDom = () => {
 			if (darkClass) {
 				element.classList.remove(darkClass);
 			}
+
+			const darkReaderLock = document.querySelector('head > meta[name=darkreader-lock]');
+			if (darkReaderLock) {
+				document.head.removeChild(darkReaderLock);
+			}
+
 			break;
 		}
 	}
