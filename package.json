@@ -1,6 +1,6 @@
 {
 	"name": "@immich/ui",
-	"version": "0.17.0",
+	"version": "0.17.1",
 	"license": "GNU Affero General Public License version 3",
 	"scripts": {
 		"create": "node scripts/create.js",
