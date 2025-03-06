@@ -28,7 +28,10 @@
 
 	const enabled = $derived(checked && !disabled);
 
-	const handleToggle = (event: Event) => onToggle?.((event.target as HTMLInputElement).checked);
+	const handleToggle = () => {
+		checked = !checked;
+		onToggle?.(checked);
+	};
 
 	const wrapper = tv({
 		base: 'relative flex flex-col justify-center',
@@ -79,7 +82,7 @@
 	const labelId = `label-${id}`;
 </script>
 
-<div class="flex w-full justify-between gap-1">
+<button class="flex justify-between gap-1" onclick={handleToggle}>
 	{#if label}
 		<Label id={labelId} for={inputId} {label} {...labelProps} />
 	{/if}
@@ -91,7 +94,6 @@
 			class="hidden"
 			type="checkbox"
 			bind:checked
-			onclick={handleToggle}
 			{required}
 			aria-required={required}
 			{disabled}
@@ -104,4 +106,4 @@
 		<span class={bar({ fillColor: enabled ? color : 'default' })}> </span>
 		<span class={dot({ checked: enabled, fillColor: enabled ? color : 'default' })}></span>
 	</span>
-</div>
+</button>
