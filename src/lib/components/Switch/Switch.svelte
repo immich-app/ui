@@ -82,7 +82,11 @@
 	const labelId = `label-${id}`;
 </script>
 
-<button class="flex justify-between gap-1" onclick={handleToggle}>
+<button
+	class={cleanClass('flex justify-between gap-1', label && 'w-full')}
+	{disabled}
+	onclick={handleToggle}
+>
 	{#if label}
 		<Label id={labelId} for={inputId} {label} {...labelProps} />
 	{/if}
