@@ -41,7 +41,7 @@
 		variants: {
 			fillColor: {
 				default: 'bg-gray-300 dark:bg-gray-400',
-				primary: 'bg-primary',
+				primary: 'bg-primary/50 dark:bg-primary',
 				secondary: 'bg-dark/50',
 				success: 'bg-success/50',
 				danger: 'bg-danger/50',
