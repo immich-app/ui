@@ -129,15 +129,25 @@
 			),
 		),
 	);
+
+	const iconSizes = {
+		tiny: 'h-4 w-4',
+		small: 'h-4 w-4',
+		medium: 'h-4 w-4',
+		large: 'h-6 w-6',
+		giant: 'h-8 w-8',
+	};
 </script>
 
 {#snippet content()}
 	{#if leadingIcon && !loading}
-		<Icon size="1.15rem" icon={leadingIcon} aria-hidden />
+		<div>
+			<Icon size="100%" class={iconSizes[size]} icon={leadingIcon} aria-hidden />
+		</div>
 	{/if}
 	{@render children?.()}
 	{#if trailingIcon}
-		<Icon size="1.15rem" icon={trailingIcon} aria-hidden />
+		<Icon size="100%" class={iconSizes[size]} icon={trailingIcon} aria-hidden />
 	{/if}
 {/snippet}
 
