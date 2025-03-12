@@ -7,7 +7,7 @@ export const styles = {
 			size: {
 				tiny: 'text-xs',
 				small: 'text-sm',
-				medium: 'text-md',
+				medium: 'text-base',
 				large: 'text-lg',
 				giant: 'text-xl',
 			},
