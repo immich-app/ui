@@ -87,7 +87,7 @@
 >
 	<Switch.Thumb>
 		{#snippet child()}
-			<div class={cleanClass(label && 'flex justify-between gap-1')}>
+			<div class={cleanClass(label && 'flex items-center justify-between gap-1')}>
 				{#if label}
 					<Label id={labelId} for={inputId} {label} {...labelProps} />
 				{/if}
