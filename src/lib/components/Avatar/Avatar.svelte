@@ -26,7 +26,7 @@
 			size: {
 				tiny: 'h-5 w-5 text-xs',
 				small: 'h-7 w-7 text-sm',
-				medium: 'text-md h-10 w-10',
+				medium: 'h-10 w-10 text-base',
 				large: 'h-12 w-12 text-lg',
 				giant: 'h-16 w-16 text-xl',
 			},
