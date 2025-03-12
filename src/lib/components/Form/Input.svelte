@@ -69,7 +69,7 @@
 		<Label id={labelId} for={inputId} {label} {...labelProps} />
 	{/if}
 
-	<div class="relative mt-1.5 w-full">
+	<div class={cleanClass('relative w-full', label && 'mt-1.5')}>
 		<input
 			id={inputId}
 			aria-labelledby={label && labelId}
