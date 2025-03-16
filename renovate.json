@@ -1,41 +1,5 @@
 {
 	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
-	"extends": ["config:base", "docker:pinDigests"],
-	"minimumReleaseAge": "5 days",
-	"packageRules": [
-		{
-			"groupName": "core",
-			"matchUpdateTypes": ["minor", "patch"],
-			"excludePackageNames": ["node", "@types/node"],
-			"schedule": "on tuesday"
-		},
-		{
-			"groupName": "svelte",
-			"matchUpdateTypes": ["major"],
-			"matchPackagePrefixes": ["@sveltejs"],
-			"schedule": "on tuesday"
-		},
-		{
-			"matchFileNames": [".github/**"],
-			"groupName": "github-actions",
-			"schedule": "on tuesday"
-		},
-		{
-			"matchDatasources": ["npm"],
-			"rangeStrategy": "bump",
-			"groupName": "node",
-			"versioning": "node",
-			"matchPackageNames": ["node", "@types/node"],
-			"schedule": "on tuesday"
-		},
-		{
-			"groupName": "node",
-			"matchDatasources": ["docker"],
-			"matchPackageNames": ["node"],
-			"versionCompatibility": "^(?<version>[^-]+)(?<compatibility>-.*)?$",
-			"versioning": "node",
-			"schedule": "on tuesday"
-		}
-	],
-	"labels": ["dependencies", "renovate"]
+  "extends": ["local>immich-app/.github:renovate-config"],
+  "schedule": "on tuesday"
 }
