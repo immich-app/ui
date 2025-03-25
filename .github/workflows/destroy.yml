@@ -17,18 +17,18 @@ jobs:
         environment: ['dev', 'prod']
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
 
       - name: Install 1Password CLI
-        uses: 1password/install-cli-action@v1
+        uses: 1password/install-cli-action@143a85f84a90555d121cde2ff5872e393a47ab9f # v1
 
       - name: Install Terragrunt
-        uses: eLco/setup-terragrunt@v1
+        uses: eLco/setup-terragrunt@2c5116f8979bb261072ef57c97ac026cd9c27434 # v1
         with:
           terragrunt_version: ${{ env.tg_version }}
 
       - name: 'Install OpenTofu'
-        uses: opentofu/setup-opentofu@v1
+        uses: opentofu/setup-opentofu@592200bd4b9bbf4772ace78f887668b1aee8f716 # v1
         with:
           tofu_version: ${{ env.tofu_version }}
           tofu_wrapper: false
@@ -43,7 +43,7 @@ jobs:
         run: op run --env-file=".env" -- terragrunt run-all destroy -refresh=false --terragrunt-non-interactive --terragrunt-exclude-dir '**/pages-project'
 
       - name: Comment
-        uses: actions-cool/maintain-one-comment@v3
+        uses: actions-cool/maintain-one-comment@4b2dbf086015f892dcb5e8c1106f5fccd6c1476b # v3
         with:
           number: ${{ github.event.number }}
           delete: true
