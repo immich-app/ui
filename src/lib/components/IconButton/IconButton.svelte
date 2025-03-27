@@ -16,5 +16,5 @@
 </script>
 
 <Button icon {...buttonProps} title={buttonTitle} aria-label={ariaLabel}>
-	<Icon {icon} {flipped} {flopped} size="45%" aria-hidden />
+	<Icon {icon} {flipped} {flopped} size="60%" aria-hidden />
 </Button>

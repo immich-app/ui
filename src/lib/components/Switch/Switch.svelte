@@ -3,7 +3,7 @@
 	import Label from '$lib/components/Label/Label.svelte';
 	import type { Color } from '$lib/types.js';
 	import { cleanClass, generateId } from '$lib/utils.js';
-	import type { HTMLInputAttributes } from 'svelte/elements';
+	import { Switch, type WithoutChildrenOrChild } from 'bits-ui';
 	import { tv } from 'tailwind-variants';
 
 	type Props = {
@@ -11,24 +11,20 @@
 		color?: Color;
 		disabled?: boolean;
 		class?: string;
-		onToggle?: ((checked: boolean) => void) | undefined;
-		inputSize?: HTMLInputAttributes['size'];
-	} & Omit<HTMLInputAttributes, 'size'>;
+	} & WithoutChildrenOrChild<Switch.RootProps>;
 
 	let {
+		id = generateId(),
 		checked = $bindable(false),
-		class: className,
+		ref = $bindable(null),
 		color = 'primary',
-		onToggle = undefined,
-		inputSize,
+		class: className,
 		...restProps
 	}: Props = $props();
 
 	const { readOnly, required, disabled, label, ...labelProps } = $derived(getFieldContext());
 
 	const enabled = $derived(checked && !disabled);
-
-	const handleToggle = (event: Event) => onToggle?.((event.target as HTMLInputElement).checked);
 
 	const wrapper = tv({
 		base: 'relative flex flex-col justify-center',
@@ -45,7 +41,7 @@
 		variants: {
 			fillColor: {
 				default: 'bg-gray-300 dark:bg-gray-400',
-				primary: 'bg-primary/60',
+				primary: 'bg-primary/50 dark:bg-primary',
 				secondary: 'bg-dark/50',
 				success: 'bg-success/50',
 				danger: 'bg-danger/50',
@@ -64,7 +60,7 @@
 			},
 			fillColor: {
 				default: 'bg-gray-400 dark:bg-gray-500',
-				primary: 'bg-primary',
+				primary: 'bg-[#4250af]',
 				secondary: 'bg-dark',
 				success: 'bg-success',
 				danger: 'bg-danger',
@@ -74,34 +70,32 @@
 		},
 	});
 
-	const id = generateId();
 	const inputId = `input-${id}`;
 	const labelId = `label-${id}`;
 </script>
 
-<div class="flex w-full justify-between gap-1">
-	{#if label}
-		<Label id={labelId} for={inputId} {label} {...labelProps} />
-	{/if}
-
-	<span class={cleanClass(wrapper({ disabled }), className)}>
-		<input
-			id={inputId}
-			aria-labelledby={label && labelId}
-			class="hidden"
-			type="checkbox"
-			bind:checked
-			onclick={handleToggle}
-			{required}
-			aria-required={required}
-			{disabled}
-			aria-disabled={disabled}
-			readonly={readOnly}
-			aria-readonly={readOnly}
-			size={inputSize}
-			{...restProps}
-		/>
-		<span class={bar({ fillColor: enabled ? color : 'default' })}> </span>
-		<span class={dot({ checked: enabled, fillColor: enabled ? color : 'default' })}></span>
-	</span>
-</div>
+<Switch.Root
+	bind:checked
+	bind:ref
+	id={inputId}
+	{disabled}
+	{required}
+	class={cleanClass(label && 'w-full', className)}
+	aria-readonly={readOnly}
+	aria-labelledby={labelId}
+	{...restProps}
+>
+	<Switch.Thumb>
+		{#snippet child()}
+			<div class={cleanClass(label && 'flex items-center justify-between gap-1')}>
+				{#if label}
+					<Label id={labelId} for={inputId} {label} {...labelProps} />
+				{/if}
+				<span class={wrapper({ disabled })}>
+					<span class={bar({ fillColor: enabled ? color : 'default' })}> </span>
+					<span class={dot({ checked: enabled, fillColor: enabled ? color : 'default' })}></span>
+				</span>
+			</div>
+		{/snippet}
+	</Switch.Thumb>
+</Switch.Root>

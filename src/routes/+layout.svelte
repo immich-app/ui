@@ -7,6 +7,7 @@
 		AppShell,
 		AppShellHeader,
 		AppShellSidebar,
+		initializeTheme,
 		NavbarGroup,
 		NavbarItem,
 		theme,
@@ -14,6 +15,8 @@
 	} from '@immich/ui';
 	import { mdiHome } from '@mdi/js';
 	import '../app.css';
+
+	initializeTheme();
 
 	let { children } = $props();
 </script>

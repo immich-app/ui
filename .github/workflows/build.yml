@@ -23,10 +23,10 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@cdca7365b2dadb8aad0a33bc7601856ffabcc48e # v4
         with:
           node-version-file: '.nvmrc'
 
@@ -37,7 +37,7 @@ jobs:
         run: npm run build
 
       - name: Upload build output
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: build-output
           path: build
@@ -52,24 +52,24 @@ jobs:
       OP_SERVICE_ACCOUNT_TOKEN: ${{ github.ref == 'refs/heads/main' && secrets.OP_TF_PROD_ENV || secrets.OP_TF_DEV_ENV }}
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
 
       - name: 'Get build artifact'
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@95815c38cf2ff2164869cbab79da8d1f422bc89e # v4
         with:
           name: 'build-output'
           path: '${{ github.workspace }}/build'
 
       - name: Install 1Password CLI
-        uses: 1password/install-cli-action@v1
+        uses: 1password/install-cli-action@143a85f84a90555d121cde2ff5872e393a47ab9f # v1
 
       - name: Install Terragrunt
-        uses: eLco/setup-terragrunt@v1
+        uses: eLco/setup-terragrunt@2c5116f8979bb261072ef57c97ac026cd9c27434 # v1
         with:
           terragrunt_version: ${{ env.tg_version }}
 
       - name: 'Install OpenTofu'
-        uses: opentofu/setup-opentofu@v1
+        uses: opentofu/setup-opentofu@592200bd4b9bbf4772ace78f887668b1aee8f716 # v1
         with:
           tofu_version: ${{ env.tofu_version }}
           tofu_wrapper: false
@@ -85,7 +85,7 @@ jobs:
           echo "output=$(op run --no-masking --env-file='../../../.env' -- terragrunt output -json | jq -c .)" >> $GITHUB_OUTPUT
 
       - name: Publish Frontend to Cloudflare Pages
-        uses: cloudflare/pages-action@v1
+        uses: cloudflare/pages-action@f0a1cd58cd66095dee69bfa18fa5efd1dde93bca # v1
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN_PAGES_UPLOAD }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
@@ -95,7 +95,7 @@ jobs:
           wranglerVersion: '3'
 
       - name: Comment
-        uses: actions-cool/maintain-one-comment@v3
+        uses: actions-cool/maintain-one-comment@4b2dbf086015f892dcb5e8c1106f5fccd6c1476b # v3
         if: ${{ github.event_name == 'pull_request' }}
         with:
           number: ${{ github.event.number }}

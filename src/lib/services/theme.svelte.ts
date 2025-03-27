@@ -13,7 +13,7 @@ const defaultOptions: ThemeOptions = {
 	selector: 'body',
 };
 
-let options = $state<ThemeOptions>(defaultOptions);
+let options: ThemeOptions = defaultOptions;
 
 export const setThemeOptions = (newOptions: ThemeOptions) =>
 	(options = { ...defaultOptions, ...newOptions });
@@ -81,4 +81,10 @@ const syncToDom = () => {
 	}
 };
 
-syncToDom();
+export const initializeTheme = (options?: ThemeOptions) => {
+	if (options) {
+		setThemeOptions(options);
+	}
+
+	syncToDom();
+};

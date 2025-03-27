@@ -12,15 +12,10 @@
 		<Switch />
 	</Field>
 	<Field label="Sell my privacy" disabled>
-		<Switch>
-			<Text>Disabled</Text>
-		</Switch>
+		<Switch />
 	</Field>
-
 	<Field label="Status">
-		<Switch bind:checked={form.status}>
-			<Text>Status</Text>
-		</Switch>
+		<Switch bind:checked={form.status} />
 	</Field>
 	<Text>Status Enabled: {form.status}</Text>
 </Stack>

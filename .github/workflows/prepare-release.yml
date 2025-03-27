@@ -27,13 +27,13 @@ jobs:
     steps:
       - name: Generate a token
         id: generate-token
-        uses: actions/create-github-app-token@v1
+        uses: actions/create-github-app-token@af35edadc00be37caa72ed9f3e6d5f7801bfdf09 # v1
         with:
           app-id: ${{ secrets.PUSH_O_MATIC_APP_ID }}
           private-key: ${{ secrets.PUSH_O_MATIC_APP_KEY }}
 
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
         with:
           token: ${{ steps.generate-token.outputs.token }}
 
@@ -42,7 +42,7 @@ jobs:
 
       - name: Commit and tag
         id: push-tag
-        uses: EndBug/add-and-commit@v9
+        uses: EndBug/add-and-commit@a94899bca583c204427a224a7af87c02f9b325d5 # v9
         with:
           default_author: github_actions
           message: 'chore: version ${{ env.IMMICH_VERSION }}'
@@ -50,7 +50,7 @@ jobs:
           push: true
 
       - name: Create draft release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@c95fe1489396fe8a9eb87c0abf8aa5b2ef267fda # v2
         with:
           draft: true
           tag_name: ${{ env.IMMICH_VERSION }}
