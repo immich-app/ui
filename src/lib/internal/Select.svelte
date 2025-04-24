@@ -140,7 +140,7 @@
 									<span>{label}</span>
 								</div>
 								{#if selected}
-									<div class="ml-auto">
+									<div class="ms-auto">
 										<Icon icon={mdiCheck} />
 									</div>
 								{/if}

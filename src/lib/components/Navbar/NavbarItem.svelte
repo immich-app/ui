@@ -27,15 +27,15 @@
 	let active = $derived(activeOverride ?? isActive());
 
 	const styles = tv({
-		base: 'flex w-full place-items-center gap-4 transition-[padding] delay-100 duration-100 hover:bg-subtle hover:text-primary group-hover:sm:px-5 md:rounded-r-full md:px-5',
+		base: 'flex w-full place-items-center gap-4 transition-[padding] delay-100 duration-100 hover:bg-subtle hover:text-primary group-hover:sm:px-5 md:rounded-e-full md:px-5',
 		variants: {
 			active: {
 				true: 'bg-primary/10 text-primary',
 				false: '',
 			},
 			variant: {
-				default: 'py-3 pl-5',
-				compact: 'py-2 pl-3',
+				default: 'py-3 ps-5',
+				compact: 'py-2 ps-3',
 			},
 		},
 	});

@@ -33,7 +33,7 @@
 		shape="round"
 		color={hidden ? 'primary' : 'secondary'}
 		variant="filled"
-		class="absolute bottom-2 right-4 m-2 opacity-100 md:hidden"
+		class="absolute bottom-2 end-4 m-2 opacity-100 md:hidden"
 		aria-label="Menu"
 	/>
 	<Scrollable
@@ -42,7 +42,7 @@
 
 			hidden ? 'hidden' : '',
 			className,
-			noBorder || 'border-r',
+			noBorder || 'border-e',
 		)}
 	>
 		{@render children?.()}
