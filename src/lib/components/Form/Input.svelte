@@ -39,11 +39,11 @@
 			},
 			// match with Button `iconSize` variants
 			paddingRight: {
-				tiny: 'pr-6',
-				small: 'pr-8',
-				medium: 'pr-10',
-				large: 'pr-12',
-				giant: 'pr-14',
+				tiny: 'pe-6',
+				small: 'pe-8',
+				medium: 'pe-10',
+				large: 'pe-12',
+				giant: 'pe-14',
 			},
 			textSize: {
 				tiny: 'text-xs',
