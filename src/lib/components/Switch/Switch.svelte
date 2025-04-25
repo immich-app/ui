@@ -55,7 +55,7 @@
 		base: 'absolute h-6 w-6 rounded-full transition-transform duration-[400ms]',
 		variants: {
 			checked: {
-				true: 'translate-x-6 border border-gray-500/10 shadow-sm dark:border-gray-800/50',
+				true: 'translate-x-6 border border-gray-500/10 shadow-sm dark:border-gray-800/50 rtl:-translate-x-6',
 				false: '',
 			},
 			fillColor: {
