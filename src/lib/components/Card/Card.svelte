@@ -138,11 +138,7 @@
 		{/if}
 
 		{#if footerChild}
-			<div
-				class={twMerge(
-					cleanClass('flex items-center border-t border-t-subtle p-4', footerChild.class),
-				)}
-			>
+			<div class={twMerge(cleanClass('flex items-center border-t p-4', footerChild.class))}>
 				{@render footerChild.snippet()}
 			</div>
 		{/if}
