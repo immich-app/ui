@@ -36,8 +36,8 @@
 		base: 'flex rounded-none border border-subtle bg-subtle sm:rounded-2xl',
 		variants: {
 			size: {
-				tiny: 'h-full sm:h-min md:max-w-64',
-				small: 'h-full sm:h-min md:max-w-96',
+				tiny: 'h-full sm:h-min md:max-w-sm',
+				small: 'h-full sm:h-min md:max-w-md',
 				medium: 'h-full sm:h-min md:max-w-screen-sm',
 				large: 'h-full sm:h-min md:max-w-screen-md',
 				giant: 'h-full sm:h-min md:max-w-screen-lg',
@@ -67,21 +67,21 @@
 		>
 			<div class={cleanClass('flex h-full w-full flex-col items-center justify-center ')}>
 				<Card class={cleanClass(modalStyles({ size }), className)}>
-					<CardHeader class="border-0 py-2">
+					<CardHeader class="border-b border-gray-400 py-2 dark:border-gray-500">
 						<div class="flex items-center justify-between">
 							<CardTitle tag="h1">{title}</CardTitle>
 							<Dialog.Close>
-								<CloseButton size="large" onclick={() => onChange(false)} />
+								<CloseButton onclick={() => onChange(false)} class="-me-2" />
 							</Dialog.Close>
 						</div>
 					</CardHeader>
 
-					<CardBody class="grow py-2">
+					<CardBody class="grow">
 						{@render bodyChildren?.snippet()}
 					</CardBody>
 
 					{#if footerChildren}
-						<CardFooter class="py-2">
+						<CardFooter class="border-t border-gray-400 dark:border-gray-500">
 							{@render footerChildren.snippet()}
 						</CardFooter>
 					{/if}
