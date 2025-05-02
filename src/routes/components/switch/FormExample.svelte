@@ -14,6 +14,9 @@
 	<Field label="Sell my privacy" disabled>
 		<Switch />
 	</Field>
+	<Field label="Read-only" readOnly>
+		<Switch checked />
+	</Field>
 	<Field label="Status">
 		<Switch bind:checked={form.status} />
 	</Field>
