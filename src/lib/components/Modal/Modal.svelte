@@ -6,6 +6,8 @@
 	import CardHeader from '$lib/components/Card/CardHeader.svelte';
 	import CardTitle from '$lib/components/Card/CardTitle.svelte';
 	import CloseButton from '$lib/components/CloseButton/CloseButton.svelte';
+	import Icon from '$lib/components/Icon/Icon.svelte';
+	import Logo from '$lib/components/Logo/Logo.svelte';
 	import { ChildKey } from '$lib/constants.js';
 	import type { ModalSize } from '$lib/types.js';
 	import { cleanClass } from '$lib/utils.js';
@@ -18,6 +20,7 @@
 		size?: ModalSize;
 		class?: string;
 		open?: boolean;
+		icon?: string | boolean;
 		expandable?: boolean;
 		children: Snippet;
 		onClose?: () => void;
@@ -27,6 +30,7 @@
 		title,
 		size = 'medium',
 		open = true,
+		icon = true,
 		onClose,
 		class: className,
 		children,
@@ -68,8 +72,13 @@
 			<div class={cleanClass('flex h-full w-full flex-col items-center justify-center ')}>
 				<Card class={cleanClass(modalStyles({ size }), className)}>
 					<CardHeader class="border-b border-gray-400 py-2 dark:border-gray-500">
-						<div class="flex items-center justify-between">
-							<CardTitle tag="h1">{title}</CardTitle>
+						<div class="flex items-center justify-between gap-2">
+							{#if typeof icon === 'string'}
+								<Icon {icon} size="1.5rem" aria-hidden />
+							{:else if icon}
+								<Logo variant="icon" size="tiny" />
+							{/if}
+							<CardTitle tag="h1" class="grow">{title}</CardTitle>
 							<Dialog.Close>
 								<CloseButton onclick={() => onChange(false)} class="-me-2" />
 							</Dialog.Close>
