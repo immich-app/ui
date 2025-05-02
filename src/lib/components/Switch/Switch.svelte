@@ -78,7 +78,7 @@
 	bind:checked
 	bind:ref
 	id={inputId}
-	{disabled}
+	disabled={disabled || readOnly}
 	{required}
 	class={cleanClass(label && 'w-full', className)}
 	aria-readonly={readOnly}
