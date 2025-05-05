@@ -27,7 +27,7 @@
 	}: Props = $props();
 
 	const styles = tv({
-		base: 'font-bold leading-none tracking-tight',
+		base: 'font-semibold leading-none tracking-tight',
 		variants: {
 			color: {
 				muted: 'text-gray-600 dark:text-gray-400',
