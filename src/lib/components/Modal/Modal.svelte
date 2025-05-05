@@ -63,7 +63,7 @@
 
 <Dialog.Root {open} onOpenChange={onChange}>
 	<Dialog.Portal>
-		<Dialog.Overlay class="absolute start-0 top-0 flex h-dvh w-screen backdrop-blur" />
+		<Dialog.Overlay class="absolute start-0 top-0 flex h-dvh w-screen bg-black/30" />
 		<Dialog.Content
 			class={cleanClass(
 				'absolute start-0 top-0 flex h-dvh w-screen items-center justify-center overflow-hidden sm:p-4',
@@ -71,7 +71,7 @@
 		>
 			<div class={cleanClass('flex h-full w-full flex-col items-center justify-center ')}>
 				<Card class={cleanClass(modalStyles({ size }), className)}>
-					<CardHeader class="border-b border-gray-400 py-2 dark:border-gray-500">
+					<CardHeader class="border-b border-gray-400 py-3 dark:border-gray-500">
 						<div class="flex items-center justify-between gap-2">
 							{#if typeof icon === 'string'}
 								<Icon {icon} size="1.5rem" aria-hidden />
@@ -85,7 +85,7 @@
 						</div>
 					</CardHeader>
 
-					<CardBody class="grow">
+					<CardBody class="grow p-5">
 						{@render bodyChildren?.snippet()}
 					</CardBody>
 
