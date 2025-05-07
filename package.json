@@ -17,7 +17,9 @@
 		"format": "prettier --check .",
 		"format:fix": "prettier --write .",
 		"test": "vitest",
-		"sync": "svelte-kit sync"
+		"sync": "svelte-kit sync",
+		"storybook": "storybook dev -p 6006",
+		"build-storybook": "storybook build"
 	},
 	"files": [
 		"dist",
@@ -40,6 +42,11 @@
 		"svelte": "^5.0.0"
 	},
 	"devDependencies": {
+		"@storybook/addon-essentials": "^8.6.12",
+		"@storybook/addon-interactions": "^8.6.12",
+		"@storybook/addon-svelte-csf": "^5.0.0",
+		"@storybook/svelte": "^8.6.12",
+		"@storybook/sveltekit": "^8.6.12",
 		"@sveltejs/adapter-static": "^3.0.6",
 		"@sveltejs/kit": "^2.13.0",
 		"@sveltejs/package": "^2.0.0",
