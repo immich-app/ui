@@ -63,10 +63,10 @@
 
 <Dialog.Root {open} onOpenChange={onChange}>
 	<Dialog.Portal>
-		<Dialog.Overlay class="absolute start-0 top-0 flex h-dvh w-screen bg-black/30" />
+		<Dialog.Overlay class="absolute start-0 top-0 flex h-dvh w-screen bg-black/30 z-[9999]" />
 		<Dialog.Content
 			class={cleanClass(
-				'absolute start-0 top-0 flex h-dvh w-screen items-center justify-center overflow-hidden sm:p-4',
+				'absolute start-0 top-0 flex h-dvh w-screen items-center justify-center overflow-hidden sm:p-4 z-[9999]',
 			)}
 		>
 			<div class={cleanClass('flex h-full w-full flex-col items-center justify-center ')}>
