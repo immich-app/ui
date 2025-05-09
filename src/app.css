@@ -8,10 +8,10 @@
 		--immich-primary: 66 80 175;
 		--immich-dark: 58 58 58;
 		--immich-light: 255 255 255;
-		--immich-success: 34 197 94;
-		--immich-danger: 180 0 0;
-		--immich-warning: 255 170 0;
-		--immich-info: 14 165 233;
+		--immich-success: 16 188 99;
+		--immich-danger: 200 60 60;
+		--immich-warning: 216 143 64;
+		--immich-info: 8 111 230;
 		--immich-gray: 246 246 246;
 
 		--immich-default-border: 209 213 219;
@@ -22,10 +22,10 @@
 		--immich-primary: 172 203 250;
 		--immich-light: 0 0 0;
 		--immich-dark: 229 231 235;
-		/* --immich-success: 56 142 60; */
-		--immich-danger: 239 68 68;
-		--immich-warning: 255 170 0;
-		--immich-info: 14 165 233;
+		--immich-success: 72 237 152;
+		--immich-danger: 246 125 125;
+		--immich-warning: 254 197 132;
+		--immich-info: 121 183 254;
 		--immich-gray: 33 33 33;
 
 		--immich-default-border: 55 65 81;
