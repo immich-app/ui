@@ -23,7 +23,7 @@
 				shape="round"
 				color="secondary"
 				{size}
-				class="mr-1"
+				class="me-1"
 				icon={isVisible ? mdiEyeOffOutline : mdiEyeOutline}
 				onclick={() => (isVisible = !isVisible)}
 				title={isVisible ? t('hidePassword', translations) : t('showPassword', translations)}

@@ -12,7 +12,7 @@
 		isActive?: () => boolean;
 	} & { icon?: string & Omit<IconProps, 'icon'> };
 
-	const matchesPath = () => page.url.pathname === href;
+	const startsWithHref = () => page.url.pathname.startsWith(href);
 
 	let {
 		href,
@@ -23,11 +23,11 @@
 		...iconProps
 	}: Props = $props();
 
-	const isActive = isActiveOverride ?? matchesPath;
+	const isActive = isActiveOverride ?? startsWithHref;
 	let active = $derived(activeOverride ?? isActive());
 
 	const styles = tv({
-		base: 'flex w-full place-items-center gap-4 transition-[padding] delay-100 duration-100 hover:bg-subtle hover:text-primary group-hover:sm:px-5 md:rounded-e-full md:px-5',
+		base: 'flex w-full place-items-center gap-4 rounded-e-full px-5 transition-[padding] delay-100 duration-100 hover:bg-subtle hover:text-primary group-hover:sm:px-5',
 		variants: {
 			active: {
 				true: 'bg-primary/10 text-primary',

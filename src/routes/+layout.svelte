@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { beforeNavigate } from '$app/navigation';
 	import Footer from '$docs/components/Footer.svelte';
 	import Navbar from '$docs/components/Navbar.svelte';
 	import { componentGroups } from '$docs/constants.js';
@@ -14,22 +15,32 @@
 		ThemeSwitcher,
 	} from '@immich/ui';
 	import { mdiHome } from '@mdi/js';
+	import { MediaQuery } from 'svelte/reactivity';
 	import '../app.css';
 
 	initializeTheme();
 
 	let { children } = $props();
+
+	const sidebar = new MediaQuery(`min-width: 850px`);
+	let open = $derived(sidebar.current);
+
+	beforeNavigate(() => {
+		if (!sidebar.current) {
+			open = false;
+		}
+	});
 </script>
 
 <AppShell>
 	<AppShellHeader>
-		<Navbar theme={theme.value}>
-			<ThemeSwitcher size="giant" />
+		<Navbar theme={theme.value} onToggleSidebar={() => (open = !open)}>
+			<ThemeSwitcher size="medium" />
 		</Navbar>
 	</AppShellHeader>
 
-	<AppShellSidebar class="min-w-[250px]">
-		<div class="mr-0 mt-4 md:mr-4">
+	<AppShellSidebar bind:open>
+		<div class="my-4 me-4">
 			<NavbarItem title="Home" icon={mdiHome} href="/" />
 			{#each componentGroups as group}
 				<NavbarGroup title={group.title} />
