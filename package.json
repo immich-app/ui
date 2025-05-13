@@ -67,7 +67,7 @@
 		"@mdi/js": "^7.4.47",
 		"bits-ui": "^1.0.0-next.46",
 		"tailwind-merge": "^2.5.4",
-		"tailwind-variants": "^0.3.0"
+		"tailwind-variants": "^1.0.0"
 	},
 	"volta": {
 		"node": "22.15.0"
