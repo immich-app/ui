@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Button from '$lib/internal/Button.svelte';
 	import {
 		AppShell,
 		AppShellHeader,
@@ -8,6 +9,8 @@
 		Stack,
 	} from '@immich/ui';
 	import { mdiHome } from '@mdi/js';
+
+	let open = $state(true);
 </script>
 
 <Stack>
@@ -53,7 +56,7 @@
 				</div>
 			</AppShellHeader>
 
-			<AppShellSidebar noBorder class="pt-2">
+			<AppShellSidebar class="pt-2" bind:open>
 				<Stack>
 					<NavbarItem icon={mdiHome} title="Home" href="/" active />
 					<NavbarItem icon={mdiHome} title="Item 1" href="#" />
@@ -63,7 +66,7 @@
 			</AppShellSidebar>
 
 			<div class="p-4">
-				<Heading size="tiny">Content</Heading>
+				<Button onclick={() => (open = !open)}>Toggle Sidebar</Button>
 			</div>
 		</AppShell>
 	</div>

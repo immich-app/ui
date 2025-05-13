@@ -1,17 +1,29 @@
 <script lang="ts">
-	import { Logo, Theme } from '@immich/ui';
+	import { IconButton, Logo, Theme } from '@immich/ui';
+	import { mdiMenu } from '@mdi/js';
 	import type { Snippet } from 'svelte';
 
 	type Props = {
 		theme?: Theme;
 		children?: Snippet;
+		onToggleSidebar?: () => void;
 	};
 
-	const { children, theme = Theme.Dark }: Props = $props();
+	const { children, theme = Theme.Dark, onToggleSidebar }: Props = $props();
 </script>
 
-<nav class="{theme} flex items-center justify-between gap-2 p-2">
-	<a href="/" class="flex gap-2 text-4xl">
+<nav class="{theme} flex items-center gap-2 p-2">
+	<IconButton
+		shape="round"
+		color="secondary"
+		variant="ghost"
+		size="medium"
+		aria-label="Main menu"
+		icon={mdiMenu}
+		onclick={() => onToggleSidebar?.()}
+		class="md:hidden"
+	/>
+	<a href="/" class="flex grow gap-2 text-4xl">
 		<Logo variant="inline" />
 	</a>
 	{@render children?.()}

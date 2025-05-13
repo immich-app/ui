@@ -1,13 +1,17 @@
-export const cleanClass = (...classNames: unknown[]) => {
-	return classNames
-		.filter((className) => {
-			if (!className || typeof className === 'boolean') {
-				return false;
-			}
+import { twMerge } from 'tailwind-merge';
 
-			return typeof className === 'string';
-		})
-		.join(' ');
+export const cleanClass = (...classNames: unknown[]) => {
+	return twMerge(
+		classNames
+			.filter((className) => {
+				if (!className || typeof className === 'boolean') {
+					return false;
+				}
+
+				return typeof className === 'string';
+			})
+			.join(' '),
+	);
 };
 
 export const withPrefix = (key: string) => `immich-ui-${key}`;
