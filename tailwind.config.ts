@@ -17,7 +17,7 @@ export default {
 			},
 			borderColor: ({ theme }) => ({
 				...theme('colors'),
-				DEFAULT: 'rgb(var(--immich-gray) / <alpha-value>)',
+				DEFAULT: 'rgb(var(--immich-default-border) / <alpha-value>)',
 			}),
 		},
 	},
