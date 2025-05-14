@@ -10,7 +10,9 @@
 		href: string;
 		variant?: 'compact';
 		isActive?: () => boolean;
-	} & { icon?: string & Omit<IconProps, 'icon'> };
+		icon?: string | IconProps;
+		activeIcon?: string | IconProps;
+	};
 
 	const startsWithHref = () => page.url.pathname.startsWith(href);
 
@@ -20,11 +22,17 @@
 		title,
 		variant,
 		active: activeOverride,
-		...iconProps
+		icon,
+		activeIcon,
 	}: Props = $props();
 
 	const isActive = isActiveOverride ?? startsWithHref;
 	let active = $derived(activeOverride ?? isActive());
+
+	const iconProps = $derived(typeof icon === 'string' ? { icon } : icon);
+	const activeIconProps = $derived(
+		typeof activeIcon === 'string' ? { icon: activeIcon } : activeIcon,
+	);
 
 	const styles = tv({
 		base: 'flex w-full place-items-center gap-4 rounded-e-full px-5 transition-[padding] delay-100 duration-100 hover:bg-subtle hover:text-primary group-hover:sm:px-5',
@@ -48,13 +56,12 @@
 	class={styles({ active, variant: variant ?? 'default' })}
 >
 	<div class="flex w-full place-items-center gap-4 overflow-hidden truncate">
-		{#if iconProps.icon}
+		{#if iconProps}
 			<Icon
 				size="1.375em"
 				class="shrink-0"
 				aria-hidden={true}
-				{...iconProps}
-				icon={iconProps.icon}
+				{...active && activeIconProps ? activeIconProps : iconProps}
 			/>
 		{/if}
 		<span class="text-sm font-medium">{title}</span>

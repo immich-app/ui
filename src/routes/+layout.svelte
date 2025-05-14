@@ -14,9 +14,10 @@
 		theme,
 		ThemeSwitcher,
 	} from '@immich/ui';
-	import { mdiHome } from '@mdi/js';
+	import { mdiHome, mdiHomeOutline } from '@mdi/js';
 	import { MediaQuery } from 'svelte/reactivity';
 	import '../app.css';
+	import { page } from '$app/state';
 
 	initializeTheme();
 
@@ -41,7 +42,13 @@
 
 	<AppShellSidebar bind:open>
 		<div class="my-4 me-4">
-			<NavbarItem title="Home" icon={mdiHome} href="/" />
+			<NavbarItem
+				title="Home"
+				icon={mdiHomeOutline}
+				activeIcon={mdiHome}
+				href="/"
+				isActive={() => page.url.pathname === '/'}
+			/>
 			{#each componentGroups as group}
 				<NavbarGroup title={group.title} />
 				{#each group.components as component}
@@ -49,6 +56,7 @@
 						href={asComponentHref(component.name)}
 						title={component.name}
 						icon={component.icon}
+						activeIcon={component.activeIcon}
 					/>
 				{/each}
 			{/each}
