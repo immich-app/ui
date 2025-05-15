@@ -16,6 +16,7 @@
 	} from '@immich/ui';
 	import { mdiHome, mdiHomeOutline } from '@mdi/js';
 	import { MediaQuery } from 'svelte/reactivity';
+	import '@immich/ui/theme/default.css';
 	import '../app.css';
 	import { page } from '$app/state';
 
