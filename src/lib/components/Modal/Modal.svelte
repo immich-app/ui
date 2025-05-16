@@ -37,7 +37,7 @@
 	}: Props = $props();
 
 	const modalStyles = tv({
-		base: 'flex rounded-none border border-subtle bg-subtle sm:rounded-2xl',
+		base: 'flex rounded-none border-none bg-light dark:bg-subtle sm:rounded-2xl',
 		variants: {
 			size: {
 				tiny: 'h-full sm:h-min md:max-w-sm',
@@ -78,7 +78,7 @@
 							{:else if icon}
 								<Logo variant="icon" size="tiny" />
 							{/if}
-							<CardTitle tag="h1" class="grow">{title}</CardTitle>
+							<CardTitle tag="p" class="grow">{title}</CardTitle>
 							<Dialog.Close>
 								<CloseButton onclick={() => onChange(false)} class="-me-2" />
 							</Dialog.Close>
