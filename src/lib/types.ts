@@ -105,6 +105,7 @@ export type LabelProps = {
 
 export type FieldContext = {
 	label?: string;
+	description?: string;
 	invalid?: boolean;
 	disabled?: boolean;
 	required?: boolean;

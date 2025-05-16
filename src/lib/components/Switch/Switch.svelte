@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { getFieldContext } from '$lib/common/context.svelte.js';
 	import Label from '$lib/components/Label/Label.svelte';
+	import Text from '$lib/components/Text/Text.svelte';
 	import type { Color } from '$lib/types.js';
 	import { cleanClass, generateId } from '$lib/utils.js';
 	import { Switch, type WithoutChildrenOrChild } from 'bits-ui';
@@ -22,7 +23,8 @@
 		...restProps
 	}: Props = $props();
 
-	const { readOnly, required, disabled, label, ...labelProps } = $derived(getFieldContext());
+	const { readOnly, required, disabled, label, description, ...labelProps } =
+		$derived(getFieldContext());
 
 	const enabled = $derived(checked && !disabled);
 
@@ -72,6 +74,7 @@
 
 	const inputId = `input-${id}`;
 	const labelId = `label-${id}`;
+	const descriptionId = $derived(description ? `description-${id}` : undefined);
 </script>
 
 <Switch.Root
@@ -83,13 +86,19 @@
 	class={cleanClass(label && 'w-full', className)}
 	aria-readonly={readOnly}
 	aria-labelledby={labelId}
+	aria-describedby={descriptionId}
 	{...restProps}
 >
 	<Switch.Thumb>
 		{#snippet child()}
 			<div class={cleanClass(label && 'flex items-center justify-between gap-1')}>
 				{#if label}
-					<Label id={labelId} for={inputId} {label} {...labelProps} />
+					<div class="text-start">
+						<Label id={labelId} for={inputId} {label} {...labelProps} />
+						{#if description}
+							<Text color="secondary" size="small" id={descriptionId}>{description}</Text>
+						{/if}
+					</div>
 				{/if}
 				<span class={wrapper({ disabled })}>
 					<span class={bar({ fillColor: enabled ? color : 'default' })}> </span>

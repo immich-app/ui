@@ -8,6 +8,9 @@
 	<Field label="Support Immich">
 		<Switch checked />
 	</Field>
+	<Field label="Example" description="A very descriptive description">
+		<Switch checked />
+	</Field>
 	<Field label="Advanced features">
 		<Switch />
 	</Field>

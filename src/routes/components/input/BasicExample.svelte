@@ -6,6 +6,9 @@
 	<Field label="Label">
 		<Input placeholder="label" />
 	</Field>
+	<Field label="Label" description="This is the description">
+		<Input placeholder="label" />
+	</Field>
 	<Field label="Disabled" disabled>
 		<Input placeholder="label" />
 	</Field>

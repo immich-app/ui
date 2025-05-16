@@ -2,6 +2,7 @@
 	import { getFieldContext } from '$lib/common/context.svelte.js';
 	import Icon from '$lib/components/Icon/Icon.svelte';
 	import Label from '$lib/components/Label/Label.svelte';
+	import Text from '$lib/components/Text/Text.svelte';
 	import type { Color, Shape, Size } from '$lib/types.js';
 	import { cleanClass, generateId } from '$lib/utils.js';
 	import { mdiCheck, mdiMinus } from '@mdi/js';
@@ -24,7 +25,7 @@
 		...restProps
 	}: CheckboxProps = $props();
 
-	const { readOnly, required, invalid, disabled, label, ...labelProps } =
+	const { readOnly, required, invalid, disabled, label, description, ...labelProps } =
 		$derived(getFieldContext());
 
 	const containerStyles = tv({
@@ -79,11 +80,15 @@
 	const id = generateId();
 	const inputId = `input-${id}`;
 	const labelId = `label-${id}`;
+	const descriptionId = $derived(description ? `description-${id}` : undefined);
 </script>
 
 <div class="flex flex-col gap-1">
 	{#if label}
 		<Label id={labelId} for={inputId} {label} {...labelProps} />
+		{#if description}
+			<Text color="secondary" size="small" id={descriptionId}>{description}</Text>
+		{/if}
 	{/if}
 
 	<CheckboxPrimitive.Root
@@ -101,6 +106,7 @@
 		disabled={disabled || readOnly}
 		{required}
 		aria-readonly={disabled || readOnly}
+		aria-describedby={descriptionId}
 		{...restProps}
 	>
 		{#snippet children({ checked, indeterminate })}
