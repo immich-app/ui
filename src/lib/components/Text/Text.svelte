@@ -2,6 +2,7 @@
 	import type { Size, TextColor } from '$lib/types.js';
 	import { cleanClass } from '$lib/utils.js';
 	import type { Snippet } from 'svelte';
+	import type { HTMLAttributes } from 'svelte/elements';
 	import { tv } from 'tailwind-variants';
 
 	type Props = {
@@ -11,7 +12,7 @@
 		children: Snippet;
 		variant?: 'italic';
 		fontWeight?: 'light' | 'normal' | 'semi-bold' | 'bold';
-	};
+	} & HTMLAttributes<HTMLParagraphElement>;
 
 	const {
 		color,
@@ -20,6 +21,7 @@
 		fontWeight = 'normal',
 		children,
 		class: className,
+		...restProps
 	}: Props = $props();
 
 	const styles = tv({
@@ -56,6 +58,6 @@
 	});
 </script>
 
-<p class={cleanClass(styles({ color, size, fontWeight, variant }), className)}>
+<p class={cleanClass(styles({ color, size, fontWeight, variant }), className)} {...restProps}>
 	{@render children()}
 </p>

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { getFieldContext } from '$lib/common/context.svelte.js';
 	import Label from '$lib/components/Label/Label.svelte';
+	import Text from '$lib/components/Text/Text.svelte';
 	import type { InputProps } from '$lib/types.js';
 	import { cleanClass, generateId } from '$lib/utils.js';
 	import { tv } from 'tailwind-variants';
@@ -15,7 +16,7 @@
 		...restProps
 	}: InputProps = $props();
 
-	const { label, readOnly, required, invalid, disabled, ...labelProps } =
+	const { label, description, readOnly, required, invalid, disabled, ...labelProps } =
 		$derived(getFieldContext());
 
 	const inputStyles = tv({
@@ -62,11 +63,16 @@
 	const id = generateId();
 	const inputId = `input-${id}`;
 	const labelId = `label-${id}`;
+	const descriptionId = $derived(description ? `description-${id}` : undefined);
 </script>
 
 <div class="flex w-full flex-col gap-1" bind:this={containerRef}>
 	{#if label}
 		<Label id={labelId} for={inputId} {label} {...labelProps} />
+	{/if}
+
+	{#if description}
+		<Text color="secondary" size="small" id={descriptionId}>{description}</Text>
 	{/if}
 
 	<div class={cleanClass('relative w-full', label && 'mt-1.5')}>
@@ -77,6 +83,7 @@
 			aria-required={required}
 			{disabled}
 			aria-disabled={disabled}
+			aria-describedby={descriptionId}
 			readonly={readOnly}
 			aria-readonly={readOnly}
 			class={cleanClass(

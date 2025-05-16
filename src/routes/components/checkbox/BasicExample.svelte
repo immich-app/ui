@@ -7,6 +7,10 @@
 		<Checkbox checked />
 	</Field>
 
+	<Field label="Checkbox" description="This is the description">
+		<Checkbox checked />
+	</Field>
+
 	<Field label="Disabled" disabled>
 		<Checkbox checked />
 	</Field>
