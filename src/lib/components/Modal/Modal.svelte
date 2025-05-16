@@ -37,14 +37,14 @@
 	}: Props = $props();
 
 	const modalStyles = tv({
-		base: 'flex rounded-none border-none bg-light dark:bg-subtle sm:rounded-2xl',
+		base: 'bg-light dark:bg-subtle flex rounded-none border-none sm:rounded-2xl',
 		variants: {
 			size: {
 				tiny: 'h-full sm:h-min md:max-w-sm',
 				small: 'h-full sm:h-min md:max-w-md',
-				medium: 'h-full sm:h-min md:max-w-screen-sm',
-				large: 'h-full sm:h-min md:max-w-screen-md',
-				giant: 'h-full sm:h-min md:max-w-screen-lg',
+				medium: 'h-full sm:h-min md:max-w-(--breakpoint-sm)',
+				large: 'h-full sm:h-min md:max-w-(--breakpoint-md)',
+				giant: 'h-full sm:h-min md:max-w-(--breakpoint-lg)',
 				full: 'h-full w-full',
 			},
 		},

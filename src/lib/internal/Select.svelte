@@ -116,7 +116,7 @@
 		<Select.Portal>
 			<Select.Content
 				bind:ref={contentRef}
-				class="max-h-96 select-none rounded-xl border bg-light py-3 text-dark outline-none"
+				class="bg-light text-dark max-h-96 rounded-xl border py-3 outline-none select-none"
 				sideOffset={10}
 			>
 				<Select.ScrollUpButton class="flex w-full items-center justify-center">
@@ -126,7 +126,7 @@
 					{#each options as { value, label, disabled }, i (i + value)}
 						<Select.Item
 							class={cleanClass(
-								'flex h-10 w-full select-none items-center px-5 py-3 text-sm outline-none duration-75 hover:bg-subtle data-[selected]:bg-primary/10 data-[disabled]:opacity-50',
+								'hover:bg-subtle data-[selected]:bg-primary/10 flex h-10 w-full items-center px-5 py-3 text-sm duration-75 outline-none select-none data-disabled:opacity-50',
 								disabled ? 'cursor-not-allowed' : 'cursor-pointer',
 							)}
 							{value}
@@ -135,7 +135,7 @@
 						>
 							{#snippet children({ selected })}
 								<div
-									class="flex cursor-pointer items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors"
+									class="flex cursor-pointer items-center justify-center gap-2 text-sm font-medium whitespace-nowrap transition-colors"
 								>
 									<span>{label}</span>
 								</div>

@@ -47,7 +47,7 @@
 			variant: {
 				stacked: '',
 				inline: '',
-				logo: 'aspect-square rounded-full bg-light shadow-lg',
+				logo: 'bg-light aspect-square rounded-full shadow-lg',
 				icon: 'aspect-square',
 			},
 		},

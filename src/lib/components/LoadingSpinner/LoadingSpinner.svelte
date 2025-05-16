@@ -12,7 +12,7 @@
 	let { size = 'medium', color = 'primary', class: className }: Props = $props();
 
 	const styles = tv({
-		base: 'animate-spin fill-primary text-gray-400 dark:text-gray-600',
+		base: 'fill-primary animate-spin text-gray-400 dark:text-gray-600',
 		variants: {
 			size: {
 				tiny: 'h-3',

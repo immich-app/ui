@@ -18,10 +18,10 @@
 		variants: {
 			size: {
 				tiny: 'max-w-lg',
-				small: 'max-w-screen-sm',
-				medium: 'max-w-screen-md',
-				large: 'max-w-screen-lg',
-				giant: 'max-w-screen-xl',
+				small: 'max-w-(--breakpoint-sm)',
+				medium: 'max-w-(--breakpoint-md)',
+				large: 'max-w-(--breakpoint-lg)',
+				giant: 'max-w-(--breakpoint-xl)',
 				full: 'w-full',
 			},
 		},
