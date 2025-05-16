@@ -34,7 +34,7 @@
 				giant: 'px-3 py-2',
 			},
 			effect: {
-				hover: 'supporter-effect-hover border border-dark/25',
+				hover: 'supporter-effect-hover border-dark/25 border',
 				always: 'supporter-effect shadow',
 			},
 		},
