@@ -35,7 +35,7 @@
 	);
 
 	const styles = tv({
-		base: 'flex w-full place-items-center gap-4 rounded-e-full px-5 transition-[padding] delay-100 duration-100 hover:bg-subtle hover:text-primary group-hover:sm:px-5',
+		base: 'hover:bg-subtle hover:text-primary flex w-full place-items-center gap-4 rounded-e-full px-5 transition-[padding] delay-100 duration-100 group-hover:sm:px-5',
 		variants: {
 			active: {
 				true: 'bg-primary/10 text-primary',
@@ -55,7 +55,7 @@
 	aria-current={active ? 'page' : undefined}
 	class={styles({ active, variant: variant ?? 'default' })}
 >
-	<div class="flex w-full place-items-center gap-4 overflow-hidden truncate">
+	<div class="flex w-full place-items-center gap-4 truncate overflow-hidden">
 		{#if iconProps}
 			<Icon
 				size="1.375em"

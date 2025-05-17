@@ -33,7 +33,7 @@
 	const disabled = $derived((restProps as HTMLButtonAttributes).disabled || loading);
 
 	const buttonVariants = tv({
-		base: 'ring-offset-background focus-visible:ring-ring flex items-center justify-center gap-1 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
+		base: 'ring-offset-background focus-visible:ring-ring flex items-center justify-center gap-1 rounded-md text-sm font-medium whitespace-nowrap transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none',
 		variants: {
 			disabled: {
 				true: 'disabled:pointer-events-none disabled:opacity-50 aria-disabled:opacity-50',
@@ -84,12 +84,12 @@
 				info: 'bg-info text-light hover:bg-info/80',
 			},
 			outlineColor: {
-				primary: 'border border-primary bg-primary/10 text-primary hover:bg-primary/20',
-				secondary: 'border border-dark bg-dark/10 text-dark hover:bg-dark/20',
-				success: 'border border-success bg-success/10 text-success hover:bg-success/20',
-				danger: 'border border-danger bg-danger/10 text-danger hover:bg-danger/20',
-				warning: 'border border-warning bg-warning/10 text-warning hover:bg-warning/20',
-				info: 'border border-info bg-info/10 text-info hover:bg-info/20',
+				primary: 'border-primary bg-primary/10 text-primary hover:bg-primary/20 border',
+				secondary: 'border-dark bg-dark/10 text-dark hover:bg-dark/20 border',
+				success: 'border-success bg-success/10 text-success hover:bg-success/20 border',
+				danger: 'border-danger bg-danger/10 text-danger hover:bg-danger/20 border',
+				warning: 'border-warning bg-warning/10 text-warning hover:bg-warning/20 border',
+				info: 'border-info bg-info/10 text-info hover:bg-info/20 border',
 			},
 			ghostColor: {
 				primary: 'text-primary hover:bg-primary/10',

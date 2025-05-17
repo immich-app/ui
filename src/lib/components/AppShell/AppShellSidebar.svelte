@@ -17,7 +17,7 @@
 <Child for={ChildKey.AppShell} as={ChildKey.AppShellSidebar}>
 	<Scrollable
 		class={cleanClass(
-			'relative shrink-0 bg-light text-dark transition-all duration-200',
+			'bg-light text-dark relative shrink-0 transition-all duration-200',
 			open ? 'w-[min(100vw,16rem)]' : 'w-[0px]',
 			className,
 		)}

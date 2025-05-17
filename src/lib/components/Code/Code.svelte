@@ -42,9 +42,9 @@
 
 			filledColor: {
 				false: '',
-				muted: 'bg-gray-600 text-light dark:bg-gray-800',
-				primary: 'bg-gray-200 text-primary dark:bg-primary/20 dark:text-gray-200',
-				secondary: 'bg-gray-700 text-light dark:bg-gray-200',
+				muted: 'text-light bg-gray-600 dark:bg-gray-800',
+				primary: 'text-primary dark:bg-primary/20 bg-gray-200 dark:text-gray-200',
+				secondary: 'text-light bg-gray-700 dark:bg-gray-200',
 				success: 'bg-success text-light',
 				danger: 'bg-danger text-light',
 				warning: 'bg-warning text-light',
