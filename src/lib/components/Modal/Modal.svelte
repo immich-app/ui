@@ -37,7 +37,7 @@
 	}: Props = $props();
 
 	const modalStyles = tv({
-		base: 'bg-light dark:bg-subtle flex rounded-none border-none sm:rounded-2xl',
+		base: 'bg-light dark:bg-subtle border-subtle shadow-primary/20 flex rounded-none border shadow-sm sm:rounded-2xl dark:border-white/10',
 		variants: {
 			size: {
 				tiny: 'h-full sm:h-min md:max-w-sm',
@@ -69,28 +69,28 @@
 				'absolute start-0 top-0 flex h-dvh w-screen items-center justify-center overflow-hidden sm:p-4',
 			)}
 		>
-			<div class={cleanClass('flex h-full w-full flex-col items-center justify-center ')}>
+			<div class={cleanClass('flex h-full w-full flex-col items-center justify-center')}>
 				<Card class={cleanClass(modalStyles({ size }), className)}>
-					<CardHeader class="border-b border-gray-400 py-3 dark:border-gray-500">
+					<CardHeader class="border-b border-gray-200 px-5 py-3 dark:border-white/10">
 						<div class="flex items-center justify-between gap-2">
 							{#if typeof icon === 'string'}
 								<Icon {icon} size="1.5rem" aria-hidden />
 							{:else if icon}
 								<Logo variant="icon" size="tiny" />
 							{/if}
-							<CardTitle tag="p" class="grow">{title}</CardTitle>
+							<CardTitle tag="p" class="text-dark/90 grow text-lg font-semibold">{title}</CardTitle>
 							<Dialog.Close>
 								<CloseButton onclick={() => onChange(false)} class="-me-2" />
 							</Dialog.Close>
 						</div>
 					</CardHeader>
 
-					<CardBody class="grow p-5">
+					<CardBody class="grow px-5">
 						{@render bodyChildren?.snippet()}
 					</CardBody>
 
 					{#if footerChildren}
-						<CardFooter class="border-t border-gray-400 dark:border-gray-500">
+						<CardFooter class="border-t border-gray-200 dark:border-white/10">
 							{@render footerChildren.snippet()}
 						</CardFooter>
 					{/if}
