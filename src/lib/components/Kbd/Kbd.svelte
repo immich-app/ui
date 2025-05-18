@@ -15,7 +15,7 @@
 	const { class: className, size = 'small', children, ...restProps }: Props = $props();
 
 	const styles = tv({
-		base: 'flex flex-col rounded-md border border-b-2 bg-subtle px-1 font-mono text-dark shadow',
+		base: 'bg-subtle text-dark flex flex-col rounded-md border border-b-2 px-1 font-mono shadow',
 		variants: {
 			size: {
 				tiny: 'text-xs',

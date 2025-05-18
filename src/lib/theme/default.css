@@ -1,6 +1,17 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@theme inline {
+	--color-primary: rgb(var(--immich-ui-primary));
+	--color-light: rgb(var(--immich-ui-light));
+	--color-dark: rgb(var(--immich-ui-dark));
+	--color-success: rgb(var(--immich-ui-success));
+	--color-danger: rgb(var(--immich-ui-danger));
+	--color-warning: rgb(var(--immich-ui-warning));
+	--color-info: rgb(var(--immich-ui-info));
+	--color-subtle: rgb(var(--immich-ui-gray));
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
 
 @layer base {
 	:root {
@@ -29,5 +40,13 @@
 		--immich-ui-gray: 33 33 33;
 
 		--immich-ui-default-border: 55 65 81;
+	}
+
+	*,
+	::after,
+	::before,
+	::backdrop,
+	::file-selector-button {
+		border-color: rgb(var(--immich-ui-default-border));
 	}
 }

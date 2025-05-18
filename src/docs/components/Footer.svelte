@@ -23,7 +23,7 @@
 	} from '@mdi/js';
 </script>
 
-<div class="mt-16 rounded-t-3xl bg-dark/10 p-8">
+<div class="bg-dark/10 mt-16 rounded-t-3xl p-8">
 	<Container size="medium" center class="lg:py-8">
 		<Stack gap={8}>
 			<div class="place-center grid grid-cols-2 gap-8 lg:grid-cols-4">

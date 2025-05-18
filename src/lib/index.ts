@@ -9,9 +9,6 @@ export { default as immichLogoJson } from '$lib/assets/immich-logo.json';
 export { default as immichLogo } from '$lib/assets/immich-logo.svg';
 export { default as playStoreBadge } from '$lib/assets/playstore-badge.png';
 
-// theme
-export * from '$lib/theme/default.js';
-
 // components
 export { default as Alert } from '$lib/components/Alert/Alert.svelte';
 export { default as AppShell } from '$lib/components/AppShell/AppShell.svelte';
