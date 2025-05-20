@@ -61,6 +61,16 @@
 	};
 </script>
 
+<svelte:document
+	onkeydown={(e) => {
+		if (e.key === 'Escape' && open) {
+			// Stop propagation to ensure modals close before immich-web takes over
+			e.stopPropagation();
+			open = false;
+			onClose?.();
+		}
+	}}
+/>
 <Dialog.Root {open} onOpenChange={onChange}>
 	<Dialog.Portal>
 		<Dialog.Overlay class="absolute start-0 top-0 flex h-dvh w-screen bg-black/30" />
