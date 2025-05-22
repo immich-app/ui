@@ -12,7 +12,7 @@
 		...buttonProps
 	}: IconButtonProps = $props();
 
-	const buttonTitle = title || ariaLabel;
+	const buttonTitle = $derived(title || ariaLabel);
 </script>
 
 <Button icon {...buttonProps} title={buttonTitle} aria-label={ariaLabel}>
