@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Field, Stack } from '@immich/ui';
+	import { Stack } from '@immich/ui';
 	import Dropdown from '@immich/ui/components/Dropdown/Dropdown.svelte';
 </script>
 
