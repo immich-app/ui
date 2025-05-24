@@ -48,6 +48,7 @@
 		"@tailwindcss/postcss": "^4.1.7",
 		"@tailwindcss/vite": "^4.1.7",
 		"@types/eslint": "^9.6.0",
+		"@types/lodash-es": "^4.17.12",
 		"autoprefixer": "^10.4.20",
 		"eslint": "^9.7.0",
 		"eslint-config-prettier": "^10.0.0",
@@ -69,6 +70,7 @@
 	"dependencies": {
 		"@mdi/js": "^7.4.47",
 		"bits-ui": "^1.5.3",
+		"lodash-es": "^4.17.21",
 		"tailwind-merge": "^2.5.4",
 		"tailwind-variants": "^1.0.0"
 	},
