@@ -86,7 +86,6 @@
 	};
 
 	let renderedSelectedOption = $derived(renderOption(selectedOption));
-	let renderedOptions = $derived(options.map(renderOption));
 </script>
 
 <!-- BUTTON TITLE -->
