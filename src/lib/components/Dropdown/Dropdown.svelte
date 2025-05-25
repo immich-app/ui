@@ -7,6 +7,7 @@
 		title: string;
 		icon?: string;
 		disabled?: boolean;
+		key: string | number;
 	};
 </script>
 
@@ -14,14 +15,14 @@
 	import { Button, Text } from '@immich/ui';
 	import { mdiCheck } from '@mdi/js';
 	import { Popover } from 'bits-ui';
-	import { isEqual } from 'lodash-es';
 	import { fly } from 'svelte/transition';
 	import Icon from '../Icon/Icon.svelte';
+	import type { ComponentProps } from 'svelte';
 
 	interface Props {
 		class?: string;
 		options: T[];
-		selectedOption?: any;
+		selectedOption?: T;
 		showMenu?: boolean;
 		controlable?: boolean;
 		hideTextOnSmallScreen?: boolean;
@@ -31,6 +32,8 @@
 		onClickOutside?: () => void;
 		render?: (item: T) => string | RenderedOption;
 		fullWidthButton?: boolean;
+		buttonVariant?: ComponentProps<typeof Button>['variant'];
+		buttonColor?: ComponentProps<typeof Button>['color'];
 	}
 
 	let {
@@ -46,6 +49,8 @@
 		onClickOutside = () => {},
 		render = String,
 		fullWidthButton = true,
+		buttonVariant = 'ghost',
+		buttonColor = 'secondary',
 	}: Props = $props();
 
 	const handleClickOutside = () => {
@@ -67,19 +72,21 @@
 		const renderedOption = render(option);
 		switch (typeof renderedOption) {
 			case 'string': {
-				return { title: renderedOption };
+				return { title: renderedOption, key: renderedOption };
 			}
 			default: {
 				return {
 					title: renderedOption.title,
 					icon: renderedOption.icon,
 					disabled: renderedOption.disabled,
+					key: renderedOption.key,
 				};
 			}
 		}
 	};
 
 	let renderedSelectedOption = $derived(renderOption(selectedOption));
+	let renderedOptions = $derived(options.map(renderOption));
 </script>
 
 <!-- BUTTON TITLE -->
@@ -90,8 +97,8 @@
 				{...props}
 				fullWidth={fullWidthButton}
 				{title}
-				variant="ghost"
-				color="secondary"
+				variant={buttonVariant}
+				color={buttonColor}
 				size="small"
 			>
 				{#if renderedSelectedOption?.icon}
@@ -116,7 +123,7 @@
 						<div
 							{...props}
 							class={[
-								'immich-scrollbar flex max-h-[70vh] min-w-[250px] flex-col overflow-y-auto rounded-2xl bg-gray-100 py-2 text-sm font-medium text-black shadow-lg dark:bg-gray-700 dark:text-white',
+								'flex max-h-[50vh] min-w-[250px] flex-col overflow-y-auto rounded-2xl bg-gray-100 py-2 text-sm font-medium text-black shadow-lg dark:bg-gray-700 dark:text-white',
 								className,
 								props.class,
 							]}
@@ -133,11 +140,11 @@
 									disabled={renderedOption.disabled}
 									onclick={() => !renderedOption.disabled && handleSelectOption(option)}
 								>
-									{#if isEqual(selectedOption, option)}
-										<div class="text-immich-primary dark:text-immich-dark-primary">
+									{#if renderedSelectedOption.key === renderedOption.key}
+										<div class="text-primary">
 											<Icon icon={mdiCheck} />
 										</div>
-										<p class="text-immich-primary dark:text-immich-dark-primary justify-self-start">
+										<p class="text-primary justify-self-start">
 											{renderedOption.title}
 										</p>
 									{:else}
