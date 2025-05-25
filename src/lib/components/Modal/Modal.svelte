@@ -63,7 +63,7 @@
 
 <Dialog.Root {open} onOpenChange={onChange}>
 	<Dialog.Portal>
-		<Dialog.Overlay class="absolute start-0 top-0 flex h-dvh w-screen bg-black/30" />
+		<Dialog.Overlay class="fixed start-0 top-0 flex h-dvh w-screen bg-black/30" />
 		<Dialog.Content
 			onkeydown={(e) => {
 				if (e.key === 'Escape' && open) {
@@ -74,7 +74,7 @@
 				}
 			}}
 			class={cleanClass(
-				'absolute start-0 top-0 flex h-dvh w-screen items-center justify-center overflow-hidden sm:p-4',
+				'fixed start-0 top-0 flex h-dvh w-screen items-center justify-center overflow-hidden sm:p-4',
 			)}
 		>
 			<div class={cleanClass('flex h-full w-full flex-col items-center justify-center')}>
