@@ -11,7 +11,7 @@
 	--color-subtle: rgb(var(--immich-ui-gray));
 }
 
-@custom-variant dark (&:where(.dark, .dark *));
+@custom-variant dark (&:where(.dark, .dark *):not(.light));
 
 @layer base {
 	:root {
