@@ -2,7 +2,7 @@
 	import { Button, HStack } from '@immich/ui';
 </script>
 
-<HStack wrap>
+<HStack wrap class="light">
 	<Button color="primary">Primary</Button>
 	<Button color="secondary">Secondary</Button>
 	<Button color="success">Success</Button>

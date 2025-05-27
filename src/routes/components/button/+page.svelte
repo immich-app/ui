@@ -2,6 +2,10 @@
 	import ComponentDescription from '$docs/components/ComponentDescription.svelte';
 	import ComponentExamples from '$docs/components/ComponentExamples.svelte';
 	import ComponentPage from '$docs/components/ComponentPage.svelte';
+	import AlwaysDarkExample from './AlwaysDarkExample.svelte';
+	import alwaysDarkExample from './AlwaysDarkExample.svelte?raw';
+	import AlwaysLightExample from './AlwaysLightExample.svelte';
+	import alwaysLightExample from './AlwaysLightExample.svelte?raw';
 	import BasicExample from './BasicExample.svelte';
 	import basicExample from './BasicExample.svelte?raw';
 	import ColorExample from './ColorExample.svelte';
@@ -34,6 +38,9 @@
 		examples={[
 			{ title: 'Basic', code: basicExample, component: BasicExample },
 			{ title: 'Shape', code: shapeExample, component: ShapeExample },
+			{ title: 'Color', code: colorExample, component: ColorExample },
+			{ title: 'Always Light', code: alwaysLightExample, component: AlwaysLightExample },
+			{ title: 'Always Dark', code: alwaysDarkExample, component: AlwaysDarkExample },
 			{ title: 'Color', code: colorExample, component: ColorExample },
 			{ title: 'Outline', code: outlineExample, component: OutlineExample },
 			{ title: 'Ghost', code: ghostExample, component: GhostExample },
