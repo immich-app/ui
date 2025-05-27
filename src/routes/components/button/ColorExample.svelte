@@ -9,4 +9,7 @@
 	<Button color="info">Info</Button>
 	<Button color="warning">Warning</Button>
 	<Button color="danger">Danger</Button>
+	<div class="light">
+		<Button color="primary">Force Light Mode</Button>
+	</div>
 </HStack>
