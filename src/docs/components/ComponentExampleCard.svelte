@@ -28,7 +28,6 @@
 	}
 
 	const cardBodyClass = $derived(getCardBodyClass(viewMode, forceTheme));
-
 </script>
 
 <svelte:head>
