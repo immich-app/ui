@@ -5,7 +5,7 @@
 	import { HighlightSvelte, LineNumbers } from 'svelte-highlight';
 	import atomOneDark from 'svelte-highlight/styles/atom-one-dark';
 
-	const { title, component: Component, code, forceTheme }: ExampleCardProps = $props();
+	const { title, component: Component, code, theme }: ExampleCardProps = $props();
 
 	let viewMode = $state<'code' | 'preview'>('preview');
 
@@ -13,21 +13,21 @@
 		viewMode = viewMode === 'code' ? 'preview' : 'code';
 	};
 
-	function getCardBodyClass(viewMode: string, forceTheme?: Theme): string {
+	function getCardBodyClass(viewMode: string, theme?: Theme): string {
 		if (viewMode === 'code') {
 			return 'p-0';
 		}
 
-		if (forceTheme === Theme.Light) {
+		if (theme === Theme.Light) {
 			return 'bg-white dark:bg-white';
-		} else if (forceTheme === Theme.Dark) {
+		} else if (theme === Theme.Dark) {
 			return 'bg-black dark:bg-black';
 		}
 
 		return '';
 	}
 
-	const cardBodyClass = $derived(getCardBodyClass(viewMode, forceTheme));
+	const cardBodyClass = $derived(getCardBodyClass(viewMode, theme));
 </script>
 
 <svelte:head>

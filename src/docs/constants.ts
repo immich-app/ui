@@ -56,7 +56,7 @@ export type ExampleItem = {
 	title: string;
 	code: string;
 	component: Component;
-	forceTheme?: Theme;
+	theme?: Theme;
 };
 
 export type ExampleCardProps = ExampleItem;

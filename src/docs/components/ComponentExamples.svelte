@@ -11,7 +11,7 @@
 </script>
 
 <Stack gap={4} class="mt-4">
-	{#each examples as { title, code, component, forceTheme }}
-		<ExampleCard {title} {code} {component} {forceTheme} />
+	{#each examples as { title, code, component, theme }}
+		<ExampleCard {title} {code} {component} {theme} />
 	{/each}
 </Stack>
