@@ -2,7 +2,7 @@
 	import ComponentDescription from '$docs/components/ComponentDescription.svelte';
 	import ComponentExamples from '$docs/components/ComponentExamples.svelte';
 	import ComponentPage from '$docs/components/ComponentPage.svelte';
-	import { ForceTheme } from '$docs/constants.js';
+	import { Theme } from '@immich/ui';
 	import AlwaysDarkExample from './AlwaysDarkExample.svelte';
 	import alwaysDarkExample from './AlwaysDarkExample.svelte?raw';
 	import AlwaysLightExample from './AlwaysLightExample.svelte';
@@ -44,13 +44,13 @@
 				title: 'Always Light',
 				code: alwaysLightExample,
 				component: AlwaysLightExample,
-				forceTheme: ForceTheme.Light,
+				forceTheme: Theme.Light,
 			},
 			{
 				title: 'Always Dark',
 				code: alwaysDarkExample,
 				component: AlwaysDarkExample,
-				forceTheme: ForceTheme.Dark,
+				forceTheme: Theme.Dark,
 			},
 			{ title: 'Color', code: colorExample, component: ColorExample },
 			{ title: 'Outline', code: outlineExample, component: OutlineExample },

@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { ForceTheme, type ExampleCardProps } from '$docs/constants.js';
-	import { Button, Card, CardBody, CardHeader, CardTitle, HStack } from '@immich/ui';
+	import { type ExampleCardProps } from '$docs/constants.js';
+	import { Button, Card, CardBody, CardHeader, CardTitle, HStack, Theme } from '@immich/ui';
 	import { mdiEye, mdiXml } from '@mdi/js';
 	import { HighlightSvelte, LineNumbers } from 'svelte-highlight';
 	import atomOneDark from 'svelte-highlight/styles/atom-one-dark';
@@ -13,14 +13,14 @@
 		viewMode = viewMode === 'code' ? 'preview' : 'code';
 	};
 
-	function getCardBodyClass(viewMode: string, forceTheme?: ForceTheme): string {
+	function getCardBodyClass(viewMode: string, forceTheme?: Theme): string {
 		if (viewMode === 'code') {
 			return 'p-0';
 		}
 
-		if (forceTheme === ForceTheme.Light) {
+		if (forceTheme === Theme.Light) {
 			return 'bg-white dark:bg-white';
-		} else if (forceTheme === ForceTheme.Dark) {
+		} else if (forceTheme === Theme.Dark) {
 			return 'bg-black dark:bg-black';
 		}
 

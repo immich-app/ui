@@ -1,3 +1,4 @@
+import type { Theme } from '@immich/ui';
 import {
 	mdiAccountCircle,
 	mdiAccountCircleOutline,
@@ -51,16 +52,11 @@ export enum DisplayOption {
 	Dark = 'dark',
 }
 
-export enum ForceTheme {
-	Light = 'light',
-	Dark = 'dark',
-}
-
 export type ExampleItem = {
 	title: string;
 	code: string;
 	component: Component;
-	forceTheme?: ForceTheme;
+	forceTheme?: Theme;
 };
 
 export type ExampleCardProps = ExampleItem;
