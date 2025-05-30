@@ -1,17 +1,34 @@
 <script lang="ts">
-	import type { ExampleCardProps } from '$docs/constants.js';
+	import { ForceTheme, type ExampleCardProps } from '$docs/constants.js';
 	import { Button, Card, CardBody, CardHeader, CardTitle, HStack } from '@immich/ui';
 	import { mdiEye, mdiXml } from '@mdi/js';
 	import { HighlightSvelte, LineNumbers } from 'svelte-highlight';
 	import atomOneDark from 'svelte-highlight/styles/atom-one-dark';
 
-	const { title, component: Component, code }: ExampleCardProps = $props();
+	const { title, component: Component, code, forceTheme }: ExampleCardProps = $props();
 
 	let viewMode = $state<'code' | 'preview'>('preview');
 
 	const handleToggle = () => {
 		viewMode = viewMode === 'code' ? 'preview' : 'code';
 	};
+
+	function getCardBodyClass(viewMode: string, forceTheme?: ForceTheme): string {
+		if (viewMode === 'code') {
+			return 'p-0';
+		}
+
+		if (forceTheme === ForceTheme.Light) {
+			return 'bg-white dark:bg-white';
+		} else if (forceTheme === ForceTheme.Dark) {
+			return 'bg-black dark:bg-black';
+		}
+
+		return '';
+	}
+
+	const cardBodyClass = $derived(getCardBodyClass(viewMode, forceTheme));
+
 </script>
 
 <svelte:head>
@@ -39,7 +56,7 @@
 			</HStack>
 		</div>
 	</CardHeader>
-	<CardBody class={viewMode === 'code' ? 'p-0' : ''}>
+	<CardBody class={cardBodyClass}>
 		{#if viewMode === 'preview'}
 			<Component />
 		{:else}

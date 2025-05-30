@@ -2,6 +2,7 @@
 	import ComponentDescription from '$docs/components/ComponentDescription.svelte';
 	import ComponentExamples from '$docs/components/ComponentExamples.svelte';
 	import ComponentPage from '$docs/components/ComponentPage.svelte';
+	import { ForceTheme } from '$docs/constants.js';
 	import AlwaysDarkExample from './AlwaysDarkExample.svelte';
 	import alwaysDarkExample from './AlwaysDarkExample.svelte?raw';
 	import AlwaysLightExample from './AlwaysLightExample.svelte';
@@ -39,8 +40,8 @@
 			{ title: 'Basic', code: basicExample, component: BasicExample },
 			{ title: 'Shape', code: shapeExample, component: ShapeExample },
 			{ title: 'Color', code: colorExample, component: ColorExample },
-			{ title: 'Always Light', code: alwaysLightExample, component: AlwaysLightExample },
-			{ title: 'Always Dark', code: alwaysDarkExample, component: AlwaysDarkExample },
+			{ title: 'Always Light', code: alwaysLightExample, component: AlwaysLightExample, forceTheme: ForceTheme.Light },
+			{ title: 'Always Dark', code: alwaysDarkExample, component: AlwaysDarkExample, forceTheme: ForceTheme.Dark },
 			{ title: 'Color', code: colorExample, component: ColorExample },
 			{ title: 'Outline', code: outlineExample, component: OutlineExample },
 			{ title: 'Ghost', code: ghostExample, component: GhostExample },

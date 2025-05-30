@@ -51,10 +51,16 @@ export enum DisplayOption {
 	Dark = 'dark',
 }
 
+export enum ForceTheme {
+	Light = 'light',
+	Dark = 'dark',
+}
+
 export type ExampleItem = {
 	title: string;
 	code: string;
 	component: Component;
+	forceTheme?: ForceTheme;
 };
 
 export type ExampleCardProps = ExampleItem;
