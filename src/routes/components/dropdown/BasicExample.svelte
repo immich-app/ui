@@ -1,0 +1,16 @@
+<script lang="ts">
+	import { Stack } from '@immich/ui';
+	import Dropdown from '@immich/ui/components/Dropdown/Dropdown.svelte';
+</script>
+
+<Stack class="mb-8 max-w-[250px]" gap={8}>
+	<Dropdown
+		title="Select a framework"
+		options={[{ label: 'Svelte' }, { label: 'React' }, { label: 'Angular' }]}
+		onSelect={() => {}}
+		render={({ label }) => ({
+			title: label,
+			key: label.toLowerCase(),
+		})}
+	/>
+</Stack>
