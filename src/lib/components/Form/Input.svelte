@@ -20,7 +20,7 @@
 		$derived(getFieldContext());
 
 	const inputStyles = tv({
-		base: 'aria-readonly:text-dark/50 dark:aria-readonly:text-dark/75 w-full bg-gray-200 outline-none disabled:cursor-not-allowed disabled:bg-gray-300 disabled:text-gray-400 dark:bg-gray-600 dark:disabled:bg-gray-800 dark:disabled:text-gray-200',
+		base: 'w-full bg-gray-200 outline-none disabled:cursor-not-allowed disabled:bg-gray-300 disabled:text-gray-400 dark:bg-gray-600 dark:disabled:bg-gray-800 dark:disabled:text-gray-200',
 		variants: {
 			shape: {
 				rectangle: 'rounded-none',
