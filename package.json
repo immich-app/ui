@@ -1,6 +1,6 @@
 {
 	"name": "@immich/ui",
-	"version": "0.22.3",
+	"version": "0.22.6",
 	"license": "GNU Affero General Public License version 3",
 	"scripts": {
 		"create": "node scripts/create.js",
@@ -73,6 +73,6 @@
 		"tailwind-variants": "^1.0.0"
 	},
 	"volta": {
-		"node": "22.15.1"
+		"node": "22.16.0"
 	}
 }

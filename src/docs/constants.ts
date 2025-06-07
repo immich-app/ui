@@ -1,3 +1,4 @@
+import type { Theme } from '@immich/ui';
 import {
 	mdiAccountCircle,
 	mdiAccountCircleOutline,
@@ -56,6 +57,7 @@ export type ExampleItem = {
 	title: string;
 	code: string;
 	component: Component;
+	theme?: Theme;
 };
 
 export type ExampleCardProps = ExampleItem;
