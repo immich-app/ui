@@ -8,6 +8,8 @@
 	import outlineButton from './OutlineButton.svelte?raw';
 	import BigList from './BigList.svelte';
 	import bigList from './BigList.svelte?raw';
+	import CustomTrigger from './CustomTrigger.svelte';
+	import customTrigger from './CustomTrigger.svelte?raw';
 </script>
 
 <ComponentPage name="Dropdown">
@@ -22,6 +24,11 @@
 				title: 'Big List',
 				code: bigList,
 				component: BigList,
+			},
+			{
+				title: 'Custom Trigger',
+				code: customTrigger,
+				component: CustomTrigger,
 			},
 		]}
 	/>

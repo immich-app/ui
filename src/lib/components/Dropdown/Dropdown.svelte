@@ -1,120 +1,92 @@
 <script lang="ts" module>
-	// Necessary for eslint
-	/* eslint-disable @typescript-eslint/no-explicit-any */
-	type T = any;
-
-	export type RenderedOption = {
-		title: string;
+	import { type SelectItem, type Variants } from '@immich/ui';
+	export type DropdownItem = SelectItem & {
 		icon?: string;
-		disabled?: boolean;
-		key: string | number;
 	};
+
+	type T = DropdownItem;
 </script>
 
-<script lang="ts" generics="T">
-	import { Button, Text } from '@immich/ui';
+<script lang="ts" generics="T extends DropdownItem">
+	import { Button, type SelectProps } from '@immich/ui';
 	import { mdiCheck } from '@mdi/js';
 	import { Popover } from 'bits-ui';
 	import { fly } from 'svelte/transition';
 	import Icon from '../Icon/Icon.svelte';
-	import type { ComponentProps } from 'svelte';
+	import type { Snippet } from 'svelte';
+	import Text from '../Text/Text.svelte';
 
-	interface Props {
-		class?: string;
-		options: T[];
-		selectedOption?: T;
-		showMenu?: boolean;
-		controlable?: boolean;
-		hideTextOnSmallScreen?: boolean;
-		title?: string | undefined;
+	type Props = SelectProps<T> & {
+		fullWidth?: boolean;
 		position?: 'bottom-left' | 'bottom-right';
-		onSelect: (option: T) => void;
-		onClickOutside?: () => void;
-		render?: (item: T) => string | RenderedOption;
-		fullWidthButton?: boolean;
-		buttonVariant?: ComponentProps<typeof Button>['variant'];
-		buttonColor?: ComponentProps<typeof Button>['color'];
-	}
+		variant?: Variants;
+		trigger?: Snippet<[{ props: Record<string, unknown>; selectedIcon?: string | undefined }]>;
+		hideTextOnSmallScreen?: boolean;
+	};
 
 	let {
-		position = 'bottom-left',
-		class: className = '',
-		options,
-		selectedOption = $bindable(options[0]),
-		showMenu = $bindable(false),
-		controlable = false,
+		data,
+		class: className,
+		color = 'primary',
+		size = 'small',
+		onChange,
+		placeholder,
+		shape,
 		hideTextOnSmallScreen = true,
-		title = undefined,
-		onSelect,
-		onClickOutside = () => {},
-		render = String,
-		fullWidthButton = true,
-		buttonVariant = 'ghost',
-		buttonColor = 'secondary',
+		value = $bindable(),
+		fullWidth,
+		variant,
+		position = 'bottom-right',
+		trigger,
 	}: Props = $props();
 
-	const handleClickOutside = () => {
-		if (!controlable) {
-			showMenu = false;
-		}
-
-		onClickOutside();
-	};
-
 	const handleSelectOption = (option: T) => {
-		onSelect(option);
-		selectedOption = option;
-
-		showMenu = false;
+		onChange?.(option);
+		value = option;
+		showDropdown = false;
 	};
 
-	const renderOption = (option: T): RenderedOption => {
-		const renderedOption = render(option);
-		switch (typeof renderedOption) {
-			case 'string': {
-				return { title: renderedOption, key: renderedOption };
+	const asOptions = (items: string[] | T[]) => {
+		return items.map((item) => {
+			if (typeof item === 'string') {
+				return { value: item, label: item } as T;
 			}
-			default: {
-				return {
-					title: renderedOption.title,
-					icon: renderedOption.icon,
-					disabled: renderedOption.disabled,
-					key: renderedOption.key,
-				};
-			}
-		}
+
+			const label = item.label ?? item.value;
+			return { ...item, label };
+		});
 	};
 
-	let renderedSelectedOption = $derived(renderOption(selectedOption));
+	const options = $derived(asOptions(data));
+
+	let showDropdown = $state(false);
 </script>
 
 <!-- BUTTON TITLE -->
-<Popover.Root bind:open={showMenu}>
+<Popover.Root bind:open={showDropdown}>
 	<Popover.Trigger>
 		{#snippet child({ props })}
-			<Button
-				{...props}
-				fullWidth={fullWidthButton}
-				{title}
-				variant={buttonVariant}
-				color={buttonColor}
-				size="small"
-			>
-				{#if renderedSelectedOption?.icon}
-					<Icon icon={renderedSelectedOption.icon} />
-				{/if}
-				<Text class={hideTextOnSmallScreen ? 'hidden sm:block' : ''}
-					>{renderedSelectedOption.title}</Text
-				>
-			</Button>
+			{#if trigger}
+				{@render trigger({ props, selectedIcon: value?.icon })}
+			{:else}
+				<Button {...props} {fullWidth} title={placeholder} {color} {shape} {variant} {size}>
+					{#if value?.icon}
+						<Icon icon={value.icon} />
+					{/if}
+
+					<Text class={hideTextOnSmallScreen ? 'hidden sm:block' : ''}>
+						{#if !value}
+							{placeholder}
+						{:else}
+							{value?.label}
+						{/if}
+					</Text>
+				</Button>
+			{/if}
 		{/snippet}
 	</Popover.Trigger>
 	<Popover.Portal>
-		<Popover.Content
-			align={position === 'bottom-left' ? 'start' : 'end'}
-			forceMount
-			onInteractOutside={handleClickOutside}
-		>
+		<Popover.Content align={position === 'bottom-left' ? 'start' : 'end'} forceMount>
 			{#snippet child({ props, wrapperProps, open })}
 				<!-- DROP DOWN MENU -->
 				{#if open}
@@ -128,28 +100,27 @@
 							]}
 							transition:fly={{ y: -30, duration: 250 }}
 						>
-							{#each options as option (option)}
-								{@const renderedOption = renderOption(option)}
-								{@const buttonStyle = renderedOption.disabled
+							{#each options as option (option.value)}
+								{@const buttonStyle = option.disabled
 									? ''
 									: 'transition-all hover:bg-gray-300 dark:hover:bg-gray-800'}
 								<button
 									type="button"
 									class="grid grid-cols-[36px_1fr] place-items-center p-2 disabled:opacity-40 {buttonStyle}"
-									disabled={renderedOption.disabled}
-									onclick={() => !renderedOption.disabled && handleSelectOption(option)}
+									disabled={option.disabled}
+									onclick={() => !option.disabled && handleSelectOption(option)}
 								>
-									{#if renderedSelectedOption.key === renderedOption.key}
+									{#if value?.value === option.value}
 										<div class="text-primary">
 											<Icon icon={mdiCheck} />
 										</div>
 										<p class="text-primary justify-self-start">
-											{renderedOption.title}
+											{option.label}
 										</p>
 									{:else}
 										<div></div>
 										<p class="justify-self-start">
-											{renderedOption.title}
+											{option.label}
 										</p>
 									{/if}
 								</button>

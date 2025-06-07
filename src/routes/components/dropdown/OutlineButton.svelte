@@ -5,18 +5,13 @@
 
 <Stack class="mb-8 max-w-[250px]" gap={8}>
 	<Dropdown
-		title="Select a framework"
-		buttonVariant="outline"
-		buttonColor="secondary"
-		options={[
+		placeholder="Select a framework"
+		color="secondary"
+		variant="outline"
+		data={[
 			{ label: 'Svelte', value: 'svelte' },
 			{ label: 'React', value: 'react' },
 			{ label: 'Angular', value: 'angular' },
 		]}
-		onSelect={() => {}}
-		render={({ label, value }) => ({
-			title: label,
-			key: value,
-		})}
 	/>
 </Stack>
