@@ -50,7 +50,7 @@ jobs:
           push: true
 
       - name: Create draft release
-        uses: softprops/action-gh-release@d5382d3e6f2fa7bd53cb749d33091853d4985daf # v2
+        uses: softprops/action-gh-release@72f2c25fcb47643c292f7107632f7a47c1df5cd8 # v2
         with:
           draft: true
           tag_name: ${{ env.IMMICH_VERSION }}
