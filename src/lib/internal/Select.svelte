@@ -14,7 +14,7 @@
 
 	type Props = {
 		multiple?: boolean;
-		values?: T[];
+		values: T[];
 		asLabel?: (items: T[]) => string;
 		onChange?: (values: T[]) => void;
 	} & SelectCommonProps<T>;
@@ -22,7 +22,6 @@
 	let {
 		data,
 		shape,
-		color = 'primary',
 		size = 'medium',
 		multiple = false,
 		values = $bindable([]),
@@ -73,6 +72,10 @@
 
 		onChange?.(values);
 	};
+
+	let internalValue = $derived(
+		multiple ? values.map(({ value }) => value) : (values[0]?.value ?? ''),
+	);
 </script>
 
 <div class={cleanClass('flex flex-col gap-1', className)} bind:this={ref}>
@@ -80,7 +83,11 @@
 		<Label id={labelId} for={inputId} {label} {...labelProps} />
 	{/if}
 
-	<Select.Root type={multiple ? 'multiple' : 'single'} {onValueChange}>
+	<Select.Root
+		type={multiple ? 'multiple' : 'single'}
+		bind:value={internalValue as never}
+		{onValueChange}
+	>
 		<Select.Trigger
 			{disabled}
 			class="w-full items-center gap-1 rounded-lg focus-visible:outline-none"
@@ -92,7 +99,6 @@
 					id={inputId}
 					{size}
 					{shape}
-					{color}
 					{placeholder}
 					value={selectedLabel}
 					readonly

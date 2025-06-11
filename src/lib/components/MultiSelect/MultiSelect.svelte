@@ -4,12 +4,11 @@
 
 	type T = SelectItem;
 
-	let { value = $bindable(), onChange, ...restProps }: MultiSelectProps<T> = $props();
+	let { onChange, values = $bindable([]), ...restProps }: MultiSelectProps<T> = $props();
 
 	const handleChange = (items: T[]) => {
-		value = items;
-		onChange?.(value);
+		onChange?.(items);
 	};
 </script>
 
-<InternalSelect multiple onChange={handleChange} {...restProps} />
+<InternalSelect multiple bind:values onChange={handleChange} {...restProps} />

@@ -4,12 +4,14 @@
 
 	type T = SelectItem;
 
-	let { value = $bindable(), onChange, ...restProps }: SelectProps<T> = $props();
+	let { onChange, value = $bindable(), ...restProps }: SelectProps<T> = $props();
+
+	let values = $derived(value ? [value] : []);
 
 	const handleChange = (items: T[]) => {
-		value = items[0] as T;
+		value = items[0];
 		onChange?.(value);
 	};
 </script>
 
-<InternalSelect onChange={handleChange} {...restProps} />
+<InternalSelect bind:values onChange={handleChange} {...restProps} />

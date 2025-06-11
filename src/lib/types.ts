@@ -140,7 +140,6 @@ export type SelectItem = {
 export type SelectCommonProps<T extends SelectItem> = {
 	data: string[] | T[];
 	size?: Size;
-	color?: Color;
 	shape?: Shape;
 	placeholder?: string;
 	class?: string;
@@ -152,6 +151,6 @@ export type SelectProps<T extends SelectItem> = SelectCommonProps<T> & {
 };
 
 export type MultiSelectProps<T extends SelectItem> = SelectCommonProps<T> & {
-	value?: T[];
+	values?: T[];
 	onChange?: (values: T[]) => void;
 };
