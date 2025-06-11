@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { Field, type SelectItem, Select, Stack, Text, Code } from '@immich/ui';
+	import { Code, Field, Select, Stack, Text, type SelectItem } from '@immich/ui';
 
-	const themes = [
+	const themes: SelectItem[] = [
 		{ value: 'light-monochrome', label: 'Light Monochrome' },
 		{ value: 'dark-green', label: 'Dark Green' },
 		{ value: 'svelte-orange', label: 'Svelte Orange' },
@@ -24,7 +24,7 @@
 		{ value: 'burnt-orange', label: 'Burnt Orange' },
 	];
 
-	let value = $state<SelectItem>();
+	let value = $state(themes[0]);
 </script>
 
 <Stack class="mb-8 max-w-[250px]" gap={8}>
