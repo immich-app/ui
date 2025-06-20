@@ -8,6 +8,8 @@
 		direction = 'column',
 		wrap = false,
 		class: className,
+		fullWidth,
+		fullHeight,
 		gap = 2,
 		children,
 	}: StackProps = $props();
@@ -23,6 +25,14 @@
 				start: 'items-start',
 				center: 'items-center',
 				end: 'items-end',
+			},
+			fullWidth: {
+				true: 'w-full',
+				false: '',
+			},
+			fullHeight: {
+				true: 'h-full',
+				false: '',
 			},
 			gap: {
 				0: 'gap-0',
@@ -50,6 +60,8 @@
 			direction,
 			gap,
 			wrap,
+			fullHeight,
+			fullWidth,
 		}),
 		className,
 	)}
