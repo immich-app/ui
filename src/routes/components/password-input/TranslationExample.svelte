@@ -7,8 +7,8 @@
 		<PasswordInput
 			value="super-secret-password"
 			translations={{
-				showPassword: 'Show Api key',
-				hidePassword: 'Hide Api key',
+				show_password: 'Show Api key',
+				hide_password: 'Hide Api key',
 			}}
 		/>
 	</Field>

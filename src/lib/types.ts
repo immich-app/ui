@@ -127,7 +127,7 @@ export type InputProps = BaseInputProps & {
 };
 
 export type PasswordInputProps = BaseInputProps & {
-	translations?: TranslationProps<'showPassword' | 'hidePassword'>;
+	translations?: TranslationProps<'show_password' | 'hide_password'>;
 	isVisible?: boolean;
 };
 

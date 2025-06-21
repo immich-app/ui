@@ -26,8 +26,8 @@
 				class="me-1"
 				icon={isVisible ? mdiEyeOffOutline : mdiEyeOutline}
 				onclick={() => (isVisible = !isVisible)}
-				title={isVisible ? t('hidePassword', translations) : t('showPassword', translations)}
-				aria-label={t('showPassword', translations)}
+				title={isVisible ? t('hide_password', translations) : t('show_password', translations)}
+				aria-label={t('show_password', translations)}
 			/>
 		{/if}
 	{/snippet}
