@@ -60,3 +60,4 @@ export * from '$lib/services/theme.svelte.js';
 export * from '$lib/services/translation.svelte.js';
 export * from '$lib/types.js';
 export * from '$lib/utilities/byte-units.js';
+export * from '$lib/services/modalManager.svelte.js';

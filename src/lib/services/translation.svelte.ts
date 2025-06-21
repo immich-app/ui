@@ -5,6 +5,9 @@ const defaultTranslations = {
 	showPassword: 'Show password',
 	hidePassword: 'Hide password',
 	darkTheme: 'Toggle dark theme',
+	confirm: 'Confirm',
+	prompt_default: 'Are you sure you want to do this?',
+	cancel: 'Cancel',
 };
 
 export type Translations = typeof defaultTranslations;
