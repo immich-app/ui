@@ -2,9 +2,9 @@ import type { TranslationProps } from '$lib/types.js';
 
 const defaultTranslations = {
 	close: 'Close',
-	showPassword: 'Show password',
-	hidePassword: 'Hide password',
-	darkTheme: 'Toggle dark theme',
+	show_password: 'Show password',
+	hide_password: 'Hide password',
+	dark_theme: 'Toggle dark theme',
 	confirm: 'Confirm',
 	prompt_default: 'Are you sure you want to do this?',
 	cancel: 'Cancel',

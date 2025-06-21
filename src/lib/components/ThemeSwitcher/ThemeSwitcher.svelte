@@ -17,7 +17,7 @@
 		class?: string;
 		color?: Color;
 		variant?: Variants;
-		translations?: TranslationProps<'darkTheme'>;
+		translations?: TranslationProps<'dark_theme'>;
 		onChange?: (theme: Theme) => void;
 	};
 
@@ -47,7 +47,7 @@
 	icon={themeIcon}
 	onclick={handleToggleTheme}
 	class={cleanClass(className)}
-	aria-label={t('darkTheme', translations)}
+	aria-label={t('dark_theme', translations)}
 	role="switch"
 	aria-checked={theme.value === Theme.Dark}
 />
