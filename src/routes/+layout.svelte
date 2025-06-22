@@ -50,9 +50,9 @@
 				href="/"
 				isActive={() => page.url.pathname === '/'}
 			/>
-			{#each componentGroups as group}
+			{#each componentGroups as group (group.title)}
 				<NavbarGroup title={group.title} />
-				{#each group.components as component}
+				{#each group.components as component (component.name)}
 					<NavbarItem
 						href={asComponentHref(component.name)}
 						title={component.name}
