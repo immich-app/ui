@@ -7,7 +7,7 @@
 
 <Stack gap={4}>
 	<Stack gap={2}>
-		{#each colors as color}
+		{#each colors as color (color)}
 			<Alert {color} title="This is an alert" />
 			<Alert {color}>
 				<p>This is an alert</p>

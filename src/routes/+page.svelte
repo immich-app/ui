@@ -20,11 +20,11 @@
 
 		<Heading tag="h2" size="large">Components</Heading>
 		<Stack gap={8}>
-			{#each componentGroups as group}
+			{#each componentGroups as group (group.title)}
 				<Stack>
 					<Heading tag="h3" size="medium" class="mb-4">{group.title}</Heading>
 					<Grid>
-						{#each group.components as component}
+						{#each group.components as component (component.name)}
 							<ComponentCard {component} />
 						{/each}
 					</Grid>
