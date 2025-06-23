@@ -88,7 +88,7 @@
 							{/if}
 							<CardTitle tag="p" class="text-dark/90 grow text-lg font-semibold">{title}</CardTitle>
 							<Dialog.Close>
-								<CloseButton onclick={() => onChange(false)} class="-me-2" />
+								<CloseButton class="-me-2" />
 							</Dialog.Close>
 						</div>
 					</CardHeader>
