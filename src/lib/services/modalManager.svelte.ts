@@ -1,5 +1,5 @@
 import { mount, unmount, type Component, type ComponentProps } from 'svelte';
-import ConfirmModal from '$lib/internal/ConfirmModal.svelte';
+import ConfirmModal from '$lib/components/ConfirmModal/ConfirmModal.svelte';
 
 type OnCloseData<T> = T extends { onClose: (data?: infer R) => void }
 	? R | undefined
