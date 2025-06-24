@@ -1,5 +1,11 @@
 <script lang="ts">
-	import { Button, HStack, Modal, ModalBody, ModalFooter, t, type Color } from '@immich/ui';
+	import Button from '$lib/components/Button/Button.svelte';
+	import Modal from '$lib/components/Modal/Modal.svelte';
+	import ModalBody from '$lib/components/Modal/ModalBody.svelte';
+	import ModalFooter from '$lib/components/Modal/ModalFooter.svelte';
+	import HStack from '$lib/components/Stack/HStack.svelte';
+	import type { Color } from '$lib/types.js';
+	import { t } from '$lib/services/translation.svelte.js';
 	import type { Snippet } from 'svelte';
 
 	interface Props {
