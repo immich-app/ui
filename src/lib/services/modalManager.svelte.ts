@@ -31,6 +31,7 @@ class ModalManager {
 		const deferred = new Promise<StripValueIfOptional<K>>((resolve) => {
 			onClose = async (...args: [StripValueIfOptional<K>]) => {
 				await unmount(modal);
+				// make sure bits-ui clean up finishes before resolving
 				setTimeout(() => resolve(args?.[0]), 0);
 			};
 
