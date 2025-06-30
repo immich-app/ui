@@ -31,7 +31,7 @@ class ModalManager {
 		const deferred = new Promise<StripValueIfOptional<K>>((resolve) => {
 			onClose = async (...args: [StripValueIfOptional<K>]) => {
 				await unmount(modal);
-                setTimeout(() => resolve(args?.[0]), 0);
+				setTimeout(() => resolve(args?.[0]), 0);
 			};
 
 			modal = mount(Component, {
