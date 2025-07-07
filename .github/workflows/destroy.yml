@@ -4,15 +4,14 @@ on:
     types: [closed]
 
 env:
-  tofu_version: '1.7.1'
-  tg_version: '0.69.0'
+  tofu_version: '1.10.2'
+  tg_version: '0.83.0'
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
-      max-parallel: 1
       matrix:
         environment: ['dev', 'prod']
     steps:
@@ -40,7 +39,7 @@ jobs:
           TF_VAR_stage: pr-${{ github.event.number }}
           OP_SERVICE_ACCOUNT_TOKEN: ${{ matrix.environment == 'prod' && secrets.OP_TF_PROD_ENV || secrets.OP_TF_DEV_ENV }}
           working_dir: 'deployment'
-        run: op run --env-file=".env" -- terragrunt run-all destroy -refresh=false --terragrunt-non-interactive --terragrunt-exclude-dir '**/pages-project'
+        run: op run --env-file=".env" -- terragrunt run --all destroy --non-interactive --queue-exclude-dir '**/pages-project' -- -refresh=false -lock-timeout=5m
 
       - name: Comment
         uses: actions-cool/maintain-one-comment@4b2dbf086015f892dcb5e8c1106f5fccd6c1476b # v3
