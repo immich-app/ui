@@ -52,7 +52,6 @@
 				component: AlwaysDarkExample,
 				theme: Theme.Dark,
 			},
-			{ title: 'Color', code: colorExample, component: ColorExample },
 			{ title: 'Outline', code: outlineExample, component: OutlineExample },
 			{ title: 'Ghost', code: ghostExample, component: GhostExample },
 			{ title: 'Icon', code: iconExample, component: IconExample },
