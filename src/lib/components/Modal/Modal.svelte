@@ -12,7 +12,7 @@
 	import type { ModalSize } from '$lib/types.js';
 	import { cleanClass } from '$lib/utils.js';
 	import { Dialog } from 'bits-ui';
-	import { type Snippet } from 'svelte';
+	import { tick, type Snippet } from 'svelte';
 	import { tv } from 'tailwind-variants';
 
 	type Props = {
@@ -29,7 +29,7 @@
 	let {
 		title,
 		size = 'medium',
-		open = true,
+		open = $bindable(true),
 		icon = true,
 		onClose,
 		class: className,
@@ -54,23 +54,28 @@
 	const bodyChildren = $derived(getChildSnippet(ChildKey.ModalBody));
 	const footerChildren = $derived(getChildSnippet(ChildKey.ModalFooter));
 
-	const onChange = (value: boolean) => {
+	const onChange = async (value: boolean) => {
+		// wait for bits-ui to complete its event cycle
+		await tick();
+		await new Promise((resolve) => setTimeout(resolve, 10));
+
 		if (!value) {
 			onClose?.();
 		}
 	};
+
+	$effect(() => void onChange(open));
 </script>
 
-<Dialog.Root {open} onOpenChange={onChange}>
+<Dialog.Root {open}>
 	<Dialog.Portal>
 		<Dialog.Overlay class="fixed start-0 top-0 flex h-dvh w-screen bg-black/30" />
 		<Dialog.Content
 			onkeydown={(e) => {
 				if (e.key === 'Escape' && open) {
-					// Stop propagation to ensure modals close before immich-web takes over
 					e.stopPropagation();
+					e.preventDefault();
 					open = false;
-					onClose?.();
 				}
 			}}
 			class={cleanClass(
@@ -87,9 +92,7 @@
 								<Logo variant="icon" size="tiny" />
 							{/if}
 							<CardTitle tag="p" class="text-dark/90 grow text-lg font-semibold">{title}</CardTitle>
-							<Dialog.Close>
-								<CloseButton class="-me-2" />
-							</Dialog.Close>
+							<CloseButton class="-me-2" onclick={() => (open = false)} />
 						</div>
 					</CardHeader>
 
