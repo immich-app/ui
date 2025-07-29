@@ -19,7 +19,6 @@
 		title: string;
 		size?: ModalSize;
 		class?: string;
-		open?: boolean;
 		icon?: string | boolean;
 		expandable?: boolean;
 		children: Snippet;
@@ -29,7 +28,6 @@
 	let {
 		title,
 		size = 'medium',
-		open = $bindable(true),
 		icon = true,
 		onClose,
 		class: className,
@@ -54,28 +52,24 @@
 	const bodyChildren = $derived(getChildSnippet(ChildKey.ModalBody));
 	const footerChildren = $derived(getChildSnippet(ChildKey.ModalFooter));
 
-	const onChange = async (value: boolean) => {
+	const handleClose = async () => {
 		// wait for bits-ui to complete its event cycle
 		await tick();
 		await new Promise((resolve) => setTimeout(resolve, 10));
 
-		if (!value) {
-			onClose?.();
-		}
+		onClose?.();
 	};
-
-	$effect(() => void onChange(open));
 </script>
 
-<Dialog.Root {open}>
+<Dialog.Root open={true}>
 	<Dialog.Portal>
 		<Dialog.Overlay class="fixed start-0 top-0 flex h-dvh w-screen bg-black/30" />
 		<Dialog.Content
 			onkeydown={(e) => {
-				if (e.key === 'Escape' && open) {
+				if (e.key === 'Escape') {
 					e.stopPropagation();
 					e.preventDefault();
-					open = false;
+					handleClose();
 				}
 			}}
 			class={cleanClass(
@@ -92,7 +86,7 @@
 								<Logo variant="icon" size="tiny" />
 							{/if}
 							<CardTitle tag="p" class="text-dark/90 grow text-lg font-semibold">{title}</CardTitle>
-							<CloseButton class="-me-2" onclick={() => (open = false)} />
+							<CloseButton class="-me-2" onclick={() => handleClose()} />
 						</div>
 					</CardHeader>
 

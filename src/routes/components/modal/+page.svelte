@@ -15,6 +15,8 @@
 	import confirmDialogExample from './ConfirmDialogExample.svelte?raw';
 	import ComponentTipCard from '$docs/components/ComponentTipCard.svelte';
 	import { asComponentHref } from '$docs/utilities.js';
+	import NestedExample from './NestedExample.svelte';
+	import nestedExample from './NestedExample.svelte?raw';
 </script>
 
 <ComponentPage name="Modal">
@@ -33,6 +35,7 @@
 			{ title: 'Size', code: sizeExample, component: SizeExample },
 			{ title: 'Route', code: routeExample, component: RouteExample },
 			{ title: 'Confirm Dialog', code: confirmDialogExample, component: ConfirmDialogExample },
+			{ title: 'Nested Dialog', code: nestedExample, component: NestedExample },
 		]}
 	/>
 </ComponentPage>
