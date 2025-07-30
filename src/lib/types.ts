@@ -69,6 +69,7 @@ export type CloseButtonProps = {
 
 export type IconButtonProps = ButtonBase & {
 	icon: string;
+	iconSize?: string;
 	flipped?: boolean;
 	flopped?: boolean;
 	'aria-label': string;
