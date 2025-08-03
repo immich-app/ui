@@ -32,7 +32,7 @@ class ModalManager {
 			onClose = async (...args: [StripValueIfOptional<K>]) => {
 				await unmount(modal);
 				// make sure bits-ui clean up finishes before resolving
-				setTimeout(() => resolve(args?.[0]), 0);
+				setTimeout(() => resolve(args?.[0]), 10);
 			};
 
 			modal = mount(Component, {
