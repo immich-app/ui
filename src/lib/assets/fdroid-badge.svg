@@ -1,4 +1,4 @@
-<svg xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" width="646" height="250" version="1.1" id="svg78" sodipodi:docname="get-it-on-en.svg">
+<svg xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" width="564" height="168" version="1.1" id="svg78" sodipodi:docname="get-it-on-en.svg">
   <sodipodi:namedview id="namedview80" pagecolor="#ffffff" bordercolor="#000000" borderopacity="0.25" inkscape:showpageshadow="2" inkscape:pageopacity="0.0" inkscape:pagecheckerboard="0" inkscape:deskcolor="#d1d1d1"/>
   <defs id="defs8">
     <radialGradient xlink:href="#a" id="b" cx="113" cy="-12.89" r="59.662" fx="113" fy="-12.89" gradientTransform="matrix(0 1.96105 -1.97781 0 254.507 78.763)" gradientUnits="userSpaceOnUse"/>
@@ -7,7 +7,7 @@
       <stop offset="1" style="stop-color:#fff;stop-opacity:0" id="stop5"/>
     </linearGradient>
   </defs>
-  <g transform="translate(-289,-312.362)" id="g76">
+  <g transform="translate(-330,-353)" id="g76">
     <path id="rect10" style="display:inline;overflow:visible;stroke:#a6a6a6;stroke-width:4;marker:none" d="m 352,355.362 h 520 c 11.08,0 20,8.92 20,20 v 124 c 0,11.08 -8.92,20 -20,20 H 352 c -11.08,0 -20,-8.92 -20,-20 v -124 c 0,-11.08 8.92,-20 20,-20 z"/>
     <g aria-label="GET IT ON" id="text14" style="font-size:12.3952px;line-height:100%;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans';letter-spacing:0;word-spacing:0;display:inline;overflow:visible;fill:#ffffff;stroke-width:1px;marker:none">
       <path d="m 529.2627,398.81787 v -6.6817 h -5.49866 v -2.76599 h 8.83117 v 10.68072 q -1.94952,1.383 -4.29895,2.09949 -2.34942,0.69983 -5.01544,0.69983 -5.83191,0 -9.1311,-3.39917 -3.28253,-3.41583 -3.28253,-9.49768 0,-6.09851 3.28253,-9.49768 3.29919,-3.41583 9.1311,-3.41583 2.43274,0 4.61554,0.59985 2.19947,0.59985 4.04901,1.76623 v 3.58246 q -1.86621,-1.58294 -3.96569,-2.38275 -2.09949,-0.7998 -4.41559,-0.7998 -4.56555,0 -6.86499,2.54937 -2.28278,2.54938 -2.28278,7.59815 0,5.0321 2.28278,7.58148 2.29944,2.54938 6.86499,2.54938 1.78289,0 3.18255,-0.29993 1.39966,-0.31659 2.51606,-0.96643 z" style="font-size:34.125px" id="path83"/>
