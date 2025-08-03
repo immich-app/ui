@@ -8,6 +8,7 @@ export { default as immichLogoStackedLight } from '$lib/assets/immich-logo-stack
 export { default as immichLogoJson } from '$lib/assets/immich-logo.json';
 export { default as immichLogo } from '$lib/assets/immich-logo.svg';
 export { default as playStoreBadge } from '$lib/assets/playstore-badge.png';
+export { default as obtainiumBadge } from '$lib/assets/obtainium-badge.png';
 
 // components
 export { default as Alert } from '$lib/components/Alert/Alert.svelte';
