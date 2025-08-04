@@ -8,6 +8,8 @@
 	import { Link, Text } from '@immich/ui';
 	import BasicExample from './BasicExample.svelte';
 	import basicExample from './BasicExample.svelte?raw';
+	import IconExample from './IconExample.svelte';
+	import iconExample from './IconExample.svelte?raw';
 	import ShapeExample from './ShapeExample.svelte';
 	import shapeExample from './ShapeExample.svelte?raw';
 	import SizeExample from './SizeExample.svelte';
@@ -28,6 +30,7 @@
 			{ title: 'States', code: basicExample, component: BasicExample },
 			{ title: 'Shapes', code: shapeExample, component: ShapeExample },
 			{ title: 'Sizes', code: sizeExample, component: SizeExample },
+			{ title: 'Icons', code: iconExample, component: IconExample },
 		]}
 	/>
 </ComponentPage>
