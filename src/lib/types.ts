@@ -123,7 +123,8 @@ type BaseInputProps = {
 export type InputProps = BaseInputProps & {
 	containerRef?: HTMLElement | null;
 	type?: HTMLInputAttributes['type'];
-	trailingIcon?: Snippet;
+	leadingIcon?: string | Snippet;
+	trailingIcon?: string | Snippet;
 };
 
 export type PasswordInputProps = BaseInputProps & {
