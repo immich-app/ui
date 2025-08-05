@@ -73,6 +73,6 @@
 		"tailwind-variants": "^1.0.0"
 	},
 	"volta": {
-		"node": "22.17.1"
+		"node": "22.18.0"
 	}
 }
