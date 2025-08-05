@@ -19,7 +19,7 @@ jobs:
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
 
       - name: Install 1Password CLI
-        uses: 1password/install-cli-action@143a85f84a90555d121cde2ff5872e393a47ab9f # v1
+        uses: 1password/install-cli-action@707af61a6c8b4fa7f9476328c035208fba6b54d7 # v2
 
       - name: Install Terragrunt
         uses: eLco/setup-terragrunt@2c5116f8979bb261072ef57c97ac026cd9c27434 # v1
