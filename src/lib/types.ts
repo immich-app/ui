@@ -26,8 +26,10 @@ export enum Theme {
 
 export type TranslationProps<T extends keyof Translations> = { [K in T]?: string };
 
+type PathLike = { path: string };
+
 export type IconProps = {
-	icon: string;
+	icon: string | PathLike;
 	title?: string;
 	description?: string;
 	size?: string;

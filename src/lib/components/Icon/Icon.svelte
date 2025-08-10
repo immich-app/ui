@@ -42,7 +42,7 @@
 	{#if description}
 		<desc>{description}</desc>
 	{/if}
-	<path d={icon} fill={color} />
+	<path d={typeof icon === 'string' ? icon : icon.path} fill={color} />
 </svg>
 
 <style>
