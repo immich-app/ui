@@ -37,7 +37,7 @@
 		variants: {
 			disabled: {
 				true: 'disabled:pointer-events-none disabled:opacity-50 aria-disabled:opacity-50',
-				false: '',
+				false: 'cursor-pointer',
 			},
 			shape: {
 				rectangle: 'rounded-none',
