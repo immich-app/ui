@@ -18,7 +18,7 @@
 	.light {
 		/* light */
 		--immich-ui-primary: 66 80 175;
-		--immich-ui-dark: 58 58 58;
+		--immich-ui-dark: 20 22 26;
 		--immich-ui-light: 255 255 255;
 		--immich-ui-success: 16 188 99;
 		--immich-ui-danger: 200 60 60;
