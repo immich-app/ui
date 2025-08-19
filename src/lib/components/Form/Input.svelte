@@ -97,7 +97,7 @@
 		<Text color="secondary" size="small" id={descriptionId}>{description}</Text>
 	{/if}
 
-	<div class={cleanClass('relative w-full', label && 'mt-1.5')}>
+	<div class="relative w-full">
 		{#if leadingIcon}
 			<div tabindex="-1" class={iconStyles({ size })}>
 				{#if leadingIcon}
