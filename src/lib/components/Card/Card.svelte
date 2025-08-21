@@ -12,6 +12,7 @@
 	import { tv } from 'tailwind-variants';
 
 	type Props = HTMLAttributes<HTMLDivElement> & {
+		ref?: HTMLElement | null;
 		color?: Color;
 		shape?: 'round' | 'rectangle';
 		expanded?: boolean;
@@ -20,6 +21,7 @@
 	};
 
 	let {
+		ref = $bindable(null),
 		color,
 		class: className,
 		shape = 'round',
@@ -125,7 +127,11 @@
 	{/if}
 {/snippet}
 
-<div class={cleanClass(containerStyles({ shape, border: !color }), className)} {...restProps}>
+<div
+	bind:this={ref}
+	class={cleanClass(containerStyles({ shape, border: !color }), className)}
+	{...restProps}
+>
 	<div class={cleanClass(cardStyles({ color }))}>
 		{#if headerChild}
 			{@render header()}
