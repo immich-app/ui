@@ -13,7 +13,8 @@
 		icon?: boolean;
 	};
 
-	const {
+	let {
+		ref = $bindable(),
 		type = 'button',
 		href,
 		variant = 'filled',
@@ -152,7 +153,13 @@
 {/snippet}
 
 {#if href}
-	<a {href} class={classList} aria-disabled={disabled} {...restProps as HTMLAnchorAttributes}>
+	<a
+		bind:this={ref}
+		{href}
+		class={classList}
+		aria-disabled={disabled}
+		{...restProps as HTMLAnchorAttributes}
+	>
 		{#if loading}
 			<div class="flex items-center justify-center gap-2">
 				<LoadingSpinner {color} size={spinnerSizes[size]} />
@@ -164,6 +171,7 @@
 	</a>
 {:else}
 	<ButtonPrimitive.Root
+		bind:ref
 		class={classList}
 		type={type as HTMLButtonAttributes['type']}
 		{...restProps as HTMLButtonAttributes}
