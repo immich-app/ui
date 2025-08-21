@@ -81,6 +81,11 @@ const syncToDom = () => {
 	}
 };
 
+export const toggleTheme = () => {
+	theme.value = theme.value === Theme.Dark ? Theme.Light : Theme.Dark;
+	onThemeChange();
+};
+
 export const initializeTheme = (options?: ThemeOptions) => {
 	if (options) {
 		setThemeOptions(options);

@@ -14,7 +14,7 @@
 	};
 
 	let {
-		ref = $bindable(),
+		ref = $bindable(null),
 		type = 'button',
 		href,
 		variant = 'filled',
