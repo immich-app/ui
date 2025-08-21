@@ -16,21 +16,25 @@
 	import { tv } from 'tailwind-variants';
 
 	type Props = {
-		title: string;
+		title?: string;
+		icon?: string | boolean;
 		size?: ModalSize;
 		class?: string;
-		icon?: string | boolean;
 		expandable?: boolean;
+		closeOnEsc?: boolean;
+		closeOnBackdropClick?: boolean;
 		children: Snippet;
 		onClose?: () => void;
 	};
 
 	let {
-		title,
 		size = 'medium',
-		icon = true,
 		onClose,
+		icon = true,
+		title,
 		class: className,
+		closeOnEsc = true,
+		closeOnBackdropClick = false,
 		children,
 	}: Props = $props();
 
@@ -49,6 +53,7 @@
 	});
 
 	const { getChildren: getChildSnippet } = withChildrenSnippets(ChildKey.Modal);
+	const headerChildren = $derived(getChildSnippet(ChildKey.ModalHeader));
 	const bodyChildren = $derived(getChildSnippet(ChildKey.ModalBody));
 	const footerChildren = $derived(getChildSnippet(ChildKey.ModalFooter));
 
@@ -56,6 +61,16 @@
 		// wait for bits-ui to complete its event cycle
 		await tick();
 		await new Promise((resolve) => setTimeout(resolve, 10));
+
+		onClose?.();
+	};
+
+	let cardRef = $state<HTMLElement | null>(null);
+
+	const handleCloseOnClick = (event: Event) => {
+		if (!closeOnBackdropClick || cardRef?.contains(event.target as Node)) {
+			return;
+		}
 
 		onClose?.();
 	};
@@ -69,25 +84,34 @@
 				if (e.key === 'Escape') {
 					e.stopPropagation();
 					e.preventDefault();
-					handleClose();
+					if (closeOnEsc) {
+						handleClose();
+					}
 				}
 			}}
+			onclick={handleCloseOnClick}
 			class={cleanClass(
 				'fixed start-0 top-0 flex h-dvh w-screen items-center justify-center overflow-hidden sm:p-4',
 			)}
 		>
 			<div class={cleanClass('flex h-full w-full flex-col items-center justify-center')}>
-				<Card class={cleanClass(modalStyles({ size }), className)}>
+				<Card bind:ref={cardRef} class={cleanClass(modalStyles({ size }), className)}>
 					<CardHeader class="border-b border-gray-200 px-5 py-3 dark:border-white/10">
-						<div class="flex items-center justify-between gap-2">
-							{#if typeof icon === 'string'}
-								<Icon {icon} size="1.5rem" aria-hidden />
-							{:else if icon}
-								<Logo variant="icon" size="tiny" />
-							{/if}
-							<CardTitle tag="p" class="text-dark/90 grow text-lg font-semibold">{title}</CardTitle>
-							<CloseButton class="-me-2" onclick={() => handleClose()} />
-						</div>
+						{#if headerChildren}
+							{@render headerChildren.snippet()}
+						{:else if title}
+							<div class="flex items-center justify-between gap-2">
+								{#if typeof icon === 'string'}
+									<Icon {icon} size="1.5rem" aria-hidden />
+								{:else if icon}
+									<Logo variant="icon" size="tiny" />
+								{/if}
+								<CardTitle tag="p" class="text-dark/90 grow text-lg font-semibold"
+									>{title}</CardTitle
+								>
+								<CloseButton class="-me-2" onclick={() => handleClose()} />
+							</div>
+						{/if}
 					</CardHeader>
 
 					<CardBody class="grow px-5">

@@ -42,6 +42,7 @@ export { default as Link } from '$lib/components/Link/Link.svelte';
 export { default as LoadingSpinner } from '$lib/components/LoadingSpinner/LoadingSpinner.svelte';
 export { default as Logo } from '$lib/components/Logo/Logo.svelte';
 export { default as Modal } from '$lib/components/Modal/Modal.svelte';
+export { default as ModalHeader } from '$lib/components/Modal/ModalHeader.svelte';
 export { default as ModalBody } from '$lib/components/Modal/ModalBody.svelte';
 export { default as ModalFooter } from '$lib/components/Modal/ModalFooter.svelte';
 export { default as MultiSelect } from '$lib/components/MultiSelect/MultiSelect.svelte';
