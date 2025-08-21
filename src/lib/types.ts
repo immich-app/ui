@@ -56,6 +56,7 @@ type ButtonBase = {
 };
 
 export type ButtonProps = ButtonBase & {
+	ref?: HTMLElement | null;
 	fullWidth?: boolean;
 	loading?: boolean;
 	leadingIcon?: string;
