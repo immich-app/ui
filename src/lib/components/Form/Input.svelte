@@ -8,6 +8,7 @@
 	import { tv } from 'tailwind-variants';
 
 	let {
+		ref = $bindable(null),
 		containerRef = $bindable(null),
 		shape = 'semi-round',
 		size = 'medium',
@@ -131,6 +132,7 @@
 				}),
 				className,
 			)}
+			bind:this={ref}
 			bind:value
 			{...restProps}
 		/>

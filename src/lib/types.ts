@@ -115,6 +115,7 @@ export type FieldContext = {
 } & LabelProps;
 
 type BaseInputProps = {
+	ref?: HTMLInputElement | null;
 	class?: string;
 	value?: string;
 	size?: Size;
