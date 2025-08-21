@@ -23,7 +23,7 @@
 		$derived(getFieldContext());
 
 	const iconStyles = tv({
-		base: 'absolute inset-y-0 flex w-full items-center justify-around',
+		base: 'absolute inset-y-0 flex items-center justify-around',
 		variants: {
 			size: {
 				tiny: 'w-6',
