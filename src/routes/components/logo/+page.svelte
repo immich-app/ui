@@ -9,6 +9,8 @@
 	import sizeExample from './SizeExample.svelte?raw';
 	import StackedExample from './StackedExample.svelte';
 	import stackedExample from './StackedExample.svelte?raw';
+	import FutoExample from './FutoExample.svelte';
+	import futoExample from './FutoExample.svelte?raw';
 </script>
 
 <ComponentPage name="Logo">
@@ -18,6 +20,7 @@
 			{ title: 'Icon', code: iconExample, component: IconExample },
 			{ title: 'Inline', code: inlineExample, component: InlineExample },
 			{ title: 'Stacked', code: stackedExample, component: StackedExample },
+			{ title: 'FUTO', code: futoExample, component: FutoExample },
 		]}
 	/>
 </ComponentPage>
