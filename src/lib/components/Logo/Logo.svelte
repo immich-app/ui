@@ -1,6 +1,8 @@
 <script lang="ts">
 	import inlineDark from '$lib/assets/immich-logo-inline-dark.svg';
 	import inlineLight from '$lib/assets/immich-logo-inline-light.svg';
+	import futoDark from '$lib/assets/immich-logo-futo-dark.svg';
+	import futoLight from '$lib/assets/immich-logo-futo-light.svg';
 	import stackedDark from '$lib/assets/immich-logo-stacked-dark.svg';
 	import stackedLight from '$lib/assets/immich-logo-stacked-light.svg';
 	import icon from '$lib/assets/immich-logo.svg';
@@ -11,7 +13,7 @@
 
 	type Props = {
 		size?: Size | 'landing';
-		variant?: 'stacked' | 'inline' | 'logo' | 'icon';
+		variant?: 'stacked' | 'inline' | 'logo' | 'icon' | 'stacked-futo';
 		class?: string;
 	};
 
@@ -25,6 +27,10 @@
 
 			case 'inline': {
 				return theme.value === Theme.Light ? inlineLight : inlineDark;
+			}
+
+			case 'stacked-futo': {
+				return theme.value === Theme.Light ? futoLight : futoDark;
 			}
 
 			default: {
@@ -47,6 +53,7 @@
 			variant: {
 				stacked: '',
 				inline: '',
+				'stacked-futo': '',
 				logo: 'bg-light aspect-square rounded-full shadow-lg',
 				icon: 'aspect-square',
 			},
