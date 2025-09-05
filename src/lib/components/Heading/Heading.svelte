@@ -1,43 +1,43 @@
 <script lang="ts">
-	import type { HeadingColor, HeadingSize, HeadingTag } from '$lib/types.js';
+	import type {
+		FontWeight,
+		HeadingColor,
+		HeadingSize,
+		HeadingTag,
+		TextVariant,
+	} from '$lib/types.js';
 	import { cleanClass } from '$lib/utils.js';
+	import Text from '$lib/internal/Text.svelte';
 	import type { Snippet } from 'svelte';
 	import type { HTMLAttributes } from 'svelte/elements';
 	import { tv } from 'tailwind-variants';
 
 	type Props = {
-		size?: HeadingSize;
 		/**
 		 * The HTML element type.
 		 */
 		tag?: HeadingTag;
+		size?: HeadingSize;
 		color?: HeadingColor;
+		fontWeight?: FontWeight;
+		variant?: TextVariant;
 		class?: string;
 
 		children: Snippet;
-	} & HTMLAttributes<HTMLHeadingElement>;
+	} & HTMLAttributes<HTMLElement>;
 
 	const {
-		color,
 		tag = 'p',
 		size = 'medium',
+		fontWeight = 'semi-bold',
 		class: className,
 		children,
 		...restProps
 	}: Props = $props();
 
 	const styles = tv({
-		base: 'leading-none font-semibold tracking-tight',
+		base: 'leading-none tracking-tight',
 		variants: {
-			color: {
-				muted: 'text-gray-600 dark:text-gray-400',
-				primary: 'text-primary',
-				secondary: 'text-dark',
-				success: 'text-success',
-				danger: 'text-danger',
-				warning: 'text-warning',
-				info: 'text-info',
-			},
 			size: {
 				tiny: 'text-lg',
 				small: 'text-xl',
@@ -49,9 +49,9 @@
 		},
 	});
 
-	const classList = $derived(cleanClass(styles({ color, size }), className));
+	const classList = $derived(cleanClass(styles({ size }), className));
 </script>
 
-<svelte:element this={tag} class={classList} {...restProps}>
+<Text {tag} {fontWeight} class={classList} {...restProps}>
 	{@render children()}
-</svelte:element>
+</Text>

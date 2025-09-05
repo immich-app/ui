@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Stack, Heading } from '@immich/ui';
+	import { Heading, Stack } from '@immich/ui';
 </script>
 
 <Stack>

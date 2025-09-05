@@ -1,23 +1,23 @@
 <script lang="ts">
-	import type { Size, TextColor } from '$lib/types.js';
+	import Text from '$lib/internal/Text.svelte';
+	import type { FontWeight, Size, TextColor, TextVariant } from '$lib/types.js';
 	import { cleanClass } from '$lib/utils.js';
 	import type { Snippet } from 'svelte';
 	import type { HTMLAttributes } from 'svelte/elements';
 	import { tv } from 'tailwind-variants';
 
 	type Props = {
-		color?: TextColor;
-		class?: string;
 		size?: Size;
+		color?: TextColor;
+		fontWeight?: FontWeight;
+		variant?: TextVariant;
+		class?: string;
 		children: Snippet;
-		variant?: 'italic';
-		fontWeight?: 'light' | 'normal' | 'semi-bold' | 'bold';
-	} & HTMLAttributes<HTMLParagraphElement>;
+	} & HTMLAttributes<HTMLElement>;
 
 	const {
 		color,
 		size,
-		variant,
 		fontWeight = 'normal',
 		children,
 		class: className,
@@ -26,20 +26,6 @@
 
 	const styles = tv({
 		variants: {
-			color: {
-				muted: 'text-gray-600 dark:text-gray-400',
-				primary: 'text-primary',
-				secondary: 'text-dark',
-				success: 'text-success',
-				danger: 'text-danger',
-				warning: 'text-warning',
-				info: 'text-info',
-			},
-
-			variant: {
-				italic: 'italic',
-			},
-
 			size: {
 				tiny: 'text-xs',
 				small: 'text-sm',
@@ -47,17 +33,10 @@
 				large: 'text-lg',
 				giant: 'text-xl',
 			},
-
-			fontWeight: {
-				light: 'font-light',
-				normal: 'font-normal',
-				'semi-bold': 'font-semibold',
-				bold: 'font-bold',
-			},
 		},
 	});
 </script>
 
-<p class={cleanClass(styles({ color, size, fontWeight, variant }), className)} {...restProps}>
+<Text tag="p" {color} {fontWeight} class={cleanClass(styles({ size }), className)} {...restProps}>
 	{@render children()}
-</p>
+</Text>
