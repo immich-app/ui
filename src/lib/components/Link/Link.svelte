@@ -7,11 +7,18 @@
 		class?: string;
 		children: Snippet;
 		href: string;
+		external?: boolean;
 	} & HTMLAnchorAttributes;
 
-	const { href, class: className, children, ...restProps }: Props = $props();
+	const { href, class: className, external, children, ...restProps }: Props = $props();
 </script>
 
-<a {href} class={cleanClass('underline', className)} {...restProps}>
+<a
+	{href}
+	class={cleanClass('underline', className)}
+	target={external ? '_blank' : undefined}
+	rel={external ? 'noopener noreferrer' : undefined}
+	{...restProps}
+>
 	{@render children()}
 </a>
