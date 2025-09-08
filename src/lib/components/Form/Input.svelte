@@ -3,7 +3,7 @@
 	import Label from '$lib/components/Label/Label.svelte';
 	import Text from '$lib/components/Text/Text.svelte';
 	import type { InputProps } from '$lib/types.js';
-	import { cleanClass, generateId } from '$lib/utils.js';
+	import { cleanClass, generateId, isIconLike } from '$lib/utils.js';
 	import Icon from '$lib/components/Icon/Icon.svelte';
 	import { tv } from 'tailwind-variants';
 
@@ -102,7 +102,7 @@
 		{#if leadingIcon}
 			<div tabindex="-1" class={iconStyles({ size })}>
 				{#if leadingIcon}
-					{#if typeof leadingIcon === 'string'}
+					{#if isIconLike(leadingIcon)}
 						<Icon size="60%" icon={leadingIcon} />
 					{:else}
 						{@render leadingIcon()}
@@ -139,7 +139,7 @@
 		{#if trailingIcon}
 			<div tabindex="-1" class={cleanClass(iconStyles({ size }), 'end-0')}>
 				{#if trailingIcon}
-					{#if typeof trailingIcon === 'string'}
+					{#if isIconLike(trailingIcon)}
 						<Icon size="60%" icon={trailingIcon} />
 					{:else}
 						{@render trailingIcon()}

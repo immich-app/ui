@@ -28,10 +28,10 @@ export enum Theme {
 
 export type TranslationProps<T extends keyof Translations> = { [K in T]?: string };
 
-type PathLike = { path: string };
+export type IconLike = string | { path: string };
 
 export type IconProps = {
-	icon: string | PathLike;
+	icon: IconLike;
 	title?: string;
 	description?: string;
 	size?: string;
@@ -61,8 +61,8 @@ export type ButtonProps = ButtonBase & {
 	ref?: HTMLElement | null;
 	fullWidth?: boolean;
 	loading?: boolean;
-	leadingIcon?: string;
-	trailingIcon?: string;
+	leadingIcon?: IconLike;
+	trailingIcon?: IconLike;
 } & ButtonOrAnchor;
 
 export type CloseButtonProps = {
@@ -129,8 +129,8 @@ type BaseInputProps = {
 export type InputProps = BaseInputProps & {
 	containerRef?: HTMLElement | null;
 	type?: HTMLInputAttributes['type'];
-	leadingIcon?: string | Snippet;
-	trailingIcon?: string | Snippet;
+	leadingIcon?: IconLike | Snippet;
+	trailingIcon?: IconLike | Snippet;
 };
 
 export type PasswordInputProps = BaseInputProps & {
