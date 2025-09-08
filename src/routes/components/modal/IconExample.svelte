@@ -1,7 +1,6 @@
 <script lang="ts">
 	import Lorem from '$docs/components/Lorem.svelte';
-	import { Button, Modal, ModalBody, ModalHeader, Stack } from '@immich/ui';
-	import Input from '@immich/ui/components/Form/Input.svelte';
+	import { Button, Input, Modal, ModalBody, ModalHeader, Stack } from '@immich/ui';
 	import { mdiDownload } from '@mdi/js';
 
 	let item = $state(0);
