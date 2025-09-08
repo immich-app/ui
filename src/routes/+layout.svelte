@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { beforeNavigate } from '$app/navigation';
-	import Footer from '$docs/components/Footer.svelte';
+	import { page } from '$app/state';
 	import Navbar from '$docs/components/Navbar.svelte';
 	import { componentGroups } from '$docs/constants.js';
 	import { asComponentHref } from '$docs/utilities.js';
@@ -11,14 +11,14 @@
 		initializeTheme,
 		NavbarGroup,
 		NavbarItem,
+		SiteFooter,
 		theme,
 		ThemeSwitcher,
 	} from '@immich/ui';
+	import '@immich/ui/theme/default.css';
 	import { mdiHome, mdiHomeOutline } from '@mdi/js';
 	import { MediaQuery } from 'svelte/reactivity';
-	import '@immich/ui/theme/default.css';
 	import '../app.css';
-	import { page } from '$app/state';
 
 	initializeTheme();
 
@@ -68,6 +68,6 @@
 		<div class="grow">
 			{@render children?.()}
 		</div>
-		<Footer />
+		<SiteFooter />
 	</section>
 </AppShell>

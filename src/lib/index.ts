@@ -5,6 +5,8 @@ export { default as immichLogoInlineDark } from '$lib/assets/immich-logo-inline-
 export { default as immichLogoInlineLight } from '$lib/assets/immich-logo-inline-light.svg';
 export { default as immichLogoStackedDark } from '$lib/assets/immich-logo-stacked-dark.svg';
 export { default as immichLogoStackedLight } from '$lib/assets/immich-logo-stacked-light.svg';
+export { default as immichFutoDark } from '$lib/assets/immich-logo-futo-dark.svg';
+export { default as immichFutoLight } from '$lib/assets/immich-logo-futo-light.svg';
 export { default as immichLogoJson } from '$lib/assets/immich-logo.json';
 export { default as immichLogo } from '$lib/assets/immich-logo.svg';
 export { default as playStoreBadge } from '$lib/assets/playstore-badge.png';
@@ -64,3 +66,7 @@ export * from '$lib/services/translation.svelte.js';
 export * from '$lib/types.js';
 export * from '$lib/utilities/byte-units.js';
 export * from '$lib/services/modalManager.svelte.js';
+
+// site
+export * from '$lib/site/constants.js';
+export { default as SiteFooter } from '$lib/site/SiteFooter.svelte';
