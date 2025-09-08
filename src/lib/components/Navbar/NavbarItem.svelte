@@ -1,13 +1,15 @@
 <script lang="ts">
 	import { page } from '$app/state';
 	import Icon from '$lib/components/Icon/Icon.svelte';
+	import Link from '$lib/components/Link/Link.svelte';
 	import type { IconProps } from '$lib/types.js';
 	import { tv } from 'tailwind-variants';
 
 	type Props = {
 		title: string;
-		active?: boolean;
 		href: string;
+		external?: boolean;
+		active?: boolean;
 		variant?: 'compact';
 		isActive?: () => boolean;
 		icon?: string | IconProps;
@@ -18,6 +20,7 @@
 
 	let {
 		href,
+		external,
 		isActive: isActiveOverride,
 		title,
 		variant,
@@ -49,10 +52,11 @@
 	});
 </script>
 
-<a
+<Link
 	{href}
-	draggable="false"
+	{external}
 	aria-current={active ? 'page' : undefined}
+	underline={false}
 	class={styles({ active, variant: variant ?? 'default' })}
 >
 	<div class="flex w-full place-items-center gap-4 truncate overflow-hidden">
@@ -66,4 +70,4 @@
 		{/if}
 		<span class="text-sm font-medium">{title}</span>
 	</div>
-</a>
+</Link>
