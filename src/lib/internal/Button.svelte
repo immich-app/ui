@@ -17,6 +17,7 @@
 		ref = $bindable(null),
 		type = 'button',
 		href,
+		external,
 		variant = 'filled',
 		color = 'primary',
 		shape = 'semi-round',
@@ -158,6 +159,8 @@
 		{href}
 		class={classList}
 		aria-disabled={disabled}
+		target={external ? '_blank' : undefined}
+		rel={external ? 'noopener noreferrer' : undefined}
 		{...restProps as HTMLAnchorAttributes}
 	>
 		{#if loading}

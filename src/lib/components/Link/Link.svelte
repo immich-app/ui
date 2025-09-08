@@ -7,15 +7,24 @@
 		class?: string;
 		children: Snippet;
 		href: string;
+		underline?: boolean;
 		external?: boolean;
 	} & HTMLAnchorAttributes;
 
-	const { href, class: className, external, children, ...restProps }: Props = $props();
+	const {
+		href,
+		class: className,
+		underline = true,
+		external,
+		children,
+		...restProps
+	}: Props = $props();
 </script>
 
 <a
 	{href}
-	class={cleanClass('underline', className)}
+	draggable="false"
+	class={cleanClass(underline && 'underline', className)}
 	target={external ? '_blank' : undefined}
 	rel={external ? 'noopener noreferrer' : undefined}
 	{...restProps}

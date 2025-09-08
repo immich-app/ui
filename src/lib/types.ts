@@ -46,8 +46,8 @@ export type IconProps = {
 };
 
 type ButtonOrAnchor =
-	| ({ href?: never } & HTMLButtonAttributes)
-	| ({ href: string } & HTMLAnchorAttributes);
+	| ({ href?: never; external?: never } & HTMLButtonAttributes)
+	| ({ href: string; external?: boolean } & HTMLAnchorAttributes);
 
 type ButtonBase = {
 	size?: Size;
