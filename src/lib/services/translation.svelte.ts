@@ -1,13 +1,26 @@
 import type { TranslationProps } from '$lib/types.js';
 
 const defaultTranslations = {
+	// common
+	cancel: 'Cancel',
 	close: 'Close',
+	confirm: 'Confirm',
+	search_placeholder: 'Search...',
+	search_no_results: 'No results',
+	search_recently_used: 'Recently used',
+
+	// modal
+	prompt_default: 'Are you sure you want to do this?',
+
+	// password input
 	show_password: 'Show password',
 	hide_password: 'Hide password',
+
+	// theme switcher
 	dark_theme: 'Toggle dark theme',
-	confirm: 'Confirm',
-	prompt_default: 'Are you sure you want to do this?',
-	cancel: 'Cancel',
+
+	// command palette
+	command_palette_prompt_default: 'Quickly find pages, actions, or commands',
 };
 
 export type Translations = typeof defaultTranslations;

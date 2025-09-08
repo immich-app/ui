@@ -113,6 +113,7 @@ export const componentGroups = [
 		components: [
 			{ name: 'Avatar', icon: mdiAccountCircleOutline, activeIcon: mdiAccountCircle },
 			{ name: 'Logo', icon: mdiImageOutline, activeIcon: mdiImage },
+			{ name: 'CommandPalette', icon: mdiMenu, activeIcon: mdiMenu },
 			{ name: 'SupporterBadge', icon: mdiPartyPopper },
 			{ name: 'ThemeSwitcher', icon: mdiThemeLightDark },
 		],

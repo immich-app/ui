@@ -8,15 +8,28 @@
 		AppShell,
 		AppShellHeader,
 		AppShellSidebar,
+		asText,
+		CommandPalette,
+		commandPaletteManager,
+		IconButton,
 		initializeTheme,
+		Input,
 		NavbarGroup,
 		NavbarItem,
+		siteCommands,
 		SiteFooter,
 		theme,
 		ThemeSwitcher,
+		toggleTheme,
 	} from '@immich/ui';
 	import '@immich/ui/theme/default.css';
-	import { mdiHome, mdiHomeOutline } from '@mdi/js';
+	import {
+		mdiHome,
+		mdiHomeOutline,
+		mdiMagnify,
+		mdiSlashForwardBox,
+		mdiThemeLightDark,
+	} from '@mdi/js';
 	import { MediaQuery } from 'svelte/reactivity';
 	import '../app.css';
 
@@ -32,11 +45,66 @@
 			open = false;
 		}
 	});
+
+	commandPaletteManager.reset();
+
+	// links
+	commandPaletteManager.addCommands(siteCommands);
+
+	// commands
+	commandPaletteManager.addCommands([
+		{
+			icon: mdiThemeLightDark,
+			iconClass: 'text-gray-700 dark:text-gray-200',
+			type: 'Command',
+			title: 'Toggle theme',
+			description: 'Switch between light and dark theme',
+			action: () => toggleTheme(),
+			text: asText('Command', 'light', 'dark', 'theme', 'toggle'),
+		},
+	]);
+
+	// components
+	for (const group of componentGroups) {
+		commandPaletteManager.addCommands(
+			group.components.map((component) => ({
+				icon: component.icon,
+				iconClass: '',
+				type: 'Component',
+				title: component.name,
+				description: `View the ${component.name} component`,
+				href: asComponentHref(component.name),
+				text: asText('Component', group.title, component.name),
+			})),
+		);
+	}
+
+	commandPaletteManager.enable();
 </script>
 
 <AppShell>
 	<AppShellHeader>
 		<Navbar theme={theme.value} onToggleSidebar={() => (open = !open)}>
+			{#if commandPaletteManager.isEnabled}
+				<div class="hidden max-w-40 place-items-center p-1 lg:flex">
+					<Input
+						onfocus={() => commandPaletteManager.open()}
+						leadingIcon={mdiMagnify}
+						placeholder="Search..."
+						class="bg-subtle! rounded-full border px-2 py-2"
+						trailingIcon={mdiSlashForwardBox}
+					/>
+				</div>
+				<IconButton
+					icon={mdiMagnify}
+					shape="round"
+					variant="ghost"
+					color="secondary"
+					aria-label="Search"
+					class="lg:hidden"
+					onclick={() => commandPaletteManager.open()}
+				/>
+			{/if}
 			<ThemeSwitcher size="medium" />
 		</Navbar>
 	</AppShellHeader>
@@ -71,3 +139,7 @@
 		<SiteFooter />
 	</section>
 </AppShell>
+
+<CommandPalette
+	translations={{ command_palette_prompt_default: 'Quickly find components, links, and commands' }}
+/>

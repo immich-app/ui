@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { getFieldContext } from '$lib/common/context.svelte.js';
-	import Field from '$lib/components/Form/Field.svelte';
-	import Input from '$lib/components/Form/Input.svelte';
+	import Field from '$lib/components/Field/Field.svelte';
 	import Icon from '$lib/components/Icon/Icon.svelte';
 	import IconButton from '$lib/components/IconButton/IconButton.svelte';
+	import Input from '$lib/components/Input/Input.svelte';
 	import Label from '$lib/components/Label/Label.svelte';
 	import type { SelectCommonProps, SelectItem } from '$lib/types.js';
 	import { cleanClass, generateId } from '$lib/utils.js';
