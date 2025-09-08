@@ -69,6 +69,7 @@
 	"dependencies": {
 		"@mdi/js": "^7.4.47",
 		"bits-ui": "^2.0.0",
+		"simple-icons": "^15.14.0",
 		"tailwind-merge": "^3.0.0",
 		"tailwind-variants": "^3.0.0"
 	},
