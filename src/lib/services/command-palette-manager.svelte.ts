@@ -80,6 +80,7 @@ class CommandPaletteManager {
 			if (selected.href.startsWith('http') || selected.external) {
 				window.open(selected.href, '_blank');
 			} else {
+				// eslint-disable-next-line svelte/no-navigation-without-resolve
 				await goto(selected.href);
 			}
 		} else {

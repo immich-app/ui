@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import { Container, Heading, type ContainerSize } from '@immich/ui';
 	import type { Snippet } from 'svelte';
 
@@ -15,9 +16,9 @@
 	<!-- TODO replace with breadcrumb component -->
 	<nav class="bg-light text-dark flex shrink-0 justify-between border-b p-4">
 		<div class="flex items-center gap-2">
-			<a href="/" class="underline">Home</a>
+			<a href={resolve('/')} class="underline">Home</a>
 			<span>/</span>
-			<a href="/" class="underline">Components</a>
+			<a href={resolve('/')} class="underline">Components</a>
 			<span>/</span>
 			<span class="capitalize">{name}</span>
 		</div>

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import { IconButton, Logo, Theme } from '@immich/ui';
 	import { mdiMenu } from '@mdi/js';
 	import type { Snippet } from 'svelte';
@@ -23,7 +24,7 @@
 		onclick={() => onToggleSidebar?.()}
 		class="md:hidden"
 	/>
-	<a href="/" class="flex grow gap-2 text-4xl">
+	<a href={resolve('/')} class="flex grow gap-2 text-4xl">
 		<Logo variant="inline" />
 	</a>
 	{@render children?.()}
