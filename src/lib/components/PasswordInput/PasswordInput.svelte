@@ -13,6 +13,10 @@
 		size,
 		...props
 	}: PasswordInputProps = $props();
+
+	let labelValue = $derived(
+		isVisible ? t('hide_password', translations) : t('show_password', translations),
+	);
 </script>
 
 <Input bind:value {size} type={isVisible ? 'text' : 'password'} {color} {...props}>
@@ -26,8 +30,8 @@
 				class="me-1"
 				icon={isVisible ? mdiEyeOffOutline : mdiEyeOutline}
 				onclick={() => (isVisible = !isVisible)}
-				title={isVisible ? t('hide_password', translations) : t('show_password', translations)}
-				aria-label={t('show_password', translations)}
+				title={labelValue}
+				aria-label={labelValue}
 			/>
 		{/if}
 	{/snippet}
