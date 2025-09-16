@@ -32,33 +32,33 @@
 		base: 'relative flex flex-col justify-center',
 		variants: {
 			disabled: {
-				true: 'cursor-not-allowed',
+				true: 'cursor-not-allowed opacity-38',
 				false: 'cursor-pointer',
 			},
 		},
 	});
 
 	const bar = tv({
-		base: 'my-2 h-3 w-12 rounded-full border border-transparent',
+		base: 'h-8 w-13 rounded-full border border-2',
 		variants: {
 			fillColor: {
-				default: 'bg-gray-300 dark:bg-gray-400',
-				primary: 'bg-primary/50 dark:bg-primary',
-				secondary: 'bg-dark/50',
-				success: 'bg-success/50',
-				danger: 'bg-danger/50',
-				warning: 'bg-warning/50',
-				info: 'bg-info/50',
+				default: 'border-gray-400 bg-gray-300 dark:border-gray-500 dark:bg-gray-400',
+				primary: 'bg-primary/50 dark:bg-primary border-transparent',
+				secondary: 'bg-dark/50 border-transparent',
+				success: 'bg-success/50 border-transparent',
+				danger: 'bg-danger/50 border-transparent',
+				warning: 'bg-warning/50 border-transparent',
+				info: 'bg-info/50 border-transparent',
 			},
 		},
 	});
 
 	const dot = tv({
-		base: 'absolute h-6 w-6 rounded-full transition-transform duration-400',
+		base: 'absolute h-4 w-4 origin-center rounded-full transition-transform duration-100',
 		variants: {
 			checked: {
-				true: 'translate-x-6 border border-gray-500/10 shadow-sm rtl:-translate-x-6 dark:border-gray-800/50',
-				false: '',
+				true: 'translate-x-7 scale-150 rtl:-translate-x-7',
+				false: 'translate-x-2 rtl:-translate-x-2',
 			},
 			fillColor: {
 				default: 'bg-gray-400 dark:bg-gray-500',
