@@ -5,6 +5,7 @@ import type {
 	HTMLButtonAttributes,
 	HTMLInputAttributes,
 	HTMLLabelAttributes,
+	HTMLTextareaAttributes,
 } from 'svelte/elements';
 
 export type Color = 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info';
@@ -134,9 +135,20 @@ export type InputProps = BaseInputProps & {
 };
 
 export type PasswordInputProps = BaseInputProps & {
+	ref?: HTMLInputElement | null;
 	translations?: TranslationProps<'show_password' | 'hide_password'>;
 	isVisible?: boolean;
 };
+
+export type TextareaProps = {
+	ref?: HTMLTextAreaElement | null;
+	containerRef?: HTMLElement | null;
+	class?: string;
+	value?: string;
+	size?: Size;
+	shape?: Shape;
+	grow?: boolean;
+} & HTMLTextareaAttributes;
 
 export type SelectItem = {
 	label?: string;
