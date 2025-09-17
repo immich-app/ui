@@ -59,6 +59,7 @@ export { default as VStack } from '$lib/components/Stack/VStack.svelte';
 export { default as SupporterBadge } from '$lib/components/SupporterBadge/SupporterBadge.svelte';
 export { default as Switch } from '$lib/components/Switch/Switch.svelte';
 export { default as Text } from '$lib/components/Text/Text.svelte';
+export { default as Textarea } from '$lib/components/Textarea/Textarea.svelte';
 export { default as ThemeSwitcher } from '$lib/components/ThemeSwitcher/ThemeSwitcher.svelte';
 
 // helpers

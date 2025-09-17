@@ -2,9 +2,9 @@
 	import { getFieldContext } from '$lib/common/context.svelte.js';
 	import Label from '$lib/components/Label/Label.svelte';
 	import Text from '$lib/components/Text/Text.svelte';
-	import type { InputProps } from '$lib/types.js';
-	import { cleanClass, generateId, isIconLike } from '$lib/utils.js';
-	import Icon from '$lib/components/Icon/Icon.svelte';
+	import type { TextareaProps } from '$lib/types.js';
+	import { cleanClass, generateId } from '$lib/utils.js';
+	import type { FormEventHandler } from 'svelte/elements';
 	import { tv } from 'tailwind-variants';
 
 	let {
@@ -13,30 +13,15 @@
 		shape = 'semi-round',
 		size = 'medium',
 		class: className,
+		grow,
 		value = $bindable<string>(),
-		leadingIcon,
-		trailingIcon,
-		inputSize,
 		...restProps
-	}: InputProps = $props();
+	}: TextareaProps = $props();
 
 	const { label, description, readOnly, required, invalid, disabled, ...labelProps } =
 		$derived(getFieldContext());
 
-	const iconStyles = tv({
-		base: 'absolute inset-y-0 flex items-center justify-around',
-		variants: {
-			size: {
-				tiny: 'w-6',
-				small: 'w-8',
-				medium: 'w-10',
-				large: 'w-12',
-				giant: 'w-14',
-			},
-		},
-	});
-
-	const inputStyles = tv({
+	const styles = tv({
 		base: 'w-full bg-gray-200 outline-none disabled:cursor-not-allowed disabled:bg-gray-300 disabled:text-gray-400 dark:bg-gray-600 dark:disabled:bg-gray-800 dark:disabled:text-gray-200',
 		variants: {
 			shape: {
@@ -48,27 +33,16 @@
 				base: 'px-4 py-3',
 				round: 'px-5 py-3',
 			},
+			grow: {
+				true: 'resize-none',
+				false: '',
+			},
 			roundedSize: {
 				tiny: 'rounded-xl',
 				small: 'rounded-xl',
 				medium: 'rounded-2xl',
 				large: 'rounded-2xl',
 				giant: 'rounded-2xl',
-			},
-			// match with Button `iconSize` variants
-			paddingLeft: {
-				tiny: 'ps-6',
-				small: 'ps-8',
-				medium: 'ps-10',
-				large: 'ps-12',
-				giant: 'ps-14',
-			},
-			paddingRight: {
-				tiny: 'pe-6',
-				small: 'pe-8',
-				medium: 'pe-10',
-				large: 'pe-12',
-				giant: 'pe-14',
 			},
 			textSize: {
 				tiny: 'text-xs',
@@ -88,6 +62,16 @@
 	const inputId = `input-${id}`;
 	const labelId = `label-${id}`;
 	const descriptionId = $derived(description ? `description-${id}` : undefined);
+
+	const onInput: FormEventHandler<HTMLTextAreaElement> = (event) => {
+		const element = event.target as HTMLTextAreaElement;
+		if (element && grow) {
+			element.style.height = 'auto';
+			element.style.height = `${element.scrollHeight}px`;
+		}
+
+		restProps?.oninput?.(event);
+	};
 </script>
 
 <div class="flex w-full flex-col gap-1" bind:this={containerRef}>
@@ -100,18 +84,8 @@
 	{/if}
 
 	<div class="relative w-full">
-		{#if leadingIcon}
-			<div tabindex="-1" class={iconStyles({ size })}>
-				{#if leadingIcon}
-					{#if isIconLike(leadingIcon)}
-						<Icon size="60%" icon={leadingIcon} />
-					{:else}
-						{@render leadingIcon()}
-					{/if}
-				{/if}
-			</div>
-		{/if}
-		<input
+		<textarea
+			oninput={onInput}
 			id={inputId}
 			aria-labelledby={label && labelId}
 			{required}
@@ -120,15 +94,13 @@
 			aria-disabled={disabled}
 			aria-describedby={descriptionId}
 			readonly={readOnly}
-			size={inputSize}
 			aria-readonly={readOnly}
 			class={cleanClass(
-				inputStyles({
+				styles({
 					shape,
 					textSize: size,
 					padding: shape === 'round' ? 'round' : 'base',
-					paddingLeft: leadingIcon ? size : undefined,
-					paddingRight: trailingIcon ? size : undefined,
+					grow,
 					roundedSize: shape === 'semi-round' ? size : undefined,
 					invalid,
 				}),
@@ -137,23 +109,12 @@
 			bind:this={ref}
 			bind:value
 			{...restProps}
-		/>
-		{#if trailingIcon}
-			<div tabindex="-1" class={cleanClass(iconStyles({ size }), 'end-0')}>
-				{#if trailingIcon}
-					{#if isIconLike(trailingIcon)}
-						<Icon size="60%" icon={trailingIcon} />
-					{:else}
-						{@render trailingIcon()}
-					{/if}
-				{/if}
-			</div>
-		{/if}
+		></textarea>
 	</div>
 </div>
 
 <style>
-	input::-ms-reveal {
+	textarea::-ms-reveal {
 		display: none;
 	}
 </style>
