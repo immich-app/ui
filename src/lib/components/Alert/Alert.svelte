@@ -73,9 +73,7 @@
   };
 
   const icon = $derived(
-    iconOverride === false
-      ? undefined
-      : iconOverride || (icons[color] ?? mdiInformationVariantCircleOutline),
+    iconOverride === false ? undefined : iconOverride || (icons[color] ?? mdiInformationVariantCircleOutline),
   );
 </script>
 

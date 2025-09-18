@@ -32,9 +32,7 @@
 </script>
 
 <ComponentPage name="Button">
-  <ComponentDescription
-    >A button component, which can also be used to render links</ComponentDescription
-  >
+  <ComponentDescription>A button component, which can also be used to render links</ComponentDescription>
   <ComponentExamples
     examples={[
       { title: 'Basic', code: basicExample, component: BasicExample },

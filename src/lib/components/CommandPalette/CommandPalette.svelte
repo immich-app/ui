@@ -17,10 +17,7 @@
 
   type Props = {
     translations?: TranslationProps<
-      | 'search_placeholder'
-      | 'search_no_results'
-      | 'search_recently_used'
-      | 'command_palette_prompt_default'
+      'search_placeholder' | 'search_no_results' | 'search_recently_used' | 'command_palette_prompt_default'
     >;
   };
 
@@ -109,9 +106,7 @@
               <CommandPaletteItem
                 {item}
                 selected={commandPaletteManager.selectedIndex === i}
-                onRemove={commandPaletteManager.query
-                  ? undefined
-                  : () => commandPaletteManager.remove(i)}
+                onRemove={commandPaletteManager.query ? undefined : () => commandPaletteManager.remove(i)}
                 onSelect={() => commandPaletteManager.select(i)}
               />
             {/each}

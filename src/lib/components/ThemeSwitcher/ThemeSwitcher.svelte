@@ -2,13 +2,7 @@
   import IconButton from '$lib/components/IconButton/IconButton.svelte';
   import { theme, toggleTheme } from '$lib/services/theme.svelte.js';
   import { t } from '$lib/services/translation.svelte.js';
-  import {
-    Theme,
-    type Color,
-    type Size,
-    type TranslationProps,
-    type Variants,
-  } from '$lib/types.js';
+  import { Theme, type Color, type Size, type TranslationProps, type Variants } from '$lib/types.js';
   import { cleanClass } from '$lib/utils.js';
   import { mdiWeatherNight, mdiWeatherSunny } from '@mdi/js';
 
@@ -21,14 +15,7 @@
     onChange?: (theme: Theme) => void;
   };
 
-  const {
-    color = 'primary',
-    variant = 'ghost',
-    size,
-    class: className,
-    translations,
-    onChange,
-  }: Props = $props();
+  const { color = 'primary', variant = 'ghost', size, class: className, translations, onChange }: Props = $props();
 
   const handleToggleTheme = () => {
     toggleTheme();

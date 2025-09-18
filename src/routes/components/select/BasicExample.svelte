@@ -43,15 +43,11 @@
   </Field>
 
   <Field label="Disabled option">
-    <Select
-      data={[{ value: 'Svelte' }, { value: 'React' }, { value: 'Angular', disabled: true }]}
-    />
+    <Select data={[{ value: 'Svelte' }, { value: 'React' }, { value: 'Angular', disabled: true }]} />
   </Field>
 
   <Field label="Disabled select" disabled>
-    <Select
-      data={[{ value: 'Svelte' }, { value: 'React' }, { value: 'Angular', disabled: true }]}
-    />
+    <Select data={[{ value: 'Svelte' }, { value: 'React' }, { value: 'Angular', disabled: true }]} />
   </Field>
 
   <Field label="Long list">

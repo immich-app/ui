@@ -10,14 +10,10 @@ type ExtendsEmptyObject<T> = keyof T extends never ? never : T;
 type StripValueIfOptional<T> = T extends undefined ? undefined : T;
 
 // if the modal does not expect any props, makes the props param optional but also allows passing `{}` and `undefined`
-type OptionalParamIfEmpty<T> =
-  ExtendsEmptyObject<T> extends never ? [] | [Record<string, never> | undefined] : [T];
+type OptionalParamIfEmpty<T> = ExtendsEmptyObject<T> extends never ? [] | [Record<string, never> | undefined] : [T];
 
 class ModalManager {
-  show<T extends object>(
-    Component: Component<T>,
-    ...props: OptionalParamIfEmpty<Omit<T, 'onClose'>>
-  ) {
+  show<T extends object>(Component: Component<T>, ...props: OptionalParamIfEmpty<Omit<T, 'onClose'>>) {
     return this.open(Component, ...props).onClose;
   }
 

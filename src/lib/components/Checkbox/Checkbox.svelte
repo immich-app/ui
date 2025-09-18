@@ -25,8 +25,7 @@
     ...restProps
   }: CheckboxProps = $props();
 
-  const { readOnly, required, invalid, disabled, label, description, ...labelProps } =
-    $derived(getFieldContext());
+  const { readOnly, required, invalid, disabled, label, description, ...labelProps } = $derived(getFieldContext());
 
   const containerStyles = tv({
     base: 'ring-offset-background focus-visible:ring-ring peer data-[state=checked]:bg-primary box-content overflow-hidden border-2 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-50',

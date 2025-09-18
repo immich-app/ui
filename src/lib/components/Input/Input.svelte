@@ -21,8 +21,7 @@
     ...restProps
   }: InputProps = $props();
 
-  const { label, description, readOnly, required, invalid, disabled, ...labelProps } =
-    $derived(getFieldContext());
+  const { label, description, readOnly, required, invalid, disabled, ...labelProps } = $derived(getFieldContext());
 
   const iconStyles = tv({
     base: 'flex flex-shrink-0 items-center justify-center',
@@ -145,10 +144,8 @@
       {...restProps}
     />
     {#if trailingText}
-      <Text
-        {size}
-        color="muted"
-        class={trailingTextStyles({ padding: trailingIcon ? 'icon' : 'base' })}>{trailingText}</Text
+      <Text {size} color="muted" class={trailingTextStyles({ padding: trailingIcon ? 'icon' : 'base' })}
+        >{trailingText}</Text
       >
     {/if}
 

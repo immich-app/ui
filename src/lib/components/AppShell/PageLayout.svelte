@@ -9,13 +9,7 @@
     children?: Snippet;
   }
 
-  let {
-    title = undefined,
-    description = undefined,
-    scrollbar = true,
-    buttons,
-    children,
-  }: Props = $props();
+  let { title = undefined, description = undefined, scrollbar = true, buttons, children }: Props = $props();
 
   let scrollbarClass = $derived(scrollbar ? 'immich-scrollbar p-2 pb-8' : 'scrollbar-hidden');
   let hasTitleClass = $derived(title ? 'top-16 h-[calc(100%-(--spacing(16)))]' : 'top-0 h-full');

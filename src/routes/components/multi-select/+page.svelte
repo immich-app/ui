@@ -11,9 +11,7 @@
 </script>
 
 <ComponentPage name="MultiSelect">
-  <ComponentDescription
-    >Allows the user to select a multiple options from a dropdown list</ComponentDescription
-  >
+  <ComponentDescription>Allows the user to select a multiple options from a dropdown list</ComponentDescription>
   <ComponentFieldCard />
   <ComponentTipCard>
     <Text

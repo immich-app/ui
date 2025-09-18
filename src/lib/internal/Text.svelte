@@ -18,15 +18,7 @@
     children: Snippet;
   } & HTMLAttributes<HTMLElement>;
 
-  const {
-    tag = 'p',
-    color,
-    fontWeight,
-    variant,
-    class: className,
-    children,
-    ...restProps
-  }: Props = $props();
+  const { tag = 'p', color, fontWeight, variant, class: className, children, ...restProps }: Props = $props();
 
   const styles = tv({
     variants: {

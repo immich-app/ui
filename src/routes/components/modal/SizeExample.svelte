@@ -1,15 +1,6 @@
 <script lang="ts">
   import Lorem from '$docs/components/Lorem.svelte';
-  import {
-    Button,
-    HStack,
-    Modal,
-    ModalBody,
-    ModalFooter,
-    Stack,
-    Text,
-    type ModalSize,
-  } from '@immich/ui';
+  import { Button, HStack, Modal, ModalBody, ModalFooter, Stack, Text, type ModalSize } from '@immich/ui';
 
   let size = $state<ModalSize>('medium');
   let open = $state(false);

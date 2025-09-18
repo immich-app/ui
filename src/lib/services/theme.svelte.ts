@@ -15,8 +15,7 @@ const defaultOptions: ThemeOptions = {
 
 let options: ThemeOptions = defaultOptions;
 
-export const setThemeOptions = (newOptions: ThemeOptions) =>
-  (options = { ...defaultOptions, ...newOptions });
+export const setThemeOptions = (newOptions: ThemeOptions) => (options = { ...defaultOptions, ...newOptions });
 
 type ThemePreference = { value: Theme };
 const defaultTheme: ThemePreference = { value: Theme.Dark };

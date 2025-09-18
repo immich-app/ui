@@ -43,9 +43,7 @@
   </Field>
 
   <Field label="Disabled option">
-    <MultiSelect
-      data={[{ value: 'Svelte' }, { value: 'React' }, { value: 'Angular', disabled: true }]}
-    />
+    <MultiSelect data={[{ value: 'Svelte' }, { value: 'React' }, { value: 'Angular', disabled: true }]} />
   </Field>
 
   <Field label="Long list">

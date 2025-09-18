@@ -8,9 +8,7 @@
 </script>
 
 <ComponentPage name="CommandPalette">
-  <ComponentDescription
-    >A command menu that can be used to search, filter, and select items.</ComponentDescription
-  >
+  <ComponentDescription>A command menu that can be used to search, filter, and select items.</ComponentDescription>
   <ComponentFieldCard />
   <ComponentExamples examples={[{ title: 'Basic', code: basicExample, component: BasicExample }]} />
 </ComponentPage>

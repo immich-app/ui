@@ -6,7 +6,6 @@
 
 <ComponentTipCard>
   <Text
-    >This component can be used with the <Link href={asComponentHref('Field')}>Field</Link> component
-    to build forms</Text
+    >This component can be used with the <Link href={asComponentHref('Field')}>Field</Link> component to build forms</Text
   >
 </ComponentTipCard>

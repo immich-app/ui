@@ -13,14 +13,7 @@
     children: Snippet;
   } & HTMLAttributes<HTMLElement>;
 
-  const {
-    class: className,
-    size = 'medium',
-    variant,
-    color = 'secondary',
-    children,
-    ...restProps
-  }: Props = $props();
+  const { class: className, size = 'medium', variant, color = 'secondary', children, ...restProps }: Props = $props();
 
   const styles = tv({
     base: 'font-monospace',

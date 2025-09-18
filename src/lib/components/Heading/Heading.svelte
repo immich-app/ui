@@ -1,11 +1,5 @@
 <script lang="ts">
-  import type {
-    FontWeight,
-    HeadingColor,
-    HeadingSize,
-    HeadingTag,
-    TextVariant,
-  } from '$lib/types.js';
+  import type { FontWeight, HeadingColor, HeadingSize, HeadingTag, TextVariant } from '$lib/types.js';
   import { cleanClass } from '$lib/utils.js';
   import Text from '$lib/internal/Text.svelte';
   import type { Snippet } from 'svelte';

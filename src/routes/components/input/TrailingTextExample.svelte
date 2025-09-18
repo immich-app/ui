@@ -8,13 +8,7 @@
   <Input placeholder="Trailing icon with text" trailingIcon={mdiClock} trailingText="seconds" />
   <Input placeholder="Trailing icon button with text" trailingText="seconds">
     {#snippet trailingIcon()}
-      <IconButton
-        icon={mdiClock}
-        shape="round"
-        variant="ghost"
-        color="secondary"
-        aria-label="Search"
-      />
+      <IconButton icon={mdiClock} shape="round" variant="ghost" color="secondary" aria-label="Search" />
     {/snippet}
   </Input>
 </Stack>

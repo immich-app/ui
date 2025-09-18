@@ -90,9 +90,7 @@
         }
       }}
       onclick={handleCloseOnClick}
-      class={cleanClass(
-        'fixed start-0 top-0 flex h-dvh w-screen items-center justify-center overflow-hidden sm:p-4',
-      )}
+      class={cleanClass('fixed start-0 top-0 flex h-dvh w-screen items-center justify-center overflow-hidden sm:p-4')}
     >
       <div class={cleanClass('flex h-full w-full flex-col items-center justify-center')}>
         <Card bind:ref={cardRef} class={cleanClass(modalStyles({ size }), className)}>
@@ -106,9 +104,7 @@
                 {:else if icon}
                   <Logo variant="icon" size="tiny" />
                 {/if}
-                <CardTitle tag="p" class="text-dark/90 grow text-lg font-semibold"
-                  >{title}</CardTitle
-                >
+                <CardTitle tag="p" class="text-dark/90 grow text-lg font-semibold">{title}</CardTitle>
                 <CloseButton class="-me-2" onclick={() => handleClose()} />
               </div>
             {/if}

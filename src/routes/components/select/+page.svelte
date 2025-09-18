@@ -11,9 +11,7 @@
 </script>
 
 <ComponentPage name="Select">
-  <ComponentDescription
-    >Allows the user to select a single option from a dropdown list</ComponentDescription
-  >
+  <ComponentDescription>Allows the user to select a single option from a dropdown list</ComponentDescription>
   <ComponentFieldCard />
   <ComponentTipCard>
     <Text

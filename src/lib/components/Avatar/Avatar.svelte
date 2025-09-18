@@ -4,17 +4,7 @@
 
   type Props = {
     size?: Size;
-    color?:
-      | 'primary'
-      | 'pink'
-      | 'red'
-      | 'yellow'
-      | 'blue'
-      | 'green'
-      | 'purple'
-      | 'orange'
-      | 'gray'
-      | 'amber';
+    color?: 'primary' | 'pink' | 'red' | 'yellow' | 'blue' | 'green' | 'purple' | 'orange' | 'gray' | 'amber';
     name: string;
   };
 

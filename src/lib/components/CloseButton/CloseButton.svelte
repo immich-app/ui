@@ -4,12 +4,7 @@
   import type { CloseButtonProps } from '$lib/types.js';
   import { mdiClose } from '@mdi/js';
 
-  const {
-    size = 'medium',
-    variant = 'ghost',
-    translations,
-    ...restProps
-  }: CloseButtonProps = $props();
+  const { size = 'medium', variant = 'ghost', translations, ...restProps }: CloseButtonProps = $props();
 </script>
 
 <IconButton

@@ -9,9 +9,8 @@
   <Stack class="flex flex-col gap-4 px-8 py-8" gap={8}>
     <Heading tag="h1" size="title">@immich/ui</Heading>
     <Text>
-      @immich/ui is a collection of <Link href="https://svelte.dev">Svelte</Link> components that are
-      shared across all Immich projects. It is designed to be a simple and easy-to-use library that provides
-      a consistent look and feel.
+      @immich/ui is a collection of <Link href="https://svelte.dev">Svelte</Link> components that are shared across all Immich
+      projects. It is designed to be a simple and easy-to-use library that provides a consistent look and feel.
     </Text>
 
     <Heading tag="h2" size="large">Install</Heading>

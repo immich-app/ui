@@ -22,10 +22,7 @@
   <ComponentDescription>Accept text input from the user</ComponentDescription>
   <ComponentFieldCard />
   <ComponentTipCard>
-    <Text
-      >See <Link href={asComponentHref('PasswordInput')}>PasswordInput</Link> for password input fields
-      fields</Text
-    >
+    <Text>See <Link href={asComponentHref('PasswordInput')}>PasswordInput</Link> for password input fields fields</Text>
   </ComponentTipCard>
   <ComponentExamples
     examples={[

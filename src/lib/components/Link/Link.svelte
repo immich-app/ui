@@ -11,14 +11,7 @@
     external?: boolean;
   } & HTMLAnchorAttributes;
 
-  const {
-    href,
-    class: className,
-    underline = true,
-    external,
-    children,
-    ...restProps
-  }: Props = $props();
+  const { href, class: className, underline = true, external, children, ...restProps }: Props = $props();
 </script>
 
 <a

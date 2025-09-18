@@ -127,11 +127,7 @@
   {/if}
 {/snippet}
 
-<div
-  bind:this={ref}
-  class={cleanClass(containerStyles({ shape, border: !color }), className)}
-  {...restProps}
->
+<div bind:this={ref} class={cleanClass(containerStyles({ shape, border: !color }), className)} {...restProps}>
   <div class={cleanClass(cardStyles({ color }))}>
     {#if headerChild}
       {@render header()}

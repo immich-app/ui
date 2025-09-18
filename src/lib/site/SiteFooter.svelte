@@ -35,31 +35,19 @@
           <Heading size="tiny">Download</Heading>
           <SiteFooterLink href={Constants.Get.Android} icon={siAndroid} text="Android" />
           <SiteFooterLink href={Constants.Get.iOS} icon={siApple} text="iOS" />
-          <SiteFooterLink
-            href={Constants.Get.DockerCompose}
-            icon={mdiServerOutline}
-            text="Server"
-          />
+          <SiteFooterLink href={Constants.Get.DockerCompose} icon={mdiServerOutline} text="Server" />
         </Stack>
 
         <Stack>
           <Heading size="tiny">Company</Heading>
-          <SiteFooterLink
-            href={Constants.Socials.Futo}
-            icon={mdiOfficeBuildingOutline}
-            text="FUTO"
-          />
+          <SiteFooterLink href={Constants.Socials.Futo} icon={mdiOfficeBuildingOutline} text="FUTO" />
           <SiteFooterLink href={Constants.Sites.Buy} icon={mdiKey} text="Purchase" />
           <SiteFooterLink href={Constants.Sites.Store} icon={mdiShoppingOutline} text="Merch" />
         </Stack>
 
         <Stack>
           <Heading size="tiny">Sites</Heading>
-          <SiteFooterLink
-            href={Constants.Sites.Docs}
-            icon={mdiScriptTextOutline}
-            text="Documentation"
-          />
+          <SiteFooterLink href={Constants.Sites.Docs} icon={mdiScriptTextOutline} text="Documentation" />
           <SiteFooterLink href={Constants.Sites.My} icon={mdiHomeSearchOutline} text="My Immich" />
           <SiteFooterLink href={Constants.Sites.Api} icon={mdiCubeOutline} text="Immich API" />
         </Stack>
@@ -67,11 +55,7 @@
         <Stack>
           <Heading size="tiny">Miscellaneous</Heading>
           <SiteFooterLink href={Constants.Pages.Roadmap} icon={mdiChartGantt} text="Roadmap" />
-          <SiteFooterLink
-            href={Constants.Pages.CursedKnowledge}
-            icon={mdiBookshelf}
-            text="Cursed Knowledge"
-          />
+          <SiteFooterLink href={Constants.Pages.CursedKnowledge} icon={mdiBookshelf} text="Cursed Knowledge" />
         </Stack>
       </div>
       <VStack class="text-center">

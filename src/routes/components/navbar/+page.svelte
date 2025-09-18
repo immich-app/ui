@@ -14,8 +14,9 @@
 
 <ComponentPage name="Navbar">
   <ComponentDescription
-    >This component exports a NavbarItem for creating navigation menus. This is usually used in
-    conjunction with the <Link href={asComponentHref('AppShell')}>AppSidebar</Link> component</ComponentDescription
+    >This component exports a NavbarItem for creating navigation menus. This is usually used in conjunction with the <Link
+      href={asComponentHref('AppShell')}>AppSidebar</Link
+    > component</ComponentDescription
   >
   <ComponentExamples
     examples={[

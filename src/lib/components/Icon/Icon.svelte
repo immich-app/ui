@@ -25,12 +25,7 @@
   width={size}
   height={size}
   {viewBox}
-  class={cleanClass(
-    className,
-    flipped && '-scale-x-100',
-    flopped && 'rotate-180',
-    spin && 'animate-spin',
-  )}
+  class={cleanClass(className, flipped && '-scale-x-100', flopped && 'rotate-180', spin && 'animate-spin')}
   stroke={strokeColor}
   stroke-width={strokeWidth}
   {role}

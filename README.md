@@ -14,15 +14,7 @@ Import components from `@immich/ui`. For example:
 
 ```html
 <script lang="ts">
-  import {
-    Card,
-    CardBody,
-    CardHeader,
-    CardTitle,
-    CardDescription,
-    Heading,
-    Text,
-  } from '@immich/ui';
+  import { Card, CardBody, CardHeader, CardTitle, CardDescription, Heading, Text } from '@immich/ui';
 </script>
 
 <Card>

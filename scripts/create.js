@@ -6,8 +6,7 @@ const svelte = String.raw;
 /**
  * @param {string} value
  */
-const asSlug = (value) =>
-  value.replace(/[A-Z]/g, (letter) => `-${letter.toLowerCase()}`).replace(/^-/, '');
+const asSlug = (value) => value.replace(/[A-Z]/g, (letter) => `-${letter.toLowerCase()}`).replace(/^-/, '');
 
 /**
  * @param {string} filename

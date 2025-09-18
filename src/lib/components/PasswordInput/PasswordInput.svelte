@@ -14,9 +14,7 @@
     ...props
   }: PasswordInputProps = $props();
 
-  let labelValue = $derived(
-    isVisible ? t('hide_password', translations) : t('show_password', translations),
-  );
+  let labelValue = $derived(isVisible ? t('hide_password', translations) : t('show_password', translations));
 </script>
 
 <Input bind:value {size} type={isVisible ? 'text' : 'password'} {color} {...props}>

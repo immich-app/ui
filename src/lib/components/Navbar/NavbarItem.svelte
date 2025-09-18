@@ -33,9 +33,7 @@
   let active = $derived(activeOverride ?? isActive());
 
   const iconProps = $derived(typeof icon === 'string' ? { icon } : icon);
-  const activeIconProps = $derived(
-    typeof activeIcon === 'string' ? { icon: activeIcon } : activeIcon,
-  );
+  const activeIconProps = $derived(typeof activeIcon === 'string' ? { icon: activeIcon } : activeIcon);
 
   const styles = tv({
     base: 'hover:bg-subtle hover:text-primary flex w-full place-items-center gap-4 rounded-e-full px-5 transition-[padding] delay-100 duration-100 group-hover:sm:px-5',

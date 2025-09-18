@@ -23,13 +23,7 @@
     toggleTheme,
   } from '@immich/ui';
   import '@immich/ui/theme/default.css';
-  import {
-    mdiHome,
-    mdiHomeOutline,
-    mdiMagnify,
-    mdiSlashForwardBox,
-    mdiThemeLightDark,
-  } from '@mdi/js';
+  import { mdiHome, mdiHomeOutline, mdiMagnify, mdiSlashForwardBox, mdiThemeLightDark } from '@mdi/js';
   import { MediaQuery } from 'svelte/reactivity';
   import '../app.css';
 
@@ -140,6 +134,4 @@
   </section>
 </AppShell>
 
-<CommandPalette
-  translations={{ command_palette_prompt_default: 'Quickly find components, links, and commands' }}
-/>
+<CommandPalette translations={{ command_palette_prompt_default: 'Quickly find components, links, and commands' }} />

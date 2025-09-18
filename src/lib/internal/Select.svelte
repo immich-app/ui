@@ -44,8 +44,7 @@
 
   const options = $derived(asOptions(data));
 
-  const { readOnly, required, invalid, disabled, label, ...labelProps } =
-    $derived(getFieldContext());
+  const { readOnly, required, invalid, disabled, label, ...labelProps } = $derived(getFieldContext());
 
   const id = generateId();
   const inputId = `input-${id}`;
@@ -73,9 +72,7 @@
     onChange?.(values);
   };
 
-  let internalValue = $derived(
-    multiple ? values.map(({ value }) => value) : (values[0]?.value ?? ''),
-  );
+  let internalValue = $derived(multiple ? values.map(({ value }) => value) : (values[0]?.value ?? ''));
 </script>
 
 <div class={cleanClass('flex flex-col gap-1', className)} bind:this={ref}>
@@ -83,11 +80,7 @@
     <Label id={labelId} for={inputId} {label} {...labelProps} />
   {/if}
 
-  <Select.Root
-    type={multiple ? 'multiple' : 'single'}
-    bind:value={internalValue as never}
-    {onValueChange}
-  >
+  <Select.Root type={multiple ? 'multiple' : 'single'} bind:value={internalValue as never} {onValueChange}>
     <Select.Trigger
       {disabled}
       class="w-full items-center gap-1 rounded-lg focus-visible:outline-none"

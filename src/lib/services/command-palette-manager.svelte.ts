@@ -37,9 +37,7 @@ class CommandPaletteManager {
   private normalizedQuery = $derived(this.query.toLowerCase());
 
   items: CommandItem[] = [];
-  filteredItems = $derived(
-    this.items.filter((item) => isMatch(item, this.normalizedQuery)).slice(0, 100),
-  );
+  filteredItems = $derived(this.items.filter((item) => isMatch(item, this.normalizedQuery)).slice(0, 100));
   recentItems = $state<CommandItem[]>([]);
   results = $derived(this.query ? this.filteredItems : this.recentItems);
 

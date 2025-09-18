@@ -23,8 +23,7 @@
     ...restProps
   }: Props = $props();
 
-  const { readOnly, required, disabled, label, description, ...labelProps } =
-    $derived(getFieldContext());
+  const { readOnly, required, disabled, label, description, ...labelProps } = $derived(getFieldContext());
 
   const enabled = $derived(checked && !disabled);
 

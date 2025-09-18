@@ -9,9 +9,7 @@
 </script>
 
 <ComponentPage name="Field">
-  <ComponentDescription
-    >A metadata component for tracking common form field information</ComponentDescription
-  >
+  <ComponentDescription>A metadata component for tracking common form field information</ComponentDescription>
   <ComponentExamples
     examples={[
       { title: 'Basic', code: basicExample, component: BasicExample },
