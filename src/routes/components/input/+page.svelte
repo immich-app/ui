@@ -14,6 +14,8 @@
 	import shapeExample from './ShapeExample.svelte?raw';
 	import SizeExample from './SizeExample.svelte';
 	import sizeExample from './SizeExample.svelte?raw';
+	import TrailingTextExample from './TrailingTextExample.svelte';
+	import trailingTextExample from './TrailingTextExample.svelte?raw';
 </script>
 
 <ComponentPage name="Input">
@@ -31,6 +33,7 @@
 			{ title: 'Shapes', code: shapeExample, component: ShapeExample },
 			{ title: 'Sizes', code: sizeExample, component: SizeExample },
 			{ title: 'Icons', code: iconExample, component: IconExample },
+			{ title: 'Trailing Text', code: trailingTextExample, component: TrailingTextExample },
 		]}
 	/>
 </ComponentPage>
