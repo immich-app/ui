@@ -24,8 +24,8 @@
 	const { label, description, readOnly, required, invalid, disabled, ...labelProps } =
 		$derived(getFieldContext());
 
-		const iconStyles = tv({
-		base: 'flex items-center justify-center flex-shrink-0',
+	const iconStyles = tv({
+		base: 'flex flex-shrink-0 items-center justify-center',
 		variants: {
 			size: {
 				tiny: 'w-6',
@@ -38,7 +38,7 @@
 	});
 
 	const containerStyles = tv({
-		base: 'w-full bg-gray-200 outline-none disabled:cursor-not-allowed disabled:bg-gray-300 disabled:text-gray-400 dark:bg-gray-600 dark:disabled:bg-gray-800 dark:disabled:text-gray-200 flex items-center',
+		base: 'flex w-full items-center bg-gray-200 outline-none disabled:cursor-not-allowed disabled:bg-gray-300 disabled:text-gray-400 dark:bg-gray-600 dark:disabled:bg-gray-800 dark:disabled:text-gray-200',
 		variants: {
 			shape: {
 				rectangle: 'rounded-none',
@@ -60,7 +60,7 @@
 	});
 
 	const inputStyles = tv({
-		base: 'flex-1 bg-transparent outline-none disabled:cursor-not-allowed py-3',
+		base: 'flex-1 bg-transparent py-3 outline-none disabled:cursor-not-allowed',
 		variants: {
 			textSize: {
 				tiny: 'text-xs',
@@ -71,12 +71,12 @@
 			},
 			leadingPadding: {
 				base: 'pl-4',
-				icon: 'pl-0'
+				icon: 'pl-0',
 			},
 			trailingPadding: {
 				base: 'pr-4',
-				icon: 'pr-0'
-			}
+				icon: 'pr-0',
+			},
 		},
 	});
 
@@ -123,7 +123,7 @@
 				{/if}
 			</div>
 		{/if}
-		
+
 		<input
 			id={inputId}
 			aria-labelledby={label && labelId}
@@ -146,10 +146,10 @@
 		/>
 		{#if trailingText}
 			<Text
-				size={size}
+				{size}
 				color="muted"
-				class={trailingTextStyles({ padding: trailingIcon ? 'icon' : 'base' })}
-			>{trailingText}</Text>
+				class={trailingTextStyles({ padding: trailingIcon ? 'icon' : 'base' })}>{trailingText}</Text
+			>
 		{/if}
 
 		{#if trailingIcon}
@@ -157,9 +157,9 @@
 				{#if isIconLike(trailingIcon)}
 					<Icon size="60%" icon={trailingIcon} />
 				{:else}
-				<div>
-					{@render trailingIcon()}
-				</div>
+					<div>
+						{@render trailingIcon()}
+					</div>
 				{/if}
 			</div>
 		{/if}

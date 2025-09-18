@@ -6,7 +6,7 @@
 <Stack>
 	<Input placeholder="Trailing text" trailingText="seconds" />
 	<Input placeholder="Trailing icon with text" trailingIcon={mdiClock} trailingText="seconds" />
-	<Input placeholder="Trailing icon button with text" trailingText="seconds" >
+	<Input placeholder="Trailing icon button with text" trailingText="seconds">
 		{#snippet trailingIcon()}
 			<IconButton
 				icon={mdiClock}
