@@ -157,9 +157,7 @@
 				{#if isIconLike(trailingIcon)}
 					<Icon size="60%" icon={trailingIcon} />
 				{:else}
-					<div>
-						{@render trailingIcon()}
-					</div>
+					{@render trailingIcon()}
 				{/if}
 			</div>
 		{/if}
