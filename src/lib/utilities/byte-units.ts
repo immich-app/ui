@@ -1,21 +1,21 @@
 export const enum ByteUnit {
-	'B' = 'B',
-	'KiB' = 'KiB',
-	'MiB' = 'MiB',
-	'GiB' = 'GiB',
-	'TiB' = 'TiB',
-	'PiB' = 'PiB',
-	'EiB' = 'EiB',
+  'B' = 'B',
+  'KiB' = 'KiB',
+  'MiB' = 'MiB',
+  'GiB' = 'GiB',
+  'TiB' = 'TiB',
+  'PiB' = 'PiB',
+  'EiB' = 'EiB',
 }
 
 const byteUnits = [
-	ByteUnit.B,
-	ByteUnit.KiB,
-	ByteUnit.MiB,
-	ByteUnit.GiB,
-	ByteUnit.TiB,
-	ByteUnit.PiB,
-	ByteUnit.EiB,
+  ByteUnit.B,
+  ByteUnit.KiB,
+  ByteUnit.MiB,
+  ByteUnit.GiB,
+  ByteUnit.TiB,
+  ByteUnit.PiB,
+  ByteUnit.EiB,
 ];
 
 /**
@@ -29,12 +29,12 @@ const byteUnits = [
  * @returns size (number) and unit (string)
  */
 export function getBytesWithUnit(bytes: number, maxPrecision = 1): [number, ByteUnit] {
-	const magnitude = Math.floor(Math.log(bytes === 0 ? 1 : bytes) / Math.log(1024));
+  const magnitude = Math.floor(Math.log(bytes === 0 ? 1 : bytes) / Math.log(1024));
 
-	return [
-		Number.parseFloat((bytes / 1024 ** magnitude).toFixed(maxPrecision)),
-		byteUnits[magnitude],
-	];
+  return [
+    Number.parseFloat((bytes / 1024 ** magnitude).toFixed(maxPrecision)),
+    byteUnits[magnitude],
+  ];
 }
 
 /**
@@ -49,8 +49,8 @@ export function getBytesWithUnit(bytes: number, maxPrecision = 1): [number, Byte
  * @returns localized bytes with unit as string
  */
 export function getByteUnitString(bytes: number, locale?: string, maxPrecision = 1): string {
-	const [size, unit] = getBytesWithUnit(bytes, maxPrecision);
-	return `${size.toLocaleString(locale)} ${unit}`;
+  const [size, unit] = getBytesWithUnit(bytes, maxPrecision);
+  return `${size.toLocaleString(locale)} ${unit}`;
 }
 
 /**
@@ -63,7 +63,7 @@ export function getByteUnitString(bytes: number, locale?: string, maxPrecision =
  * @returns bytes (number)
  */
 export function convertToBytes(size: number, unit: ByteUnit): number {
-	return size * 1024 ** byteUnits.indexOf(unit);
+  return size * 1024 ** byteUnits.indexOf(unit);
 }
 
 /**
@@ -76,5 +76,5 @@ export function convertToBytes(size: number, unit: ByteUnit): number {
  * @returns bytes (number)
  */
 export function convertFromBytes(bytes: number, unit: ByteUnit): number {
-	return bytes / 1024 ** byteUnits.indexOf(unit);
+  return bytes / 1024 ** byteUnits.indexOf(unit);
 }

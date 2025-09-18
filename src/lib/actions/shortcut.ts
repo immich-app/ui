@@ -1,39 +1,39 @@
 import type { ActionReturn } from 'svelte/action';
 
 export type Shortcut = {
-	key: string;
-	alt?: boolean;
-	ctrl?: boolean;
-	shift?: boolean;
-	meta?: boolean;
+  key: string;
+  alt?: boolean;
+  ctrl?: boolean;
+  shift?: boolean;
+  meta?: boolean;
 };
 
 export type ShortcutOptions<T = HTMLElement> = {
-	shortcut: Shortcut;
-	/** If true, the event handler will not execute if the event comes from an input field */
-	ignoreInputFields?: boolean;
-	onShortcut: (event: KeyboardEvent & { currentTarget: T }) => unknown;
-	preventDefault?: boolean;
+  shortcut: Shortcut;
+  /** If true, the event handler will not execute if the event comes from an input field */
+  ignoreInputFields?: boolean;
+  onShortcut: (event: KeyboardEvent & { currentTarget: T }) => unknown;
+  preventDefault?: boolean;
 };
 
 export const shortcutLabel = (shortcut: Shortcut) => {
-	let label = '';
+  let label = '';
 
-	if (shortcut.ctrl) {
-		label += 'Ctrl ';
-	}
-	if (shortcut.alt) {
-		label += 'Alt ';
-	}
-	if (shortcut.meta) {
-		label += 'Cmd ';
-	}
-	if (shortcut.shift) {
-		label += '⇧';
-	}
-	label += shortcut.key.toUpperCase();
+  if (shortcut.ctrl) {
+    label += 'Ctrl ';
+  }
+  if (shortcut.alt) {
+    label += 'Alt ';
+  }
+  if (shortcut.meta) {
+    label += 'Cmd ';
+  }
+  if (shortcut.shift) {
+    label += '⇧';
+  }
+  label += shortcut.key.toUpperCase();
 
-	return label;
+  return label;
 };
 
 /** Determines whether an event should be ignored. The event will be ignored if:
@@ -41,73 +41,73 @@ export const shortcutLabel = (shortcut: Shortcut) => {
  *  - The element dispatching the event is an input field
  */
 export const shouldIgnoreEvent = (event: KeyboardEvent | ClipboardEvent): boolean => {
-	if (event.target === event.currentTarget) {
-		return false;
-	}
-	const type = (event.target as HTMLInputElement).type;
-	return ['textarea', 'text', 'date', 'datetime-local', 'email', 'password'].includes(type);
+  if (event.target === event.currentTarget) {
+    return false;
+  }
+  const type = (event.target as HTMLInputElement).type;
+  return ['textarea', 'text', 'date', 'datetime-local', 'email', 'password'].includes(type);
 };
 
 export const matchesShortcut = (event: KeyboardEvent, shortcut: Shortcut) => {
-	return (
-		shortcut.key.toLowerCase() === event.key.toLowerCase() &&
-		Boolean(shortcut.alt) === event.altKey &&
-		Boolean(shortcut.ctrl) === event.ctrlKey &&
-		Boolean(shortcut.shift) === event.shiftKey &&
-		Boolean(shortcut.meta) === event.metaKey
-	);
+  return (
+    shortcut.key.toLowerCase() === event.key.toLowerCase() &&
+    Boolean(shortcut.alt) === event.altKey &&
+    Boolean(shortcut.ctrl) === event.ctrlKey &&
+    Boolean(shortcut.shift) === event.shiftKey &&
+    Boolean(shortcut.meta) === event.metaKey
+  );
 };
 
 /** Bind a single keyboard shortcut to node. */
 export const shortcut = <T extends HTMLElement>(
-	node: T,
-	option: ShortcutOptions<T>,
+  node: T,
+  option: ShortcutOptions<T>,
 ): ActionReturn<ShortcutOptions<T>> => {
-	const { update: shortcutsUpdate, destroy } = shortcuts(node, [option]);
+  const { update: shortcutsUpdate, destroy } = shortcuts(node, [option]);
 
-	return {
-		update(newOption) {
-			shortcutsUpdate?.([newOption]);
-		},
-		destroy,
-	};
+  return {
+    update(newOption) {
+      shortcutsUpdate?.([newOption]);
+    },
+    destroy,
+  };
 };
 
 /** Binds multiple keyboard shortcuts to node */
 export const shortcuts = <T extends HTMLElement>(
-	node: T,
-	options: ShortcutOptions<T>[],
+  node: T,
+  options: ShortcutOptions<T>[],
 ): ActionReturn<ShortcutOptions<T>[]> => {
-	function onKeydown(event: KeyboardEvent) {
-		const ignoreShortcut = shouldIgnoreEvent(event);
-		for (const {
-			shortcut,
-			onShortcut,
-			ignoreInputFields = true,
-			preventDefault = true,
-		} of options) {
-			if (ignoreInputFields && ignoreShortcut) {
-				continue;
-			}
+  function onKeydown(event: KeyboardEvent) {
+    const ignoreShortcut = shouldIgnoreEvent(event);
+    for (const {
+      shortcut,
+      onShortcut,
+      ignoreInputFields = true,
+      preventDefault = true,
+    } of options) {
+      if (ignoreInputFields && ignoreShortcut) {
+        continue;
+      }
 
-			if (matchesShortcut(event, shortcut)) {
-				if (preventDefault) {
-					event.preventDefault();
-				}
-				onShortcut(event as KeyboardEvent & { currentTarget: T });
-				return;
-			}
-		}
-	}
+      if (matchesShortcut(event, shortcut)) {
+        if (preventDefault) {
+          event.preventDefault();
+        }
+        onShortcut(event as KeyboardEvent & { currentTarget: T });
+        return;
+      }
+    }
+  }
 
-	node.addEventListener('keydown', onKeydown);
+  node.addEventListener('keydown', onKeydown);
 
-	return {
-		update(newOptions) {
-			options = newOptions;
-		},
-		destroy() {
-			node.removeEventListener('keydown', onKeydown);
-		},
-	};
+  return {
+    update(newOptions) {
+      options = newOptions;
+    },
+    destroy() {
+      node.removeEventListener('keydown', onKeydown);
+    },
+  };
 };

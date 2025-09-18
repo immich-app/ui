@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { Button, HStack } from '@immich/ui';
+  import { Button, HStack } from '@immich/ui';
 </script>
 
 <HStack wrap>
-	<Button>Click me!</Button>
+  <Button>Click me!</Button>
 </HStack>

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Logo } from '@immich/ui';
+  import { Logo } from '@immich/ui';
 </script>
 
 <Logo size="tiny" variant="icon" />

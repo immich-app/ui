@@ -4,14 +4,14 @@ import { tailwindConfig } from './src/lib/theme/default.js';
 const { colors, borderColor } = tailwindConfig();
 
 export default {
-	content: ['./src/**/*.{html,js,svelte,ts}'],
-	darkMode: 'class',
-	theme: {
-		extend: {
-			colors,
-			borderColor,
-		},
-	},
+  content: ['./src/**/*.{html,js,svelte,ts}'],
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors,
+      borderColor,
+    },
+  },
 
-	plugins: [],
+  plugins: [],
 } satisfies Config;
