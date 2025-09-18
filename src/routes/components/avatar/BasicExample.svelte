@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { Avatar, HStack } from '@immich/ui';
+  import { Avatar, HStack } from '@immich/ui';
 </script>
 
 <HStack>
-	<Avatar name="Immich User" />
+  <Avatar name="Immich User" />
 </HStack>

@@ -1,37 +1,35 @@
 import type { TranslationProps } from '$lib/types.js';
 
 const defaultTranslations = {
-	// common
-	cancel: 'Cancel',
-	close: 'Close',
-	confirm: 'Confirm',
-	search_placeholder: 'Search...',
-	search_no_results: 'No results',
-	search_recently_used: 'Recently used',
+  // common
+  cancel: 'Cancel',
+  close: 'Close',
+  confirm: 'Confirm',
+  search_placeholder: 'Search...',
+  search_no_results: 'No results',
+  search_recently_used: 'Recently used',
 
-	// modal
-	prompt_default: 'Are you sure you want to do this?',
+  // modal
+  prompt_default: 'Are you sure you want to do this?',
 
-	// password input
-	show_password: 'Show password',
-	hide_password: 'Hide password',
+  // password input
+  show_password: 'Show password',
+  hide_password: 'Hide password',
 
-	// theme switcher
-	dark_theme: 'Toggle dark theme',
+  // theme switcher
+  dark_theme: 'Toggle dark theme',
 
-	// command palette
-	command_palette_prompt_default: 'Quickly find pages, actions, or commands',
+  // command palette
+  command_palette_prompt_default: 'Quickly find pages, actions, or commands',
 };
 
 export type Translations = typeof defaultTranslations;
 
 let translations = $state<Translations>(defaultTranslations);
 
-export const translate = <T extends keyof Translations>(
-	key: T,
-	overrides?: TranslationProps<T>,
-): string => overrides?.[key] ?? translations[key];
+export const translate = <T extends keyof Translations>(key: T, overrides?: TranslationProps<T>): string =>
+  overrides?.[key] ?? translations[key];
 export const t = translate;
 export const setTranslations = (newTranslations: Partial<Translations>) => {
-	translations = { ...defaultTranslations, ...newTranslations };
+  translations = { ...defaultTranslations, ...newTranslations };
 };

@@ -1,53 +1,53 @@
 @import 'tailwindcss';
 
 @theme inline {
-	--color-primary: rgb(var(--immich-ui-primary));
-	--color-light: rgb(var(--immich-ui-light));
-	--color-dark: rgb(var(--immich-ui-dark));
-	--color-success: rgb(var(--immich-ui-success));
-	--color-danger: rgb(var(--immich-ui-danger));
-	--color-warning: rgb(var(--immich-ui-warning));
-	--color-info: rgb(var(--immich-ui-info));
-	--color-subtle: rgb(var(--immich-ui-gray));
+  --color-primary: rgb(var(--immich-ui-primary));
+  --color-light: rgb(var(--immich-ui-light));
+  --color-dark: rgb(var(--immich-ui-dark));
+  --color-success: rgb(var(--immich-ui-success));
+  --color-danger: rgb(var(--immich-ui-danger));
+  --color-warning: rgb(var(--immich-ui-warning));
+  --color-info: rgb(var(--immich-ui-info));
+  --color-subtle: rgb(var(--immich-ui-gray));
 }
 
 @custom-variant dark (&:where(.dark, .dark *):not(.light));
 
 @layer base {
-	:root,
-	.light {
-		/* light */
-		--immich-ui-primary: 66 80 175;
-		--immich-ui-dark: 20 22 26;
-		--immich-ui-light: 255 255 255;
-		--immich-ui-success: 16 188 99;
-		--immich-ui-danger: 200 60 60;
-		--immich-ui-warning: 216 143 64;
-		--immich-ui-info: 8 111 230;
-		--immich-ui-gray: 246 246 246;
+  :root,
+  .light {
+    /* light */
+    --immich-ui-primary: 66 80 175;
+    --immich-ui-dark: 20 22 26;
+    --immich-ui-light: 255 255 255;
+    --immich-ui-success: 16 188 99;
+    --immich-ui-danger: 200 60 60;
+    --immich-ui-warning: 216 143 64;
+    --immich-ui-info: 8 111 230;
+    --immich-ui-gray: 246 246 246;
 
-		--immich-ui-default-border: 209 213 219;
-	}
+    --immich-ui-default-border: 209 213 219;
+  }
 
-	.dark {
-		/* dark */
-		--immich-ui-primary: 172 203 250;
-		--immich-ui-light: 0 0 0;
-		--immich-ui-dark: 229 231 235;
-		--immich-ui-success: 72 237 152;
-		--immich-ui-danger: 246 125 125;
-		--immich-ui-warning: 254 197 132;
-		--immich-ui-info: 121 183 254;
-		--immich-ui-gray: 33 33 33;
+  .dark {
+    /* dark */
+    --immich-ui-primary: 172 203 250;
+    --immich-ui-light: 0 0 0;
+    --immich-ui-dark: 229 231 235;
+    --immich-ui-success: 72 237 152;
+    --immich-ui-danger: 246 125 125;
+    --immich-ui-warning: 254 197 132;
+    --immich-ui-info: 121 183 254;
+    --immich-ui-gray: 33 33 33;
 
-		--immich-ui-default-border: 33 33 33;
-	}
+    --immich-ui-default-border: 33 33 33;
+  }
 
-	*,
-	::after,
-	::before,
-	::backdrop,
-	::file-selector-button {
-		border-color: rgb(var(--immich-ui-default-border));
-	}
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: rgb(var(--immich-ui-default-border));
+  }
 }

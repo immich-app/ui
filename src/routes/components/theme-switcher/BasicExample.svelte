@@ -1,5 +1,5 @@
 <script>
-	import { ThemeSwitcher } from '@immich/ui';
+  import { ThemeSwitcher } from '@immich/ui';
 </script>
 
 <ThemeSwitcher />

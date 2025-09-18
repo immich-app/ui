@@ -7,15 +7,15 @@ const fieldKey = Symbol(withPrefix('field'));
 export const setFieldContext = (field: FieldContext) => setContext(fieldKey, field);
 export const hasFieldContext = (): boolean => hasContext(fieldKey);
 export const getFieldContext = () => {
-	const {
-		label,
-		color = 'secondary',
-		invalid = false,
-		readOnly = false,
-		required = false,
-		disabled = false,
-		description,
-	} = (getContext(fieldKey) as FieldContext) || {};
+  const {
+    label,
+    color = 'secondary',
+    invalid = false,
+    readOnly = false,
+    required = false,
+    disabled = false,
+    description,
+  } = (getContext(fieldKey) as FieldContext) || {};
 
-	return { label, description, color, invalid, readOnly, required, disabled };
+  return { label, description, color, invalid, readOnly, required, disabled };
 };
