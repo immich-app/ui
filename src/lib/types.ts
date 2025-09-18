@@ -132,6 +132,7 @@ export type InputProps = BaseInputProps & {
 	type?: HTMLInputAttributes['type'];
 	leadingIcon?: IconLike | Snippet;
 	trailingIcon?: IconLike | Snippet;
+	trailingText?: string;
 };
 
 export type PasswordInputProps = BaseInputProps & {
