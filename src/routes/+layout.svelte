@@ -11,19 +11,20 @@
     asText,
     CommandPalette,
     commandPaletteManager,
+    Icon,
     IconButton,
     initializeTheme,
-    Input,
     NavbarGroup,
     NavbarItem,
     siteCommands,
     SiteFooter,
+    Text,
     theme,
     ThemeSwitcher,
     toggleTheme,
   } from '@immich/ui';
   import '@immich/ui/theme/default.css';
-  import { mdiHome, mdiHomeOutline, mdiMagnify, mdiSlashForwardBox, mdiThemeLightDark } from '@mdi/js';
+  import { mdiHome, mdiHomeOutline, mdiMagnify, mdiThemeLightDark } from '@mdi/js';
   import { MediaQuery } from 'svelte/reactivity';
   import '../app.css';
 
@@ -80,14 +81,15 @@
   <AppShellHeader>
     <Navbar theme={theme.value} onToggleSidebar={() => (open = !open)}>
       {#if commandPaletteManager.isEnabled}
-        <div class="hidden max-w-40 place-items-center p-1 lg:flex">
-          <Input
-            onfocus={() => commandPaletteManager.open()}
-            leadingIcon={mdiMagnify}
-            placeholder="Search..."
-            class="bg-subtle! rounded-full border px-2 py-2"
-            trailingIcon={mdiSlashForwardBox}
-          />
+        <div class="hidden place-items-center lg:flex">
+          <button
+            onclick={() => commandPaletteManager.open()}
+            class="border-light flex cursor-pointer place-items-center gap-2 rounded-2xl bg-gray-200 px-4 py-2 text-sm dark:bg-neutral-700"
+          >
+            <Icon icon={mdiMagnify} size="1.25rem" />
+            <Text>Search</Text>
+            <span class="rounded-lg bg-white px-2 py-0.5 dark:bg-neutral-900">/</span>
+          </button>
         </div>
         <IconButton
           icon={mdiMagnify}

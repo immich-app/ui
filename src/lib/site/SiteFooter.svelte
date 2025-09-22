@@ -20,7 +20,7 @@
   import { siAndroid, siApple, siDiscord, siGithub, siReddit } from 'simple-icons';
 </script>
 
-<div class="bg-dark/10 mt-16 rounded-t-3xl p-8">
+<div class="mt-16 rounded-t-3xl bg-gray-100 p-8 dark:bg-neutral-900">
   <div class="mx-auto max-w-(--breakpoint-lg) xl:py-8">
     <Stack gap={8}>
       <div class="place-center grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-5">
