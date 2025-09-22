@@ -23,7 +23,7 @@
       {@render header?.snippet()}
     </header>
   {/if}
-  <div class="flex w-full grow overflow-y-auto">
+  <div class="relative flex w-full grow overflow-y-auto">
     {#if sidebar}
       {@render sidebar?.snippet()}
     {/if}
