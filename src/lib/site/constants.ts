@@ -19,12 +19,15 @@ export const Constants = {
 
   Sites: {
     Api: 'https://api.immich.app/',
-    Demo: 'https://demo.immich.app/',
-    My: 'https://my.immich.app/',
     Buy: 'https://buy.immich.app/',
-    Get: 'https://get.immich.app/',
+    Data: 'https://data.immich.app/',
+    Datasets: 'https://datasets.immich.app/',
+    Demo: 'https://demo.immich.app/',
     Docs: 'https://docs.immich.app/',
+    Get: 'https://get.immich.app/',
+    My: 'https://my.immich.app/',
     Store: 'https://immich.store/',
+    Ui: 'https://ui.immich.app/',
   },
   Pages: {
     CursedKnowledge: 'https://immich.app/cursed-knowledge',
@@ -32,6 +35,7 @@ export const Constants = {
   },
   Npm: {
     Sdk: 'https://www.npmjs.com/package/@immich/sdk',
+    Ui: 'https://www.npmjs.com/package/@immich/ui',
   },
 };
 
@@ -75,6 +79,16 @@ export const siteCommands = [
     title: 'Immich Store',
     description: 'Support the project by purchasing Immich merchandise',
     href: Constants.Sites.Store,
+  },
+  {
+    title: 'Immich Datasets',
+    description: 'Help improve Immich by contributing your own files',
+    href: Constants.Sites.Datasets,
+  },
+  {
+    title: 'Immich UI',
+    description: 'View our Svelte component library, @immich/ui',
+    href: Constants.Sites.Ui,
   },
   {
     title: 'Cursed Knowledge',
