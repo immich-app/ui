@@ -15,6 +15,7 @@ import {
   mdiCheckboxOutline,
   mdiCloseCircle,
   mdiCloseCircleOutline,
+  mdiCodeBlockBraces,
   mdiCodeBraces,
   mdiDotsCircle,
   mdiFormatHeaderPound,
@@ -102,6 +103,7 @@ export const componentGroups = [
     title: 'Text',
     components: [
       { name: 'Code', icon: mdiCodeBraces },
+      { name: 'CodeBlock', icon: mdiCodeBlockBraces },
       { name: 'Kbd', icon: mdiKeyboardVariant },
       { name: 'Text', icon: mdiFormatHeaderPound },
       { name: 'Textarea', icon: mdiFormTextarea },

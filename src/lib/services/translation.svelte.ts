@@ -5,6 +5,12 @@ const defaultTranslations = {
   cancel: 'Cancel',
   close: 'Close',
   confirm: 'Confirm',
+
+  // code
+  code_copy: 'Copy',
+  code_copied: 'Copied',
+
+  // search
   search_placeholder: 'Search...',
   search_no_results: 'No results',
   search_recently_used: 'Recently used',

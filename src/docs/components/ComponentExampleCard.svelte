@@ -15,7 +15,7 @@
 
   function getCardBodyClass(viewMode: string, theme?: Theme): string {
     if (viewMode === 'code') {
-      return 'p-0';
+      return 'p-0 text-sm';
     }
 
     if (theme === Theme.Light) {
