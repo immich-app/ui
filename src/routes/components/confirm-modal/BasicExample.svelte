@@ -1,6 +1,5 @@
 <script lang="ts">
-  import { Button, Link } from '@immich/ui';
-  import ConfirmModal from '@immich/ui/components/ConfirmModal/ConfirmModal.svelte';
+  import { Button, ConfirmModal, Link } from '@immich/ui';
 
   let isOpen = $state(false);
 </script>

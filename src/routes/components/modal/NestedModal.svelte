@@ -1,8 +1,6 @@
 <script lang="ts">
   import Lorem from '$docs/components/Lorem.svelte';
-  import { Modal, ModalBody, modalManager } from '@immich/ui';
-  import ModalFooter from '@immich/ui/components/Modal/ModalFooter.svelte';
-  import Button from '@immich/ui/internal/Button.svelte';
+  import { Button, Modal, ModalBody, ModalFooter, modalManager } from '@immich/ui';
 
   type Props = { onClose: () => void };
 

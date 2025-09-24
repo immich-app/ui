@@ -3,7 +3,7 @@
   import IconButton from '$lib/components/IconButton/IconButton.svelte';
   import { theme } from '$lib/services/theme.svelte.js';
   import { Theme, type TranslationProps } from '$lib/types.js';
-  import { t } from '@immich/ui/services/translation.svelte.js';
+  import { t } from '$lib/services/translation.svelte.js';
   import { mdiCheckCircle, mdiContentCopy } from '@mdi/js';
   import { Highlight, LineNumbers } from 'svelte-highlight';
   import { typescript, type LanguageType } from 'svelte-highlight/languages';
