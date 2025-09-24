@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { FontWeight, HeadingColor, HeadingTag, TextVariant } from '$lib/types.js';
+  import type { FontWeight, HeadingColor, HeadingTag, Size, TextVariant } from '$lib/types.js';
   import { cleanClass } from '$lib/utils.js';
   import type { Snippet } from 'svelte';
   import type { HTMLAttributes } from 'svelte/elements';
@@ -13,12 +13,13 @@
     fontWeight?: FontWeight;
     variant?: TextVariant;
     color?: HeadingColor;
+    size?: Size;
     class?: string;
 
     children: Snippet;
   } & HTMLAttributes<HTMLElement>;
 
-  const { tag = 'p', color, fontWeight, variant, class: className, children, ...restProps }: Props = $props();
+  const { tag = 'p', color, fontWeight, variant, size, class: className, children, ...restProps }: Props = $props();
 
   const styles = tv({
     variants: {
@@ -38,13 +39,20 @@
         bold: 'font-bold',
         'extra-bold': 'font-extrabold',
       },
+      size: {
+        tiny: 'text-xs',
+        small: 'text-sm',
+        medium: 'text-base',
+        large: 'text-lg',
+        giant: 'text-xl',
+      },
       variant: {
         italic: 'italic',
       },
     },
   });
 
-  const classList = $derived(cleanClass(styles({ color, fontWeight, variant }), className));
+  const classList = $derived(cleanClass(styles({ color, size, fontWeight, variant }), className));
 </script>
 
 <svelte:element this={tag} class={classList} {...restProps}>

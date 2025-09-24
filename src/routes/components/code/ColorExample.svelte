@@ -1,13 +1,13 @@
 <script lang="ts">
-  import { Code, Stack } from '@immich/ui';
+  import { Code, Stack, Text } from '@immich/ui';
 </script>
 
 <Stack>
-  <Code color="muted">console.log('hello world!')</Code>
-  <Code color="primary">console.log('hello world!')</Code>
-  <Code color="secondary">console.log('hello world!')</Code>
-  <Code color="success">console.log('hello world!')</Code>
-  <Code color="info">console.log('hello world!')</Code>
-  <Code color="warning">console.log('hello world!')</Code>
-  <Code color="danger">console.log('hello world!')</Code>
+  <Text>Use <Code color="muted">console.log</Code> to print text to the console.</Text>
+  <Text>Use <Code color="primary">console.log</Code> to print text to the console.</Text>
+  <Text>Use <Code color="secondary">console.log</Code> to print text to the console.</Text>
+  <Text>Use <Code color="info">console.log</Code> to print text to the console.</Text>
+  <Text>Use <Code color="success">console.log</Code> to print text to the console.</Text>
+  <Text>Use <Code color="warning">console.log</Code> to print text to the console.</Text>
+  <Text>Use <Code color="danger">console.log</Code> to print text to the console.</Text>
 </Stack>

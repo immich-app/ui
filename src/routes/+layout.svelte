@@ -117,8 +117,10 @@
       {#each componentGroups as group (group.title)}
         <NavbarGroup title={group.title} />
         {#each group.components as component (component.name)}
+          {@const href = asComponentHref(component.name)}
           <NavbarItem
-            href={asComponentHref(component.name)}
+            {href}
+            isActive={() => page.url.pathname === href}
             title={component.name}
             icon={component.icon}
             activeIcon={component.activeIcon}
