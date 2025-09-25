@@ -13,7 +13,7 @@
   let { href, icon, text }: Props = $props();
 </script>
 
-<Link {href} external>
+<Link {href}>
   <HStack>
     <Icon {icon} size="1.5em" />
     <Text>{text}</Text>

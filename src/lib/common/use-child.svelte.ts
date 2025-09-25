@@ -1,6 +1,6 @@
 import { ChildKey } from '$lib/constants.js';
 import type { ChildData } from '$lib/types.js';
-import { withPrefix } from '$lib/utils.js';
+import { withPrefix } from '$lib/utilities/internal.js';
 import { setContext } from 'svelte';
 import { SvelteMap } from 'svelte/reactivity';
 

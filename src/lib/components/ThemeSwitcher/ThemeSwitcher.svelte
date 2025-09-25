@@ -3,7 +3,7 @@
   import { theme, toggleTheme } from '$lib/services/theme.svelte.js';
   import { t } from '$lib/services/translation.svelte.js';
   import { Theme, type Color, type Size, type TranslationProps, type Variants } from '$lib/types.js';
-  import { cleanClass } from '$lib/utils.js';
+  import { cleanClass } from '$lib/utilities/internal.js';
   import { mdiWeatherNight, mdiWeatherSunny } from '@mdi/js';
 
   type Props = {

@@ -1,7 +1,7 @@
 <script lang="ts">
   import { ChildKey } from '$lib/constants.js';
   import type { ChildData } from '$lib/types.js';
-  import { withPrefix } from '$lib/utils.js';
+  import { withPrefix } from '$lib/utilities/internal.js';
   import { getContext, type Snippet } from 'svelte';
 
   type ContextType = {

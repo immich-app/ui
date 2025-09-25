@@ -25,6 +25,9 @@ export default ts.config(
         extraFileExtensions: ['.svelte'],
       },
     },
+    rules: {
+      'svelte/no-navigation-without-resolve': 'off',
+    },
   },
   {
     ignores: ['build/', '.svelte-kit/', 'dist/'],

@@ -35,7 +35,7 @@
           <Heading size="tiny">Download</Heading>
           <SiteFooterLink href={Constants.Get.Android} icon={siAndroid} text="Android" />
           <SiteFooterLink href={Constants.Get.iOS} icon={siApple} text="iOS" />
-          <SiteFooterLink href={Constants.Get.DockerCompose} icon={mdiServerOutline} text="Server" />
+          <SiteFooterLink href={Constants.Get.Download} icon={mdiServerOutline} text="Server" />
         </Stack>
 
         <Stack>

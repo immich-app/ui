@@ -4,7 +4,7 @@
   import Label from '$lib/components/Label/Label.svelte';
   import Text from '$lib/components/Text/Text.svelte';
   import type { InputProps } from '$lib/types.js';
-  import { cleanClass, generateId, isIconLike } from '$lib/utils.js';
+  import { cleanClass, generateId, isIconLike } from '$lib/utilities/internal.js';
   import { tv } from 'tailwind-variants';
 
   let {

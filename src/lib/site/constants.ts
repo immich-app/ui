@@ -14,7 +14,7 @@ export const Constants = {
     Android: 'https://get.immich.app/android',
     FDroid: 'https://get.immich.app/fdroid',
     GithubRelease: 'https://github.com/immich-app/immich/releases/latest',
-    DockerCompose: 'https://get.immich.app/docker-compose',
+    Download: 'https://immich.app/download',
   },
 
   Sites: {
@@ -132,6 +132,5 @@ export const siteCommands = [
   title: site.title,
   description: site.description,
   href: site.href,
-  external: true,
   text: asText('Site', 'Link', site.title, site.description, site.href),
 }));

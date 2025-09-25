@@ -5,7 +5,7 @@
   import Icon from '$lib/components/Icon/Icon.svelte';
   import Text from '$lib/components/Text/Text.svelte';
   import type { Color, Size } from '$lib/types.js';
-  import { cleanClass } from '$lib/utils.js';
+  import { cleanClass } from '$lib/utilities/internal.js';
   import {
     mdiAlertOutline,
     mdiCheckCircleOutline,

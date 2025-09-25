@@ -1,5 +1,5 @@
 import type { FieldContext } from '$lib/types.js';
-import { withPrefix } from '$lib/utils.js';
+import { withPrefix } from '$lib/utilities/internal.js';
 import { getContext, hasContext, setContext } from 'svelte';
 
 const fieldKey = Symbol(withPrefix('field'));

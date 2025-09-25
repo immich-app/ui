@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { StackProps } from '$lib/types.js';
-  import { cleanClass } from '$lib/utils.js';
+  import { cleanClass } from '$lib/utilities/internal.js';
   import { tv } from 'tailwind-variants';
 
   const {

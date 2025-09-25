@@ -4,7 +4,7 @@
   import Scrollable from '$lib/components/Scrollable/Scrollable.svelte';
   import { ChildKey } from '$lib/constants.js';
   import type { Color } from '$lib/types.js';
-  import { cleanClass } from '$lib/utils.js';
+  import { cleanClass } from '$lib/utilities/internal.js';
   import { mdiChevronDown } from '@mdi/js';
   import { type Snippet } from 'svelte';
   import type { HTMLAttributes } from 'svelte/elements';
