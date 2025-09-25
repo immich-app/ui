@@ -2,7 +2,8 @@
   import Icon from '$lib/components/Icon/Icon.svelte';
   import LoadingSpinner from '$lib/components/LoadingSpinner/LoadingSpinner.svelte';
   import type { ButtonProps, Size } from '$lib/types.js';
-  import { cleanClass } from '$lib/utils.js';
+  import { isExternalLink, resolveUrl } from '$lib/utilities/common.js';
+  import { cleanClass } from '$lib/utilities/internal.js';
   import { Button as ButtonPrimitive } from 'bits-ui';
   import type { HTMLAnchorAttributes, HTMLButtonAttributes } from 'svelte/elements';
   import { twMerge } from 'tailwind-merge';
@@ -17,7 +18,6 @@
     ref = $bindable(null),
     type = 'button',
     href,
-    external,
     variant = 'filled',
     color = 'primary',
     shape = 'semi-round',
@@ -154,9 +154,11 @@
 {/snippet}
 
 {#if href}
+  {@const resolved = resolveUrl(href)}
+  {@const external = isExternalLink(resolved)}
   <a
     bind:this={ref}
-    {href}
+    href={resolved}
     class={classList}
     aria-disabled={disabled}
     target={external ? '_blank' : undefined}

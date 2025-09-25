@@ -8,7 +8,7 @@
   import icon from '$lib/assets/immich-logo.svg';
   import { theme } from '$lib/services/theme.svelte.js';
   import { Theme, type Size } from '$lib/types.js';
-  import { cleanClass } from '$lib/utils.js';
+  import { cleanClass } from '$lib/utilities/internal.js';
   import { tv } from 'tailwind-variants';
 
   type Props = {

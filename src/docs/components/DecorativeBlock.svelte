@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { Color, Size } from '@immich/ui';
-  import { cleanClass } from '$lib/utils.js';
+  import { cleanClass } from '$lib/utilities/internal.js';
   import { tv } from 'tailwind-variants';
 
   type Props = {

@@ -1,56 +1,41 @@
 import { asText } from '$lib/services/command-palette-manager.svelte.js';
 import { mdiOpenInNew } from '@mdi/js';
 
-const getImmichApp = (host: string) => {
-  if (!host.endsWith('immich.app')) {
-    return false;
-  }
-
-  return host.split('.')[0] ?? 'root';
-};
-const resolve = (url: string) => {
-  const current = globalThis.location;
-  const target = new URL(url);
-  const targetApp = getImmichApp(target.hostname);
-
-  return targetApp && targetApp === getImmichApp(current.hostname) ? target.pathname : target.href;
-};
-
 export const Constants = {
   Socials: {
-    Futo: resolve('https://futo.org/'),
-    Github: resolve('https://github.com/immich-app/immich'),
-    Discord: resolve('https://discord.immich.app/'),
-    Reddit: resolve('https://www.reddit.com/r/immich/'),
-    Weblate: resolve('https://hosted.weblate.org/projects/immich/immich/'),
+    Futo: 'https://futo.org/',
+    Github: 'https://github.com/immich-app/immich',
+    Discord: 'https://discord.immich.app/',
+    Reddit: 'https://www.reddit.com/r/immich/',
+    Weblate: 'https://hosted.weblate.org/projects/immich/immich/',
   },
   Get: {
-    iOS: resolve('https://get.immich.app/ios'),
-    Android: resolve('https://get.immich.app/android'),
-    FDroid: resolve('https://get.immich.app/fdroid'),
-    GithubRelease: resolve('https://github.com/immich-app/immich/releases/latest'),
-    Download: resolve('https://immich.app/download'),
+    iOS: 'https://get.immich.app/ios',
+    Android: 'https://get.immich.app/android',
+    FDroid: 'https://get.immich.app/fdroid',
+    GithubRelease: 'https://github.com/immich-app/immich/releases/latest',
+    Download: 'https://immich.app/download',
   },
 
   Sites: {
-    Api: resolve('https://api.immich.app/'),
-    Buy: resolve('https://buy.immich.app/'),
-    Data: resolve('https://data.immich.app/'),
-    Datasets: resolve('https://datasets.immich.app/'),
-    Demo: resolve('https://demo.immich.app/'),
-    Docs: resolve('https://docs.immich.app/'),
-    Get: resolve('https://get.immich.app/'),
-    My: resolve('https://my.immich.app/'),
-    Store: resolve('https://immich.store/'),
-    Ui: resolve('https://ui.immich.app/'),
+    Api: 'https://api.immich.app/',
+    Buy: 'https://buy.immich.app/',
+    Data: 'https://data.immich.app/',
+    Datasets: 'https://datasets.immich.app/',
+    Demo: 'https://demo.immich.app/',
+    Docs: 'https://docs.immich.app/',
+    Get: 'https://get.immich.app/',
+    My: 'https://my.immich.app/',
+    Store: 'https://immich.store/',
+    Ui: 'https://ui.immich.app/',
   },
   Pages: {
-    CursedKnowledge: resolve('https://immich.app/cursed-knowledge'),
-    Roadmap: resolve('https://immich.app/roadmap'),
+    CursedKnowledge: 'https://immich.app/cursed-knowledge',
+    Roadmap: 'https://immich.app/roadmap',
   },
   Npm: {
-    Sdk: resolve('https://www.npmjs.com/package/@immich/sdk'),
-    Ui: resolve('https://www.npmjs.com/package/@immich/ui'),
+    Sdk: 'https://www.npmjs.com/package/@immich/sdk',
+    Ui: 'https://www.npmjs.com/package/@immich/ui',
   },
 };
 
@@ -147,6 +132,5 @@ export const siteCommands = [
   title: site.title,
   description: site.description,
   href: site.href,
-  external: true,
   text: asText('Site', 'Link', site.title, site.description, site.href),
 }));

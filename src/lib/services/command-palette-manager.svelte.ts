@@ -7,7 +7,7 @@ export type CommandItem = {
   title: string;
   description?: string;
   text: string;
-} & ({ href: string; external?: boolean } | { action: () => void });
+} & ({ href: string } | { action: () => void });
 
 export const asText = (...items: unknown[]) => {
   return items
@@ -75,10 +75,9 @@ class CommandPaletteManager {
     this.recentItems = this.recentItems.slice(0, 5);
 
     if ('href' in selected) {
-      if (selected.href.startsWith('http') || selected.external) {
+      if (!selected.href.startsWith('/')) {
         window.open(selected.href, '_blank');
       } else {
-        // eslint-disable-next-line svelte/no-navigation-without-resolve
         await goto(selected.href);
       }
     } else {

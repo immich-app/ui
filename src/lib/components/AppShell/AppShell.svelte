@@ -2,7 +2,7 @@
   import { withChildrenSnippets } from '$lib/common/use-child.svelte.js';
   import Scrollable from '$lib/components/Scrollable/Scrollable.svelte';
   import { ChildKey } from '$lib/constants.js';
-  import { cleanClass } from '$lib/utils.js';
+  import { cleanClass } from '$lib/utilities/internal.js';
   import type { Snippet } from 'svelte';
 
   type Props = {

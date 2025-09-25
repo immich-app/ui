@@ -37,6 +37,6 @@ jobs:
         run: npm run check
         if: ${{ !cancelled() }}
 
-      # - name: Run unit tests
-      #   run: npm test
-      #   if: ${{ !cancelled() }}
+      - name: Run unit tests
+        run: npm test
+        if: ${{ !cancelled() }}

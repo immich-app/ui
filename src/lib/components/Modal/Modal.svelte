@@ -10,7 +10,7 @@
   import Logo from '$lib/components/Logo/Logo.svelte';
   import { ChildKey } from '$lib/constants.js';
   import type { ModalSize } from '$lib/types.js';
-  import { cleanClass } from '$lib/utils.js';
+  import { cleanClass } from '$lib/utilities/internal.js';
   import { Dialog } from 'bits-ui';
   import { tick, type Snippet } from 'svelte';
   import { tv } from 'tailwind-variants';

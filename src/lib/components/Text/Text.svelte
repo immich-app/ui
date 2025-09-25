@@ -1,7 +1,7 @@
 <script lang="ts">
   import Text from '$lib/internal/Text.svelte';
   import type { FontWeight, Size, TextColor, TextVariant } from '$lib/types.js';
-  import { cleanClass } from '$lib/utils.js';
+  import { cleanClass } from '$lib/utilities/internal.js';
   import type { Snippet } from 'svelte';
   import type { HTMLAttributes } from 'svelte/elements';
   import { tv } from 'tailwind-variants';

@@ -8,7 +8,6 @@
   type Props = {
     title: string;
     href: string;
-    external?: boolean;
     active?: boolean;
     variant?: 'compact';
     isActive?: () => boolean;
@@ -18,16 +17,7 @@
 
   const startsWithHref = () => page.url.pathname.startsWith(href);
 
-  let {
-    href,
-    external,
-    isActive: isActiveOverride,
-    title,
-    variant,
-    active: activeOverride,
-    icon,
-    activeIcon,
-  }: Props = $props();
+  let { href, isActive: isActiveOverride, title, variant, active: activeOverride, icon, activeIcon }: Props = $props();
 
   const isActive = isActiveOverride ?? startsWithHref;
   let active = $derived(activeOverride ?? isActive());
@@ -52,7 +42,6 @@
 
 <Link
   {href}
-  {external}
   aria-current={active ? 'page' : undefined}
   underline={false}
   class={styles({ active, variant: variant ?? 'default' })}

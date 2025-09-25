@@ -6,7 +6,7 @@
   import Input from '$lib/components/Input/Input.svelte';
   import Label from '$lib/components/Label/Label.svelte';
   import type { SelectCommonProps, SelectItem } from '$lib/types.js';
-  import { cleanClass, generateId } from '$lib/utils.js';
+  import { cleanClass, generateId } from '$lib/utilities/internal.js';
   import { mdiArrowDown, mdiArrowUp, mdiCheck, mdiUnfoldMoreHorizontal } from '@mdi/js';
   import { Select } from 'bits-ui';
 

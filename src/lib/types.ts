@@ -46,9 +46,7 @@ export type IconProps = {
   strokeColor?: string;
 };
 
-type ButtonOrAnchor =
-  | ({ href?: never; external?: never } & HTMLButtonAttributes)
-  | ({ href: string; external?: boolean } & HTMLAnchorAttributes);
+type ButtonOrAnchor = ({ href?: never } & HTMLButtonAttributes) | ({ href: string } & HTMLAnchorAttributes);
 
 type ButtonBase = {
   size?: Size;

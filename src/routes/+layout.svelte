@@ -62,15 +62,19 @@
   // components
   for (const group of componentGroups) {
     commandPaletteManager.addCommands(
-      group.components.map((component) => ({
-        icon: component.icon,
-        iconClass: '',
-        type: 'Component',
-        title: component.name,
-        description: `View the ${component.name} component`,
-        href: asComponentHref(component.name),
-        text: asText('Component', group.title, component.name),
-      })),
+      group.components.map((component) => {
+        const href = asComponentHref(component.name);
+
+        return {
+          icon: component.icon,
+          iconClass: '',
+          type: 'Component',
+          title: component.name,
+          description: `View the ${component.name} component`,
+          href,
+          text: asText('Component', group.title, component.name, href),
+        };
+      }),
     );
   }
 

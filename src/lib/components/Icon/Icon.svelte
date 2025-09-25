@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { IconProps } from '$lib/types.js';
-  import { cleanClass } from '$lib/utils.js';
+  import { cleanClass } from '$lib/utilities/internal.js';
   import type { HTMLAttributes } from 'svelte/elements';
 
   const {

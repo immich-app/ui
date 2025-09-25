@@ -3,7 +3,7 @@
   import Label from '$lib/components/Label/Label.svelte';
   import Text from '$lib/components/Text/Text.svelte';
   import type { TextareaProps } from '$lib/types.js';
-  import { cleanClass, generateId } from '$lib/utils.js';
+  import { cleanClass, generateId } from '$lib/utilities/internal.js';
   import type { FormEventHandler } from 'svelte/elements';
   import { tv } from 'tailwind-variants';
 

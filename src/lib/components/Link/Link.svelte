@@ -1,5 +1,6 @@
 <script lang="ts">
-  import { cleanClass } from '$lib/utils.js';
+  import { isExternalLink, resolveUrl } from '$lib/utilities/common.js';
+  import { cleanClass } from '$lib/utilities/internal.js';
   import type { Snippet } from 'svelte';
   import type { HTMLAnchorAttributes } from 'svelte/elements';
 
@@ -8,14 +9,16 @@
     children: Snippet;
     href: string;
     underline?: boolean;
-    external?: boolean;
   } & HTMLAnchorAttributes;
 
-  const { href, class: className, underline = true, external, children, ...restProps }: Props = $props();
+  const { href, class: className, underline = true, children, ...restProps }: Props = $props();
+
+  let resolved = $derived(resolveUrl(href));
+  let external = $derived(isExternalLink(resolved));
 </script>
 
 <a
-  {href}
+  href={resolved}
   draggable="false"
   class={cleanClass(underline && 'underline', className)}
   target={external ? '_blank' : undefined}
