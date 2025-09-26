@@ -6,7 +6,7 @@
 
   type Props = {
     class?: string;
-    children: Snippet;
+    children?: Snippet;
     href: string;
     underline?: boolean;
   } & HTMLAnchorAttributes;
@@ -25,5 +25,9 @@
   rel={external ? 'noopener noreferrer' : undefined}
   {...restProps}
 >
-  {@render children()}
+  {#if children}
+    {@render children()}
+  {:else}
+    {href}
+  {/if}
 </a>
