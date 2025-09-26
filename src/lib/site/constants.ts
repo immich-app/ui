@@ -32,6 +32,7 @@ export const Constants = {
   Pages: {
     CursedKnowledge: 'https://immich.app/cursed-knowledge',
     Roadmap: 'https://immich.app/roadmap',
+    PrivacyPolicy: 'https://immich.app/privacy-policy',
   },
   Npm: {
     Sdk: 'https://www.npmjs.com/package/@immich/sdk',

@@ -15,6 +15,7 @@
     mdiOfficeBuildingOutline,
     mdiScriptTextOutline,
     mdiServerOutline,
+    mdiShieldAccountOutline,
     mdiShoppingOutline,
   } from '@mdi/js';
   import { siAndroid, siApple, siDiscord, siGithub, siReddit } from 'simple-icons';
@@ -56,6 +57,7 @@
           <Heading size="tiny">Miscellaneous</Heading>
           <SiteFooterLink href={Constants.Pages.Roadmap} icon={mdiChartGantt} text="Roadmap" />
           <SiteFooterLink href={Constants.Pages.CursedKnowledge} icon={mdiBookshelf} text="Cursed Knowledge" />
+          <SiteFooterLink href={Constants.Pages.PrivacyPolicy} icon={mdiShieldAccountOutline} text="Privacy Policy" />
         </Stack>
       </div>
       <VStack class="text-center">
