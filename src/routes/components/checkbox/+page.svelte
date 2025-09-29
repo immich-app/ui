@@ -11,7 +11,7 @@
   import sizeExample from './SizeExample.svelte?raw';
 </script>
 
-<ComponentPage name="Checkbox">
+<ComponentPage name="Checkbox" description="A form input element for selecting options">
   <ComponentExamples
     examples={[
       { title: 'Basic', code: basicExample, component: BasicExample },

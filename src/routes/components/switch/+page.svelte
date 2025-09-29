@@ -1,5 +1,4 @@
 <script lang="ts">
-  import ComponentDescription from '$docs/components/ComponentDescription.svelte';
   import ComponentExamples from '$docs/components/ComponentExamples.svelte';
   import ComponentFieldCard from '$docs/components/ComponentFieldCard.svelte';
   import ComponentPage from '$docs/components/ComponentPage.svelte';
@@ -11,8 +10,7 @@
   import formExample from './FormExample.svelte?raw';
 </script>
 
-<ComponentPage name="Switch">
-  <ComponentDescription>A boolean input element</ComponentDescription>
+<ComponentPage name="Switch" description="A boolean input element">
   <ComponentFieldCard />
   <ComponentExamples
     examples={[

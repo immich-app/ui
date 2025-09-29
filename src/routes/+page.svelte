@@ -1,9 +1,11 @@
 <script lang="ts">
   import ComponentCard from '$docs/components/ComponentCard.svelte';
   import Grid from '$docs/components/Grid.svelte';
-  import { componentGroups } from '$docs/constants.js';
-  import { Code, Container, Heading, Link, Stack, Text } from '@immich/ui';
+  import { componentGroups, siteMetadata } from '$docs/constants.js';
+  import { Code, Container, Heading, Link, SiteMetadata, Stack, Text } from '@immich/ui';
 </script>
+
+<SiteMetadata site={siteMetadata} />
 
 <Container size="large" class="p-2">
   <Stack class="flex flex-col gap-4 px-8 py-8" gap={8}>

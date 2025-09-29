@@ -11,7 +11,7 @@
   import translationExample from './TranslationExample.svelte?raw';
 </script>
 
-<ComponentPage name="CloseButton">
+<ComponentPage name="CloseButton" description="A button component for closing modals or dismissing content">
   <ComponentExamples
     examples={[
       { title: 'Basic', code: basicExample, component: BasicExample },

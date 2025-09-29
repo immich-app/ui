@@ -8,7 +8,7 @@
   import basicExample from './BasicExample.svelte?raw';
 </script>
 
-<ComponentPage name="ConfirmModal">
+<ComponentPage name="ConfirmModal" description="A specialized modal for confirming user actions">
   <ComponentTipCard>
     <Text>
       See <Link href={asComponentHref('Modal')}>Modal</Link> for more complex modals
