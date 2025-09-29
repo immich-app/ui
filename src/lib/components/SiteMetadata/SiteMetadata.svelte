@@ -28,6 +28,7 @@
 
   <!-- Facebook Meta Tags -->
   <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="{site.title} — {site.description}" />
   <meta property="og:title" content={fullTitle} />
   <meta property="og:description" content={pageDescription} />
   {#if pageUrl}
