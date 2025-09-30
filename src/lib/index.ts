@@ -54,6 +54,7 @@ export { default as NavbarItem } from '$lib/components/Navbar/NavbarItem.svelte'
 export { default as PasswordInput } from '$lib/components/PasswordInput/PasswordInput.svelte';
 export { default as Scrollable } from '$lib/components/Scrollable/Scrollable.svelte';
 export { default as Select } from '$lib/components/Select/Select.svelte';
+export { default as SiteMetadata } from '$lib/components/SiteMetadata/SiteMetadata.svelte';
 export { default as HStack } from '$lib/components/Stack/HStack.svelte';
 export { default as Stack } from '$lib/components/Stack/Stack.svelte';
 export { default as VStack } from '$lib/components/Stack/VStack.svelte';

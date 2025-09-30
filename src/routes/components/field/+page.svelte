@@ -1,5 +1,4 @@
 <script lang="ts">
-  import ComponentDescription from '$docs/components/ComponentDescription.svelte';
   import ComponentExamples from '$docs/components/ComponentExamples.svelte';
   import ComponentPage from '$docs/components/ComponentPage.svelte';
   import BasicExample from './BasicExample.svelte';
@@ -8,8 +7,7 @@
   import colorExample from './ColorExample.svelte?raw';
 </script>
 
-<ComponentPage name="Field">
-  <ComponentDescription>A metadata component for tracking common form field information</ComponentDescription>
+<ComponentPage name="Field" description="A metadata component for tracking common form field information">
   <ComponentExamples
     examples={[
       { title: 'Basic', code: basicExample, component: BasicExample },

@@ -63,6 +63,11 @@ export type ExampleItem = {
 
 export type ExampleCardProps = ExampleItem;
 
+export const siteMetadata = {
+  title: '@immich/ui',
+  description: 'A Svelte component library for Immich',
+};
+
 export const componentGroups = [
   {
     title: 'Layout',

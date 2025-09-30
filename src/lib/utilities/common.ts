@@ -1,5 +1,7 @@
-const getImmichApp = (host: string) => {
-  if (!host.endsWith('immich.app')) {
+import { env } from '$env/dynamic/public';
+
+const getImmichApp = (host: string | undefined) => {
+  if (!host || !host.endsWith('immich.app')) {
     return false;
   }
 
@@ -17,7 +19,7 @@ export const resolveUrl = (url: string, currentHostname?: string) => {
 
   const target = new URL(url);
   const targetApp = getImmichApp(target.hostname);
-  const currentApp = getImmichApp(currentHostname ?? globalThis.location.hostname);
+  const currentApp = getImmichApp(currentHostname ?? globalThis.location?.hostname ?? env.PUBLIC_IMMICH_HOSTNAME);
 
   return targetApp && targetApp === currentApp ? target.pathname : target.href;
 };

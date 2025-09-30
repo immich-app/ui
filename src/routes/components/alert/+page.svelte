@@ -11,7 +11,7 @@
   import eventExample from './EventExample.svelte?raw';
 </script>
 
-<ComponentPage name="Alert">
+<ComponentPage name="Alert" description="A component for displaying important messages to the user">
   <ComponentExamples
     examples={[
       { title: 'Basic', code: basicExample, component: BasicExample },

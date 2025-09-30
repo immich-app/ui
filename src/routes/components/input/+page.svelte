@@ -1,5 +1,4 @@
 <script lang="ts">
-  import ComponentDescription from '$docs/components/ComponentDescription.svelte';
   import ComponentExamples from '$docs/components/ComponentExamples.svelte';
   import ComponentFieldCard from '$docs/components/ComponentFieldCard.svelte';
   import ComponentPage from '$docs/components/ComponentPage.svelte';
@@ -18,8 +17,7 @@
   import trailingTextExample from './TrailingTextExample.svelte?raw';
 </script>
 
-<ComponentPage name="Input">
-  <ComponentDescription>Accept text input from the user</ComponentDescription>
+<ComponentPage name="Input" description="A metadata component for tracking common form field information">
   <ComponentFieldCard />
   <ComponentTipCard>
     <Text>See <Link href={asComponentHref('PasswordInput')}>PasswordInput</Link> for password input fields fields</Text>

@@ -1,5 +1,4 @@
 <script lang="ts">
-  import ComponentDescription from '$docs/components/ComponentDescription.svelte';
   import ComponentExamples from '$docs/components/ComponentExamples.svelte';
   import ComponentPage from '$docs/components/ComponentPage.svelte';
   import { Theme } from '@immich/ui';
@@ -31,8 +30,7 @@
   import sizeExample from './SizeExample.svelte?raw';
 </script>
 
-<ComponentPage name="Button">
-  <ComponentDescription>A button component, which can also be used to render links</ComponentDescription>
+<ComponentPage name="Button" description="A button component, which can also be used to render links">
   <ComponentExamples
     examples={[
       { title: 'Basic', code: basicExample, component: BasicExample },

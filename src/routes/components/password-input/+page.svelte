@@ -1,5 +1,4 @@
 <script lang="ts">
-  import ComponentDescription from '$docs/components/ComponentDescription.svelte';
   import ComponentExamples from '$docs/components/ComponentExamples.svelte';
   import ComponentFieldCard from '$docs/components/ComponentFieldCard.svelte';
   import ComponentPage from '$docs/components/ComponentPage.svelte';
@@ -13,8 +12,7 @@
   import translationExample from './TranslationExample.svelte?raw';
 </script>
 
-<ComponentPage name="PasswordInput">
-  <ComponentDescription>Accept masked input from the user</ComponentDescription>
+<ComponentPage name="PasswordInput" description="Accept masked input from the user">
   <ComponentFieldCard />
   <ComponentExamples
     examples={[

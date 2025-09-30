@@ -11,7 +11,7 @@
   import sizeExample from './SizeExample.svelte?raw';
 </script>
 
-<ComponentPage name="Code">
+<ComponentPage name="Code" description="A component for displaying inline code snippets">
   <ComponentExamples
     examples={[
       { title: 'Size', code: sizeExample, component: SizeExample },
