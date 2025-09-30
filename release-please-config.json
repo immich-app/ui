@@ -3,7 +3,7 @@
   "packages": {
     ".": {
       "changelog-path": "CHANGELOG.md",
-      "changelog-type": "github",
+      "changelog-type": "default",
       "release-type": "node",
       "include-v-in-tag": true,
       "bump-minor-pre-major": false,
