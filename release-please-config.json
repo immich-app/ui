@@ -7,6 +7,7 @@
       "release-type": "node",
       "include-v-in-tag": true,
       "bump-minor-pre-major": false,
+      "include-component-in-tag": false,
       "bump-patch-for-minor-pre-major": false,
       "draft": false,
       "prerelease": false
