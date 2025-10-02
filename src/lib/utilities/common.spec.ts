@@ -1,4 +1,4 @@
-import { isExternalLink, resolveUrl } from '$lib/utilities/common.js';
+import { isExternalLink, resolveMetadata, resolveUrl } from '$lib/utilities/common.js';
 import { describe, expect, it } from 'vitest';
 
 describe('isExternalLink', () => {
@@ -38,5 +38,58 @@ describe('resolve', () => {
 
   it.each(tests)('resolve $url to $expected when the host is $host', ({ url, expected, host }) => {
     expect(resolveUrl(url, host)).toBe(expected);
+  });
+});
+
+describe(resolveMetadata.name, () => {
+  it('should handle site metadata', () => {
+    expect(resolveMetadata({ title: 'Title', description: 'Description' })).toEqual({
+      title: 'Title',
+      description: 'Description',
+      siteName: 'Title',
+      imageUrl: undefined,
+    });
+  });
+
+  it('should handle site metadata with an image', () => {
+    expect(resolveMetadata({ title: 'Title', description: 'Description', imageUrl: 'image-url' })).toMatchObject({
+      imageUrl: 'image-url',
+    });
+  });
+
+  it('should handle page metadata', () => {
+    expect(
+      resolveMetadata(
+        { title: 'Site title', description: 'Site description' },
+        { title: 'Page title', description: 'Page description' },
+      ),
+    ).toEqual({
+      title: 'Page title | Site title',
+      description: 'Page description',
+      siteName: 'Site title — Site description',
+      imageUrl: undefined,
+    });
+  });
+
+  it('should handle page metadata with an image', () => {
+    expect(
+      resolveMetadata(
+        { title: 'Title', description: 'Description' },
+        { title: 'Title', description: 'Description', imageUrl: 'page-image' },
+      ),
+    ).toMatchObject({
+      imageUrl: 'page-image',
+    });
+  });
+
+  it('should prefer the page image', () => {
+    expect(
+      resolveMetadata(
+        { title: 'Title', description: 'Description', imageUrl: 'site-image' },
+        { title: 'Title', description: 'Description', imageUrl: 'page-image' },
+      ),
+    ).toMatchObject({
+      imageUrl: 'page-image',
+    });
   });
 });
