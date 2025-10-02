@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.34.0 (2025-10-02)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+## What's Changed
+### 🌟 Enhancements
+* feat: site metadata article by @jrasm91 in https://github.com/immich-app/ui/pull/296
+### 🐛 Bug fixes
+* fix: site metadata by @jrasm91 in https://github.com/immich-app/ui/pull/295
+
+
+**Full Changelog**: https://github.com/immich-app/ui/compare/v0.33.0...v0.34.0
+
 ## [0.33.0](https://github.com/immich-app/ui/compare/v0.32.0...v0.33.0) (2025-09-30)
 
 
