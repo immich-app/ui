@@ -1,4 +1,5 @@
 import { isExternalLink, resolveMetadata, resolveUrl } from '$lib/utilities/common.js';
+import { DateTime } from 'luxon';
 import { describe, expect, it } from 'vitest';
 
 describe('isExternalLink', () => {
@@ -44,6 +45,7 @@ describe('resolve', () => {
 describe(resolveMetadata.name, () => {
   it('should handle site metadata', () => {
     expect(resolveMetadata({ title: 'Title', description: 'Description' })).toEqual({
+      type: 'website',
       title: 'Title',
       description: 'Description',
       siteName: 'Title',
@@ -64,6 +66,7 @@ describe(resolveMetadata.name, () => {
         { title: 'Page title', description: 'Page description' },
       ),
     ).toEqual({
+      type: 'website',
       title: 'Page title | Site title',
       description: 'Page description',
       siteName: 'Site title — Site description',
@@ -90,6 +93,18 @@ describe(resolveMetadata.name, () => {
       ),
     ).toMatchObject({
       imageUrl: 'page-image',
+    });
+  });
+
+  it('should detect an article', () => {
+    expect(
+      resolveMetadata(
+        { title: 'Title', description: 'Description' },
+        { title: 'Article title', description: 'Article description' },
+        { publishedTime: DateTime.fromObject({ year: 2025, month: 1, day: 1 }) },
+      ),
+    ).toMatchObject({
+      type: 'article',
     });
   });
 });

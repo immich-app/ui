@@ -48,6 +48,7 @@
     "@tailwindcss/postcss": "^4.1.7",
     "@tailwindcss/vite": "^4.1.7",
     "@types/eslint": "^9.6.0",
+    "@types/luxon": "^3.7.1",
     "autoprefixer": "^10.4.20",
     "eslint": "^9.7.0",
     "eslint-config-prettier": "^10.0.0",
@@ -69,6 +70,7 @@
   "dependencies": {
     "@mdi/js": "^7.4.47",
     "bits-ui": "^2.9.8",
+    "luxon": "^3.7.2",
     "simple-icons": "^15.14.0",
     "tailwind-merge": "^3.0.0",
     "tailwind-variants": "^3.0.0"
