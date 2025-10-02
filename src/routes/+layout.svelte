@@ -4,6 +4,7 @@
   import Navbar from '$docs/components/Navbar.svelte';
   import { componentGroups } from '$docs/constants.js';
   import { asComponentHref } from '$docs/utilities.js';
+  import '$lib/theme/default.css';
   import {
     AppShell,
     AppShellHeader,
@@ -23,7 +24,6 @@
     ThemeSwitcher,
     toggleTheme,
   } from '@immich/ui';
-  import '@immich/ui/theme/default.css';
   import { mdiHome, mdiHomeOutline, mdiMagnify, mdiThemeLightDark } from '@mdi/js';
   import { MediaQuery } from 'svelte/reactivity';
   import '../app.css';

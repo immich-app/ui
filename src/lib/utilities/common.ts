@@ -27,3 +27,23 @@ export const resolveUrl = (url: string, currentHostname?: string) => {
 export const isExternalLink = (href: string): boolean => {
   return !(href.startsWith('/') || href.startsWith('#'));
 };
+
+export type Metadata = {
+  title: string;
+  description: string;
+  imageUrl?: string;
+};
+
+export const resolveMetadata = (site: Metadata, page?: Metadata) => {
+  const title = page ? `${page.title} | ${site.title}` : site.title;
+  const description = page?.description ?? site.description;
+  const imageUrl = page?.imageUrl ?? site?.imageUrl;
+  const siteName = page ? `${site.title} — ${site.description}` : site.title;
+
+  return {
+    siteName,
+    title,
+    description,
+    imageUrl,
+  };
+};
