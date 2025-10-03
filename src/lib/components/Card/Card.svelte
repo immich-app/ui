@@ -32,7 +32,7 @@
   }: Props = $props();
 
   const containerStyles = tv({
-    base: 'w-full overflow-hidden shadow-sm',
+    base: 'flex w-full overflow-hidden shadow-sm',
     variants: {
       shape: {
         rectangle: '',
@@ -46,7 +46,7 @@
   });
 
   const cardStyles = tv({
-    base: 'flex h-full w-full flex-col',
+    base: 'flex grow flex-col',
     variants: {
       color: {
         primary: 'bg-primary/25 dark:bg-primary/25',
