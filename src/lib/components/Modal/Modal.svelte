@@ -82,15 +82,19 @@
   };
 
   let cardRef = $state<HTMLElement | null>(null);
-
+  let contentRef = $state<HTMLElement | null>(null);
+  $effect(() => {
+    contentRef && (contentRef.style.maxHeight = '100dvh');
+  });
   const interactOutsideBehavior = $derived(closeOnBackdropClick ? 'close' : 'ignore');
   const escapeKeydownBehavior = $derived(closeOnEsc ? 'close' : 'ignore');
 </script>
 
 <Dialog.Root open={true} onOpenChange={(isOpen: boolean) => !isOpen && handleClose()}>
   <Dialog.Portal>
-    <Dialog.Overlay class="fixed start-0 top-0 flex h-dvh w-screen bg-black/30" />
+    <Dialog.Overlay class="fixed start-0 top-0 flex h-dvh max-h-dvh w-screen bg-black/30" />
     <Dialog.Content
+      bind:ref={contentRef}
       {onEscapeKeydown}
       {escapeKeydownBehavior}
       {interactOutsideBehavior}
