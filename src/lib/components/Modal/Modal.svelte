@@ -55,7 +55,7 @@
   });
 
   const modalContentStyles = tv({
-    base: 'fixed inset-0 m-auto flex grow sm:p-4',
+    base: 'fixed inset-0 m-auto flex max-h-dvh grow sm:p-4',
     variants: {
       size: {
         tiny: 'sm:h-min md:max-w-sm',
@@ -82,10 +82,7 @@
   };
 
   let cardRef = $state<HTMLElement | null>(null);
-  let contentRef = $state<HTMLElement | null>(null);
-  $effect(() => {
-    contentRef && (contentRef.style.maxHeight = '100dvh');
-  });
+
   const interactOutsideBehavior = $derived(closeOnBackdropClick ? 'close' : 'ignore');
   const escapeKeydownBehavior = $derived(closeOnEsc ? 'close' : 'ignore');
 </script>
@@ -94,7 +91,6 @@
   <Dialog.Portal>
     <Dialog.Overlay class="fixed start-0 top-0 flex h-dvh max-h-dvh w-screen bg-black/30" />
     <Dialog.Content
-      bind:ref={contentRef}
       {onEscapeKeydown}
       {escapeKeydownBehavior}
       {interactOutsideBehavior}
