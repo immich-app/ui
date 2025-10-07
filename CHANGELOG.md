@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.34.2 (2025-10-07)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+## What's Changed
+### 🐛 Bug fixes
+* fix: move svelte-hightlight from dev to actual dependency by @midzelis in https://github.com/immich-app/ui/pull/299
+
+
+**Full Changelog**: https://github.com/immich-app/ui/compare/v0.34.1...v0.34.2
+
 ## 0.34.1 (2025-10-07)
 
 <!-- Release notes generated using configuration in .github/release.yml at main -->
