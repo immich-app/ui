@@ -60,7 +60,6 @@
     "publint": "^0.3.0",
     "svelte": "^5.37.0",
     "svelte-check": "^4.0.0",
-    "svelte-highlight": "^7.8.4",
     "tailwindcss": "^4.1.7",
     "typescript": "^5.0.0",
     "typescript-eslint": "^8.34.1",
@@ -68,6 +67,7 @@
     "vitest": "^3.0.0"
   },
   "dependencies": {
+    "svelte-highlight": "^7.8.4",
     "@mdi/js": "^7.4.47",
     "bits-ui": "^2.9.8",
     "luxon": "^3.7.2",
