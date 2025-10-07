@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.34.1 (2025-10-07)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+
+## New Contributors
+* @midzelis made their first contribution in https://github.com/immich-app/ui/pull/297
+
+**Full Changelog**: https://github.com/immich-app/ui/compare/v0.34.0...v0.34.1
+
 ## 0.34.0 (2025-10-02)
 
 <!-- Release notes generated using configuration in .github/release.yml at main -->
