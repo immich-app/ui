@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.35.0 (2025-10-08)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+## What's Changed
+### 🚀 Features
+* feat: expose openCount on ModalManager by @midzelis in https://github.com/immich-app/ui/pull/301
+
+
+**Full Changelog**: https://github.com/immich-app/ui/compare/v0.34.2...v0.35.0
+
 ## 0.34.2 (2025-10-07)
 
 <!-- Release notes generated using configuration in .github/release.yml at main -->
