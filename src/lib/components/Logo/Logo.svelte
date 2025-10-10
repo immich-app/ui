@@ -5,6 +5,8 @@
   import inlineLight from '$lib/assets/immich-logo-inline-light.svg';
   import stackedDark from '$lib/assets/immich-logo-stacked-dark.svg';
   import stackedLight from '$lib/assets/immich-logo-stacked-light.svg';
+  import footerLight from '$lib/assets/footer-light.svg';
+  import footerDark from '$lib/assets/footer-dark.svg';
   import icon from '$lib/assets/immich-logo.svg';
   import { theme } from '$lib/services/theme.svelte.js';
   import { Theme, type Size } from '$lib/types.js';
@@ -13,7 +15,7 @@
 
   type Props = {
     size?: Size | 'landing';
-    variant?: 'stacked' | 'inline' | 'logo' | 'icon' | 'stacked-futo';
+    variant?: 'stacked' | 'inline' | 'logo' | 'icon' | 'stacked-futo' | 'footer';
     class?: string;
   };
 
@@ -31,6 +33,10 @@
 
       case 'stacked-futo': {
         return theme.value === Theme.Light ? futoLight : futoDark;
+      }
+
+      case 'footer': {
+        return theme.value === Theme.Light ? footerLight : footerDark;
       }
 
       default: {
@@ -54,6 +60,7 @@
         stacked: '',
         inline: '',
         'stacked-futo': '',
+        footer: '',
         logo: 'bg-light aspect-square rounded-full shadow-lg',
         icon: 'aspect-square',
       },
