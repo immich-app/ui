@@ -3,6 +3,7 @@
   import Icon from '$lib/components/Icon/Icon.svelte';
   import Link from '$lib/components/Link/Link.svelte';
   import type { IconProps } from '$lib/types.js';
+  import { mdiOpenInNew } from '@mdi/js';
   import { tv } from 'tailwind-variants';
 
   type Props = {
@@ -13,11 +14,21 @@
     isActive?: () => boolean;
     icon?: string | IconProps;
     activeIcon?: string | IconProps;
+    external?: boolean;
   };
 
   const startsWithHref = () => page.url.pathname.startsWith(href);
 
-  let { href, isActive: isActiveOverride, title, variant, active: activeOverride, icon, activeIcon }: Props = $props();
+  let {
+    href,
+    isActive: isActiveOverride,
+    title,
+    variant,
+    active: activeOverride,
+    icon,
+    activeIcon,
+    external,
+  }: Props = $props();
 
   const isActive = isActiveOverride ?? startsWithHref;
   let active = $derived(activeOverride ?? isActive());
@@ -56,5 +67,8 @@
       />
     {/if}
     <span class="text-sm font-medium">{title}</span>
+    {#if external}
+      <Icon icon={mdiOpenInNew} aria-hidden />
+    {/if}
   </div>
 </Link>
