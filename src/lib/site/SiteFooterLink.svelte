@@ -13,9 +13,9 @@
   let { href, icon, text }: Props = $props();
 </script>
 
-<Link {href}>
+<Link {href} underline={false} class="text-dark/90 hover:text-primary transition-colors">
   <HStack>
-    <Icon {icon} size="1.5em" />
+    <Icon {icon} size="1.2em" />
     <Text>{text}</Text>
   </HStack>
 </Link>
