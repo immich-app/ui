@@ -13,3 +13,9 @@ export enum ChildKey {
   ModalBody = 'modal-body',
   ModalFooter = 'modal-footer',
 }
+
+export const zIndex = {
+  AppShellSidebar: 'z-30',
+  ModalBackdrop: 'z-40',
+  ModalContent: 'z-50',
+};
