@@ -14,6 +14,7 @@ export { default as playStoreBadge } from '$lib/assets/playstore-badge.png';
 
 // components
 export { default as Alert } from '$lib/components/Alert/Alert.svelte';
+export { default as AnnouncementBanner } from '$lib/components/AnnouncementBanner/AnnouncementBanner.svelte';
 export { default as AppShell } from '$lib/components/AppShell/AppShell.svelte';
 export { default as AppShellHeader } from '$lib/components/AppShell/AppShellHeader.svelte';
 export { default as AppShellSidebar } from '$lib/components/AppShell/AppShellSidebar.svelte';

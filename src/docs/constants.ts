@@ -6,6 +6,8 @@ import {
   mdiAlertCircleOutline,
   mdiApplication,
   mdiApplicationOutline,
+  mdiBullhornVariant,
+  mdiBullhornVariantOutline,
   mdiButtonCursor,
   mdiCard,
   mdiCardOutline,
@@ -73,6 +75,7 @@ export const componentGroups = [
     title: 'Layout',
     components: [
       { name: 'Alert', icon: mdiAlertCircleOutline, activeIcon: mdiAlertCircle },
+      { name: 'AnnouncementBanner', icon: mdiBullhornVariantOutline, activeIcon: mdiBullhornVariant },
       { name: 'AppShell', icon: mdiApplicationOutline, activeIcon: mdiApplication },
       { name: 'Card', icon: mdiCardOutline, activeIcon: mdiCard },
       { name: 'Container', icon: mdiSquareOutline, activeIcon: mdiSquare },

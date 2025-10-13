@@ -1,6 +1,7 @@
 <script lang="ts">
   import Icon from '$lib/components/Icon/Icon.svelte';
   import LoadingSpinner from '$lib/components/LoadingSpinner/LoadingSpinner.svelte';
+  import { styleVariants } from '$lib/styles.js';
   import type { ButtonProps, Size } from '$lib/types.js';
   import { isExternalLink, resolveUrl } from '$lib/utilities/common.js';
   import { cleanClass } from '$lib/utilities/internal.js';
@@ -56,13 +57,7 @@
         large: 'px-8 py-2.5',
         giant: 'px-10 py-3',
       },
-      textSize: {
-        tiny: 'text-xs',
-        small: 'text-sm',
-        medium: 'text-base',
-        large: 'text-lg',
-        giant: 'text-xl',
-      },
+      textSize: styleVariants.textSize,
       iconSize: {
         tiny: 'h-6 w-6',
         small: 'h-8 w-8',
