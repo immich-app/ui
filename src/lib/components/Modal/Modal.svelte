@@ -8,7 +8,7 @@
   import CloseButton from '$lib/components/CloseButton/CloseButton.svelte';
   import Icon from '$lib/components/Icon/Icon.svelte';
   import Logo from '$lib/components/Logo/Logo.svelte';
-  import { ChildKey } from '$lib/constants.js';
+  import { ChildKey, zIndex } from '$lib/constants.js';
   import type { ModalSize } from '$lib/types.js';
   import { cleanClass } from '$lib/utilities/internal.js';
   import { Dialog } from 'bits-ui';
@@ -41,7 +41,7 @@
   }: Props = $props();
 
   const modalStyles = tv({
-    base: 'bg-light dark:bg-subtle border-subtle shadow-primary/20 flex rounded-none border shadow-sm sm:rounded-2xl dark:border-white/10',
+    base: `bg-light dark:bg-subtle border-subtle shadow-primary/20 flex rounded-none border shadow-sm sm:rounded-2xl dark:border-white/10`,
     variants: {
       size: {
         tiny: 'h-full sm:h-min md:max-w-sm',
@@ -55,7 +55,7 @@
   });
 
   const modalContentStyles = tv({
-    base: 'fixed inset-0 m-auto flex max-h-dvh grow sm:p-4',
+    base: `${zIndex.ModalContent} fixed inset-0 m-auto flex max-h-dvh grow sm:p-4`,
     variants: {
       size: {
         tiny: 'sm:h-min md:max-w-sm',
@@ -89,7 +89,7 @@
 
 <Dialog.Root open={true} onOpenChange={(isOpen: boolean) => !isOpen && handleClose()}>
   <Dialog.Portal>
-    <Dialog.Overlay class="fixed start-0 top-0 flex h-dvh max-h-dvh w-screen bg-black/30" />
+    <Dialog.Overlay class="{zIndex.ModalBackdrop} fixed start-0 top-0  flex h-dvh max-h-dvh w-screen bg-black/30" />
     <Dialog.Content
       {onEscapeKeydown}
       {escapeKeydownBehavior}
