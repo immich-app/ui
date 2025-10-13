@@ -20,8 +20,8 @@
   import { siAndroid, siApple, siDiscord, siGithub, siReddit } from 'simple-icons';
 </script>
 
-<div class="mt-16 rounded-t-md bg-gray-50 p-8 lg:p-0 dark:bg-neutral-900">
-  <div class="mx-auto max-w-(--breakpoint-lg) xl:py-8">
+<div class="mt-16 rounded-t-md bg-gray-50 p-8 lg:p-4 lg:py-8 dark:bg-neutral-900">
+  <div class="mx-auto max-w-(--breakpoint-lg)">
     <Stack gap={8}>
       <div class="place-center grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-5">
         <Stack>
@@ -62,7 +62,7 @@
 
       <hr />
 
-      <VStack class="text-center">
+      <VStack>
         <Text size="large">This project is available under GNU AGPL v3 license.</Text>
         <Text color="muted" variant="italic">Privacy should not be a luxury</Text>
       </VStack>
