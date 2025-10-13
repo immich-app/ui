@@ -7,7 +7,10 @@ export const Constants = {
     Github: 'https://github.com/immich-app/immich',
     Discord: 'https://discord.immich.app/',
     Reddit: 'https://www.reddit.com/r/immich/',
+    Rss: 'https://immich.app/blog/feed.xml',
     Weblate: 'https://hosted.weblate.org/projects/immich/immich/',
+    X: 'https://x.com/immichapp',
+    YouTube: 'https://www.youtube.com/@immich-app',
   },
   Get: {
     iOS: 'https://get.immich.app/ios',
