@@ -1,5 +1,22 @@
 # Changelog
 
+## 0.36.0 (2025-10-13)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+## What's Changed
+### 🚀 Features
+* feat: announcement bar by @jrasm91 in https://github.com/immich-app/ui/pull/306
+### 🌟 Enhancements
+* chore: footer style tweak by @alextran1502 in https://github.com/immich-app/ui/pull/304
+* fix: simpler footer by @jrasm91 in https://github.com/immich-app/ui/pull/309
+### 🐛 Bug fixes
+* fix: z-index by @jrasm91 in https://github.com/immich-app/ui/pull/307
+* fix: site-footer by @jrasm91 in https://github.com/immich-app/ui/pull/308
+
+
+**Full Changelog**: https://github.com/immich-app/ui/compare/v0.35.0...v0.36.0
+
 ## 0.35.0 (2025-10-08)
 
 <!-- Release notes generated using configuration in .github/release.yml at main -->
