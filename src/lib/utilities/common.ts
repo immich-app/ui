@@ -1,5 +1,5 @@
 import { env } from '$env/dynamic/public';
-import { DateTime } from 'luxon';
+import type { DateTime } from 'luxon';
 
 const getImmichApp = (host: string | undefined) => {
   if (!host || !host.endsWith('immich.app')) {
