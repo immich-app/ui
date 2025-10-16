@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.36.2 (2025-10-16)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+
+
+**Full Changelog**: https://github.com/immich-app/ui/compare/v0.36.1...v0.36.2
+
 ## 0.36.1 (2025-10-16)
 
 <!-- Release notes generated using configuration in .github/release.yml at main -->
