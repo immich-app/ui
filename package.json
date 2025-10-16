@@ -2,6 +2,10 @@
   "name": "@immich/ui",
   "version": "0.36.0",
   "license": "GNU Affero General Public License version 3",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/immich-app/ui.git"
+  },
   "scripts": {
     "create": "node scripts/create.js",
     "start": "npm run start:dev",
