@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.36.3 (2025-10-16)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+## What's Changed
+### 🐛 Bug fixes
+* fix: publish workflow by @jrasm91 in https://github.com/immich-app/ui/pull/316
+
+
+**Full Changelog**: https://github.com/immich-app/ui/compare/v0.36.2...v0.36.3
+
 ## 0.36.2 (2025-10-16)
 
 <!-- Release notes generated using configuration in .github/release.yml at main -->
