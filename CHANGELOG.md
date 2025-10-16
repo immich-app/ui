@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.36.4 (2025-10-16)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+## What's Changed
+### 🐛 Bug fixes
+* fix: npm version by @jrasm91 in https://github.com/immich-app/ui/pull/318
+
+
+**Full Changelog**: https://github.com/immich-app/ui/compare/v0.36.3...v0.36.4
+
 ## 0.36.3 (2025-10-16)
 
 <!-- Release notes generated using configuration in .github/release.yml at main -->
