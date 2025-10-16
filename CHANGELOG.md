@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.36.1 (2025-10-16)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+## What's Changed
+### 🌟 Enhancements
+* chore: npm trusted publisher by @jrasm91 in https://github.com/immich-app/ui/pull/312
+
+## New Contributors
+* @sacrosanctic made their first contribution in https://github.com/immich-app/ui/pull/311
+
+**Full Changelog**: https://github.com/immich-app/ui/compare/v0.36.0...v0.36.1
+
 ## 0.36.0 (2025-10-13)
 
 <!-- Release notes generated using configuration in .github/release.yml at main -->
