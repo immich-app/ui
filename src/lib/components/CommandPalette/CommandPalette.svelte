@@ -58,11 +58,11 @@
 
 <svelte:window
   use:shortcuts={[
-    { shortcut: { key: 'k', meta: true }, preventDefault: true, onShortcut: handleOpen },
-    { shortcut: { key: 'k', ctrl: true }, preventDefault: true, onShortcut: handleOpen },
+    { shortcut: { key: 'k', meta: true }, onShortcut: handleOpen },
+    { shortcut: { key: 'k', ctrl: true }, onShortcut: handleOpen },
     { shortcut: { key: '/' }, preventDefault: true, onShortcut: handleOpen },
-    { shortcut: { key: 'ArrowUp' }, ignoreInputFields: false, onShortcut: handleUp },
-    { shortcut: { key: 'ArrowDown' }, ignoreInputFields: false, onShortcut: handleDown },
+    { shortcut: { key: 'ArrowUp' }, preventDefault: false, ignoreInputFields: false, onShortcut: handleUp },
+    { shortcut: { key: 'ArrowDown' }, preventDefault: false, ignoreInputFields: false, onShortcut: handleDown },
     { shortcut: { key: 'k', ctrl: true }, ignoreInputFields: false, onShortcut: handleUp },
     { shortcut: { key: 'k', meta: true }, ignoreInputFields: false, onShortcut: handleUp },
     { shortcut: { key: 'j', ctrl: true }, ignoreInputFields: false, onShortcut: handleDown },

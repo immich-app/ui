@@ -1,9 +1,8 @@
 <script lang="ts">
   import ComponentDescription from '$docs/components/ComponentDescription.svelte';
   import ComponentExamples from '$docs/components/ComponentExamples.svelte';
+  import ComponentLink from '$docs/components/ComponentLink.svelte';
   import ComponentPage from '$docs/components/ComponentPage.svelte';
-  import { asComponentHref } from '$docs/utilities.js';
-  import { Link } from '@immich/ui';
   import BasicExample from './BasicExample.svelte';
   import basicExample from './BasicExample.svelte?raw';
   import ColorExample from './ColorExample.svelte';
@@ -21,9 +20,7 @@
 </script>
 
 <ComponentPage name="IconButton">
-  <ComponentDescription
-    >An icon-only version of the <Link href={asComponentHref('Button')}>Button</Link> component</ComponentDescription
-  >
+  <ComponentDescription>An icon-only version of the <ComponentLink name="Button" /> component</ComponentDescription>
   <ComponentExamples
     examples={[
       { title: 'Basic', code: basicExample, component: BasicExample },
