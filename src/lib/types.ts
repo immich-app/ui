@@ -116,25 +116,26 @@ export type FieldContext = {
   readOnly?: boolean;
 } & LabelProps;
 
-type BaseInputProps = {
+type BaseInputProps<T> = {
   ref?: HTMLInputElement | null;
   class?: string;
-  value?: string;
   size?: Size;
+  value?: T;
   shape?: Shape;
   inputSize?: HTMLInputAttributes['size'];
-} & Omit<HTMLInputAttributes, 'size' | 'type'>;
-
-export type InputProps = BaseInputProps & {
-  containerRef?: HTMLElement | null;
-  type?: HTMLInputAttributes['type'];
   leadingIcon?: IconLike | Snippet;
   trailingIcon?: IconLike | Snippet;
   trailingText?: string;
+  containerRef?: HTMLElement | null;
+} & Omit<HTMLInputAttributes, 'size' | 'type' | 'value'>;
+
+export type InputProps = BaseInputProps<string> & {
+  type?: HTMLInputAttributes['type'];
 };
 
-export type PasswordInputProps = BaseInputProps & {
-  ref?: HTMLInputElement | null;
+export type NumberInputProps = BaseInputProps<number>;
+
+export type PasswordInputProps = BaseInputProps<string> & {
   translations?: TranslationProps<'show_password' | 'hide_password'>;
   isVisible?: boolean;
 };

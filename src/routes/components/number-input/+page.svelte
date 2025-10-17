@@ -8,9 +8,11 @@
   import basicExample from './BasicExample.svelte?raw';
 </script>
 
-<ComponentPage name="ConfirmModal" description="A specialized modal for confirming user actions">
+<ComponentPage name="Input" description="Accept number input from the user">
   <ComponentTipCard>
-    <Text>See <ComponentLink name="Modal" /> for more complex modals</Text>
+    <Text>
+      See <ComponentLink name="Input" /> for more information about states, shapes, sizes, and more.
+    </Text>
   </ComponentTipCard>
   <ComponentExamples examples={[{ title: 'Basic', code: basicExample, component: BasicExample }]} />
 </ComponentPage>
