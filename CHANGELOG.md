@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.37.0 (2025-10-17)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+## What's Changed
+### 🚀 Features
+* feat: number input by @jrasm91 in https://github.com/immich-app/ui/pull/323
+### 🌟 Enhancements
+* feat: auto-expire announcements by @jrasm91 in https://github.com/immich-app/ui/pull/322
+
+
+**Full Changelog**: https://github.com/immich-app/ui/compare/v0.36.4...v0.37.0
+
 ## 0.36.4 (2025-10-16)
 
 <!-- Release notes generated using configuration in .github/release.yml at main -->
