@@ -9,16 +9,18 @@
     class?: string;
     children: Snippet;
     open?: boolean;
+    bordered?: boolean;
   };
 
-  let { class: className, children, open = $bindable(true) }: Props = $props();
+  let { class: className, children, open = $bindable(true), bordered = true }: Props = $props();
 </script>
 
 <Child for={ChildKey.AppShell} as={ChildKey.AppShellSidebar}>
   <Scrollable
     class={cleanClass(
-      'bg-light text-dark absolute shrink-0 border-e shadow-lg transition-all duration-200 md:relative',
+      'bg-light text-dark absolute shrink-0 shadow-sm transition-all duration-200 md:relative',
       open ? `${zIndex.AppShellSidebar} w-[min(100vw,16rem)]` : 'w-[0px] border-e-0',
+      bordered ? ' border-e' : '',
       className,
     )}
   >
