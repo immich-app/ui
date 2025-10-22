@@ -133,7 +133,7 @@ export type InputProps = BaseInputProps<string> & {
   type?: HTMLInputAttributes['type'];
 };
 
-export type NumberInputProps = BaseInputProps<number>;
+export type NumberInputProps = BaseInputProps<number | undefined>;
 
 export type PasswordInputProps = BaseInputProps<string> & {
   translations?: TranslationProps<'show_password' | 'hide_password'>;
