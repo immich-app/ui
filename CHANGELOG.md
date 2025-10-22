@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.37.1 (2025-10-22)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+## What's Changed
+### 🐛 Bug fixes
+* fix: map empty string to undefined in number inputs by @jrasm91 in https://github.com/immich-app/ui/pull/330
+
+
+**Full Changelog**: https://github.com/immich-app/ui/compare/v0.37.0...v0.37.1
+
 ## 0.37.0 (2025-10-20)
 
 <!-- Release notes generated using configuration in .github/release.yml at main -->
