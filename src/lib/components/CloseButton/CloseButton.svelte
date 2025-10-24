@@ -4,7 +4,13 @@
   import type { CloseButtonProps } from '$lib/types.js';
   import { mdiClose } from '@mdi/js';
 
-  const { size = 'medium', variant = 'ghost', translations, ...restProps }: CloseButtonProps = $props();
+  const {
+    size = 'medium',
+    variant = 'ghost',
+    color = 'secondary',
+    translations,
+    ...restProps
+  }: CloseButtonProps = $props();
 </script>
 
 <IconButton
@@ -13,6 +19,6 @@
   shape="round"
   {variant}
   {size}
-  color="secondary"
+  {color}
   aria-label={t('close', translations)}
 />
