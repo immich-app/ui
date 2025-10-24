@@ -18,4 +18,5 @@ export const zIndex = {
   AppShellSidebar: 'z-30',
   ModalBackdrop: 'z-40',
   ModalContent: 'z-50',
+  ToastPanel: 'z-60',
 };

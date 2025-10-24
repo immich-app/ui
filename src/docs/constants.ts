@@ -36,6 +36,8 @@ import {
   mdiListBox,
   mdiListBoxOutline,
   mdiMenu,
+  mdiMessageAlert,
+  mdiMessageAlertOutline,
   mdiNumeric,
   mdiPanVertical,
   mdiPartyPopper,
@@ -84,6 +86,7 @@ export const componentGroups = [
       { name: 'ConfirmModal', icon: mdiCheckboxOutline },
       { name: 'Scrollable', icon: mdiPanVertical },
       { name: 'Stack', icon: mdiViewSequentialOutline, activeIcon: mdiViewSequential },
+      { name: 'Toast', icon: mdiMessageAlertOutline, activeIcon: mdiMessageAlert },
     ],
   },
   {
