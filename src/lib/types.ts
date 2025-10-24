@@ -1,7 +1,8 @@
 import type { Translations } from '$lib/services/translation.svelte.js';
-import type { Snippet } from 'svelte';
+import type { Component, Snippet } from 'svelte';
 import type {
   HTMLAnchorAttributes,
+  HTMLAttributes,
   HTMLButtonAttributes,
   HTMLInputAttributes,
   HTMLLabelAttributes,
@@ -20,6 +21,7 @@ export type HeadingSize = Size | 'title';
 export type HeadingTag = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p';
 export type Shape = 'rectangle' | 'semi-round' | 'round';
 export type Variants = 'filled' | 'outline' | 'ghost';
+export type ToastVariant = 'filled' | 'outline';
 export type Gap = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 
 export enum Theme {
@@ -175,4 +177,59 @@ export type SelectProps<T extends SelectItem> = SelectCommonProps<T> & {
 export type MultiSelectProps<T extends SelectItem> = SelectCommonProps<T> & {
   values?: T[];
   onChange?: (values: T[]) => void;
+};
+
+export type ToastId = { id: string };
+
+type ToastCommonProps = {
+  color?: Color;
+  variant?: ToastVariant;
+};
+
+export type ToastContentProps = ToastCommonProps & {
+  title?: string | Snippet;
+  description?: string | Snippet;
+  icon?: IconLike | false;
+  onClose?: () => void;
+  children?: Snippet;
+};
+
+export type ToastContainerProps = ToastCommonProps & {
+  shape?: Shape;
+  size?: ContainerSize;
+} & Omit<HTMLAttributes<HTMLElement>, 'title' | 'color' | 'size'>;
+
+export type ToastProps = ToastContentProps & ToastContainerProps;
+
+type Closable = { onClose: () => void };
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type ToastCustom<T extends Closable = any> = {
+  component: Component<T>;
+  props: T;
+};
+
+export type ToastShow = {
+  title: string;
+  description?: string;
+  color?: Color;
+  shape?: Shape;
+  size?: ContainerSize;
+  variant?: ToastVariant;
+};
+
+export type ToastOptions = {
+  id?: string;
+  timeout?: number;
+  closable?: boolean;
+};
+
+export type ToastItem = ToastProps | ToastCustom;
+
+export type ToastButton = {
+  label: string;
+  size?: Size;
+  color?: Color;
+  shape?: Shape;
+  variant?: Variants;
+  onClick: () => void;
 };

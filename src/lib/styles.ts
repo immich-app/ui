@@ -20,6 +20,11 @@ export const styleVariants = {
     round: 'rounded-full',
   },
 
+  border: {
+    true: 'border',
+    false: '',
+  },
+
   borderColor: {
     primary: 'border-primary',
     secondary: 'border-dark',

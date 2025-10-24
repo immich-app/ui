@@ -5,7 +5,13 @@
   let { value = $bindable(), color = 'secondary', size, ...props }: NumberInputProps = $props();
 
   const getValue = () => (typeof value === 'number' ? String(value) : '');
-  const setValue = (newValue: string) => {
+  const setValue = (newValue: string | number | null) => {
+    if (typeof newValue === 'number') {
+      value = newValue;
+      return;
+    }
+
+    // empty string or null
     if (!newValue) {
       value = undefined;
       return;
