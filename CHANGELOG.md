@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.37.2 (2025-10-24)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+## What's Changed
+### 🐛 Bug fixes
+* fix: close button color by @jrasm91 in https://github.com/immich-app/ui/pull/335
+
+
+**Full Changelog**: https://github.com/immich-app/ui/compare/v0.37.1...v0.37.2
+
 ## 0.37.1 (2025-10-22)
 
 <!-- Release notes generated using configuration in .github/release.yml at main -->
