@@ -1,11 +1,15 @@
 <script lang="ts">
+  import ComponentSizes from '$docs/components/ComponentSizes.svelte';
   import { Stack, Text } from '@immich/ui';
 </script>
 
 <Stack>
-  <Text size="tiny">The quick brown fox jumps over the lazy dog</Text>
-  <Text size="small">The quick brown fox jumps over the lazy dog</Text>
-  <Text size="medium">The quick brown fox jumps over the lazy dog</Text>
-  <Text size="large">The quick brown fox jumps over the lazy dog</Text>
-  <Text size="giant">The quick brown fox jumps over the lazy dog</Text>
+  <ComponentSizes>
+    {#snippet child({ size, label })}
+      <div>
+        <Text class="mb-1" fontWeight="bold">{label}</Text>
+        <Text {size}>The quick brown fox jumps over the lazy dog</Text>
+      </div>
+    {/snippet}
+  </ComponentSizes>
 </Stack>

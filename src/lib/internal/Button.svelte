@@ -139,6 +139,19 @@
   {/if}
 {/snippet}
 
+{#snippet wrapper()}
+  {#if loading}
+    <div class="flex items-center justify-center gap-2">
+      <LoadingSpinner {color} size={spinnerSizes[size]} />
+      {#if !icon}
+        {@render content()}
+      {/if}
+    </div>
+  {:else}
+    {@render content()}
+  {/if}
+{/snippet}
+
 {#if href}
   {@const resolved = resolveUrl(href)}
   {@const external = isExternalLink(resolved)}
@@ -151,14 +164,7 @@
     rel={external ? 'noopener noreferrer' : undefined}
     {...restProps as HTMLAnchorAttributes}
   >
-    {#if loading}
-      <div class="flex items-center justify-center gap-2">
-        <LoadingSpinner {color} size={spinnerSizes[size]} />
-        {@render content()}
-      </div>
-    {:else}
-      {@render content()}
-    {/if}
+    {@render wrapper()}
   </a>
 {:else}
   <ButtonPrimitive.Root
@@ -169,13 +175,6 @@
     {disabled}
     aria-disabled={disabled}
   >
-    {#if loading}
-      <div class="flex items-center justify-center gap-2">
-        <LoadingSpinner {color} size={spinnerSizes[size]} />
-        {@render content()}
-      </div>
-    {:else}
-      {@render content()}
-    {/if}
+    {@render wrapper()}
   </ButtonPrimitive.Root>
 {/if}

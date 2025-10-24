@@ -1,11 +1,15 @@
 <script>
-  import { HStack, LoadingSpinner } from '@immich/ui';
+  import ComponentSizes from '$docs/components/ComponentSizes.svelte';
+  import { LoadingSpinner, Stack, Text } from '@immich/ui';
 </script>
 
-<HStack wrap>
-  <LoadingSpinner color="primary" size="tiny" />
-  <LoadingSpinner color="primary" size="small" />
-  <LoadingSpinner color="primary" size="medium" />
-  <LoadingSpinner color="primary" size="large" />
-  <LoadingSpinner color="primary" size="giant" />
-</HStack>
+<Stack>
+  <ComponentSizes>
+    {#snippet child({ size, label })}
+      <div>
+        <Text class="mb-1" fontWeight="bold">{label}</Text>
+        <LoadingSpinner color="primary" {size} />
+      </div>
+    {/snippet}
+  </ComponentSizes>
+</Stack>

@@ -1,41 +1,19 @@
 <script lang="ts">
-  import { Checkbox, HStack, Stack } from '@immich/ui';
+  import ComponentColors from '$docs/components/ComponentColors.svelte';
+  import { Checkbox, HStack, Stack, Text } from '@immich/ui';
 </script>
 
 <Stack>
-  <HStack>
-    <Checkbox color="primary" checked />
-    <Checkbox color="primary" />
-    <Checkbox color="primary" indeterminate />
-  </HStack>
-
-  <HStack>
-    <Checkbox color="secondary" checked />
-    <Checkbox color="secondary" />
-    <Checkbox color="secondary" indeterminate />
-  </HStack>
-
-  <HStack>
-    <Checkbox color="success" checked />
-    <Checkbox color="success" />
-    <Checkbox color="success" indeterminate />
-  </HStack>
-
-  <HStack>
-    <Checkbox color="info" checked />
-    <Checkbox color="info" />
-    <Checkbox color="info" indeterminate />
-  </HStack>
-
-  <HStack>
-    <Checkbox color="warning" checked />
-    <Checkbox color="warning" />
-    <Checkbox color="warning" indeterminate />
-  </HStack>
-
-  <HStack>
-    <Checkbox color="danger" checked />
-    <Checkbox color="danger" />
-    <Checkbox color="danger" indeterminate />
-  </HStack>
+  <ComponentColors>
+    {#snippet child({ color, label })}
+      <div>
+        <Text class="mb-1" fontWeight="bold">{label}</Text>
+        <HStack>
+          <Checkbox {color} checked />
+          <Checkbox {color} />
+          <Checkbox {color} indeterminate />
+        </HStack>
+      </div>
+    {/snippet}
+  </ComponentColors>
 </Stack>

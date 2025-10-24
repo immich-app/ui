@@ -1,13 +1,15 @@
 <script lang="ts">
+  import ComponentColors from '$docs/components/ComponentColors.svelte';
   import { Code, Stack, Text } from '@immich/ui';
 </script>
 
 <Stack>
-  <Text>Use <Code color="muted">console.log</Code> to print text to the console.</Text>
-  <Text>Use <Code color="primary">console.log</Code> to print text to the console.</Text>
-  <Text>Use <Code color="secondary">console.log</Code> to print text to the console.</Text>
-  <Text>Use <Code color="info">console.log</Code> to print text to the console.</Text>
-  <Text>Use <Code color="success">console.log</Code> to print text to the console.</Text>
-  <Text>Use <Code color="warning">console.log</Code> to print text to the console.</Text>
-  <Text>Use <Code color="danger">console.log</Code> to print text to the console.</Text>
+  <ComponentColors>
+    {#snippet child({ color, label })}
+      <div>
+        <Text class="mb-1" fontWeight="bold">{label}</Text>
+        <Text>Use <Code {color}>console.log</Code> to print text to the console.</Text>
+      </div>
+    {/snippet}
+  </ComponentColors>
 </Stack>

@@ -1,4 +1,5 @@
 <script lang="ts">
+  import ComponentColors from '$docs/components/ComponentColors.svelte';
   import { IconButton, HStack } from '@immich/ui';
   import { mdiMagnify } from '@mdi/js';
 
@@ -6,10 +7,9 @@
 </script>
 
 <HStack wrap>
-  <IconButton {icon} color="primary" aria-label="Primary" />
-  <IconButton {icon} color="secondary" aria-label="Secondary" />
-  <IconButton {icon} color="success" aria-label="Success" />
-  <IconButton {icon} color="info" aria-label="Info" />
-  <IconButton {icon} color="warning" aria-label="Warning" />
-  <IconButton {icon} color="danger" aria-label="Danger" />
+  <ComponentColors>
+    {#snippet child({ color, label })}
+      <IconButton {icon} {color} aria-label={label} />
+    {/snippet}
+  </ComponentColors>
 </HStack>

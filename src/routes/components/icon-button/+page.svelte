@@ -11,6 +11,8 @@
   import disabledExample from './DisabledExample.svelte?raw';
   import GhostExample from './GhostExample.svelte';
   import ghostExample from './GhostExample.svelte?raw';
+  import LoadingExample from './LoadingExample.svelte';
+  import loadingExample from './LoadingExample.svelte?raw';
   import OutlineExample from './OutlineExample.svelte';
   import outlineExample from './OutlineExample.svelte?raw';
   import ShapeExample from './ShapeExample.svelte';
@@ -29,6 +31,7 @@
       { title: 'Outline', code: outlineExample, component: OutlineExample },
       { title: 'Ghost', code: ghostExample, component: GhostExample },
       { title: 'Disabled', code: disabledExample, component: DisabledExample },
+      { title: 'Loading', code: loadingExample, component: LoadingExample },
       { title: 'Size', code: sizeExample, component: SizeExample },
     ]}
   />

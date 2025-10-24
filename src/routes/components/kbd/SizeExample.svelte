@@ -1,11 +1,15 @@
 <script lang="ts">
-  import { Kbd, Stack } from '@immich/ui';
+  import ComponentSizes from '$docs/components/ComponentSizes.svelte';
+  import { Kbd, Stack, Text } from '@immich/ui';
 </script>
 
 <Stack class="items-start">
-  <Kbd size="tiny">SHIFT+TAB</Kbd>
-  <Kbd size="small">SHIFT+TAB</Kbd>
-  <Kbd size="medium">SHIFT+TAB</Kbd>
-  <Kbd size="large">SHIFT+TAB</Kbd>
-  <Kbd size="giant">SHIFT+TAB</Kbd>
+  <ComponentSizes>
+    {#snippet child({ size, label })}
+      <div>
+        <Text class="mb-1" fontWeight="bold">{label}</Text>
+        <Kbd {size}>SHIFT+TAB</Kbd>
+      </div>
+    {/snippet}
+  </ComponentSizes>
 </Stack>

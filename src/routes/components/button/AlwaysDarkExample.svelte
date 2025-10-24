@@ -1,12 +1,12 @@
 <script lang="ts">
+  import ComponentColors from '$docs/components/ComponentColors.svelte';
   import { Button, HStack } from '@immich/ui';
 </script>
 
 <HStack wrap class="dark">
-  <Button color="primary">Primary</Button>
-  <Button color="secondary">Secondary</Button>
-  <Button color="success">Success</Button>
-  <Button color="info">Info</Button>
-  <Button color="warning">Warning</Button>
-  <Button color="danger">Danger</Button>
+  <ComponentColors>
+    {#snippet child({ color, label })}
+      <Button {color}>{label}</Button>
+    {/snippet}
+  </ComponentColors>
 </HStack>

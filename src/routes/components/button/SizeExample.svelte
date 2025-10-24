@@ -1,4 +1,5 @@
 <script lang="ts">
+  import ComponentSizes from '$docs/components/ComponentSizes.svelte';
   import { Button, Code, Heading } from '@immich/ui';
 </script>
 
@@ -6,40 +7,41 @@
   <!-- Size Column -->
   <div class="grid grid-cols-1 grid-rows-6 place-items-center justify-items-start gap-2">
     <Heading size="tiny">Size</Heading>
-    <Code size="tiny">Tiny</Code>
-    <Code size="tiny">Small</Code>
-    <Code size="tiny">Medium</Code>
-    <Code size="tiny">Large</Code>
-    <Code size="tiny">Giant</Code>
+    <ComponentSizes>
+      {#snippet child({ label })}
+        <Code size="tiny">{label}</Code>
+      {/snippet}
+    </ComponentSizes>
   </div>
 
   <!-- Round Column -->
   <div class="grid grid-cols-1 grid-rows-6 place-items-center justify-items-start gap-2">
     <Heading size="tiny">Round</Heading>
-    <Button shape="round" size="tiny">Click me</Button>
-    <Button shape="round" size="small">Click me</Button>
-    <Button shape="round" size="medium">Click me</Button>
-    <Button shape="round" size="large">Click me</Button>
-    <Button shape="round" size="giant">Click me</Button>
+
+    <ComponentSizes>
+      {#snippet child({ size })}
+        <Button shape="round" {size}>Click me</Button>
+      {/snippet}
+    </ComponentSizes>
   </div>
 
   <!-- Semi-Round Column -->
   <div class="grid grid-cols-1 grid-rows-6 place-items-center justify-items-start gap-2">
     <Heading size="tiny">Semi-Rounded</Heading>
-    <Button size="tiny">Click me</Button>
-    <Button size="small">Click me</Button>
-    <Button size="medium">Click me</Button>
-    <Button size="large">Click me</Button>
-    <Button size="giant">Click me</Button>
+    <ComponentSizes>
+      {#snippet child({ size })}
+        <Button shape="semi-round" {size}>Click me</Button>
+      {/snippet}
+    </ComponentSizes>
   </div>
 
   <!-- Rectangle Column -->
   <div class="grid grid-cols-1 grid-rows-6 place-items-center justify-items-start gap-2">
     <Heading size="tiny">Rectangle</Heading>
-    <Button shape="rectangle" size="tiny">Click me</Button>
-    <Button shape="rectangle" size="small">Click me</Button>
-    <Button shape="rectangle" size="medium">Click me</Button>
-    <Button shape="rectangle" size="large">Click me</Button>
-    <Button shape="rectangle" size="giant">Click me</Button>
+    <ComponentSizes>
+      {#snippet child({ size })}
+        <Button shape="rectangle" {size}>Click me</Button>
+      {/snippet}
+    </ComponentSizes>
   </div>
 </section>

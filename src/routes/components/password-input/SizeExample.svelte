@@ -1,11 +1,15 @@
 <script lang="ts">
-  import { PasswordInput, Stack } from '@immich/ui';
+  import ComponentSizes from '$docs/components/ComponentSizes.svelte';
+  import { PasswordInput, Stack, Text } from '@immich/ui';
 </script>
 
 <Stack>
-  <PasswordInput value="super-secret-password" placeholder="tiny" size="tiny" />
-  <PasswordInput value="super-secret-password" placeholder="small" size="small" />
-  <PasswordInput value="super-secret-password" placeholder="medium" size="medium" />
-  <PasswordInput value="super-secret-password" placeholder="large" size="large" />
-  <PasswordInput value="super-secret-password" placeholder="giant" size="giant" />
+  <ComponentSizes>
+    {#snippet child({ size, label })}
+      <div>
+        <Text class="mb-1" fontWeight="bold">{label}</Text>
+        <PasswordInput value="super-secret-password" placeholder={label} {size} />
+      </div>
+    {/snippet}
+  </ComponentSizes>
 </Stack>
