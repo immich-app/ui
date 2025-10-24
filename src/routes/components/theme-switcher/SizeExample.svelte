@@ -1,11 +1,15 @@
-<script lang="ts">
-  import { HStack, ThemeSwitcher } from '@immich/ui';
+<script>
+  import ComponentSizes from '$docs/components/ComponentSizes.svelte';
+  import { Stack, Text, ThemeSwitcher } from '@immich/ui';
 </script>
 
-<HStack>
-  <ThemeSwitcher size="tiny" />
-  <ThemeSwitcher size="small" />
-  <ThemeSwitcher size="medium" />
-  <ThemeSwitcher size="large" />
-  <ThemeSwitcher size="giant" />
-</HStack>
+<Stack>
+  <ComponentSizes>
+    {#snippet child({ size, label })}
+      <div>
+        <Text class="mb-1" fontWeight="bold">{label}</Text>
+        <ThemeSwitcher {size} />
+      </div>
+    {/snippet}
+  </ComponentSizes>
+</Stack>

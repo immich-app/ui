@@ -54,12 +54,12 @@ type ButtonBase = {
   class?: string;
   color?: Color;
   shape?: Shape;
+  loading?: boolean;
 };
 
 export type ButtonProps = ButtonBase & {
   ref?: HTMLElement | null;
   fullWidth?: boolean;
-  loading?: boolean;
   leadingIcon?: IconLike;
   trailingIcon?: IconLike;
 } & ButtonOrAnchor;

@@ -1,11 +1,15 @@
 <script lang="ts">
+  import ComponentSizes from '$docs/components/ComponentSizes.svelte';
   import { Code, Stack, Text } from '@immich/ui';
 </script>
 
 <Stack>
-  <Text>Use <Code size="tiny">console.log</Code> to print text to the console.</Text>
-  <Text>Use <Code size="small">console.log</Code> to print text to the console.</Text>
-  <Text>Use <Code size="medium">console.log</Code> to print text to the console.</Text>
-  <Text>Use <Code size="large">console.log</Code> to print text to the console.</Text>
-  <Text>Use <Code size="giant">console.log</Code> to print text to the console.</Text>
+  <ComponentSizes>
+    {#snippet child({ size, label })}
+      <div>
+        <Text class="mb-1" fontWeight="bold">{label}</Text>
+        <Text>Use <Code {size}>console.log</Code> to print text to the console.</Text>
+      </div>
+    {/snippet}
+  </ComponentSizes>
 </Stack>

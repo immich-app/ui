@@ -1,12 +1,15 @@
 <script lang="ts">
-  import { Stack, Switch } from '@immich/ui';
+  import ComponentColors from '$docs/components/ComponentColors.svelte';
+  import { Stack, Switch, Text } from '@immich/ui';
 </script>
 
 <Stack>
-  <Switch color="primary" checked />
-  <Switch color="secondary" checked />
-  <Switch color="success" checked />
-  <Switch color="info" checked />
-  <Switch color="warning" checked />
-  <Switch color="danger" checked />
+  <ComponentColors>
+    {#snippet child({ color, label })}
+      <div>
+        <Text class="mb-1" fontWeight="bold">{label}</Text>
+        <Switch {color} checked />
+      </div>
+    {/snippet}
+  </ComponentColors>
 </Stack>

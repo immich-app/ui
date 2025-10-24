@@ -1,10 +1,11 @@
 <script lang="ts">
-  import { Logo } from '@immich/ui';
+  import ComponentSizes from '$docs/components/ComponentSizes.svelte';
+  import { Logo, Text } from '@immich/ui';
 </script>
 
-<Logo size="tiny" variant="stacked" />
-<Logo size="small" variant="stacked" />
-<Logo size="medium" variant="stacked" />
-<Logo size="large" variant="stacked" />
-<Logo size="giant" variant="stacked" />
-<Logo size="landing" variant="stacked" />
+<ComponentSizes>
+  {#snippet child({ size, label })}
+    <Text class="mb-1" fontWeight="bold">{label}</Text>
+    <Logo {size} variant="stacked" />
+  {/snippet}
+</ComponentSizes>

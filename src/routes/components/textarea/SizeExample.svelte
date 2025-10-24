@@ -1,13 +1,17 @@
 <script lang="ts">
-  import { Stack, Textarea } from '@immich/ui';
+  import ComponentSizes from '$docs/components/ComponentSizes.svelte';
+  import { Stack, Text, Textarea } from '@immich/ui';
 
   const lorem = `The quick brown fox jumps over the lazy dog`;
 </script>
 
 <Stack>
-  <Textarea size="tiny" value={lorem}></Textarea>
-  <Textarea size="small" value={lorem}></Textarea>
-  <Textarea size="medium" value={lorem}></Textarea>
-  <Textarea size="large" value={lorem}></Textarea>
-  <Textarea size="giant" value={lorem}></Textarea>
+  <ComponentSizes>
+    {#snippet child({ size, label })}
+      <div>
+        <Text class="mb-1" fontWeight="bold">{label}</Text>
+        <Textarea {size} value={lorem}></Textarea>
+      </div>
+    {/snippet}
+  </ComponentSizes>
 </Stack>
