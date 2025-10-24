@@ -1,5 +1,6 @@
 <script lang="ts">
   import Text from '$lib/internal/Text.svelte';
+  import { styleVariants } from '$lib/styles.js';
   import type { FontWeight, Size, TextColor, TextVariant } from '$lib/types.js';
   import { cleanClass } from '$lib/utilities/internal.js';
   import type { Snippet } from 'svelte';
@@ -19,13 +20,7 @@
 
   const styles = tv({
     variants: {
-      size: {
-        tiny: 'text-xs',
-        small: 'text-sm',
-        medium: 'text-base',
-        large: 'text-lg',
-        giant: 'text-xl',
-      },
+      size: styleVariants.textSize,
     },
   });
 </script>

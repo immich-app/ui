@@ -38,7 +38,7 @@
   });
 
   const bar = tv({
-    base: 'h-8 w-13 rounded-full border border-2',
+    base: 'h-8 w-13 rounded-full border-2',
     variants: {
       fillColor: {
         default: 'border-gray-400 bg-gray-300 dark:border-gray-500 dark:bg-gray-400',

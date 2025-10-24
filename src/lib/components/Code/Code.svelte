@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { styleVariants } from '$lib/styles.js';
   import type { Size, TextColor } from '$lib/types.js';
   import { cleanClass } from '$lib/utilities/internal.js';
   import type { Snippet } from 'svelte';
@@ -58,13 +59,7 @@
         info: 'border-info text-info border',
       },
 
-      size: {
-        tiny: 'text-xs',
-        small: 'text-sm',
-        medium: 'text-base',
-        large: 'text-lg',
-        giant: 'text-xl',
-      },
+      size: styleVariants.textSize,
     },
   });
 </script>

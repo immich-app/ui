@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { styleVariants } from '$lib/styles.js';
   import type { FontWeight, HeadingColor, HeadingTag, Size, TextVariant } from '$lib/types.js';
   import { cleanClass } from '$lib/utilities/internal.js';
   import type { Snippet } from 'svelte';
@@ -32,20 +33,8 @@
         warning: 'text-warning',
         info: 'text-info',
       },
-      fontWeight: {
-        light: 'font-light',
-        normal: 'font-normal',
-        'semi-bold': 'font-semibold',
-        bold: 'font-bold',
-        'extra-bold': 'font-extrabold',
-      },
-      size: {
-        tiny: 'text-xs',
-        small: 'text-sm',
-        medium: 'text-base',
-        large: 'text-lg',
-        giant: 'text-xl',
-      },
+      fontWeight: styleVariants.fontWeight,
+      size: styleVariants.textSize,
       variant: {
         italic: 'italic',
       },

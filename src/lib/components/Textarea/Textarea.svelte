@@ -2,6 +2,7 @@
   import { getFieldContext } from '$lib/common/context.svelte.js';
   import Label from '$lib/components/Label/Label.svelte';
   import Text from '$lib/components/Text/Text.svelte';
+  import { styleVariants } from '$lib/styles.js';
   import type { TextareaProps } from '$lib/types.js';
   import { cleanClass, generateId } from '$lib/utilities/internal.js';
   import type { FormEventHandler } from 'svelte/elements';
@@ -23,11 +24,7 @@
   const styles = tv({
     base: 'w-full bg-gray-200 outline-none disabled:cursor-not-allowed disabled:bg-gray-300 disabled:text-gray-400 dark:bg-gray-600 dark:disabled:bg-gray-800 dark:disabled:text-gray-200',
     variants: {
-      shape: {
-        rectangle: 'rounded-none',
-        'semi-round': '',
-        round: 'rounded-full',
-      },
+      shape: styleVariants.shape,
       padding: {
         base: 'px-4 py-3',
         round: 'px-5 py-3',
@@ -43,13 +40,7 @@
         large: 'rounded-2xl',
         giant: 'rounded-2xl',
       },
-      textSize: {
-        tiny: 'text-xs',
-        small: 'text-sm',
-        medium: 'text-base',
-        large: 'text-lg',
-        giant: 'text-xl',
-      },
+      textSize: styleVariants.textSize,
       invalid: {
         true: 'border-danger/80 border',
         false: '',

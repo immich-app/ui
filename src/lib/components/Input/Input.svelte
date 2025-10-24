@@ -3,6 +3,7 @@
   import Icon from '$lib/components/Icon/Icon.svelte';
   import Label from '$lib/components/Label/Label.svelte';
   import Text from '$lib/components/Text/Text.svelte';
+  import { styleVariants } from '$lib/styles.js';
   import type { InputProps } from '$lib/types.js';
   import { cleanClass, generateId, isIconLike } from '$lib/utilities/internal.js';
   import { tv } from 'tailwind-variants';
@@ -39,11 +40,7 @@
   const containerStyles = tv({
     base: 'flex w-full items-center bg-gray-200 outline-none disabled:cursor-not-allowed disabled:bg-gray-300 disabled:text-gray-400 dark:bg-gray-600 dark:disabled:bg-gray-800 dark:disabled:text-gray-200',
     variants: {
-      shape: {
-        rectangle: 'rounded-none',
-        'semi-round': '',
-        round: 'rounded-full',
-      },
+      shape: styleVariants.shape,
       roundedSize: {
         tiny: 'rounded-xl',
         small: 'rounded-xl',
@@ -61,13 +58,7 @@
   const inputStyles = tv({
     base: 'flex-1 bg-transparent py-3 outline-none disabled:cursor-not-allowed',
     variants: {
-      textSize: {
-        tiny: 'text-xs',
-        small: 'text-sm',
-        medium: 'text-base',
-        large: 'text-lg',
-        giant: 'text-xl',
-      },
+      textSize: styleVariants.textSize,
       leadingPadding: {
         base: 'pl-4',
         icon: 'pl-0',
