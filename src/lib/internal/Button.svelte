@@ -42,11 +42,7 @@
         true: 'disabled:pointer-events-none disabled:opacity-50 aria-disabled:opacity-50',
         false: 'cursor-pointer',
       },
-      shape: {
-        rectangle: 'rounded-none',
-        'semi-round': 'rounded-xl',
-        round: 'rounded-full',
-      },
+      shape: styleVariants.shape,
       fullWidth: {
         true: 'w-full',
       },
@@ -72,14 +68,8 @@
         large: 'rounded-xl',
         giant: 'rounded-2xl',
       },
-      filledColor: {
-        primary: 'bg-primary text-light hover:bg-primary/80',
-        secondary: 'bg-dark text-light hover:bg-dark/80',
-        success: 'bg-success text-light hover:bg-success/80',
-        danger: 'bg-danger text-light hover:bg-danger/80',
-        warning: 'bg-warning text-light hover:bg-warning/80',
-        info: 'bg-info text-light hover:bg-info/80',
-      },
+      filledColor: styleVariants.filledColor,
+      filledColorHover: styleVariants.filledColorHover,
       outlineColor: {
         primary: 'border-primary bg-primary/10 text-primary hover:bg-primary/20 border',
         secondary: 'border-dark bg-dark/10 text-dark hover:bg-dark/20 border',
@@ -119,6 +109,7 @@
           disabled,
           roundedSize: shape === 'semi-round' ? size : undefined,
           filledColor: variant === 'filled' ? color : undefined,
+          filledColorHover: variant === 'filled' ? color : undefined,
           outlineColor: variant === 'outline' ? color : undefined,
           ghostColor: variant === 'ghost' ? color : undefined,
         }),

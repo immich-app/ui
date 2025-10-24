@@ -3,6 +3,7 @@
   import Icon from '$lib/components/Icon/Icon.svelte';
   import Label from '$lib/components/Label/Label.svelte';
   import Text from '$lib/components/Text/Text.svelte';
+  import { styleVariants } from '$lib/styles.js';
   import type { Color, Shape, Size } from '$lib/types.js';
   import { cleanClass, generateId } from '$lib/utilities/internal.js';
   import { mdiCheck, mdiMinus } from '@mdi/js';
@@ -30,19 +31,8 @@
   const containerStyles = tv({
     base: 'ring-offset-background focus-visible:ring-ring peer data-[state=checked]:bg-primary box-content overflow-hidden border-2 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-50',
     variants: {
-      shape: {
-        rectangle: 'rounded-none',
-        'semi-round': 'rounded-lg',
-        round: 'rounded-full',
-      },
-      color: {
-        primary: 'border-primary',
-        secondary: 'border-dark',
-        success: 'border-success',
-        danger: 'border-danger',
-        warning: 'border-warning',
-        info: 'border-info',
-      },
+      shape: styleVariants.shape,
+      borderColor: styleVariants.borderColor,
       size: {
         tiny: 'size-4',
         small: 'size-5',
@@ -65,14 +55,8 @@
       fullWidth: {
         true: 'w-full',
       },
-      color: {
-        primary: 'bg-primary text-light hover:bg-primary/80',
-        secondary: 'bg-dark text-light hover:bg-dark/80',
-        success: 'bg-success text-light hover:bg-success/80',
-        danger: 'bg-danger text-light hover:bg-danger/80',
-        warning: 'bg-warning text-light hover:bg-warning/80',
-        info: 'bg-info text-light hover:bg-info/80',
-      },
+      filledColor: styleVariants.filledColor,
+      filledColorHover: styleVariants.filledColorHover,
     },
   });
 
@@ -81,6 +65,19 @@
   const labelId = `label-${id}`;
   const descriptionId = $derived(description ? `description-${id}` : undefined);
 </script>
+
+{#snippet icon(icon: string)}
+  <Icon
+    {icon}
+    size="100%"
+    class={cleanClass(
+      iconStyles({
+        filledColor: color,
+        filledColorHover: color,
+      }),
+    )}
+  />
+{/snippet}
 
 <div class="flex flex-col gap-1">
   {#if label}
@@ -95,7 +92,7 @@
     class={cleanClass(
       containerStyles({
         size,
-        color: invalid ? 'danger' : color,
+        borderColor: invalid ? 'danger' : color,
         shape,
         roundedSize: shape === 'semi-round' ? size : undefined,
       }),
@@ -111,9 +108,9 @@
     {#snippet children({ checked, indeterminate })}
       <div class={cleanClass('flex items-center justify-center text-current')}>
         {#if indeterminate}
-          <Icon icon={mdiMinus} size="100%" class={cleanClass(iconStyles({ color }))} />
+          {@render icon(mdiMinus)}
         {:else if checked}
-          <Icon icon={mdiCheck} size="100%" class={cleanClass(iconStyles({ color }))} />
+          {@render icon(mdiCheck)}
         {/if}
       </div>
     {/snippet}

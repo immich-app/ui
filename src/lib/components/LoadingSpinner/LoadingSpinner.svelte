@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { styleVariants } from '$lib/styles.js';
   import type { Color, Size } from '$lib/types.js';
   import { cleanClass } from '$lib/utilities/internal.js';
   import { tv } from 'tailwind-variants';
@@ -21,14 +22,7 @@
         large: 'h-6',
         giant: 'h-12',
       },
-      color: {
-        primary: 'fill-primary',
-        secondary: 'fill-dark',
-        success: 'fill-success',
-        danger: 'fill-danger',
-        warning: 'fill-warning',
-        info: 'fill-info',
-      },
+      color: styleVariants.fillColor,
     },
   });
 </script>
