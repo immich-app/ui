@@ -27,6 +27,11 @@ const defaultTranslations = {
 
   // command palette
   command_palette_prompt_default: 'Quickly find pages, actions, or commands',
+
+  toast_success_title: 'Success',
+  toast_info_title: 'Info',
+  toast_warning_title: 'Warning',
+  toast_danger_title: 'Error',
 };
 
 export type Translations = typeof defaultTranslations;

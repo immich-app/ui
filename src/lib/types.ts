@@ -209,7 +209,7 @@ export type ToastCustom<T extends Closable = any> = {
 };
 
 export type ToastShow = {
-  title: string;
+  title?: string;
   description?: string;
   color?: Color;
   shape?: Shape;
