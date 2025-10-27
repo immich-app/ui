@@ -13,6 +13,7 @@
     type Size,
     type ToastVariant,
   } from '@immich/ui';
+  import { mdiAccount, mdiCheck, mdiHeart, mdiImage, mdiInformation, mdiRocket } from '@mdi/js';
   import CustomExample from './CustomExample.svelte';
 
   let title = $state('Success');
@@ -52,6 +53,30 @@
   ];
   let variant = $state(variants[0]);
 
+  const icons: Array<{ label: string; value: string }> = [
+    { label: 'Default', value: 'default' },
+    { label: 'No icon', value: 'none' },
+    { label: 'Account', value: mdiAccount },
+    { label: 'Checkmark', value: mdiCheck },
+    { label: 'Heart', value: mdiHeart },
+    { label: 'Image', value: mdiImage },
+    { label: 'Info circle', value: mdiInformation },
+    { label: 'Rocket', value: mdiRocket },
+  ];
+  let icon = $state(icons[0]);
+
+  const resolveIcon = (icon?: string) => {
+    if (icon === 'none') {
+      return false;
+    }
+
+    if (icon === 'default') {
+      return undefined;
+    }
+
+    return icon;
+  };
+
   const handleOpen = async () => {
     toastManager.show(
       {
@@ -61,6 +86,7 @@
         shape: shape?.value,
         color: color?.value,
         size: size?.value,
+        icon: resolveIcon(icon?.value),
       },
       {
         timeout,
@@ -134,6 +160,12 @@
     <div>
       <Field label="Variant">
         <Select data={variants} bind:value={variant} />
+      </Field>
+    </div>
+
+    <div>
+      <Field label="Icon">
+        <Select data={icons} bind:value={icon} />
       </Field>
     </div>
 
