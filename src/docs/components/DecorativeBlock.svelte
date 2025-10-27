@@ -2,6 +2,7 @@
   import type { Color, Size } from '@immich/ui';
   import { cleanClass } from '$lib/utilities/internal.js';
   import { tv } from 'tailwind-variants';
+  import { styleVariants } from '$lib/styles.js';
 
   type Props = {
     color?: Color;
@@ -14,14 +15,7 @@
   const styles = tv({
     base: '',
     variants: {
-      color: {
-        primary: 'bg-primary',
-        secondary: 'bg-dark',
-        success: 'bg-success',
-        danger: 'bg-danger',
-        warning: 'bg-warning',
-        info: 'bg-info',
-      },
+      color: styleVariants.filledColor,
       width: {
         tiny: 'w-4',
         small: 'w-8',

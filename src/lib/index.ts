@@ -65,11 +65,16 @@ export { default as Switch } from '$lib/components/Switch/Switch.svelte';
 export { default as Text } from '$lib/components/Text/Text.svelte';
 export { default as Textarea } from '$lib/components/Textarea/Textarea.svelte';
 export { default as ThemeSwitcher } from '$lib/components/ThemeSwitcher/ThemeSwitcher.svelte';
+export { default as Toast } from '$lib/components/Toast/Toast.svelte';
+export { default as ToastContainer } from '$lib/components/Toast/ToastContainer.svelte';
+export { default as ToastContent } from '$lib/components/Toast/ToastContent.svelte';
+export { default as ToastPanel } from '$lib/components/Toast/ToastPanel.svelte';
 
 // helpers
 export * from '$lib/services/command-palette-manager.svelte.js';
 export * from '$lib/services/modal-manager.svelte.js';
 export * from '$lib/services/theme.svelte.js';
+export * from '$lib/services/toast-manager.svelte.js';
 export * from '$lib/services/translation.svelte.js';
 export * from '$lib/types.js';
 export * from '$lib/utilities/byte-units.js';
