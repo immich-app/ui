@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.38.0 (2025-10-27)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+## What's Changed
+### 🚀 Features
+* feat: toast by @jrasm91 in https://github.com/immich-app/ui/pull/331
+### 🐛 Bug fixes
+* fix: close button color by @jrasm91 in https://github.com/immich-app/ui/pull/335
+
+
+**Full Changelog**: https://github.com/immich-app/ui/compare/v0.37.1...v0.38.0
+
 ## 0.37.1 (2025-10-22)
 
 <!-- Release notes generated using configuration in .github/release.yml at main -->
