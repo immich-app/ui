@@ -1,9 +1,12 @@
 import ToastPanel from '$lib/components/Toast/ToastPanel.svelte';
+import { t } from '$lib/services/translation.svelte.js';
 import type { ToastCustom, ToastId, ToastItem, ToastOptions, ToastShow } from '$lib/types.js';
 import { generateId } from '$lib/utilities/internal.js';
 import { mount, unmount } from 'svelte';
 
 export const isCustomToast = (item: ToastItem): item is ToastCustom => !!(item as ToastCustom).component;
+
+const expand = (item: string | ToastShow): ToastShow => (typeof item === 'string' ? { description: item } : item);
 
 class ToastManager {
   #ref: unknown;
@@ -47,24 +50,20 @@ class ToastManager {
     }
   }
 
-  primary(item: ToastShow) {
-    this.show({ ...item, color: 'primary' });
+  success(item: string | ToastShow) {
+    this.show({ title: t('toast_success_title'), color: 'success', ...expand(item) });
   }
 
-  success(item: ToastShow) {
-    this.show({ ...item, color: 'success' });
+  info(item: string | ToastShow) {
+    this.show({ title: t('toast_info_title'), color: 'info', ...expand(item) });
   }
 
-  info(item: ToastShow) {
-    this.show({ ...item, color: 'info' });
+  warning(item: string | ToastShow) {
+    this.show({ title: t('toast_warning_title'), color: 'warning', ...expand(item) });
   }
 
-  warning(item: ToastShow) {
-    this.show({ ...item, color: 'warning' });
-  }
-
-  danger(item: ToastShow) {
-    this.show({ ...item, color: 'danger' });
+  danger(item: string | ToastShow) {
+    this.show({ title: t('toast_danger_title'), color: 'danger', ...expand(item) });
   }
 
   async mount() {
