@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.39.1 (2025-10-27)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+## What's Changed
+### 🐛 Bug fixes
+* fix: toast manager custom icon by @jrasm91 in https://github.com/immich-app/ui/pull/338
+
+
+**Full Changelog**: https://github.com/immich-app/ui/compare/v0.39.0...v0.39.1
+
 ## 0.39.0 (2025-10-27)
 
 <!-- Release notes generated using configuration in .github/release.yml at main -->
