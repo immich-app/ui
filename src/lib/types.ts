@@ -213,6 +213,7 @@ export type ToastShow = {
   description?: string;
   color?: Color;
   shape?: Shape;
+  icon?: IconLike | false;
   size?: ContainerSize;
   variant?: ToastVariant;
 };

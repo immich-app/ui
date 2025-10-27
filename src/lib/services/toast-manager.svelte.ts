@@ -6,7 +6,8 @@ import { mount, unmount } from 'svelte';
 
 export const isCustomToast = (item: ToastItem): item is ToastCustom => !!(item as ToastCustom).component;
 
-const expand = (item: string | ToastShow): ToastShow => (typeof item === 'string' ? { description: item } : item);
+const expand = (item?: string | ToastShow): ToastShow =>
+  typeof item === 'string' ? { description: item } : (item ?? {});
 
 class ToastManager {
   #ref: unknown;
@@ -50,20 +51,20 @@ class ToastManager {
     }
   }
 
-  success(item: string | ToastShow) {
-    this.show({ title: t('toast_success_title'), color: 'success', ...expand(item) });
+  success(item?: string | ToastShow, options?: ToastOptions) {
+    this.show({ title: t('toast_success_title'), color: 'success', ...expand(item) }, options);
   }
 
-  info(item: string | ToastShow) {
-    this.show({ title: t('toast_info_title'), color: 'info', ...expand(item) });
+  info(item?: string | ToastShow, options?: ToastOptions) {
+    this.show({ title: t('toast_info_title'), color: 'info', ...expand(item) }, options);
   }
 
-  warning(item: string | ToastShow) {
-    this.show({ title: t('toast_warning_title'), color: 'warning', ...expand(item) });
+  warning(item?: string | ToastShow, options?: ToastOptions) {
+    this.show({ title: t('toast_warning_title'), color: 'warning', ...expand(item) }, options);
   }
 
-  danger(item: string | ToastShow) {
-    this.show({ title: t('toast_danger_title'), color: 'danger', ...expand(item) });
+  danger(item?: string | ToastShow, options?: ToastOptions) {
+    this.show({ title: t('toast_danger_title'), color: 'danger', ...expand(item) }, options);
   }
 
   async mount() {
