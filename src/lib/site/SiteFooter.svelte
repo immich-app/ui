@@ -50,6 +50,7 @@
           aria-label="GitHub"
           variant="ghost"
           color="secondary"
+          size="small"
         />
         <IconButton
           href={Constants.Socials.Discord}
@@ -57,6 +58,7 @@
           aria-label="Discord"
           variant="ghost"
           color="secondary"
+          size="small"
         />
         <IconButton
           href={Constants.Socials.Reddit}
@@ -64,6 +66,7 @@
           aria-label="reddit"
           variant="ghost"
           color="secondary"
+          size="small"
         />
         <IconButton href={Constants.Socials.X} icon={siX} aria-label="X" variant="ghost" color="secondary" />
         <IconButton
@@ -72,6 +75,7 @@
           aria-label="YouTube"
           variant="ghost"
           color="secondary"
+          size="small"
         />
         <IconButton
           href={Constants.Socials.Weblate}
@@ -79,6 +83,7 @@
           aria-label="Weblate"
           variant="ghost"
           color="secondary"
+          size="small"
         />
         <IconButton href={Constants.Socials.Rss} icon={siRss} aria-label="RSS" variant="ghost" color="secondary" />
       </HStack>

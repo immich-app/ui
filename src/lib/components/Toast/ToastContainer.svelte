@@ -41,15 +41,16 @@
   });
 
   const container2Styles = tv({
+    base: 'py-1.5',
     variants: {
       filled: {
-        primary: 'bg-primary/20 dark:bg-primary/25',
-        secondary: 'bg-dark/20 dark:bg-dark/25',
+        primary: 'bg-primary/10 dark:bg-primary/25',
+        secondary: 'bg-dark/10 dark:bg-dark/25',
         muted: 'bg-subtle dark:bg-subtle',
-        info: 'bg-info/20 dark:bg-info/25',
-        warning: 'bg-warning/20 dark:bg-warning/25',
-        danger: 'bg-danger/20 dark:bg-danger/25',
-        success: 'bg-success/20 dark:bg-success/25',
+        info: 'bg-info/10 dark:bg-info/25',
+        warning: 'bg-warning/10 dark:bg-warning/25',
+        danger: 'bg-danger/10 dark:bg-danger/25',
+        success: 'bg-success/10 dark:bg-success/25',
       },
       outline: {
         primary: 'bg-primary/10 text-primary hover:bg-primary/20',
