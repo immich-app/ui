@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.40.1 (2025-10-28)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+## What's Changed
+### 🐛 Bug fixes
+* fix: bad import by @jrasm91 in https://github.com/immich-app/ui/pull/355
+
+
+**Full Changelog**: https://github.com/immich-app/ui/compare/ui-v0.40.0...ui-v0.40.1
+
 ## 0.40.0 (2025-10-28)
 
 <!-- Release notes generated using configuration in .github/release.yml at main -->
