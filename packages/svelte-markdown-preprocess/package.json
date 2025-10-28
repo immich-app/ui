@@ -10,8 +10,7 @@
   "scripts": {
     "start": "npm run start:dev",
     "build": "tsc --project ./tsconfig.json",
-    "check": "tsc --project ./tsconfig.json --noEmit",
-    "check:watch": "tsc --project ./tsconfig.json --noEmit --watch"
+    "watch": "tsc --project ./tsconfig.json --watch"
   },
   "files": [
     "dist",
@@ -30,6 +29,7 @@
     "svelte": "^5.0.0"
   },
   "devDependencies": {
+    "@types/node": "^24.9.2",
     "front-matter": "^4.0.2",
     "marked": "^16.4.1"
   },

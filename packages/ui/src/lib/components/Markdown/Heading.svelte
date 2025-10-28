@@ -40,6 +40,4 @@
   let { size, tag } = $derived(getSizeAndTag(level));
 </script>
 
-<Heading {size} {tag} class="mt-4" {id}>
-  {@render children()}
-</Heading>
+<Heading {size} {tag} class="mt-4 mb-1" {id} {children} />

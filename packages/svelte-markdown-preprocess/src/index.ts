@@ -1,10 +1,17 @@
 import fm from 'front-matter';
+import { mkdirSync, writeFileSync } from 'node:fs';
+import { dirname } from 'node:path';
 import type { PreprocessorGroup } from 'svelte/compiler';
 import { md } from './markdown.js';
 import { SvelteFile } from './svelte-file.js';
 
 type Layouts = Record<string, string>;
-type Options = { layouts?: Layouts };
+type Options = {
+  /** defaults to `@immich/ui` */
+  markdownPackageName?: string;
+  debugPath?: string;
+  layouts?: Layouts;
+};
 
 const resolveLayout = (layout?: string, layouts?: Layouts) => {
   if (layout && layouts) {
@@ -32,7 +39,7 @@ const parse = (content: string) => {
 };
 
 export const svelteMarkdownPreprocess = (options: Options): PreprocessorGroup => {
-  const { layouts } = options || {};
+  const { layouts, debugPath, markdownPackageName = '@immich/ui' } = options || {};
 
   return {
     name: '@immich/svelte-markdown-preprocess',
@@ -44,7 +51,7 @@ export const svelteMarkdownPreprocess = (options: Options): PreprocessorGroup =>
       const { attributes, body, scriptBody } = parse(content);
 
       const file = new SvelteFile();
-      file.addScript(`import { Markdown } from '@immich/ui';`);
+      file.addScript(`import { Markdown } from '${markdownPackageName}';`);
 
       const layout = resolveLayout(attributes.layout, layouts);
       if (layout) {
@@ -55,7 +62,15 @@ export const svelteMarkdownPreprocess = (options: Options): PreprocessorGroup =>
       file.addScript(scriptBody);
       file.addTemplate(await md.parse(body));
 
-      return { code: file.export() };
+      const code = file.export();
+
+      if (debugPath) {
+        const dir = dirname(debugPath);
+        mkdirSync(dir, { recursive: true });
+        writeFileSync(debugPath, code);
+      }
+
+      return { code };
     },
   };
 };
