@@ -37,6 +37,14 @@ To view the examples located at `src/routes/examples`, run `npm start` and navig
 
 PR's are welcome! Also feel free to reach out to the team on [Discord](https://discord.immich.app).
 
+```
+mise install
+pnpm install
+pnpm build
+cd packages/ui
+pnpm start
+```
+
 ## Technology
 
 - [Svelte](https://svelte.dev)
