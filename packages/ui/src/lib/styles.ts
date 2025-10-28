@@ -26,12 +26,12 @@ export const styleVariants = {
   },
 
   borderColor: {
-    primary: 'border-primary',
-    secondary: 'border-dark',
-    success: 'border-success',
-    danger: 'border-danger',
-    warning: 'border-warning',
-    info: 'border-info',
+    primary: 'border-primary/25',
+    secondary: 'border-dark/25',
+    success: 'border-success/25',
+    danger: 'border-danger/25',
+    warning: 'border-warning/25',
+    info: 'border-info/25',
   },
 
   fillColor: {
