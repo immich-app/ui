@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.40.0 (2025-10-28)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+## What's Changed
+### 🚀 Features
+* feat: markdown by @jrasm91 in https://github.com/immich-app/ui/pull/345
+### 🐛 Bug fixes
+* fix: markdown example by @jrasm91 in https://github.com/immich-app/ui/pull/350
+
+
+**Full Changelog**: https://github.com/immich-app/ui/compare/ui-v0.39.2...ui-v0.40.0
+
 ## 0.39.2 (2025-10-28)
 
 <!-- Release notes generated using configuration in .github/release.yml at main -->
