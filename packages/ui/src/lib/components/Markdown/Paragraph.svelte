@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Text } from '@immich/ui';
+  import Text from '$lib/components/Text/Text.svelte';
   import type { Snippet } from 'svelte';
 
   type Props = {
