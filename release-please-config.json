@@ -3,7 +3,7 @@
   "bootstrap-sha": "a331426c1842c86110e49c651af65b95dc437baa",
   "packages": {
     "package/ui": {
-      "component": "@immich/ui",
+      "component": "ui",
       "changelog-path": "CHANGELOG.md",
       "changelog-type": "github",
       "release-type": "node",
@@ -14,7 +14,7 @@
       "prerelease": false
     },
     "packages/svelte-markdown-preprocess": {
-      "component": "@immich/svelte-markdown-preprocess",
+      "component": "svelte-markdown-preprocess",
       "changelog-path": "CHANGELOG.md",
       "changelog-type": "github",
       "release-type": "node",
