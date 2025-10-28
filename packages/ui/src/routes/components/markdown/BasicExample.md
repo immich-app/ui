@@ -81,4 +81,4 @@ Now a nested list:
 
 ## Image
 
-![example image]($lib/assets/immich-logo.svg 'Immich logo')
+![example image](/img/social-preview.webp 'Immich share card')

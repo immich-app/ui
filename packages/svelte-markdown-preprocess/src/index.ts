@@ -35,7 +35,7 @@ export const svelteMarkdownPreprocess = (options: Options): PreprocessorGroup =>
   const { layouts } = options || {};
 
   return {
-    name: 'immich-markdown',
+    name: '@immich/svelte-markdown-preprocess',
     async markup({ content, filename }) {
       if (!filename?.endsWith('.md')) {
         return;
