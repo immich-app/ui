@@ -1,3 +1,4 @@
 {
-  ".": "0.39.2"
+  "package/ui": "0.39.2",
+  "package/svelte-markdown-preprocess": "0.0.0"
 }

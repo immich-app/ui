@@ -8,6 +8,7 @@
   --color-danger: rgb(var(--immich-ui-danger));
   --color-warning: rgb(var(--immich-ui-warning));
   --color-info: rgb(var(--immich-ui-info));
+  --color-muted: rgb(var(--immich-ui-muted));
   --color-subtle: rgb(var(--immich-ui-gray));
 }
 
@@ -24,6 +25,7 @@
     --immich-ui-danger: 200 60 60;
     --immich-ui-warning: 216 143 64;
     --immich-ui-info: 8 111 230;
+    --immich-ui-muted: 161 161 161;
     --immich-ui-gray: 246 246 246;
 
     --immich-ui-default-border: 209 213 219;
@@ -38,6 +40,7 @@
     --immich-ui-danger: 246 125 125;
     --immich-ui-warning: 254 197 132;
     --immich-ui-info: 121 183 254;
+    --immich-ui-muted: 212 212 212;
     --immich-ui-gray: 33 33 33;
 
     --immich-ui-default-border: 33 33 33;

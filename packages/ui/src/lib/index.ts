@@ -45,6 +45,7 @@ export { default as Label } from '$lib/components/Label/Label.svelte';
 export { default as Link } from '$lib/components/Link/Link.svelte';
 export { default as LoadingSpinner } from '$lib/components/LoadingSpinner/LoadingSpinner.svelte';
 export { default as Logo } from '$lib/components/Logo/Logo.svelte';
+export { Markdown } from '$lib/components/Markdown/index.js';
 export { default as Modal } from '$lib/components/Modal/Modal.svelte';
 export { default as ModalBody } from '$lib/components/Modal/ModalBody.svelte';
 export { default as ModalFooter } from '$lib/components/Modal/ModalFooter.svelte';

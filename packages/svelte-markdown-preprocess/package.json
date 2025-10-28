@@ -1,0 +1,43 @@
+{
+  "name": "@immich/svelte-markdown-preprocess",
+  "version": "0.0.0",
+  "license": "GNU Affero General Public License version 3",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/immich-app/ui.git",
+    "directory": "packages/svelte-markdown-preprocess"
+  },
+  "scripts": {
+    "start": "npm run start:dev",
+    "build": "tsc --project ./tsconfig.json",
+    "check": "tsc --project ./tsconfig.json --noEmit",
+    "check:watch": "tsc --project ./tsconfig.json --noEmit --watch",
+    "lint": "eslint . --max-warnings 0",
+    "lint:fix": "npm run lint -- --fix",
+    "format": "prettier --check .",
+    "format:fix": "prettier --write ."
+  },
+  "files": [
+    "dist",
+    "!dist/**/*.test.*",
+    "!dist/**/*.spec.*"
+  ],
+  "types": "./dist/index.d.ts",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "peerDependencies": {
+    "svelte": "^5.0.0"
+  },
+  "devDependencies": {
+    "front-matter": "^4.0.2",
+    "marked": "^16.4.1"
+  },
+  "volta": {
+    "node": "22.20.0"
+  }
+}

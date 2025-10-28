@@ -18,11 +18,14 @@ export const resolveUrl = (url: string, currentHostname?: string) => {
     return url;
   }
 
-  const target = new URL(url);
-  const targetApp = getImmichApp(target.hostname);
-  const currentApp = getImmichApp(currentHostname ?? globalThis.location?.hostname ?? env.PUBLIC_IMMICH_HOSTNAME);
-
-  return targetApp && targetApp === currentApp ? target.pathname : target.href;
+  try {
+    const target = new URL(url);
+    const targetApp = getImmichApp(target.hostname);
+    const currentApp = getImmichApp(currentHostname ?? globalThis.location?.hostname ?? env.PUBLIC_IMMICH_HOSTNAME);
+    return targetApp && targetApp === currentApp ? target.pathname : target.href;
+  } catch {
+    return url;
+  }
 };
 
 export const isExternalLink = (href: string): boolean => {

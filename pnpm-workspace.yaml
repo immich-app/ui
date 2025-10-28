@@ -1,0 +1,14 @@
+packages:
+  - packages/*
+
+linkWorkspacePackages: true
+
+onlyBuiltDependencies:
+  - '@tailwindcss/oxide'
+  - esbuild
+  - sharp
+  - workerd
+
+shamefullyHoist: false
+
+verifyDepsBeforeRun: install
