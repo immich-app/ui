@@ -11,11 +11,7 @@
     "start": "npm run start:dev",
     "build": "tsc --project ./tsconfig.json",
     "check": "tsc --project ./tsconfig.json --noEmit",
-    "check:watch": "tsc --project ./tsconfig.json --noEmit --watch",
-    "lint": "eslint . --max-warnings 0",
-    "lint:fix": "npm run lint -- --fix",
-    "format": "prettier --check .",
-    "format:fix": "prettier --write ."
+    "check:watch": "tsc --project ./tsconfig.json --noEmit --watch"
   },
   "files": [
     "dist",
