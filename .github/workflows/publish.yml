@@ -28,5 +28,14 @@ jobs:
       - name: Build
         run: pnpm build
 
+      - name: Find package
+        id: find-package
+        env:
+          RELEASE_TAG_NAME: ${{ github.event.release.tag_name }}
+        run: |
+          PACKAGE_NAME="${RELEASE_TAG_NAME%-*}"
+          echo "Package is $PACKAGE_NAME"
+          echo "package_name=$PACKAGE_NAME" >> "$GITHUB_OUTPUT"
+
       - name: Publish
-        run: pnpm -r publish --no-git-checks
+        run: pnpm --filter ./packages/${{ steps.find-package.outputs.package_name }} publish --no-git-checks
