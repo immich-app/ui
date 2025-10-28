@@ -32,6 +32,7 @@ import {
   mdiImage,
   mdiImageOutline,
   mdiKeyboardVariant,
+  mdiLanguageMarkdownOutline,
   mdiLink,
   mdiListBox,
   mdiListBoxOutline,
@@ -128,8 +129,9 @@ export const componentGroups = [
     title: 'Miscellaneous',
     components: [
       { name: 'Avatar', icon: mdiAccountCircleOutline, activeIcon: mdiAccountCircle },
-      { name: 'Logo', icon: mdiImageOutline, activeIcon: mdiImage },
       { name: 'CommandPalette', icon: mdiMenu, activeIcon: mdiMenu },
+      { name: 'Logo', icon: mdiImageOutline, activeIcon: mdiImage },
+      { name: 'Markdown', icon: mdiLanguageMarkdownOutline, activeIcon: mdiLanguageMarkdownOutline },
       { name: 'SupporterBadge', icon: mdiPartyPopper },
       { name: 'ThemeSwitcher', icon: mdiThemeLightDark },
     ],
