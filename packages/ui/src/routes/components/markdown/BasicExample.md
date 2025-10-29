@@ -12,13 +12,37 @@
 
 ## Text
 
-_Italic_
+Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corporis, ipsa. Unde harum mollitia amet! Ipsam esse perferendis pariatur, accusantium rerum quis delectus iste magni quia blanditiis, voluptates nostrum sint aut.
 
-**bold**
+Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corporis, ipsa. Unde harum mollitia amet! Ipsam esse perferendis pariatur, accusantium rerum quis delectus iste magni quia blanditiis, voluptates nostrum sint aut.
 
-`monospace`.
+Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corporis, ipsa. Unde harum mollitia amet! Ipsam esse perferendis pariatur, accusantium rerum quis delectus iste magni quia blanditiis, voluptates nostrum sint aut.
 
-## Block quote
+### Italic
+
+This is _italic_
+
+### Bold
+
+This is **bold**
+
+### Strike through
+
+This is ~~strike-through~~
+
+### Code
+
+This is `code`
+
+### Link
+
+Here's a link to [Immich](https://immich.app/)
+
+Here's a link to [Toast](/components/toast)
+
+Here's a link to a [section heading in the current doc](#line-break).
+
+## Quote
 
 > Block quotes are
 > written like so.
@@ -28,10 +52,28 @@ _Italic_
 
 ## Code block
 
+### JavaScript
+
 ```javascript
 const foobar = () => {
   console.log('Hello world!');
 };
+```
+
+### TypeScript
+
+```typescript
+const foobar = (name: string) => {
+  console.log(`Hello ${name}!`);
+};
+```
+
+### Yaml
+
+```yaml
+config:
+  package:
+    name: '@immich/ui'
 ```
 
 ## List
@@ -73,12 +115,10 @@ Now a nested list:
 
     Do not bump wooden spoon or it will fall.
 
-## Link
-
-- Here's a link to [Immich](https://immich.app/)
-- Here's a link to [Toast](/components/toast)
-- Here's a link to a [section heading in the current doc](#an-h2-header).
-
 ## Image
 
 ![example image](/img/social-preview.webp 'Immich share card')
+
+## Line break
+
+---

@@ -38,7 +38,7 @@ const parse = (content: string) => {
   return { attributes, body, scriptBody };
 };
 
-export const svelteMarkdownPreprocess = (options: Options): PreprocessorGroup => {
+export const svelteMarkdownPreprocess = (options: Options) => {
   const { layouts, debugPath, markdownPackageName = '@immich/ui' } = options || {};
 
   return {
@@ -72,5 +72,5 @@ export const svelteMarkdownPreprocess = (options: Options): PreprocessorGroup =>
 
       return { code };
     },
-  };
+  } satisfies PreprocessorGroup;
 };

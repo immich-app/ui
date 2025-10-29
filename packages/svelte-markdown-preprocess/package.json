@@ -10,6 +10,7 @@
   "scripts": {
     "start": "npm run start:dev",
     "build": "tsc --project ./tsconfig.json",
+    "test": "vitest",
     "watch": "tsc --project ./tsconfig.json --watch"
   },
   "files": [
@@ -31,7 +32,9 @@
   "devDependencies": {
     "@types/node": "^24.9.2",
     "front-matter": "^4.0.2",
-    "marked": "^16.4.1"
+    "marked": "^16.4.1",
+    "vite": "^7.1.12",
+    "vitest": "^4.0.5"
   },
   "volta": {
     "node": "22.20.0"
