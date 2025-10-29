@@ -6,14 +6,16 @@ import Link from './Link.svelte';
 import List from './List.svelte';
 import ListItem from './ListItem.svelte';
 import Paragraph from './Paragraph.svelte';
+import Space from './Space.svelte';
 
 export const Markdown = {
-  Link,
   BlockQuote,
   Code,
   Heading,
   LineBreak,
+  Link,
   ListItem,
   List,
   Paragraph,
+  Space,
 };

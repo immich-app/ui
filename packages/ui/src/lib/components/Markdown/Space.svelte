@@ -1,12 +1,11 @@
 <script lang="ts">
-  import Text from '$lib/components/Text/Text.svelte';
   import type { Snippet } from 'svelte';
 
   type Props = {
-    children: Snippet;
+    children?: Snippet;
   };
 
   const { children }: Props = $props();
 </script>
 
-<Text>{@render children()}</Text>
+<div class="py-2">{@render children?.()}</div>

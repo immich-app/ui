@@ -42,7 +42,7 @@ export const md = new Marked().use({
       for (const item of items) {
         const content = this.parser.parse(item.tokens);
         const attributes = [item.task && 'task', item.checked && 'checked'].filter(Boolean);
-        output += `  <Markdown.ListItem ${attributes.join(' ')}>${content}</Markdown.ListItem>`;
+        output += `<Markdown.ListItem ${attributes.join(' ')}>${content}</Markdown.ListItem>\n`;
       }
       output += `</Markdown.List>\n`;
 
@@ -59,12 +59,12 @@ export const md = new Marked().use({
       return `<Markdown.Paragraph>${children}</Markdown.Paragraph>\n`;
     },
 
-    code({ text, lang }) {
-      return `<Markdown.Code lang="${lang}" code={\`${text}\`} multiline />\n`;
+    space() {
+      return `<Markdown.Space />\n`;
     },
 
-    codespan({ text }) {
-      return `<Markdown.Code code={\`${text}\`} />\n`;
+    code({ text, lang }) {
+      return `<Markdown.Code lang="${lang}" code={\`${text}\`} multiline />\n`;
     },
 
     hr() {
@@ -72,7 +72,12 @@ export const md = new Marked().use({
     },
 
     link({ href, title, text }) {
-      return `<Markdown.Link href="${href}" title="${title ?? ''}">${text}</Markdown.Link>\n`;
+      const titleAttr = title ? ` title="${title}"` : '';
+      return `<Markdown.Link href="${href}"${titleAttr}>${text}</Markdown.Link>`;
+    },
+
+    codespan({ text }) {
+      return `<Markdown.Code code={\`${text}\`} />`;
     },
   },
 });
