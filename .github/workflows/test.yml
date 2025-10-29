@@ -24,17 +24,17 @@ jobs:
         run: pnpm -r install
 
       - name: Run linter
-        run: pnpm -r lint
+        run: pnpm lint
         if: ${{ !cancelled() }}
 
       - name: Run formatter
-        run: pnpm -r format
+        run: pnpm format
         if: ${{ !cancelled() }}
 
       - name: Run check
-        run: npm run check
+        run: pnpm check
         if: ${{ !cancelled() }}
 
       - name: Run unit tests
-        run: npm test
+        run: pnpm test
         if: ${{ !cancelled() }}

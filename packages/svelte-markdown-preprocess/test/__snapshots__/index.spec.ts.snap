@@ -1,0 +1,152 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`markup > should render 'code-block.md' correctly 1`] = `
+{
+  "code": "<script lang="ts">
+  import { Markdown } from '@immich/ui';
+</script>
+<Markdown.Code lang="ts" code={\`const foo = 'bar';\`} multiline />
+",
+}
+`;
+
+exports[`markup > should render 'code-block-curly-braces.md' correctly 1`] = `
+{
+  "code": "<script lang="ts">
+  import { Markdown } from '@immich/ui';
+</script>
+<Markdown.Code lang="ts" code={\`const name = 'world';
+const message = \\\`Hello $\\{name\\}!\\\`;\`} multiline />
+",
+}
+`;
+
+exports[`markup > should render 'h1.md' correctly 1`] = `
+{
+  "code": "<script lang="ts">
+  import { Markdown } from '@immich/ui';
+</script>
+<Markdown.Heading id="heading-1" level={1}>Heading 1</Markdown.Heading>
+",
+}
+`;
+
+exports[`markup > should render 'h2.md' correctly 1`] = `
+{
+  "code": "<script lang="ts">
+  import { Markdown } from '@immich/ui';
+</script>
+<Markdown.Heading id="heading-2" level={2}>Heading 2</Markdown.Heading>
+",
+}
+`;
+
+exports[`markup > should render 'h3.md' correctly 1`] = `
+{
+  "code": "<script lang="ts">
+  import { Markdown } from '@immich/ui';
+</script>
+<Markdown.Heading id="heading-3" level={2}>Heading 3</Markdown.Heading>
+",
+}
+`;
+
+exports[`markup > should render 'h4.md' correctly 1`] = `
+{
+  "code": "<script lang="ts">
+  import { Markdown } from '@immich/ui';
+</script>
+<Markdown.Heading id="heading-4" level={2}>Heading 4</Markdown.Heading>
+",
+}
+`;
+
+exports[`markup > should render 'h5.md' correctly 1`] = `
+{
+  "code": "<script lang="ts">
+  import { Markdown } from '@immich/ui';
+</script>
+<Markdown.Heading id="heading-5" level={2}>Heading 5</Markdown.Heading>
+",
+}
+`;
+
+exports[`markup > should render 'h6.md' correctly 1`] = `
+{
+  "code": "<script lang="ts">
+  import { Markdown } from '@immich/ui';
+</script>
+<Markdown.Heading id="heading-6" level={2}>Heading 6</Markdown.Heading>
+",
+}
+`;
+
+exports[`markup > should render 'image.md' correctly 1`] = `
+{
+  "code": "<script lang="ts">
+  import { Markdown } from '@immich/ui';
+</script>
+<Markdown.Paragraph>This is an image <img src="https://immich.app/" alt="something"></Markdown.Paragraph>
+",
+}
+`;
+
+exports[`markup > should render 'link.md' correctly 1`] = `
+{
+  "code": "<script lang="ts">
+  import { Markdown } from '@immich/ui';
+</script>
+<Markdown.Paragraph>This is a <Markdown.Link href="https://immich.app/">link</Markdown.Link></Markdown.Paragraph>
+",
+}
+`;
+
+exports[`markup > should render 'link-shothand.md' correctly 1`] = `
+{
+  "code": "<script lang="ts">
+  import { Markdown } from '@immich/ui';
+</script>
+<Markdown.Paragraph>This is a shorthand link: <Markdown.Link href="https://immich.app/">https://immich.app/</Markdown.Link></Markdown.Paragraph>
+",
+}
+`;
+
+exports[`markup > should render 'text-bold.md' correctly 1`] = `
+{
+  "code": "<script lang="ts">
+  import { Markdown } from '@immich/ui';
+</script>
+<Markdown.Paragraph>This is <strong>bold</strong> text.</Markdown.Paragraph>
+",
+}
+`;
+
+exports[`markup > should render 'text-code.md' correctly 1`] = `
+{
+  "code": "<script lang="ts">
+  import { Markdown } from '@immich/ui';
+</script>
+<Markdown.Paragraph>This is <Markdown.Code code={\`code\`} /> text.</Markdown.Paragraph>
+",
+}
+`;
+
+exports[`markup > should render 'text-italic.md' correctly 1`] = `
+{
+  "code": "<script lang="ts">
+  import { Markdown } from '@immich/ui';
+</script>
+<Markdown.Paragraph>This is <em>italic</em> text.</Markdown.Paragraph>
+",
+}
+`;
+
+exports[`markup > should render 'text-strike-through.md' correctly 1`] = `
+{
+  "code": "<script lang="ts">
+  import { Markdown } from '@immich/ui';
+</script>
+<Markdown.Paragraph>This is <del>strike-through</del> text.</Markdown.Paragraph>
+",
+}
+`;

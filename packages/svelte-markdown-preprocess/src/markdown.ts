@@ -1,4 +1,5 @@
 import { Marked } from 'marked';
+import { escapeSvelteCode, getIdFromText } from './utility.js';
 
 export const md = new Marked().use({
   tokenizer: {
@@ -11,16 +12,7 @@ export const md = new Marked().use({
   renderer: {
     heading({ tokens, depth }) {
       const text = this.parser.parseInline(tokens);
-      let id = text
-        .toLowerCase()
-        .replace(/<[^>]*>/g, '')
-        .replace(/[^a-z1-9 ]/g, '')
-        .replace(/\s+/g, '-');
-
-      if (id.endsWith('-')) {
-        id = id.slice(0, -1);
-      }
-
+      const id = getIdFromText(text);
       switch (depth) {
         case 1:
         case 2:
@@ -64,7 +56,8 @@ export const md = new Marked().use({
     },
 
     code({ text, lang }) {
-      return `<Markdown.Code lang="${lang}" code={\`${text}\`} multiline />\n`;
+      const escaped = escapeSvelteCode(text);
+      return `<Markdown.Code lang="${lang}" code={\`${escaped}\`} multiline />\n`;
     },
 
     hr() {
