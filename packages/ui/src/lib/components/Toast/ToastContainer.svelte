@@ -16,7 +16,7 @@
   }: ToastContainerProps = $props();
 
   const containerStyles = tv({
-    base: 'bg-light text-dark overflow-hidden transition-all',
+    base: 'bg-light text-dark overflow-hidden shadow-xs transition-all',
     variants: {
       shape: styleVariants.shape,
       size: {
@@ -29,7 +29,14 @@
       },
 
       border: styleVariants.border,
-      borderColor: styleVariants.borderColor,
+      borderColor: {
+        primary: 'border-primary/25',
+        secondary: 'border-dark/25',
+        success: 'border-success/25',
+        danger: 'border-danger/25',
+        warning: 'border-warning/25',
+        info: 'border-info/25',
+      },
       roundedSize: {
         tiny: 'rounded-lg',
         small: 'rounded-lg',
@@ -44,21 +51,21 @@
     base: 'py-1.5',
     variants: {
       filled: {
-        primary: 'bg-primary/10 dark:bg-primary/25',
-        secondary: 'bg-dark/10 dark:bg-dark/25',
+        primary: 'bg-primary/15 dark:bg-primary/25',
+        secondary: 'bg-dark/15 dark:bg-dark/25',
         muted: 'bg-subtle dark:bg-subtle',
-        info: 'bg-info/10 dark:bg-info/25',
-        warning: 'bg-warning/10 dark:bg-warning/25',
-        danger: 'bg-danger/10 dark:bg-danger/25',
-        success: 'bg-success/10 dark:bg-success/25',
+        info: 'bg-info/15 dark:bg-info/25',
+        warning: 'bg-warning/15 dark:bg-warning/25',
+        danger: 'bg-danger/15 dark:bg-danger/25',
+        success: 'bg-success/15 dark:bg-success/25',
       },
       outline: {
-        primary: 'bg-primary/10 text-primary hover:bg-primary/20',
-        secondary: 'bg-dark/10 text-dark hover:bg-dark/20',
-        success: 'bg-success/10 text-success hover:bg-success/20',
-        danger: 'bg-danger/10 text-danger hover:bg-danger/20',
-        warning: 'bg-warning/10 text-warning hover:bg-warning/20',
-        info: 'bg-info/10 text-info hover:bg-info/20',
+        primary: 'bg-primary/2 text-primary dark:bg-primary/5',
+        secondary: 'bg-dark/2 text-dark dark:bg-dark/5',
+        success: 'bg-success/2 text-success dark:bg-success/5',
+        danger: 'bg-danger/2 text-danger dark:bg-danger/5',
+        warning: 'bg-warning/2 text-warning dark:bg-warning/5',
+        info: 'bg-info/2 text-info dark:bg-info/5',
       },
     },
   });
