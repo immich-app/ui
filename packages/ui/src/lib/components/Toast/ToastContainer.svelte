@@ -29,7 +29,14 @@
       },
 
       border: styleVariants.border,
-      borderColor: styleVariants.borderColor,
+      borderColor: {
+        primary: 'border-primary/25',
+        secondary: 'border-dark/25',
+        success: 'border-success/25',
+        danger: 'border-danger/25',
+        warning: 'border-warning/25',
+        info: 'border-info/25',
+      },
       roundedSize: {
         tiny: 'rounded-lg',
         small: 'rounded-lg',
