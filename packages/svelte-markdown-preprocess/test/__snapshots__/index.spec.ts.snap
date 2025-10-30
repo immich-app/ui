@@ -111,6 +111,18 @@ exports[`markup > should render 'link-shothand.md' correctly 1`] = `
 }
 `;
 
+exports[`markup > should render 'snippets.md' correctly 1`] = `
+{
+  "code": "<script lang="ts">
+  import { Markdown } from '@immich/ui';
+</script>
+{#snippet postScript()}<Markdown.Space />
+<Markdown.Paragraph>This should work</Markdown.Paragraph>
+<Markdown.Space />
+{/snippet}",
+}
+`;
+
 exports[`markup > should render 'text-bold.md' correctly 1`] = `
 {
   "code": "<script lang="ts">

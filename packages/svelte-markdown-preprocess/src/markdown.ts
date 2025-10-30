@@ -48,6 +48,14 @@ export const md = new Marked().use({
 
     paragraph({ tokens }) {
       const children = this.parser.parseInline(tokens);
+      if (
+        children.startsWith('{#') ||
+        children.startsWith('{/') ||
+        children.startsWith('{:') ||
+        children.startsWith('{@')
+      ) {
+        return children;
+      }
       return `<Markdown.Paragraph>${children}</Markdown.Paragraph>\n`;
     },
 
