@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.1.0 (2025-10-30)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+## What's Changed
+### 🚀 Features
+* feat: default layout by @jrasm91 in https://github.com/immich-app/ui/pull/365
+
+
+**Full Changelog**: https://github.com/immich-app/ui/compare/svelte-markdown-preprocess-v0.0.2...svelte-markdown-preprocess-v0.1.0
+
 ## 0.0.2 (2025-10-29)
 
 <!-- Release notes generated using configuration in .github/release.yml at main -->
