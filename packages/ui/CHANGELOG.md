@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.40.3 (2025-10-30)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+## What's Changed
+### 🚀 Features
+* feat: default layout by @jrasm91 in https://github.com/immich-app/ui/pull/365
+### 🐛 Bug fixes
+* fix: markdown spacing by @jrasm91 in https://github.com/immich-app/ui/pull/359
+* fix: curly braces in code by @jrasm91 in https://github.com/immich-app/ui/pull/363
+
+
+**Full Changelog**: https://github.com/immich-app/ui/compare/ui-v0.40.2...ui-v0.40.3
+
 ## 0.40.2 (2025-10-29)
 
 <!-- Release notes generated using configuration in .github/release.yml at main -->
