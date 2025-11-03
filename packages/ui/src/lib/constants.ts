@@ -19,4 +19,5 @@ export const zIndex = {
   ModalBackdrop: 'z-40',
   ModalContent: 'z-50',
   ToastPanel: 'z-60',
+  ContextMenu: 'z-70!',
 };

@@ -13,6 +13,7 @@
     "url": "git+https://github.com/immich-app/ui.git"
   },
   "scripts": {
+    "start": "pnpm --filter @immich/ui start",
     "build": "pnpm -r --filter=./packages/* build",
     "lint": "eslint . --max-warnings 0",
     "lint:fix": "pnpm lint -- --fix",

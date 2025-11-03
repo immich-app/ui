@@ -6,17 +6,20 @@
 
   type Props = {
     child: Snippet<[Item]>;
+    fullSize?: boolean;
   };
 
-  const { child }: Props = $props();
+  const { child, fullSize }: Props = $props();
 
-  const items: Item[] = [
+  const sizes: Item[] = [
     { size: 'tiny', label: 'Tiny' },
     { size: 'small', label: 'Small' },
     { size: 'medium', label: 'Medium' },
     { size: 'large', label: 'Large' },
     { size: 'giant', label: 'Giant' },
   ];
+
+  const items: Item[] = $derived(fullSize ? [...sizes, { size: 'full', label: 'Full' } as unknown as Item] : sizes);
 </script>
 
 {#each items as item (item.size)}

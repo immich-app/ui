@@ -17,6 +17,7 @@ export type HeadingColor = TextColor;
 export type Size = 'tiny' | 'small' | 'medium' | 'large' | 'giant';
 export type ModalSize = Size | 'full';
 export type ContainerSize = ModalSize;
+export type MenuSize = ModalSize;
 export type HeadingSize = Size | 'title';
 export type HeadingTag = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p';
 export type Shape = 'rectangle' | 'semi-round' | 'round';
@@ -233,4 +234,36 @@ export type ToastButton = {
   shape?: Shape;
   variant?: Variants;
   onClick: () => void;
+};
+
+export type MenuSelectHandler = (context: { event: Event; item: MenuItem }) => void;
+
+export type MenuItem = {
+  title: string;
+  icon: IconLike;
+  color?: Color;
+  onSelect?: MenuSelectHandler;
+};
+
+export enum MenuItemType {
+  Divider = 'divider',
+}
+
+export type MenuItems = Array<MenuItem | MenuItemType>;
+
+export type MenuProps = {
+  items: MenuItems;
+  bottomItems?: MenuItem[];
+  size?: MenuSize;
+} & HTMLAttributes<HTMLDivElement>;
+
+export type ContextMenuPosition = 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
+
+export type ContextMenuBaseProps = MenuProps & {
+  position?: ContextMenuPosition;
+};
+
+export type ContextMenuProps = ContextMenuBaseProps & {
+  onClose: () => void;
+  anchor: HTMLElement;
 };
