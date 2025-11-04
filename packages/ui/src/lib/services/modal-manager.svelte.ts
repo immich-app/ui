@@ -1,13 +1,16 @@
 import { mount, unmount, type Component, type ComponentProps } from 'svelte';
 import ConfirmModal from '$lib/components/ConfirmModal/ConfirmModal.svelte';
 
-type OnCloseData<T> = T extends { onClose: (data?: infer R) => void }
-  ? R | undefined
-  : T extends { onClose: (data: infer R) => void }
-    ? R
+// if `T = () => void`, `R` will be `unknown` which we turn into `void` instead
+type OnCloseData<T> = T extends { onClose: (data: infer R) => void }
+  ? unknown extends R
+    ? void
+    : R
+  : T extends { onClose: (data?: infer R) => void }
+    ? R | undefined
     : never;
 type ExtendsEmptyObject<T> = keyof T extends never ? never : T;
-type StripParamIfOptional<T> = T extends undefined ? [] : [T];
+type StripParamIfOptional<T> = T extends void ? [] : [T];
 
 // if the modal does not expect any props, makes the props param optional but also allows passing `{}` and `undefined`
 type OptionalParamIfEmpty<T> = ExtendsEmptyObject<T> extends never ? [] | [Record<string, never> | undefined] : [T];
