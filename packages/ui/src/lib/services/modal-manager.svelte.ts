@@ -7,7 +7,7 @@ type OnCloseData<T> = T extends { onClose: (data?: infer R) => void }
     ? R
     : never;
 type ExtendsEmptyObject<T> = keyof T extends never ? never : T;
-type StripValueIfOptional<T> = T extends undefined ? undefined : T;
+type StripParamIfOptional<T> = T extends undefined ? [] : [T];
 
 // if the modal does not expect any props, makes the props param optional but also allows passing `{}` and `undefined`
 type OptionalParamIfEmpty<T> = ExtendsEmptyObject<T> extends never ? [] | [Record<string, never> | undefined] : [T];
@@ -27,15 +27,16 @@ class ModalManager {
     Component: Component<T>,
     ...props: OptionalParamIfEmpty<Omit<T, 'onClose'>>
   ) {
+    type OnCloseParams = StripParamIfOptional<K>;
     let modal: object = {};
-    let onClose: (...args: [StripValueIfOptional<K>]) => Promise<void>;
+    let onClose: (...args: OnCloseParams) => Promise<void>;
 
-    const deferred = new Promise<StripValueIfOptional<K>>((resolve) => {
-      onClose = async (...args: [StripValueIfOptional<K>]) => {
+    const deferred = new Promise<K>((resolve) => {
+      onClose = async (...args: OnCloseParams) => {
         await unmount(modal);
         this.#openCount--;
         // make sure bits-ui clean up finishes before resolving
-        setTimeout(() => resolve(args?.[0]), 10);
+        setTimeout(() => resolve(args[0] as K), 10);
       };
 
       modal = mount(Component, {
@@ -50,7 +51,7 @@ class ModalManager {
 
     return {
       onClose: deferred,
-      close: (...args: [StripValueIfOptional<K>]) => onClose(args[0]),
+      close: (...args: OnCloseParams) => onClose(...args),
     };
   }
 
