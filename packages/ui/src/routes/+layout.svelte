@@ -79,6 +79,9 @@
   }
 
   commandPaletteManager.enable();
+  commandPaletteManager.setTranslations({
+    command_palette_prompt_default: 'Quickly find components, links, and commands',
+  });
 </script>
 
 <AppShell>
@@ -142,4 +145,4 @@
   </section>
 </AppShell>
 
-<CommandPalette translations={{ command_palette_prompt_default: 'Quickly find components, links, and commands' }} />
+<CommandPalette />
