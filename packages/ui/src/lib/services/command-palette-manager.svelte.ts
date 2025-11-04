@@ -1,4 +1,7 @@
 import { goto } from '$app/navigation';
+import CommandPaletteModal from '$lib/internal/CommandPaletteModal.svelte';
+import type { TranslationProps } from '$lib/types.js';
+import { modalManager } from './modal-manager.svelte.js';
 
 export type CommandItem = {
   icon: string;
@@ -7,7 +10,11 @@ export type CommandItem = {
   title: string;
   description?: string;
   text: string;
-} & ({ href: string } | { action: () => void });
+} & ({ href: string } | { action: () => void | Promise<void> });
+
+export type CommandPaletteTranslations = TranslationProps<
+  'search_placeholder' | 'search_no_results' | 'search_recently_used' | 'command_palette_prompt_default'
+>;
 
 export const asText = (...items: unknown[]) => {
   return items
@@ -31,13 +38,14 @@ const isMatch = (item: CommandItem, query: string): boolean => {
 
 class CommandPaletteManager {
   isEnabled = $state(false);
-  isOpen = $state(false);
   query = $state('');
   selectedIndex = $state(0);
-  private normalizedQuery = $derived(this.query.toLowerCase());
+  #normalizedQuery = $derived(this.query.toLowerCase());
+  #modal?: { close: () => Promise<void> };
+  #translations: CommandPaletteTranslations = {};
 
   items: CommandItem[] = [];
-  filteredItems = $derived(this.items.filter((item) => isMatch(item, this.normalizedQuery)).slice(0, 100));
+  filteredItems = $derived(this.items.filter((item) => isMatch(item, this.#normalizedQuery)).slice(0, 100));
   recentItems = $state<CommandItem[]>([]);
   results = $derived(this.query ? this.filteredItems : this.recentItems);
 
@@ -45,22 +53,31 @@ class CommandPaletteManager {
     this.isEnabled = true;
   }
 
+  setTranslations(translations: CommandPaletteTranslations = {}) {
+    this.#translations = translations;
+  }
+
   async open() {
-    if (!this.isEnabled || this.isOpen) {
+    if (!this.isEnabled) {
       return;
     }
 
     this.selectedIndex = 0;
-    this.isOpen = true;
+    const { close, onClose } = modalManager.open(CommandPaletteModal, { translations: this.#translations });
+    this.#modal = { close };
+    void onClose.then(() => this.handleClose());
   }
 
   close() {
-    if (!this.isEnabled || !this.isOpen) {
+    if (!this.#modal) {
       return;
     }
 
+    return this.#modal.close();
+  }
+
+  handleClose() {
     this.query = '';
-    this.isOpen = false;
   }
 
   async select(selectedIndex?: number) {
@@ -84,7 +101,7 @@ class CommandPaletteManager {
       await selected.action();
     }
 
-    this.close();
+    await this.close();
   }
 
   remove(index: number) {
@@ -101,7 +118,6 @@ class CommandPaletteManager {
 
   reset() {
     this.items = [];
-    this.isOpen = false;
     this.query = '';
   }
 
