@@ -5,6 +5,7 @@
   import IconButton from '$lib/components/IconButton/IconButton.svelte';
   import Input from '$lib/components/Input/Input.svelte';
   import Label from '$lib/components/Label/Label.svelte';
+  import { zIndex } from '$lib/constants.js';
   import type { SelectCommonProps, SelectItem } from '$lib/types.js';
   import { cleanClass, generateId } from '$lib/utilities/internal.js';
   import { mdiArrowDown, mdiArrowUp, mdiCheck, mdiUnfoldMoreHorizontal } from '@mdi/js';
@@ -115,7 +116,7 @@
     <Select.Portal>
       <Select.Content
         bind:ref={contentRef}
-        class="bg-light text-dark max-h-96 rounded-xl border py-3 outline-none select-none"
+        class="bg-light text-dark max-h-96 rounded-xl border py-3 outline-none select-none {zIndex.SelectDropdown}"
         sideOffset={10}
       >
         <Select.ScrollUpButton class="flex w-full items-center justify-center">
