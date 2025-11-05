@@ -193,11 +193,11 @@ class CommandPaletteManager {
   }
 
   up() {
-    this.selectedIndex = (this.selectedIndex - 1 + this.results.length) % this.results.length;
+    this.selectedIndex = (this.selectedIndex - 1 + this.results.length) % (this.results.length || 1);
   }
 
   down() {
-    this.selectedIndex = (this.selectedIndex + 1) % this.results.length;
+    this.selectedIndex = (this.selectedIndex + 1) % (this.results.length || 1);
   }
 
   reset() {
