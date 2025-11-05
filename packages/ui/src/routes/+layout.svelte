@@ -10,7 +10,7 @@
     AppShellHeader,
     AppShellSidebar,
     asText,
-    CommandPalette,
+    CommandPaletteContext,
     commandPaletteManager,
     Icon,
     IconButton,
@@ -23,6 +23,7 @@
     theme,
     ThemeSwitcher,
     toggleTheme,
+    type CommandItem,
   } from '@immich/ui';
   import { mdiHome, mdiHomeOutline, mdiMagnify, mdiThemeLightDark } from '@mdi/js';
   import { MediaQuery } from 'svelte/reactivity';
@@ -41,28 +42,22 @@
     }
   });
 
-  commandPaletteManager.reset();
+  const commands: CommandItem[] = [...siteCommands];
 
-  // links
-  commandPaletteManager.addCommands(siteCommands);
-
-  // commands
-  commandPaletteManager.addCommands([
-    {
-      icon: mdiThemeLightDark,
-      iconClass: 'text-gray-700 dark:text-gray-200',
-      type: 'Command',
-      title: 'Toggle theme',
-      description: 'Switch between light and dark theme',
-      action: () => toggleTheme(),
-      text: asText('Command', 'light', 'dark', 'theme', 'toggle'),
-    },
-  ]);
+  commands.push({
+    icon: mdiThemeLightDark,
+    iconClass: 'text-gray-700 dark:text-gray-200',
+    type: 'Command',
+    title: 'Toggle theme',
+    description: 'Switch between light and dark theme',
+    action: () => toggleTheme(),
+    text: asText('Command', 'light', 'dark', 'theme', 'toggle'),
+  });
 
   // components
   for (const group of componentGroups) {
-    commandPaletteManager.addCommands(
-      group.components.map((component) => {
+    commands.push(
+      ...group.components.map((component) => {
         const href = asComponentHref(component.name);
 
         return {
@@ -145,4 +140,4 @@
   </section>
 </AppShell>
 
-<CommandPalette />
+<CommandPaletteContext {commands} />

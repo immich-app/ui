@@ -30,7 +30,7 @@ export { default as Checkbox } from '$lib/components/Checkbox/Checkbox.svelte';
 export { default as CloseButton } from '$lib/components/CloseButton/CloseButton.svelte';
 export { default as Code } from '$lib/components/Code/Code.svelte';
 export { default as CodeBlock } from '$lib/components/CodeBlock/CodeBlock.svelte';
-export { default as CommandPalette } from '$lib/components/CommandPalette/CommandPalette.svelte';
+export { default as CommandPaletteContext } from '$lib/components/CommandPalette/CommandPaletteContext.svelte';
 export { default as ConfirmModal } from '$lib/components/ConfirmModal/ConfirmModal.svelte';
 export { default as Container } from '$lib/components/Container/Container.svelte';
 export { default as Field } from '$lib/components/Field/Field.svelte';
