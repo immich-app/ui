@@ -1,5 +1,22 @@
 # Changelog
 
+## 0.41.0 (2025-11-05)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+## What's Changed
+### 🚀 Features
+* feat: context menu by @jrasm91 in https://github.com/immich-app/ui/pull/368
+### 🌟 Enhancements
+* feat: layer-aware command palette by @danieldietzler in https://github.com/immich-app/ui/pull/376
+* feat: command palette shortcuts by @danieldietzler in https://github.com/immich-app/ui/pull/379
+### 🐛 Bug fixes
+* fix: inconsistent card width by @danieldietzler in https://github.com/immich-app/ui/pull/375
+* fix: dropdown options z-index on modal by @bwees in https://github.com/immich-app/ui/pull/377
+
+
+**Full Changelog**: https://github.com/immich-app/ui/compare/ui-v0.40.3...ui-v0.41.0
+
 ## 0.40.3 (2025-10-30)
 
 <!-- Release notes generated using configuration in .github/release.yml at main -->
