@@ -1,4 +1,5 @@
 import { goto } from '$app/navigation';
+import { matchesShortcut, shortcuts, shouldIgnoreEvent, type Shortcut } from '$lib/actions/shortcut.js';
 import CommandPaletteModal from '$lib/internal/CommandPaletteModal.svelte';
 import type { MaybeArray, TranslationProps } from '$lib/types.js';
 import { generateId } from '$lib/utilities/internal.js';
@@ -11,6 +12,8 @@ export type CommandItem = {
   title: string;
   description?: string;
   text: string;
+  shortcuts?: MaybeArray<Shortcut>;
+  shortcutOptions?: { ignoreInputFields?: boolean; preventDefault?: boolean };
 } & ({ href: string } | { action: () => void | Promise<void> });
 
 export type CommandPaletteTranslations = TranslationProps<
@@ -66,7 +69,56 @@ class CommandPaletteManager {
       return;
     }
     this.#isEnabled = true;
-    // TODO register ctrl/cmd + k here once we have command handling here
+
+    if (globalThis.window && document.body) {
+      shortcuts(document.body, [
+        { shortcut: { key: 'k', meta: true }, onShortcut: () => this.open() },
+        { shortcut: { key: 'k', ctrl: true }, onShortcut: () => this.open() },
+        { shortcut: { key: '/' }, preventDefault: true, onShortcut: () => this.open() },
+      ]);
+      document.body.addEventListener('keydown', (event) => this.#handleKeydown(event));
+    }
+  }
+
+  async #handleKeydown(event: KeyboardEvent) {
+    const command = this.items.find(({ shortcuts }) => {
+      if (!shortcuts) {
+        return;
+      }
+
+      if (shortcuts)
+        return Array.isArray(shortcuts)
+          ? shortcuts.some((shortcut) => matchesShortcut(event, shortcut))
+          : matchesShortcut(event, shortcuts);
+    });
+
+    if (!command) {
+      return;
+    }
+
+    const { ignoreInputFields = true, preventDefault = true } = command.shortcutOptions ?? {};
+
+    if (ignoreInputFields && shouldIgnoreEvent(event)) {
+      return;
+    }
+
+    if (preventDefault) {
+      event.preventDefault();
+    }
+
+    await this.#executeCommand(command);
+  }
+
+  async #executeCommand(command: CommandItem) {
+    if ('href' in command) {
+      if (!command.href.startsWith('/')) {
+        window.open(command.href, '_blank');
+      } else {
+        await goto(command.href);
+      }
+    } else {
+      await command.action();
+    }
   }
 
   setTranslations(translations: CommandPaletteTranslations = {}) {
@@ -131,15 +183,7 @@ class CommandPaletteManager {
     this.recentItems.unshift(selected);
     this.recentItems = this.recentItems.slice(0, 5);
 
-    if ('href' in selected) {
-      if (!selected.href.startsWith('/')) {
-        window.open(selected.href, '_blank');
-      } else {
-        await goto(selected.href);
-      }
-    } else {
-      await selected.action();
-    }
+    await this.#executeCommand(selected);
 
     await this.close();
   }

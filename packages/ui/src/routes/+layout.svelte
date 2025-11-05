@@ -42,14 +42,19 @@
     }
   });
 
+  const globalCommands: CommandItem[] = [];
   const commands: CommandItem[] = [...siteCommands];
 
-  commands.push({
+  globalCommands.push({
     icon: mdiThemeLightDark,
     iconClass: 'text-gray-700 dark:text-gray-200',
     type: 'Command',
     title: 'Toggle theme',
     description: 'Switch between light and dark theme',
+    shortcuts: [
+      { shift: true, key: 't' },
+      { alt: true, key: 't' },
+    ],
     action: () => toggleTheme(),
     text: asText('Command', 'light', 'dark', 'theme', 'toggle'),
   });
@@ -140,4 +145,5 @@
   </section>
 </AppShell>
 
+<CommandPaletteContext commands={globalCommands} global />
 <CommandPaletteContext {commands} />
