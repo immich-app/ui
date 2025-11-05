@@ -1,6 +1,7 @@
 import { goto } from '$app/navigation';
 import CommandPaletteModal from '$lib/internal/CommandPaletteModal.svelte';
-import type { TranslationProps } from '$lib/types.js';
+import type { MaybeArray, TranslationProps } from '$lib/types.js';
+import { generateId } from '$lib/utilities/internal.js';
 import { modalManager } from './modal-manager.svelte.js';
 
 export type CommandItem = {
@@ -24,8 +25,9 @@ export const asText = (...items: unknown[]) => {
     .toLowerCase();
 };
 
-const isEqual = (a: CommandItem, b: CommandItem) => {
-  return a.title === b.title && a.type === b.type;
+type ContextLayer = {
+  items: Array<CommandItem & { id: string }>;
+  recentItems: Array<CommandItem & { id: string }>;
 };
 
 const isMatch = (item: CommandItem, query: string): boolean => {
@@ -37,35 +39,71 @@ const isMatch = (item: CommandItem, query: string): boolean => {
 };
 
 class CommandPaletteManager {
-  isEnabled = $state(false);
   query = $state('');
   selectedIndex = $state(0);
+
+  #isEnabled = $state(false);
   #normalizedQuery = $derived(this.query.toLowerCase());
   #modal?: { close: () => Promise<void> };
   #translations: CommandPaletteTranslations = {};
+  #isOpen: boolean = false;
 
-  items: CommandItem[] = [];
+  #globalLayer = $state<ContextLayer>({ items: [], recentItems: [] });
+  #layers = $state<ContextLayer[]>([{ items: [], recentItems: [] }]);
+
+  items = $derived([...this.#globalLayer.items, ...this.#layers.at(-1)!.items]);
   filteredItems = $derived(this.items.filter((item) => isMatch(item, this.#normalizedQuery)).slice(0, 100));
-  recentItems = $state<CommandItem[]>([]);
+  recentItems = $derived([...this.#globalLayer.recentItems, ...this.#layers.at(-1)!.recentItems]);
+
   results = $derived(this.query ? this.filteredItems : this.recentItems);
 
+  get isEnabled() {
+    return this.#isEnabled;
+  }
+
   enable() {
-    this.isEnabled = true;
+    if (this.#isEnabled) {
+      return;
+    }
+    this.#isEnabled = true;
+    // TODO register ctrl/cmd + k here once we have command handling here
   }
 
   setTranslations(translations: CommandPaletteTranslations = {}) {
     this.#translations = translations;
   }
 
-  async open() {
-    if (!this.isEnabled) {
+  pushContextLayer() {
+    if (!this.#isEnabled) {
+      return;
+    }
+
+    // we do not want the command palette to have its own context layer
+    if (this.#isOpen) {
+      return;
+    }
+
+    this.#layers.push({ items: [], recentItems: [] });
+
+    return () => this.popContextLayer();
+  }
+
+  popContextLayer() {
+    if (this.#layers.length > 1) {
+      this.#layers = this.#layers.slice(0, -1);
+    }
+  }
+
+  open() {
+    if (this.#modal || !this.#isEnabled) {
       return;
     }
 
     this.selectedIndex = 0;
+    this.#isOpen = true;
     const { close, onClose } = modalManager.open(CommandPaletteModal, { translations: this.#translations });
     this.#modal = { close };
-    void onClose.then(() => this.handleClose());
+    void onClose.then(() => this.#onClose());
   }
 
   close() {
@@ -76,8 +114,10 @@ class CommandPaletteManager {
     return this.#modal.close();
   }
 
-  handleClose() {
+  #onClose() {
     this.query = '';
+    this.#modal = undefined;
+    this.#isOpen = false;
   }
 
   async select(selectedIndex?: number) {
@@ -87,7 +127,7 @@ class CommandPaletteManager {
     }
 
     // no duplicates
-    this.recentItems = this.recentItems.filter((item) => !isEqual(item, selected));
+    this.recentItems = this.recentItems.filter(({ id }) => id !== selected.id);
     this.recentItems.unshift(selected);
     this.recentItems = this.recentItems.slice(0, 5);
 
@@ -117,20 +157,37 @@ class CommandPaletteManager {
   }
 
   reset() {
-    this.items = [];
+    this.#layers = [{ items: [], recentItems: [] }];
+    this.#globalLayer = { items: [], recentItems: [] };
     this.query = '';
   }
 
-  addCommands(itemOrItems: CommandItem | CommandItem[]) {
+  addCommands(itemOrItems: MaybeArray<CommandItem & { id?: string }>, options: { global?: boolean } = {}) {
     const items = Array.isArray(itemOrItems) ? itemOrItems : [itemOrItems];
-    this.items.push(...items);
+    const itemsWithId = items.map((item) => ({ ...item, id: item.id ?? generateId() }));
+
+    if (options.global) {
+      this.#globalLayer.items.push(...itemsWithId);
+    } else {
+      this.#layers.at(-1)!.items.push(...itemsWithId);
+    }
+
+    return () => this.removeCommands(itemsWithId);
   }
 
-  removeCommands(itemOrItems: CommandItem | CommandItem[]) {
+  #removeCommands(layer: ContextLayer, ids: Record<string, boolean>): ContextLayer {
+    return {
+      items: layer.items.filter(({ id }) => !ids[id]),
+      recentItems: layer.recentItems.filter(({ id }) => !ids[id]),
+    };
+  }
+
+  removeCommands(itemOrItems: MaybeArray<{ id: string }>) {
     const items = Array.isArray(itemOrItems) ? itemOrItems : [itemOrItems];
-    for (const remoteItem of items) {
-      this.items = this.items.filter((item) => !isEqual(item, remoteItem));
-    }
+    const ids = items.reduce<Record<string, true>>((acc, { id }) => ({ ...acc, [id]: true }), {});
+
+    this.#layers = this.#layers.map((layer) => this.#removeCommands(layer, ids));
+    this.#globalLayer = this.#removeCommands(this.#globalLayer, ids);
   }
 }
 

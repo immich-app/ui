@@ -33,6 +33,8 @@ export type TranslationProps<T extends keyof Translations> = { [K in T]?: string
 
 export type IconLike = string | { path: string };
 
+export type MaybeArray<T> = T | T[];
+
 export type IconProps = {
   icon: IconLike;
   title?: string;

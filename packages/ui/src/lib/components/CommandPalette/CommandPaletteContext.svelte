@@ -1,8 +1,18 @@
 <script lang="ts">
   import { shortcuts } from '$lib/actions/shortcut.js';
-  import { commandPaletteManager } from '$lib/services/command-palette-manager.svelte';
+  import { commandPaletteManager, type CommandItem } from '$lib/services/command-palette-manager.svelte';
+  import { onMount } from 'svelte';
+
+  type Props = {
+    commands?: CommandItem[];
+    global?: boolean;
+  };
+
+  const { commands = [], global }: Props = $props();
 
   const handleOpen = () => commandPaletteManager.open();
+
+  onMount(() => commandPaletteManager.addCommands(commands, { global }));
 </script>
 
 <svelte:window
