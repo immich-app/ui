@@ -58,6 +58,38 @@ export const matchesShortcut = (event: KeyboardEvent, shortcut: Shortcut) => {
   );
 };
 
+const isMacOS = globalThis.navigator && /Mac(intosh|Intel)/.test(globalThis.navigator.userAgent);
+const displayOverrides: Record<string, string> = {
+  ArrowDown: '↓',
+  ArrowLeft: '←',
+  ArrowRight: '→',
+  ArrowUp: '↑',
+  Delete: '⌦',
+};
+
+export const renderShortcut = ({ alt, meta, ctrl, shift, key }: Shortcut) => {
+  const result: string[] = [];
+  if (alt) {
+    result.push(isMacOS ? '⌥' : 'Alt');
+  }
+
+  if (meta) {
+    result.push(isMacOS ? '⌘' : '❖');
+  }
+
+  if (ctrl) {
+    result.push('Ctrl');
+  }
+
+  if (shift) {
+    result.push('⇧');
+  }
+
+  result.push(displayOverrides[key] ?? key.toUpperCase());
+
+  return result;
+};
+
 /** Bind a single keyboard shortcut to node. */
 export const shortcut = <T extends HTMLElement>(
   node: T,

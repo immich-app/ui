@@ -1,7 +1,9 @@
 <script lang="ts">
+  import { renderShortcut } from '$lib/actions/shortcut.js';
   import Button from '$lib/components/Button/Button.svelte';
   import Icon from '$lib/components/Icon/Icon.svelte';
   import IconButton from '$lib/components/IconButton/IconButton.svelte';
+  import Kbd from '$lib/components/Kbd/Kbd.svelte';
   import Text from '$lib/components/Text/Text.svelte';
   import type { CommandItem } from '$lib/services/command-palette-manager.svelte';
   import { mdiClose } from '@mdi/js';
@@ -19,6 +21,10 @@
     event.stopPropagation();
     onRemove?.();
   };
+
+  const shortcuts =
+    item.shortcuts === undefined ? [] : Array.isArray(item.shortcuts) ? item.shortcuts : [item.shortcuts];
+  const renderedShortcuts = shortcuts.map((shortcut) => renderShortcut(shortcut));
 
   let ref = $state<HTMLElement | null>(null);
 
@@ -53,19 +59,32 @@
           {/if}
         </div>
       </div>
-      {#if onRemove}
-        <IconButton
-          size="small"
-          onclick={handleRemove}
-          icon={mdiClose}
-          shape="round"
-          variant="ghost"
-          color="secondary"
-          aria-label="Remove"
-        />
-      {:else}
-        <span class="shrink-0">[{item.type}]</span>
-      {/if}
+      <div class="flex flex-col items-end">
+        {#if onRemove}
+          <IconButton
+            size="small"
+            onclick={handleRemove}
+            icon={mdiClose}
+            shape="round"
+            variant="ghost"
+            color="secondary"
+            aria-label="Remove"
+          />
+        {:else}
+          <span class="shrink-0">[{item.type}]</span>
+        {/if}
+        <div class="flex items-center gap-2">
+          {#if renderedShortcuts.length > 0}
+            <div class="mt-2 flex w-3/4 flex-wrap justify-end gap-1">
+              {#each renderedShortcuts[0] as key (key)}
+                <Kbd>
+                  {key}
+                </Kbd>
+              {/each}
+            </div>
+          {/if}
+        </div>
+      </div>
     </div>
   </Button>
 </div>
