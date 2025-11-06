@@ -1,7 +1,6 @@
 <script lang="ts">
   import ComponentSizes from '$docs/components/ComponentSizes.svelte';
-  import Text from '$lib/internal/Text.svelte';
-  import { Card, CardBody, HStack, Logo, Stack } from '@immich/ui';
+  import { Card, CardBody, HStack, Logo, Stack, Text } from '@immich/ui';
 </script>
 
 <Stack>
