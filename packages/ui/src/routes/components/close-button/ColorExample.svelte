@@ -1,7 +1,6 @@
 <script lang="ts">
   import ComponentColors from '$docs/components/ComponentColors.svelte';
-  import Text from '$lib/internal/Text.svelte';
-  import { CloseButton, HStack } from '@immich/ui';
+  import { CloseButton, HStack, Text } from '@immich/ui';
 </script>
 
 <Text class="mb-1" fontWeight="bold">Ghost</Text>

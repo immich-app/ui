@@ -1,7 +1,6 @@
 <script lang="ts">
-  import { menuManager } from '$lib/services/menu-manager.svelte.js';
-  import type { ContextMenuBaseProps, MenuSelectHandler } from '$lib/types.js';
-  import { IconButton, MenuItemType, Stack, Text, toastManager } from '@immich/ui';
+  import type { ContextMenuBaseProps, MenuSelectHandler } from '@immich/ui';
+  import { IconButton, MenuItemType, menuManager, Stack, Text, toastManager } from '@immich/ui';
   import {
     mdiContentCopy,
     mdiContentCut,

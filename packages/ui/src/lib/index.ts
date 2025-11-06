@@ -73,6 +73,7 @@ export { default as ToastPanel } from '$lib/components/Toast/ToastPanel.svelte';
 
 // helpers
 export * from '$lib/services/command-palette-manager.svelte.js';
+export * from '$lib/services/menu-manager.svelte.js';
 export * from '$lib/services/modal-manager.svelte.js';
 export * from '$lib/services/theme.svelte.js';
 export * from '$lib/services/toast-manager.svelte.js';

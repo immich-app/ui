@@ -1,6 +1,5 @@
 <script lang="ts">
-  import Button from '$lib/internal/Button.svelte';
-  import { AppShell, AppShellHeader, AppShellSidebar, Heading, NavbarItem, Stack } from '@immich/ui';
+  import { AppShell, AppShellHeader, AppShellSidebar, Button, Heading, NavbarItem, Stack } from '@immich/ui';
   import { mdiHome } from '@mdi/js';
 
   let open = $state(true);

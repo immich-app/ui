@@ -1,7 +1,6 @@
 <script lang="ts">
   import Lorem from '$docs/components/Lorem.svelte';
-  import Stack from '$lib/components/Stack/Stack.svelte';
-  import { Alert } from '@immich/ui';
+  import { Alert, Stack } from '@immich/ui';
   import { mdiHelpCircleOutline } from '@mdi/js';
 </script>
 

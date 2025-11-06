@@ -1,13 +1,13 @@
 <script lang="ts">
-  import NumberInput from '$lib/components/NumberInput/NumberInput.svelte';
-  import { toastManager } from '$lib/services/toast-manager.svelte.js';
   import {
     Button,
     Checkbox,
     Field,
     Input,
+    NumberInput,
     Select,
     Stack,
+    toastManager,
     type Color,
     type Shape,
     type Size,
