@@ -14,7 +14,7 @@ export type CommandItem = {
   text?: string;
   shortcuts?: MaybeArray<Shortcut>;
   shortcutOptions?: { ignoreInputFields?: boolean; preventDefault?: boolean };
-} & ({ href: string } | { action: () => void | Promise<void> });
+} & ({ href: string } | { action: (command: CommandItem) => void });
 
 export type CommandPaletteTranslations = TranslationProps<
   'search_placeholder' | 'search_no_results' | 'search_recently_used' | 'command_palette_prompt_default'
@@ -33,7 +33,10 @@ type ContextLayer = {
   recentItems: Array<CommandItem & { id: string }>;
 };
 
-const isMatch = ({ title, description, text = asText(title, description) }: CommandItem, query: string): boolean => {
+const isMatch = (
+  { title, description, type, text = asText(title, description, type) }: CommandItem,
+  query: string,
+): boolean => {
   if (!query) {
     return true;
   }
@@ -113,12 +116,14 @@ class CommandPaletteManager {
     if ('href' in command) {
       if (!command.href.startsWith('/')) {
         window.open(command.href, '_blank');
-      } else {
-        await goto(command.href);
+        return;
       }
-    } else {
-      await command.action();
+
+      await goto(command.href);
+      return;
     }
+
+    command.action(command);
   }
 
   setTranslations(translations: CommandPaletteTranslations = {}) {
