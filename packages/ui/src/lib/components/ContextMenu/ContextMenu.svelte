@@ -14,7 +14,7 @@
     items,
     bottomItems,
     size = 'medium',
-    anchor,
+    target,
     position = 'top-left',
     class: className,
     ...restProps
@@ -83,14 +83,14 @@
     }
   };
 
-  const alignOffset = $derived(anchor.clientWidth / 2);
-  const sideOffset = $derived(-anchor.clientHeight / 2);
+  const alignOffset = $derived(target.clientWidth / 2);
+  const sideOffset = $derived(-target.clientHeight / 2);
   const { side, align } = $derived(getAlignment(position));
 </script>
 
 <DropdownMenu.Root open={true} onOpenChange={() => onClose()}>
   <DropdownMenu.Portal>
-    <DropdownMenu.Content forceMount customAnchor={anchor} {side} {align} {alignOffset} {sideOffset}>
+    <DropdownMenu.Content forceMount customAnchor={target} {side} {align} {alignOffset} {sideOffset}>
       {#snippet child({ wrapperProps, props, open })}
         {#if open}
           <div {...wrapperProps} class={zIndex.ContextMenu}>

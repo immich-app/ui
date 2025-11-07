@@ -20,9 +20,10 @@
     });
   };
 
-  const handleOpen = async (event: MouseEvent, props: Partial<ContextMenuBaseProps>) => {
-    await menuManager.show(event, {
+  const handleOpen = async (event: Event, props: Partial<ContextMenuBaseProps>) => {
+    await menuManager.show({
       ...props,
+      target: event.currentTarget as HTMLElement,
       items: [
         { title: 'Edit album', icon: mdiPencilOutline, onSelect },
         { title: 'Share', icon: mdiShareVariant, onSelect },
@@ -51,7 +52,7 @@
         variant="ghost"
         color="secondary"
         icon={mdiDotsVertical}
-        onclick={(event: MouseEvent) => handleOpen(event, { position })}
+        onclick={(event: Event) => handleOpen(event, { position })}
         aria-label="Open menu"
       />
     </div>
