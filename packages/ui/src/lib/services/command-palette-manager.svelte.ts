@@ -7,7 +7,7 @@ import { modalManager } from './modal-manager.svelte.js';
 
 export type CommandItem = {
   icon: string;
-  iconClass: string;
+  iconClass?: string;
   type: string;
   title: string;
   description?: string;
