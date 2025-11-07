@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.42.1 (2025-11-07)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+## What's Changed
+### 🐛 Bug fixes
+* fix: command shortcuts by @jrasm91 in https://github.com/immich-app/ui/pull/384
+
+
+**Full Changelog**: https://github.com/immich-app/ui/compare/ui-v0.42.0...ui-v0.42.1
+
 ## 0.42.0 (2025-11-06)
 
 <!-- Release notes generated using configuration in .github/release.yml at main -->
