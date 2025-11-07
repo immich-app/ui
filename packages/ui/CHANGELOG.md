@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.42.2 (2025-11-07)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+## What's Changed
+### 🐛 Bug fixes
+* fix: command palette reactivity by @danieldietzler in https://github.com/immich-app/ui/pull/387
+
+## New Contributors
+* @meesfrensel made their first contribution in https://github.com/immich-app/ui/pull/389
+
+**Full Changelog**: https://github.com/immich-app/ui/compare/ui-v0.42.1...ui-v0.42.2
+
 ## 0.42.1 (2025-11-07)
 
 <!-- Release notes generated using configuration in .github/release.yml at main -->
