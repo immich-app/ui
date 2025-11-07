@@ -59,7 +59,7 @@
           {/if}
         </div>
       </div>
-      <div class="flex flex-col items-end">
+      <div class="flex flex-col items-end gap-1">
         {#if onRemove}
           <IconButton
             size="small"
@@ -73,17 +73,13 @@
         {:else}
           <span class="shrink-0">[{item.type}]</span>
         {/if}
-        <div class="flex items-center gap-2">
-          {#if renderedShortcuts.length > 0}
-            <div class="mt-2 flex w-3/4 flex-wrap justify-end gap-1">
-              {#each renderedShortcuts[0] as key (key)}
-                <Kbd>
-                  {key}
-                </Kbd>
-              {/each}
-            </div>
-          {/if}
-        </div>
+        {#if renderedShortcuts.length > 0}
+          <div class="flex justify-end gap-1">
+            {#each renderedShortcuts[0] as key (key)}
+              <Kbd size="small">{key}</Kbd>
+            {/each}
+          </div>
+        {/if}
       </div>
     </div>
   </Button>
