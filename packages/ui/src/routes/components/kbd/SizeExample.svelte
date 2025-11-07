@@ -8,7 +8,8 @@
     {#snippet child({ size, label })}
       <div>
         <Text class="mb-1" fontWeight="bold">{label}</Text>
-        <Kbd {size}>SHIFT+TAB</Kbd>
+        <Kbd {size}>⇧</Kbd>
+        <Kbd {size}>t</Kbd>
       </div>
     {/snippet}
   </ComponentSizes>

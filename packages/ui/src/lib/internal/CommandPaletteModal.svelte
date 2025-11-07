@@ -89,7 +89,7 @@
 
       {#if commandPaletteManager.results.length > 0}
         <div class="flex flex-col">
-          {#each commandPaletteManager.results as item, i (i)}
+          {#each commandPaletteManager.results as item, i (item.id)}
             <CommandPaletteItem
               {item}
               selected={commandPaletteManager.selectedIndex === i}

@@ -4,6 +4,9 @@
 
 <Stack class="items-start">
   <Kbd class="border-b-2">F12</Kbd>
-  <Kbd>SHIFT+TAB</Kbd>
-  <Text>Press <Kbd size="small">CTRL+c</Kbd> to copy highlighted text. it.</Text>
+  <span>
+    <Kbd>⇧</Kbd>
+    <Kbd>T</Kbd>
+  </span>
+  <Text>Press <Kbd size="small">ctrl + c</Kbd> to copy highlighted text.</Text>
 </Stack>
