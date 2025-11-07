@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.42.3 (2025-11-07)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+## What's Changed
+### 🐛 Bug fixes
+* fix: menu manager interface by @jrasm91 in https://github.com/immich-app/ui/pull/392
+
+
+**Full Changelog**: https://github.com/immich-app/ui/compare/ui-v0.42.2...ui-v0.42.3
+
 ## 0.42.2 (2025-11-07)
 
 <!-- Release notes generated using configuration in .github/release.yml at main -->
