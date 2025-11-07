@@ -11,7 +11,7 @@ export type CommandItem = {
   type: string;
   title: string;
   description?: string;
-  text: string;
+  text?: string;
   shortcuts?: MaybeArray<Shortcut>;
   shortcutOptions?: { ignoreInputFields?: boolean; preventDefault?: boolean };
 } & ({ href: string } | { action: () => void | Promise<void> });
@@ -33,12 +33,12 @@ type ContextLayer = {
   recentItems: Array<CommandItem & { id: string }>;
 };
 
-const isMatch = (item: CommandItem, query: string): boolean => {
+const isMatch = ({ title, description, text = asText(title, description) }: CommandItem, query: string): boolean => {
   if (!query) {
     return true;
   }
 
-  return item.text.includes(query);
+  return text.includes(query);
 };
 
 class CommandPaletteManager {
