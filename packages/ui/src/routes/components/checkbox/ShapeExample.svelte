@@ -12,9 +12,9 @@
 
   <Heading size="tiny">Round</Heading>
   <HStack>
-    <Checkbox checked />
-    <Checkbox />
-    <Checkbox indeterminate />
+    <Checkbox shape="round" checked />
+    <Checkbox shape="round" />
+    <Checkbox shape="round" indeterminate />
   </HStack>
 
   <Heading size="tiny">Rectangle</Heading>
