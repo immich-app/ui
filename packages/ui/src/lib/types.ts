@@ -262,10 +262,10 @@ export type MenuProps = {
 export type ContextMenuPosition = 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
 
 export type ContextMenuBaseProps = MenuProps & {
+  target: HTMLElement;
   position?: ContextMenuPosition;
 };
 
 export type ContextMenuProps = ContextMenuBaseProps & {
   onClose: () => void;
-  anchor: HTMLElement;
 };
