@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.42.0 (2025-11-06)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+## What's Changed
+### 🌟 Enhancements
+* feat: command palette shortcut visualization by @danieldietzler in https://github.com/immich-app/ui/pull/382
+
+
+**Full Changelog**: https://github.com/immich-app/ui/compare/ui-v0.41.1...ui-v0.42.0
+
 ## 0.41.1 (2025-11-06)
 
 <!-- Release notes generated using configuration in .github/release.yml at main -->
