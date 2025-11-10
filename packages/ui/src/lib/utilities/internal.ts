@@ -1,4 +1,4 @@
-import type { Color, IconLike, TextColor } from '$lib/types.js';
+import type { Color, IconLike, IfLike, TextColor } from '$lib/types.js';
 import { twMerge } from 'tailwind-merge';
 
 export const cleanClass = (...classNames: unknown[]) => {
@@ -45,3 +45,5 @@ export const resolveIcon = ({
 
   return icons[color] ?? fallback;
 };
+
+export const isEnabled = ({ $if }: IfLike) => $if?.() ?? true;

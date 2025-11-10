@@ -1,8 +1,8 @@
 import { goto } from '$app/navigation';
 import { matchesShortcut, shortcuts, shouldIgnoreEvent, type Shortcut } from '$lib/actions/shortcut.js';
 import CommandPaletteModal from '$lib/internal/CommandPaletteModal.svelte';
-import type { MaybeArray, TranslationProps } from '$lib/types.js';
-import { generateId } from '$lib/utilities/internal.js';
+import type { IfLike, MaybeArray, TranslationProps } from '$lib/types.js';
+import { generateId, isEnabled } from '$lib/utilities/internal.js';
 import { modalManager } from './modal-manager.svelte.js';
 
 export type CommandItem = {
@@ -14,8 +14,8 @@ export type CommandItem = {
   text?: string;
   shortcuts?: MaybeArray<Shortcut>;
   shortcutOptions?: { ignoreInputFields?: boolean; preventDefault?: boolean };
-  $if?: () => boolean;
-} & ({ href: string } | { action: (command: CommandItem) => void });
+} & IfLike &
+  ({ href: string } | { action: (command: CommandItem) => void });
 
 export type CommandPaletteTranslations = TranslationProps<
   'search_placeholder' | 'search_no_results' | 'search_recently_used' | 'command_palette_prompt_default'
@@ -58,11 +58,9 @@ class CommandPaletteManager {
   #globalLayer = $state<ContextLayer>({ items: [], recentItems: [] });
   #layers = $state<ContextLayer[]>([{ items: [], recentItems: [] }]);
 
-  items = $derived([...this.#globalLayer.items, ...this.#layers.at(-1)!.items].filter(({ $if }) => $if?.() ?? true));
+  items = $derived([...this.#globalLayer.items, ...this.#layers.at(-1)!.items].filter(isEnabled));
   filteredItems = $derived(this.items.filter((item) => isMatch(item, this.#normalizedQuery)).slice(0, 100));
-  recentItems = $derived(
-    [...this.#globalLayer.recentItems, ...this.#layers.at(-1)!.recentItems].filter(({ $if }) => $if?.() ?? true),
-  );
+  recentItems = $derived([...this.#globalLayer.recentItems, ...this.#layers.at(-1)!.recentItems].filter(isEnabled));
 
   results = $derived(this.query ? this.filteredItems : this.recentItems);
 
