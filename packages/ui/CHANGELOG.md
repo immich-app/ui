@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.43.0 (2025-11-10)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+## What's Changed
+### 🌟 Enhancements
+* feat: command palette $if by @danieldietzler in https://github.com/immich-app/ui/pull/394
+* feat: context menu $if by @danieldietzler in https://github.com/immich-app/ui/pull/396
+
+
+**Full Changelog**: https://github.com/immich-app/ui/compare/ui-v0.42.3...ui-v0.43.0
+
 ## 0.42.3 (2025-11-07)
 
 <!-- Release notes generated using configuration in .github/release.yml at main -->
