@@ -245,17 +245,17 @@ export type MenuItem = {
   icon: IconLike;
   color?: Color;
   onSelect?: MenuSelectHandler;
-};
+} & IfLike;
 
 export enum MenuItemType {
   Divider = 'divider',
 }
 
-export type MenuItems = Array<MenuItem | MenuItemType>;
+export type MenuItems = Array<MenuItem | MenuItemType | undefined>;
 
 export type MenuProps = {
   items: MenuItems;
-  bottomItems?: MenuItem[];
+  bottomItems?: (MenuItem | undefined)[];
   size?: MenuSize;
 } & HTMLAttributes<HTMLDivElement>;
 
@@ -269,3 +269,5 @@ export type ContextMenuBaseProps = MenuProps & {
 export type ContextMenuProps = ContextMenuBaseProps & {
   onClose: () => void;
 };
+
+export type IfLike = { $if?: () => boolean };

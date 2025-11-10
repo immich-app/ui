@@ -4,7 +4,7 @@
   import { zIndex } from '$lib/constants.js';
   import { styleVariants } from '$lib/styles.js';
   import { MenuItemType, type ContextMenuProps, type MenuItem } from '$lib/types.js';
-  import { cleanClass } from '$lib/utilities/internal.js';
+  import { cleanClass, isEnabled } from '$lib/utilities/internal.js';
   import { DropdownMenu } from 'bits-ui';
   import { fly } from 'svelte/transition';
   import { tv } from 'tailwind-variants';
@@ -83,6 +83,11 @@
     }
   };
 
+  const filteredItems = $derived(
+    items.filter((item) => item !== undefined).filter((item) => isDivider(item) || isEnabled(item)),
+  );
+  const filteredBottomItems = $derived(bottomItems?.filter((item) => item !== undefined).filter(isEnabled));
+
   const alignOffset = $derived(target.clientWidth / 2);
   const sideOffset = $derived(-target.clientHeight / 2);
   const { side, align } = $derived(getAlignment(position));
@@ -95,7 +100,7 @@
         {#if open}
           <div {...wrapperProps} class={zIndex.ContextMenu}>
             <div {...props} {...restProps} class={cleanClass(wrapperStyles({ size }), className)} transition:fly>
-              {#each items as item, i (isDivider(item) ? i : item.title)}
+              {#each filteredItems as item, i (isDivider(item) ? i : item.title)}
                 {#if isDivider(item)}
                   <DropdownMenu.Separator class="my-0.5 border-t" />
                 {:else}
@@ -113,10 +118,10 @@
                 {/if}
               {/each}
 
-              {#if bottomItems}
+              {#if filteredBottomItems}
                 <DropdownMenu.Separator class="my-0.5 border-t" />
                 <div class="flex gap-1 px-1">
-                  {#each bottomItems as item (item.title)}
+                  {#each filteredBottomItems as item (item.title)}
                     <DropdownMenu.Item
                       textValue={item.title}
                       closeOnSelect
