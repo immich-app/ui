@@ -14,6 +14,7 @@ export type CommandItem = {
   text?: string;
   shortcuts?: MaybeArray<Shortcut>;
   shortcutOptions?: { ignoreInputFields?: boolean; preventDefault?: boolean };
+  $if?: () => boolean;
 } & ({ href: string } | { action: (command: CommandItem) => void });
 
 export type CommandPaletteTranslations = TranslationProps<
@@ -57,9 +58,11 @@ class CommandPaletteManager {
   #globalLayer = $state<ContextLayer>({ items: [], recentItems: [] });
   #layers = $state<ContextLayer[]>([{ items: [], recentItems: [] }]);
 
-  items = $derived([...this.#globalLayer.items, ...this.#layers.at(-1)!.items]);
+  items = $derived([...this.#globalLayer.items, ...this.#layers.at(-1)!.items].filter(({ $if }) => $if?.() ?? true));
   filteredItems = $derived(this.items.filter((item) => isMatch(item, this.#normalizedQuery)).slice(0, 100));
-  recentItems = $derived([...this.#globalLayer.recentItems, ...this.#layers.at(-1)!.recentItems]);
+  recentItems = $derived(
+    [...this.#globalLayer.recentItems, ...this.#layers.at(-1)!.recentItems].filter(({ $if }) => $if?.() ?? true),
+  );
 
   results = $derived(this.query ? this.filteredItems : this.recentItems);
 
