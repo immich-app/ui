@@ -30,7 +30,7 @@
     "svelte": "^5.0.0"
   },
   "devDependencies": {
-    "@types/node": "^24.9.2",
+    "@types/node": "^24.10.0",
     "front-matter": "^4.0.2",
     "marked": "^16.4.1",
     "vite": "^7.1.12",
