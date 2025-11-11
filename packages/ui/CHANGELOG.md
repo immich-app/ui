@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.43.1 (2025-11-11)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+## What's Changed
+### 🐛 Bug fixes
+* fix: button wrap text by @meesfrensel in https://github.com/immich-app/ui/pull/400
+
+
+**Full Changelog**: https://github.com/immich-app/ui/compare/ui-v0.43.0...ui-v0.43.1
+
 ## 0.43.0 (2025-11-10)
 
 <!-- Release notes generated using configuration in .github/release.yml at main -->
