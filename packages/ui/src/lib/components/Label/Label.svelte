@@ -4,15 +4,7 @@
   import { cleanClass } from '$lib/utilities/internal.js';
   import { tv } from 'tailwind-variants';
 
-  const {
-    label,
-    size,
-    color,
-    class: className,
-    children,
-    requiredIndicator = false,
-    ...restProps
-  }: LabelProps = $props();
+  const { label, size, color, class: className, children, requiredIndicator, ...restProps }: LabelProps = $props();
 
   const styles = tv({
     base: '',
