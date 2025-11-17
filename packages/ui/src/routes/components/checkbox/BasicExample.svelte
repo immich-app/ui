@@ -19,7 +19,7 @@
     <Checkbox />
   </Field>
 
-  <Field label="Required" required requiredIndicator>
+  <Field label="Required" required="indicator">
     <Checkbox />
   </Field>
 </Stack>

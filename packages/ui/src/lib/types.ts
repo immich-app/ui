@@ -121,8 +121,7 @@ export type FieldContext = {
   description?: string;
   invalid?: boolean;
   disabled?: boolean;
-  required?: boolean;
-  requiredIndicator?: boolean;
+  required?: boolean | 'indicator';
   readOnly?: boolean;
 } & LabelProps;
 
