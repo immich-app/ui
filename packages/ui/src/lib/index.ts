@@ -33,6 +33,7 @@ export { default as CodeBlock } from '$lib/components/CodeBlock/CodeBlock.svelte
 export { default as CommandPaletteContext } from '$lib/components/CommandPalette/CommandPaletteContext.svelte';
 export { default as ConfirmModal } from '$lib/components/ConfirmModal/ConfirmModal.svelte';
 export { default as Container } from '$lib/components/Container/Container.svelte';
+export { default as DatePicker } from '$lib/components/DatePicker/DatePicker.svelte';
 export { default as Field } from '$lib/components/Field/Field.svelte';
 export { default as FormatBytes } from '$lib/components/FormatBytes/FormatBytes.svelte';
 export { default as FormModal } from '$lib/components/FormModal/FormModal.svelte';

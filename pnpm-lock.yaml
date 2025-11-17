@@ -81,6 +81,9 @@ importers:
       '@immich/svelte-markdown-preprocess':
         specifier: workspace:^
         version: link:../svelte-markdown-preprocess
+      '@internationalized/date':
+        specifier: ^3.10.0
+        version: 3.10.0
       '@mdi/js':
         specifier: ^7.4.47
         version: 7.4.47
