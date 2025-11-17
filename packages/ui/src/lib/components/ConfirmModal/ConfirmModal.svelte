@@ -49,7 +49,7 @@
       <Button shape="round" color="secondary" fullWidth onclick={() => onClose(false)}>
         {t('cancel')}
       </Button>
-      <Button shape="round" color={confirmColor} fullWidth onclick={handleConfirm} {disabled}>
+      <Button shape="round" tabindex={1} color={confirmColor} fullWidth onclick={handleConfirm} {disabled}>
         {confirmText}
       </Button>
     </HStack>
