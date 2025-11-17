@@ -112,6 +112,7 @@ export type LabelProps = {
   class?: string;
   size?: Size;
   color?: TextColor;
+  requiredIndicator?: boolean;
   children?: Snippet;
 } & HTMLLabelAttributes;
 
@@ -121,6 +122,7 @@ export type FieldContext = {
   invalid?: boolean;
   disabled?: boolean;
   required?: boolean;
+  requiredIndicator?: boolean;
   readOnly?: boolean;
 } & LabelProps;
 

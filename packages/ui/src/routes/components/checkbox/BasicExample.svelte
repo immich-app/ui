@@ -18,4 +18,8 @@
   <Field label="Invalid" invalid>
     <Checkbox />
   </Field>
+
+  <Field label="Required" required requiredIndicator>
+    <Checkbox />
+  </Field>
 </Stack>

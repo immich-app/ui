@@ -4,7 +4,7 @@
   import { cleanClass } from '$lib/utilities/internal.js';
   import { tv } from 'tailwind-variants';
 
-  const { label, size, color, class: className, children, ...restProps }: LabelProps = $props();
+  const { label, size, color, class: className, children, requiredIndicator, ...restProps }: LabelProps = $props();
 
   const styles = tv({
     base: '',
@@ -15,7 +15,13 @@
   });
 </script>
 
-<label class={cleanClass(styles({ size, color }), className)} {...restProps}>
-  {#if label}{label}{/if}
-  {@render children?.()}
-</label>
+<div class="inline-block">
+  <label class={cleanClass(styles({ size, color }), className)} {...restProps}>
+    {#if label}{label}{/if}
+    {@render children?.()}
+  </label>
+
+  {#if requiredIndicator}
+    <span aria-hidden="true" class="text-danger">*</span>
+  {/if}
+</div>

@@ -13,9 +13,10 @@ export const getFieldContext = () => {
     invalid = false,
     readOnly = false,
     required = false,
+    requiredIndicator = false,
     disabled = false,
     description,
   } = (getContext(fieldKey) as FieldContext) || {};
 
-  return { label, description, color, invalid, readOnly, required, disabled };
+  return { label, description, color, invalid, readOnly, required, requiredIndicator, disabled };
 };

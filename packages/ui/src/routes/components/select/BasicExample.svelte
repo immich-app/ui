@@ -43,6 +43,16 @@
     />
   </Field>
 
+  <Field label="Required" requiredIndicator>
+    <Select
+      data={[
+        { label: 'Svelte', value: 'svelte' },
+        { label: 'React', value: 'react' },
+        { label: 'Angular', value: 'angular' },
+      ]}
+    />
+  </Field>
+
   <Field label="Disabled option">
     <Select data={[{ value: 'Svelte' }, { value: 'React' }, { value: 'Angular', disabled: true }]} />
   </Field>
