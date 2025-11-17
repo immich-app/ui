@@ -1,5 +1,5 @@
 <script>
-  import { Stack, Field, Textarea, HelperText } from '@immich/ui';
+  import { Field, HelperText, Stack, Textarea } from '@immich/ui';
 </script>
 
 <Stack gap={4}>
@@ -7,6 +7,9 @@
     <Textarea placeholder="Type something here..." />
   </Field>
   <Field label="Label" description="This is the description">
+    <Textarea />
+  </Field>
+  <Field label="Required" requiredIndicator>
     <Textarea />
   </Field>
   <Field label="Disabled" disabled>
