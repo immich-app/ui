@@ -78,8 +78,8 @@
       oninput={onInput}
       id={inputId}
       aria-labelledby={label && labelId}
-      {required}
-      aria-required={required}
+      required={!!required}
+      aria-required={!!required}
       {disabled}
       aria-disabled={disabled}
       aria-describedby={descriptionId}

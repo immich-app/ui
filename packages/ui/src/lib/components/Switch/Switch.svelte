@@ -81,7 +81,7 @@
   bind:ref
   id={inputId}
   disabled={disabled || readOnly}
-  {required}
+  required={!!required}
   class={cleanClass(label && 'w-full', className)}
   aria-readonly={readOnly}
   aria-labelledby={labelId}
@@ -93,7 +93,7 @@
       <div class={cleanClass(label && 'flex items-center justify-between gap-1')}>
         {#if label}
           <div class="text-start">
-            <Label id={labelId} for={inputId} {label} requiredIndicator={required == 'indicator'} {...labelProps} />
+            <Label id={labelId} for={inputId} {label} requiredIndicator={required === 'indicator'} {...labelProps} />
             {#if description}
               <Text color="secondary" size="small" id={descriptionId}>{description}</Text>
             {/if}
