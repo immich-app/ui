@@ -32,6 +32,8 @@ const defaultTranslations = {
   toast_info_title: 'Info',
   toast_warning_title: 'Warning',
   toast_danger_title: 'Error',
+
+  save: 'Save',
 };
 
 export type Translations = typeof defaultTranslations;
