@@ -17,7 +17,7 @@
     disabled?: boolean;
     size?: 'small' | 'medium';
     preventDefault?: boolean;
-    onClose?: () => void;
+    onClose: () => void;
     onSubmit: (event: SubmitEvent) => void;
     children: Snippet;
   };
@@ -46,16 +46,15 @@
   const formId = generateId();
 </script>
 
-<Modal {title} onClose={() => onClose()} {size} {icon}>
+<Modal {title} {onClose} {size} {icon}>
   <ModalBody>
     <form {onsubmit} id={formId}>
       {@render children()}
     </form>
   </ModalBody>
-
   <ModalFooter>
     <HStack fullWidth>
-      <Button shape="round" color="secondary" fullWidth onclick={() => onClose()}>
+      <Button shape="round" color="secondary" fullWidth onclick={onClose}>
         {t('cancel')}
       </Button>
       <Button shape="round" type="submit" tabindex={1} color={submitColor} fullWidth {disabled} form={formId}>

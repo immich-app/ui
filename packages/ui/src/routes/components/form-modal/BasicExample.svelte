@@ -7,13 +7,16 @@
 
   const handleSubmit = () => {
     toastManager.show({ title: `Hello ${value}` });
+    onClose();
   };
+
+  const onClose = () => (isOpen = false);
 </script>
 
-<Button onclick={() => (isOpen = true)}>Open ConfirmModal</Button>
+<Button onclick={() => (isOpen = true)}>Open</Button>
 
 {#if isOpen}
-  <FormModal title="Form Modal" onSubmit={handleSubmit} onClose={() => (isOpen = false)}>
+  <FormModal title="Form Modal" onSubmit={handleSubmit} {onClose}>
     <Field label="Hello">
       <Input bind:value />
     </Field>
