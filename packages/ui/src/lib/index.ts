@@ -13,6 +13,7 @@ export { default as obtainiumBadge } from '$lib/assets/obtainium-badge.png';
 export { default as playStoreBadge } from '$lib/assets/playstore-badge.png';
 
 // components
+export { Markdown } from '$lib/components/Markdown/index.js';
 export { default as Alert } from '$lib/components/Alert/Alert.svelte';
 export { default as AnnouncementBanner } from '$lib/components/AnnouncementBanner/AnnouncementBanner.svelte';
 export { default as AppShell } from '$lib/components/AppShell/AppShell.svelte';
@@ -35,6 +36,7 @@ export { default as ConfirmModal } from '$lib/components/ConfirmModal/ConfirmMod
 export { default as Container } from '$lib/components/Container/Container.svelte';
 export { default as Field } from '$lib/components/Field/Field.svelte';
 export { default as FormatBytes } from '$lib/components/FormatBytes/FormatBytes.svelte';
+export { default as HStack } from '$lib/components/Stack/HStack.svelte';
 export { default as Heading } from '$lib/components/Heading/Heading.svelte';
 export { default as HelperText } from '$lib/components/HelperText/HelperText.svelte';
 export { default as Icon } from '$lib/components/Icon/Icon.svelte';
@@ -45,7 +47,6 @@ export { default as Label } from '$lib/components/Label/Label.svelte';
 export { default as Link } from '$lib/components/Link/Link.svelte';
 export { default as LoadingSpinner } from '$lib/components/LoadingSpinner/LoadingSpinner.svelte';
 export { default as Logo } from '$lib/components/Logo/Logo.svelte';
-export { Markdown } from '$lib/components/Markdown/index.js';
 export { default as Modal } from '$lib/components/Modal/Modal.svelte';
 export { default as ModalBody } from '$lib/components/Modal/ModalBody.svelte';
 export { default as ModalFooter } from '$lib/components/Modal/ModalFooter.svelte';
@@ -55,12 +56,11 @@ export { default as NavbarGroup } from '$lib/components/Navbar/NavbarGroup.svelt
 export { default as NavbarItem } from '$lib/components/Navbar/NavbarItem.svelte';
 export { default as NumberInput } from '$lib/components/NumberInput/NumberInput.svelte';
 export { default as PasswordInput } from '$lib/components/PasswordInput/PasswordInput.svelte';
+export { default as Placeholder } from '$lib/components/Placeholder/Placeholder.svelte';
 export { default as Scrollable } from '$lib/components/Scrollable/Scrollable.svelte';
 export { default as Select } from '$lib/components/Select/Select.svelte';
 export { default as SiteMetadata } from '$lib/components/SiteMetadata/SiteMetadata.svelte';
-export { default as HStack } from '$lib/components/Stack/HStack.svelte';
 export { default as Stack } from '$lib/components/Stack/Stack.svelte';
-export { default as VStack } from '$lib/components/Stack/VStack.svelte';
 export { default as SupporterBadge } from '$lib/components/SupporterBadge/SupporterBadge.svelte';
 export { default as Switch } from '$lib/components/Switch/Switch.svelte';
 export { default as Text } from '$lib/components/Text/Text.svelte';
@@ -70,6 +70,7 @@ export { default as Toast } from '$lib/components/Toast/Toast.svelte';
 export { default as ToastContainer } from '$lib/components/Toast/ToastContainer.svelte';
 export { default as ToastContent } from '$lib/components/Toast/ToastContent.svelte';
 export { default as ToastPanel } from '$lib/components/Toast/ToastPanel.svelte';
+export { default as VStack } from '$lib/components/Stack/VStack.svelte';
 
 // helpers
 export * from '$lib/services/command-palette-manager.svelte.js';
