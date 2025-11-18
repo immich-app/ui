@@ -66,7 +66,7 @@
 
 <div class="flex w-full flex-col gap-1" bind:this={containerRef}>
   {#if label}
-    <Label id={labelId} for={inputId} {label} {...labelProps} />
+    <Label id={labelId} for={inputId} {label} requiredIndicator={required === 'indicator'} {...labelProps} />
   {/if}
 
   {#if description}
@@ -78,8 +78,8 @@
       oninput={onInput}
       id={inputId}
       aria-labelledby={label && labelId}
-      {required}
-      aria-required={required}
+      required={!!required}
+      aria-required={!!required}
       {disabled}
       aria-disabled={disabled}
       aria-describedby={descriptionId}

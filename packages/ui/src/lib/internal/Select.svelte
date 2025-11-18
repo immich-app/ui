@@ -78,7 +78,7 @@
 
 <div class={cleanClass('flex flex-col gap-1', className)} bind:this={ref}>
   {#if label}
-    <Label id={labelId} for={inputId} {label} {...labelProps} />
+    <Label id={labelId} for={inputId} {label} requiredIndicator={required === 'indicator'} {...labelProps} />
   {/if}
 
   <Select.Root type={multiple ? 'multiple' : 'single'} bind:value={internalValue as never} {onValueChange}>

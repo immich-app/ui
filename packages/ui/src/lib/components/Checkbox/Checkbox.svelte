@@ -81,7 +81,7 @@
 
 <div class="flex flex-col gap-1">
   {#if label}
-    <Label id={labelId} for={inputId} {label} {...labelProps} />
+    <Label id={labelId} for={inputId} {label} requiredIndicator={required === 'indicator'} {...labelProps} />
     {#if description}
       <Text color="secondary" size="small" id={descriptionId}>{description}</Text>
     {/if}
@@ -100,7 +100,7 @@
     )}
     bind:checked
     disabled={disabled || readOnly}
-    {required}
+    required={!!required}
     aria-readonly={disabled || readOnly}
     aria-describedby={descriptionId}
     {...restProps}
