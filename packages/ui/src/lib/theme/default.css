@@ -202,16 +202,16 @@
     --immich-ui-warning-900: oklch(0.286 0.059 78.61);
 
     --immich-ui-info: oklch(0.767 0.122 253.35);
-    --immich-ui-success-50: oklch(0.975 0.012 259.84);
-    --immich-ui-success-100: oklch(0.956 0.021 261.78);
-    --immich-ui-success-200: oklch(0.905 0.046 259.51);
-    --immich-ui-success-300: oklch(0.861 0.068 259.36);
-    --immich-ui-success-400: oklch(0.811 0.096 255.92);
-    --immich-ui-success-500: oklch(0.767 0.122 253.35);
-    --immich-ui-success-600: oklch(0.638 0.166 246.52);
-    --immich-ui-success-700: oklch(0.516 0.135 246.69);
-    --immich-ui-success-800: oklch(0.386 0.1 246.5);
-    --immich-ui-success-900: oklch(0.265 0.07 247.05);
+    --immich-ui-info-50: oklch(0.975 0.012 259.84);
+    --immich-ui-info-100: oklch(0.956 0.021 261.78);
+    --immich-ui-info-200: oklch(0.905 0.046 259.51);
+    --immich-ui-info-300: oklch(0.861 0.068 259.36);
+    --immich-ui-info-400: oklch(0.811 0.096 255.92);
+    --immich-ui-info-500: oklch(0.767 0.122 253.35);
+    --immich-ui-info-600: oklch(0.638 0.166 246.52);
+    --immich-ui-info-700: oklch(0.516 0.135 246.69);
+    --immich-ui-info-800: oklch(0.386 0.1 246.5);
+    --immich-ui-info-900: oklch(0.265 0.07 247.05);
 
     --immich-ui-muted: 212 212 212;
     --immich-ui-gray: 33 33 33;

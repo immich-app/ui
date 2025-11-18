@@ -43,7 +43,7 @@
     />
   </Field>
 
-  <Field label="Required" requiredIndicator>
+  <Field label="Required" required="indicator">
     <Select
       data={[
         { label: 'Svelte', value: 'svelte' },

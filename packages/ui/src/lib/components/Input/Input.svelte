@@ -94,7 +94,14 @@
 
 <div class="flex w-full flex-col gap-1" bind:this={containerRef}>
   {#if label}
-    <Label id={labelId} for={inputId} {label} {...labelProps} class="font-medium" />
+    <Label
+      id={labelId}
+      for={inputId}
+      {label}
+      requiredIndicator={required === 'indicator'}
+      {...labelProps}
+      class="font-medium"
+    />
   {/if}
 
   {#if description}
@@ -124,8 +131,8 @@
     <input
       id={inputId}
       aria-labelledby={label && labelId}
-      {required}
-      aria-required={required}
+      required={!!required}
+      aria-required={!!required}
       {disabled}
       aria-disabled={disabled}
       aria-describedby={descriptionId}

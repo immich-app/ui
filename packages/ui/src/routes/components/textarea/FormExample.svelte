@@ -9,7 +9,7 @@
   <Field label="Label" description="This is the description">
     <Textarea />
   </Field>
-  <Field label="Required" requiredIndicator>
+  <Field label="Required" required="indicator">
     <Textarea />
   </Field>
   <Field label="Disabled" disabled>

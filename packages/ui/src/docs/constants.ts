@@ -86,6 +86,7 @@ export const componentGroups = [
       { name: 'ConfirmModal', icon: mdiCheckboxOutline },
       { name: 'Container', icon: mdiSquareOutline, activeIcon: mdiSquare },
       { name: 'ContextMenu', icon: mdiDotsVertical },
+      { name: 'FormModal', icon: mdiWindowMaximize },
       { name: 'Modal', icon: mdiWindowMaximize },
       { name: 'Navbar', icon: mdiMenu },
       { name: 'Scrollable', icon: mdiPanVertical },

@@ -12,7 +12,7 @@
   <Field label="Disabled" disabled>
     <Input placeholder="label" />
   </Field>
-  <Field label="Required" requiredIndicator>
+  <Field label="Required" required="indicator">
     <Input placeholder="label" />
   </Field>
   <Field label="Instance URL">
