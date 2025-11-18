@@ -25,7 +25,7 @@
   const { label, description, readOnly, required, invalid, disabled, ...labelProps } = $derived(getFieldContext());
 
   const iconStyles = tv({
-    base: 'flex flex-shrink-0 items-center justify-center',
+    base: 'flex shrink-0 items-center justify-center',
     variants: {
       size: {
         tiny: 'w-6',
@@ -38,25 +38,25 @@
   });
 
   const containerStyles = tv({
-    base: 'flex w-full items-center bg-gray-200 outline-none disabled:cursor-not-allowed disabled:bg-gray-300 disabled:text-gray-400 dark:bg-gray-600 dark:disabled:bg-gray-800 dark:disabled:text-gray-200',
+    base: 'focus-within:ring-primary dark:focus-within:ring-primary mt-0.5 flex w-full items-center bg-gray-100 ring-1 ring-gray-200 transition outline-none focus-within:ring-1 disabled:cursor-not-allowed dark:bg-gray-800 dark:ring-black',
     variants: {
       shape: styleVariants.shape,
       roundedSize: {
-        tiny: 'rounded-xl',
-        small: 'rounded-xl',
-        medium: 'rounded-2xl',
-        large: 'rounded-2xl',
-        giant: 'rounded-2xl',
+        tiny: 'rounded-lg',
+        small: 'rounded-lg',
+        medium: 'rounded-lg',
+        large: 'rounded-lg',
+        giant: 'rounded-lg',
       },
       invalid: {
-        true: 'border-danger/80 border',
+        true: 'focus-within:ring-danger dark:focus-within:ring-danger dark:ring-danger-300 ring-danger-300 ring-1',
         false: '',
       },
     },
   });
 
   const inputStyles = tv({
-    base: 'flex-1 bg-transparent py-3 outline-none disabled:cursor-not-allowed',
+    base: 'disabled:text-dark flex-1 bg-transparent py-2 transition outline-none disabled:cursor-not-allowed disabled:bg-gray-300 dark:disabled:bg-gray-900 dark:disabled:text-gray-200',
     variants: {
       textSize: styleVariants.textSize,
       leadingPadding: {
@@ -66,6 +66,13 @@
       trailingPadding: {
         base: 'pr-4',
         icon: 'pr-0',
+      },
+      roundedSize: {
+        tiny: 'rounded-lg',
+        small: 'rounded-lg',
+        medium: 'rounded-lg',
+        large: 'rounded-lg',
+        giant: 'rounded-lg',
       },
     },
   });
@@ -87,11 +94,11 @@
 
 <div class="flex w-full flex-col gap-1" bind:this={containerRef}>
   {#if label}
-    <Label id={labelId} for={inputId} {label} {...labelProps} />
+    <Label id={labelId} for={inputId} {label} {...labelProps} class="font-medium" />
   {/if}
 
   {#if description}
-    <Text color="secondary" size="small" id={descriptionId}>{description}</Text>
+    <Text color="muted" size="small" id={descriptionId} class="mb-1">{description}</Text>
   {/if}
 
   <div
@@ -129,6 +136,7 @@
         textSize: size,
         leadingPadding: leadingIcon ? 'icon' : 'base',
         trailingPadding: trailingIcon || trailingText ? 'icon' : 'base',
+        roundedSize: shape === 'semi-round' ? size : undefined,
       })}
       bind:this={ref}
       bind:value

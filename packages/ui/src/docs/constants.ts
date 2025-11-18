@@ -41,6 +41,7 @@ import {
   mdiMessageAlert,
   mdiMessageAlertOutline,
   mdiNumeric,
+  mdiPalette,
   mdiPanVertical,
   mdiPartyPopper,
   mdiSquare,
@@ -132,6 +133,7 @@ export const componentGroups = [
     components: [
       { name: 'Avatar', icon: mdiAccountCircleOutline, activeIcon: mdiAccountCircle },
       { name: 'CommandPalette', icon: mdiMenu, activeIcon: mdiMenu },
+      { name: 'Colors', icon: mdiPalette },
       { name: 'Logo', icon: mdiImageOutline, activeIcon: mdiImage },
       { name: 'Markdown', icon: mdiLanguageMarkdownOutline, activeIcon: mdiLanguageMarkdownOutline },
       { name: 'SupporterBadge', icon: mdiPartyPopper },
