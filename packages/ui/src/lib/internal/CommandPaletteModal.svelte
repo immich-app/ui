@@ -61,7 +61,7 @@
   ]}
 />
 
-<Modal size="large" {onClose} closeOnBackdropClick>
+<Modal size="large" {onClose} closeOnBackdropClick class="max-h-[75vh] lg:max-h-[50vh]">
   <ModalHeader>
     <div class="flex place-items-center gap-1">
       <Input
@@ -93,7 +93,9 @@
             <CommandPaletteItem
               {item}
               selected={commandPaletteManager.selectedIndex === i}
-              onRemove={commandPaletteManager.query ? undefined : () => commandPaletteManager.remove(i)}
+              onRemove={commandPaletteManager.query || commandPaletteManager.isShowAll
+                ? undefined
+                : () => commandPaletteManager.remove(i)}
               onSelect={() => commandPaletteManager.select(i)}
             />
           {/each}
@@ -103,29 +105,38 @@
   </ModalBody>
   <ModalFooter>
     <div class="flex w-full justify-around">
-      <div class="flex gap-4">
-        <div class="flex place-items-center gap-1">
-          <span class="rounded bg-gray-300 p-1 dark:bg-gray-500">
-            <Icon icon={mdiKeyboardReturn} size="1rem" />
-          </span>
-          <Text size="small">to select</Text>
-        </div>
-
+      {#if commandPaletteManager.isEmpty}
         <div class="flex place-items-center gap-1">
           <span class="flex gap-1 rounded bg-gray-300 p-1 dark:bg-gray-500">
-            <Icon icon={mdiArrowUp} size="1rem" />
             <Icon icon={mdiArrowDown} size="1rem" />
           </span>
-          <Text size="small">to navigate</Text>
+          <Text size="small">{t('command_palette_to_show_all', translations)}</Text>
         </div>
+      {:else}
+        <div class="flex gap-4">
+          <div class="flex place-items-center gap-1">
+            <span class="rounded bg-gray-300 p-1 dark:bg-gray-500">
+              <Icon icon={mdiKeyboardReturn} size="1rem" />
+            </span>
+            <Text size="small">{t('command_palette_to_select', translations)}</Text>
+          </div>
 
-        <div class="flex place-items-center gap-1">
-          <span class="rounded bg-gray-300 p-1 dark:bg-gray-500">
-            <Icon icon={mdiKeyboardEsc} size="1rem" />
-          </span>
-          <Text size="small">to close</Text>
+          <div class="flex place-items-center gap-1">
+            <span class="flex gap-1 rounded bg-gray-300 p-1 dark:bg-gray-500">
+              <Icon icon={mdiArrowUp} size="1rem" />
+              <Icon icon={mdiArrowDown} size="1rem" />
+            </span>
+            <Text size="small">{t('command_palette_to_navigate', translations)}</Text>
+          </div>
+
+          <div class="flex place-items-center gap-1">
+            <span class="rounded bg-gray-300 p-1 dark:bg-gray-500">
+              <Icon icon={mdiKeyboardEsc} size="1rem" />
+            </span>
+            <Text size="small">{t('command_palette_to_close', translations)}</Text>
+          </div>
         </div>
-      </div>
+      {/if}
     </div>
   </ModalFooter>
 </Modal>

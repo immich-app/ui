@@ -27,6 +27,10 @@ const defaultTranslations = {
 
   // command palette
   command_palette_prompt_default: 'Quickly find pages, actions, or commands',
+  command_palette_to_select: 'to select',
+  command_palette_to_navigate: 'to navigate',
+  command_palette_to_close: 'to close',
+  command_palette_to_show_all: 'to show all',
 
   toast_success_title: 'Success',
   toast_info_title: 'Info',
