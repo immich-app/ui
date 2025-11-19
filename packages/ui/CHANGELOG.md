@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.45.1 (2025-11-19)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+## What's Changed
+### 🐛 Bug fixes
+* fix: remove field top padding by @bwees in https://github.com/immich-app/ui/pull/414
+* fix: revert field background color changes by @bwees in https://github.com/immich-app/ui/pull/415
+
+
+**Full Changelog**: https://github.com/immich-app/ui/compare/ui-v0.45.0...ui-v0.45.1
+
 ## 0.45.0 (2025-11-19)
 
 <!-- Release notes generated using configuration in .github/release.yml at main -->
