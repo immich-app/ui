@@ -187,7 +187,6 @@ export type ToastId = { id: string };
 
 type ToastCommonProps = {
   color?: Color;
-  variant?: ToastVariant;
 };
 
 export type ToastContentProps = ToastCommonProps & {

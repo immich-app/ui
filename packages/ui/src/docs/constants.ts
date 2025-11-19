@@ -134,11 +134,14 @@ export const componentGroups = [
     components: [
       { name: 'Avatar', icon: mdiAccountCircleOutline, activeIcon: mdiAccountCircle },
       { name: 'CommandPalette', icon: mdiMenu, activeIcon: mdiMenu },
-      { name: 'Colors', icon: mdiPalette },
       { name: 'Logo', icon: mdiImageOutline, activeIcon: mdiImage },
       { name: 'Markdown', icon: mdiLanguageMarkdownOutline, activeIcon: mdiLanguageMarkdownOutline },
       { name: 'SupporterBadge', icon: mdiPartyPopper },
       { name: 'ThemeSwitcher', icon: mdiThemeLightDark },
     ],
+  },
+  {
+    title: 'Design',
+    components: [{ name: 'Colors', icon: mdiPalette }],
   },
 ];

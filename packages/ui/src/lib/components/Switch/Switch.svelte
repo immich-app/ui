@@ -41,13 +41,13 @@
     base: 'h-8 w-13 rounded-full border-2',
     variants: {
       fillColor: {
-        default: 'border-gray-400 bg-gray-300 dark:border-gray-500 dark:bg-gray-400',
-        primary: 'bg-primary/50 dark:bg-primary border-transparent',
-        secondary: 'bg-dark/50 border-transparent',
-        success: 'bg-success/50 border-transparent',
-        danger: 'bg-danger/50 border-transparent',
-        warning: 'bg-warning/50 border-transparent',
-        info: 'bg-info/50 border-transparent',
+        default: 'border-gray-400 bg-gray-200 dark:border-gray-500 dark:bg-gray-800',
+        primary: 'bg-primary-200 dark:bg-primary-800 border-transparent',
+        secondary: 'border-transparent bg-neutral-300 dark:bg-neutral-700',
+        success: 'bg-success-200 dark:bg-success-800 border-transparent',
+        danger: 'bg-danger-200 dark:bg-danger-800 border-transparent',
+        warning: 'bg-warning-200 dark:bg-warning-800 border-transparent',
+        info: 'bg-info-200 dark:bg-info-800 border-transparent',
       },
     },
   });
@@ -60,8 +60,8 @@
         false: 'translate-x-2 rtl:-translate-x-2',
       },
       fillColor: {
-        default: 'bg-gray-400 dark:bg-gray-500',
-        primary: 'bg-[#4250af]',
+        default: 'bg-gray-600 dark:bg-gray-500',
+        primary: 'bg-primary',
         secondary: 'bg-dark',
         success: 'bg-success',
         danger: 'bg-danger',

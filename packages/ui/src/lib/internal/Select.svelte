@@ -126,7 +126,7 @@
           {#each options as { value, label, disabled }, i (i + value)}
             <Select.Item
               class={cleanClass(
-                'hover:bg-subtle data-[selected]:bg-primary/10 flex h-10 w-full items-center px-5 py-3 text-sm duration-75 outline-none select-none data-disabled:opacity-50',
+                'hover:bg-subtle data-selected:bg-primary/10 flex h-10 w-full items-center px-5 py-3 text-sm duration-75 outline-none select-none data-disabled:opacity-50',
                 disabled ? 'cursor-not-allowed' : 'cursor-pointer',
               )}
               {value}

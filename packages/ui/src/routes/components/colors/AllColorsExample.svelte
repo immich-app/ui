@@ -16,6 +16,7 @@
         { name: 'primary-700', class: 'bg-primary-700' },
         { name: 'primary-800', class: 'bg-primary-800' },
         { name: 'primary-900', class: 'bg-primary-900' },
+        { name: 'primary-950', class: 'bg-primary-950' },
       ],
     },
     {
@@ -32,6 +33,7 @@
         { name: 'success-700', class: 'bg-success-700' },
         { name: 'success-800', class: 'bg-success-800' },
         { name: 'success-900', class: 'bg-success-900' },
+        { name: 'success-950', class: 'bg-success-950' },
       ],
     },
     {
@@ -48,6 +50,7 @@
         { name: 'danger-700', class: 'bg-danger-700' },
         { name: 'danger-800', class: 'bg-danger-800' },
         { name: 'danger-900', class: 'bg-danger-900' },
+        { name: 'danger-950', class: 'bg-danger-950' },
       ],
     },
     {
@@ -64,6 +67,7 @@
         { name: 'warning-700', class: 'bg-warning-700' },
         { name: 'warning-800', class: 'bg-warning-800' },
         { name: 'warning-900', class: 'bg-warning-900' },
+        { name: 'warning-950', class: 'bg-warning-950' },
       ],
     },
     {
@@ -80,6 +84,7 @@
         { name: 'info-700', class: 'bg-info-700' },
         { name: 'info-800', class: 'bg-info-800' },
         { name: 'info-900', class: 'bg-info-900' },
+        { name: 'info-950', class: 'bg-info-950' },
       ],
     },
 
