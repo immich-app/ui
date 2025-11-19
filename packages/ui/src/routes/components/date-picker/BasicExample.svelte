@@ -1,30 +1,16 @@
 <script lang="ts">
-  import Select from '$lib/components/Select/Select.svelte';
+  import DatePicker from '$lib/components/DatePicker/DatePicker.svelte';
+  import Field from '$lib/components/Field/Field.svelte';
   import Stack from '$lib/components/Stack/Stack.svelte';
-  import DatePicker from '$lib/internal/DatePicker.svelte';
-  import type { SelectItem } from '$lib/types.js';
+  import Text from '$lib/components/Text/Text.svelte';
+  import { DateTime } from 'luxon';
 
-  let values: SelectItem[] = $state([
-    { label: 'Svelte', value: 'svelte' },
-    { label: 'React', value: 'react' },
-    { label: 'Angular', value: 'angular' },
-  ]);
+  let selectedValue: DateTime | null = $state(null);
 </script>
 
-<Stack gap={8} class="max-w-[500px]">
-  <Stack gap={2}>
-    <Select data={values} size="giant" />
-    <Select data={values} size="large" />
-    <Select data={values} size="medium" />
-    <Select data={values} size="small" />
-    <Select data={values} size="tiny" />
-  </Stack>
-
-  <Stack gap={2}>
-    <DatePicker size="giant" />
-    <DatePicker size="large" />
-    <DatePicker size="medium" />
-    <DatePicker size="small" />
-    <DatePicker size="tiny" />
-  </Stack>
+<Stack gap={4} class="max-w-[250px]">
+  <Field label="Select a date">
+    <DatePicker bind:value={selectedValue} />
+  </Field>
+  <Text>Selected date: {selectedValue == null ? 'null' : selectedValue.toISODate()}</Text>
 </Stack>

@@ -32,7 +32,7 @@
   const labelId = `label-${id}`;
 
   const containerStyles = tv({
-    base: 'flex w-full items-center bg-gray-200 py-3 outline-none disabled:cursor-not-allowed disabled:bg-gray-300 disabled:text-gray-400 dark:bg-gray-600 dark:disabled:bg-gray-800 dark:disabled:text-gray-200',
+    base: 'flex w-full items-center bg-gray-200 py-2 outline-none disabled:cursor-not-allowed disabled:bg-gray-300 disabled:text-gray-400 dark:bg-gray-600 dark:disabled:bg-gray-800 dark:disabled:text-gray-200',
     variants: {
       shape: styleVariants.shape,
       roundedSize: {
@@ -57,7 +57,7 @@
   });
 
   const firstSegmentStyles = 'ml-4';
-  const lastSegmentStyles = 'mr-1';
+  const lastSegmentStyles = 'mr-auto';
 </script>
 
 <div class={cleanClass('flex w-full flex-col gap-1', className)}>
@@ -87,7 +87,7 @@
               {value}
             </DatePicker.Segment>
           {/each}
-          <DatePicker.Trigger class="mr-1">
+          <DatePicker.Trigger class="mr-4">
             <IconButton
               variant="ghost"
               shape="round"
