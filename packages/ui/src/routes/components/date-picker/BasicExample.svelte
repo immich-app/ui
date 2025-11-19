@@ -5,12 +5,12 @@
   import Text from '$lib/components/Text/Text.svelte';
   import { DateTime } from 'luxon';
 
-  let selectedValue: DateTime | null = $state(null);
+  let selectedValue: DateTime | undefined = $state(undefined);
 </script>
 
 <Stack gap={4} class="max-w-[250px]">
   <Field label="Select a date">
     <DatePicker bind:value={selectedValue} />
   </Field>
-  <Text>Selected date: {selectedValue == null ? 'null' : selectedValue.toISODate()}</Text>
+  <Text>Selected date: {selectedValue?.toISODate()}</Text>
 </Stack>

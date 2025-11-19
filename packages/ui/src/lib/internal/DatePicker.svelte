@@ -13,8 +13,8 @@
   import { DatePicker } from 'bits-ui';
   import { tv } from 'tailwind-variants';
 
-  interface Props {
-    onChange?: (date: DateValue | undefined) => void;
+  type Props = {
+    onChange?: (date?: DateValue) => void;
     minDate?: DateValue;
     maxDate?: DateValue;
     date?: DateValue;
@@ -22,7 +22,7 @@
     shape?: Shape;
     size?: Size;
     disabled?: boolean;
-  }
+  };
 
   let {
     onChange,
@@ -63,11 +63,16 @@
     base: 'rounded px-1 py-0.5 tabular-nums outline-none focus:bg-gray-300 focus:text-gray-900 data-[disabled]:cursor-not-allowed data-[focused]:bg-gray-300 data-[focused]:text-gray-900 data-[placeholder]:text-gray-400 dark:focus:bg-gray-700 dark:focus:text-gray-100 dark:data-[focused]:bg-gray-700 dark:data-[focused]:text-gray-100',
     variants: {
       textSize: styleVariants.textSize,
+      firstSegment: {
+        true: 'ms-4',
+        false: '',
+      },
+      lastSegment: {
+        true: 'me-auto',
+        false: '',
+      },
     },
   });
-
-  const firstSegmentStyles = 'ml-4';
-  const lastSegmentStyles = 'mr-auto';
 </script>
 
 <div class={cleanClass('flex w-full flex-col gap-1', className)}>
@@ -90,9 +95,7 @@
           {#each segments as { part, value }, i}
             <DatePicker.Segment
               {part}
-              class={segmentStyles({ textSize: size }) +
-                (i === 0 ? ' ' + firstSegmentStyles : '') +
-                (i === segments.length - 1 ? ' ' + lastSegmentStyles : '')}
+              class={segmentStyles({ textSize: size, firstSegment: i === 0, lastSegment: i === segments.length - 1 })}
             >
               {value}
             </DatePicker.Segment>
@@ -150,7 +153,7 @@
                       {#each weekDates as date}
                         <DatePicker.Cell {date} month={month.value} class="flex-1">
                           <DatePicker.Day
-                            class="hover:bg-subtle data-[selected]:bg-primary data-[selected]:text-light data-[today]:border-primary flex h-8 w-8 items-center justify-center rounded-lg border border-transparent text-sm transition-colors data-[disabled]:cursor-not-allowed data-[disabled]:opacity-40 data-[outside-month]:text-gray-400 data-[unavailable]:cursor-not-allowed data-[unavailable]:text-gray-300 data-[unavailable]:line-through"
+                            class="hover:bg-subtle data-[selected]:bg-primary data-[selected]:text-light data-[today]:border-primary flex h-8 w-8 items-center justify-center rounded-lg border border-transparent transition-colors data-[disabled]:cursor-not-allowed data-[disabled]:opacity-40 data-[outside-month]:text-gray-400 data-[unavailable]:cursor-not-allowed data-[unavailable]:text-gray-300 data-[unavailable]:line-through"
                           >
                             {date.day}
                           </DatePicker.Day>

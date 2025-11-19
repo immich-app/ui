@@ -4,20 +4,31 @@
   import { CalendarDate, type DateValue } from '@internationalized/date';
   import { DateTime } from 'luxon';
 
-  let { value = $bindable<DateTime | null>(null), onChange, minDate, maxDate, ...rest }: DatePickerProps = $props();
+  let {
+    value = $bindable<DateTime | undefined>(undefined),
+    onChange,
+    minDate,
+    maxDate,
+    ...rest
+  }: DatePickerProps = $props();
 
   // Note: DatePickerInternal/bits.ui uses DateValue, while this component uses DateTime from luxon
 
   // Convert DateTime to DateValue
-  function toDateValue(dt: DateTime | null | undefined): DateValue | undefined {
-    if (!dt) return undefined;
-    return new CalendarDate(dt.year, dt.month, dt.day);
+  function toDateValue(dateTime?: DateTime): DateValue | undefined {
+    if (!dateTime) {
+      return;
+    }
+    return new CalendarDate(dateTime.year, dateTime.month, dateTime.day);
   }
 
   // Convert DateValue to DateTime
-  function toDateTime(dv: DateValue | undefined): DateTime | null {
-    if (!dv) return null;
-    return DateTime.fromObject({ year: dv.year, month: dv.month, day: dv.day });
+  function toDateTime(dateValue?: DateValue): DateTime | undefined {
+    if (!dateValue) {
+      return;
+    }
+
+    return DateTime.fromObject({ year: dateValue.year, month: dateValue.month, day: dateValue.day });
   }
 
   function handleChange(date: DateValue | undefined) {

@@ -272,8 +272,8 @@ export type ContextMenuProps = ContextMenuBaseProps & {
 };
 
 export type DatePickerProps = {
-  onChange?: (date: DateTime | null) => void;
-  value?: DateTime | null;
+  onChange?: (date: DateTime | undefined) => void;
+  value?: DateTime | undefined;
   minDate?: DateTime;
   maxDate?: DateTime;
   disabled?: boolean;
