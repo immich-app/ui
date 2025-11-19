@@ -61,6 +61,7 @@
   },
   "dependencies": {
     "@immich/svelte-markdown-preprocess": "workspace:^",
+    "@internationalized/date": "^3.10.0",
     "@mdi/js": "^7.4.47",
     "bits-ui": "^2.9.8",
     "luxon": "^3.7.2",

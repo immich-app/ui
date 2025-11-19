@@ -14,10 +14,23 @@ export const styleVariants = {
     muted: 'text-gray-600 dark:text-gray-400',
   },
 
+  inputCommon:
+    'disabled:bg-gray-300 disabled:text-dark dark:disabled:bg-gray-900 dark:disabled:text-gray-200 bg-transparent transition outline-none disabled:cursor-not-allowed ',
+  inputContainerCommon:
+    'bg-gray-100 ring-1 ring-gray-200 focus-within:ring-primary dark:focus-within:ring-primary transition outline-none focus-within:ring-1 disabled:cursor-not-allowed dark:bg-gray-800 dark:ring-black',
+
   shape: {
     rectangle: 'rounded-none',
     'semi-round': '',
     round: 'rounded-full',
+  },
+
+  inputRoundedSize: {
+    tiny: 'rounded-lg',
+    small: 'rounded-lg',
+    medium: 'rounded-lg',
+    large: 'rounded-lg',
+    giant: 'rounded-lg',
   },
 
   border: {

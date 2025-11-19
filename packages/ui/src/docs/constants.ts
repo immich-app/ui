@@ -9,6 +9,7 @@ import {
   mdiBullhornVariant,
   mdiBullhornVariantOutline,
   mdiButtonCursor,
+  mdiCalendar,
   mdiCard,
   mdiCardOutline,
   mdiCheckboxMarked,
@@ -116,6 +117,7 @@ export const componentGroups = [
       },
       { name: 'Select', icon: mdiFormDropdown },
       { name: 'Switch', icon: mdiToggleSwitchOutline, activeIcon: mdiToggleSwitch },
+      { name: 'DatePicker', icon: mdiCalendar },
     ],
   },
   {

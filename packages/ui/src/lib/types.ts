@@ -1,4 +1,5 @@
 import type { Translations } from '$lib/services/translation.svelte.js';
+import type { DateTime } from 'luxon';
 import type { Component, Snippet } from 'svelte';
 import type {
   HTMLAnchorAttributes,
@@ -268,6 +269,16 @@ export type ContextMenuBaseProps = MenuProps & {
 
 export type ContextMenuProps = ContextMenuBaseProps & {
   onClose: () => void;
+};
+
+export type DatePickerProps = {
+  onChange?: (date: DateTime | undefined) => void;
+  value?: DateTime | undefined;
+  minDate?: DateTime;
+  maxDate?: DateTime;
+  size?: Size;
+  shape?: Shape;
+  class?: string;
 };
 
 export type IfLike = { $if?: () => boolean };
