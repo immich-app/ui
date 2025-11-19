@@ -6,7 +6,7 @@
 </script>
 
 <Stack gap={4} class="max-w-[250px]">
-  <Field label="Required" required={'indicator'}>
+  <Field label="Required" required="indicator">
     <DatePicker />
   </Field>
   <Field label="Invalid" invalid>
