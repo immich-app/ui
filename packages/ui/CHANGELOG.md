@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.45.0 (2025-11-19)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+## What's Changed
+### 🚀 Features
+* feat: form modal by @danieldietzler in https://github.com/immich-app/ui/pull/402
+* feat: badge by @jrasm91 in https://github.com/immich-app/ui/pull/412
+
+
+**Full Changelog**: https://github.com/immich-app/ui/compare/ui-v0.44.0...ui-v0.45.0
+
 ## 0.44.0 (2025-11-17)
 
 <!-- Release notes generated using configuration in .github/release.yml at main -->
