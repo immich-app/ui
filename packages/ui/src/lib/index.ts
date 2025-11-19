@@ -19,6 +19,7 @@ export { default as AppShell } from '$lib/components/AppShell/AppShell.svelte';
 export { default as AppShellHeader } from '$lib/components/AppShell/AppShellHeader.svelte';
 export { default as AppShellSidebar } from '$lib/components/AppShell/AppShellSidebar.svelte';
 export { default as Avatar } from '$lib/components/Avatar/Avatar.svelte';
+export { default as Badge } from '$lib/components/Badge/Badge.svelte';
 export { default as Button } from '$lib/components/Button/Button.svelte';
 export { default as Card } from '$lib/components/Card/Card.svelte';
 export { default as CardBody } from '$lib/components/Card/CardBody.svelte';
