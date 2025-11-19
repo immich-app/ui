@@ -46,6 +46,8 @@ import {
   mdiPartyPopper,
   mdiSquare,
   mdiSquareOutline,
+  mdiTag,
+  mdiTagOutline,
   mdiThemeLightDark,
   mdiToggleSwitch,
   mdiToggleSwitchOutline,
@@ -119,6 +121,7 @@ export const componentGroups = [
   {
     title: 'Text',
     components: [
+      { name: 'Badge', icon: mdiTagOutline, activeIcon: mdiTag },
       { name: 'Code', icon: mdiCodeBraces },
       { name: 'CodeBlock', icon: mdiCodeBlockBraces },
       { name: 'Kbd', icon: mdiKeyboardVariant },
