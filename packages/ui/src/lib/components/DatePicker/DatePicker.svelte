@@ -32,13 +32,12 @@
   }
 
   function handleChange(date: DateValue | undefined) {
-    value = toDateTime(date);
-    onChange?.(value);
+    onChange?.(toDateTime(date));
   }
 </script>
 
 <DatePickerInternal
-  date={toDateValue(value)}
+  bind:date={() => toDateValue(value), (dateValue) => (value = toDateTime(dateValue))}
   minDate={toDateValue(minDate)}
   maxDate={toDateValue(maxDate)}
   onChange={handleChange}

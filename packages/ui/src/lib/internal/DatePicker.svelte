@@ -28,7 +28,7 @@
     onChange,
     minDate,
     maxDate,
-    date,
+    date = $bindable<DateValue | undefined>(undefined),
     class: className,
     shape = 'semi-round',
     size = 'small',
