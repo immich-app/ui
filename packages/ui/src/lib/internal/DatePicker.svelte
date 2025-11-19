@@ -90,7 +90,7 @@
         })}
       >
         {#snippet children({ segments })}
-          {#each segments as { part, value }, i (i)}
+          {#each segments as { part, value }, i (`segment-${i}`)}
             <DatePicker.Segment
               {part}
               class={segmentStyles({ textSize: size, firstSegment: i === 0, lastSegment: i === segments.length - 1 })}
@@ -132,11 +132,11 @@
                 <Icon icon={mdiChevronRight} size="1.25rem" />
               </DatePicker.NextButton>
             </DatePicker.Header>
-            {#each months as month (month.value)}
+            {#each months as month (`month-${month.value}`)}
               <DatePicker.Grid class="w-full border-collapse">
                 <DatePicker.GridHead>
                   <DatePicker.GridRow class="flex w-full">
-                    {#each weekdays as day (day)}
+                    {#each weekdays as day, i (`weekday-${i}`)}
                       <DatePicker.HeadCell
                         class="text-muted flex h-8 w-8 flex-1 items-center justify-center text-xs font-medium"
                       >
@@ -146,9 +146,9 @@
                   </DatePicker.GridRow>
                 </DatePicker.GridHead>
                 <DatePicker.GridBody>
-                  {#each month.weeks as weekDates (weekDates)}
+                  {#each month.weeks as weekDates (`weekDates-${weekDates}`)}
                     <DatePicker.GridRow class="flex w-full">
-                      {#each weekDates as date (date)}
+                      {#each weekDates as date (`date-${date.toString()}`)}
                         <DatePicker.Cell {date} month={month.value} class="flex-1">
                           <DatePicker.Day
                             class="hover:bg-subtle data-[selected]:bg-primary data-[selected]:text-light data-[today]:border-primary flex h-8 w-8 items-center justify-center rounded-lg border border-transparent transition-colors data-[disabled]:cursor-not-allowed data-[disabled]:opacity-40 data-[outside-month]:text-gray-400 data-[unavailable]:cursor-not-allowed data-[unavailable]:text-gray-300 data-[unavailable]:line-through"
