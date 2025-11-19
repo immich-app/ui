@@ -6,32 +6,30 @@
 
   let { value = $bindable<DateTime | null>(null), onChange, minDate, maxDate, ...rest }: DatePickerProps = $props();
 
+  // Note: DatePickerInternal/bits.ui uses DateValue, while this component uses DateTime from luxon
+
   // Convert DateTime to DateValue
-  const toDateValue = (dt: DateTime | null | undefined): DateValue | undefined => {
+  function toDateValue(dt: DateTime | null | undefined): DateValue | undefined {
     if (!dt) return undefined;
     return new CalendarDate(dt.year, dt.month, dt.day);
-  };
+  }
 
   // Convert DateValue to DateTime
-  const toDateTime = (dv: DateValue | undefined): DateTime | null => {
+  function toDateTime(dv: DateValue | undefined): DateTime | null {
     if (!dv) return null;
     return DateTime.fromObject({ year: dv.year, month: dv.month, day: dv.day });
-  };
+  }
 
-  const handleChange = (date: DateValue | undefined) => {
+  function handleChange(date: DateValue | undefined) {
     value = toDateTime(date);
     onChange?.(value);
-  };
-
-  const internalValue = $derived(toDateValue(value));
-  const internalMinDate = $derived(toDateValue(minDate));
-  const internalMaxDate = $derived(toDateValue(maxDate));
+  }
 </script>
 
 <DatePickerInternal
-  date={internalValue}
-  minDate={internalMinDate}
-  maxDate={internalMaxDate}
+  date={toDateValue(value)}
+  minDate={toDateValue(minDate)}
+  maxDate={toDateValue(maxDate)}
   onChange={handleChange}
   {...rest}
 />
