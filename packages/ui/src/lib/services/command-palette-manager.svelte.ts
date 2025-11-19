@@ -18,7 +18,14 @@ export type CommandItem = {
   ({ href: string } | { action: (command: CommandItem) => void });
 
 export type CommandPaletteTranslations = TranslationProps<
-  'search_placeholder' | 'search_no_results' | 'search_recently_used' | 'command_palette_prompt_default'
+  | 'search_placeholder'
+  | 'search_no_results'
+  | 'search_recently_used'
+  | 'command_palette_prompt_default'
+  | 'command_palette_to_select'
+  | 'command_palette_to_close'
+  | 'command_palette_to_navigate'
+  | 'command_palette_to_show_all'
 >;
 
 export const asText = (...items: unknown[]) => {
@@ -46,14 +53,15 @@ const isMatch = (
 };
 
 class CommandPaletteManager {
-  query = $state('');
+  #query = $state('');
   selectedIndex = $state(0);
 
   #isEnabled = $state(false);
-  #normalizedQuery = $derived(this.query.toLowerCase());
+  #normalizedQuery = $derived(this.#query.toLowerCase());
   #modal?: { close: () => Promise<void> };
   #translations: CommandPaletteTranslations = {};
   #isOpen: boolean = false;
+  #isShowAll: boolean = $state(false);
 
   #globalLayer = $state<ContextLayer>({ items: [], recentItems: [] });
   #layers = $state<ContextLayer[]>([{ items: [], recentItems: [] }]);
@@ -62,7 +70,9 @@ class CommandPaletteManager {
   filteredItems = $derived(this.items.filter((item) => isMatch(item, this.#normalizedQuery)).slice(0, 100));
   recentItems = $derived([...this.#globalLayer.recentItems, ...this.#layers.at(-1)!.recentItems].filter(isEnabled));
 
-  results = $derived(this.query ? this.filteredItems : this.recentItems);
+  results = $derived(this.#isShowAll ? this.items : this.#query ? this.filteredItems : this.recentItems);
+
+  #isEmpty = $derived(!this.#isShowAll && !this.#query && this.results.length === 0);
 
   get isEnabled() {
     return this.#isEnabled;
@@ -82,6 +92,26 @@ class CommandPaletteManager {
       ]);
       document.body.addEventListener('keydown', (event) => this.#handleKeydown(event));
     }
+  }
+
+  get query() {
+    return this.#query;
+  }
+
+  set query(query: string) {
+    this.#query = query;
+
+    if (this.#isShowAll && query) {
+      this.#isShowAll = false;
+    }
+  }
+
+  get isShowAll() {
+    return this.#isShowAll;
+  }
+
+  get isEmpty() {
+    return this.#isEmpty;
   }
 
   async #handleKeydown(event: KeyboardEvent) {
@@ -173,9 +203,10 @@ class CommandPaletteManager {
   }
 
   #onClose() {
-    this.query = '';
+    this.#query = '';
     this.#modal = undefined;
     this.#isOpen = false;
+    this.#isShowAll = false;
   }
 
   async select(selectedIndex?: number) {
@@ -184,10 +215,14 @@ class CommandPaletteManager {
       return;
     }
 
-    // no duplicates
-    this.recentItems = this.recentItems.filter(({ id }) => id !== selected.id);
-    this.recentItems.unshift(selected);
-    this.recentItems = this.recentItems.slice(0, 5);
+    const globalItem = this.#globalLayer.items.find(({ id }) => id !== selected.id);
+    if (globalItem) {
+      this.#globalLayer.recentItems = this.#globalLayer.recentItems.filter(({ id }) => id !== selected.id);
+      this.#globalLayer.recentItems.unshift(selected);
+    } else {
+      this.#layers.at(-1)!.recentItems = this.#layers.at(-1)!.recentItems.filter(({ id }) => id !== selected.id);
+      this.#layers.at(-1)?.recentItems.unshift(selected);
+    }
 
     await this.#executeCommand(selected);
 
@@ -195,7 +230,14 @@ class CommandPaletteManager {
   }
 
   remove(index: number) {
-    this.recentItems.splice(index, 1);
+    const item = this.recentItems.at(index);
+
+    if (!item) {
+      return;
+    }
+
+    this.#globalLayer.recentItems = this.#globalLayer.recentItems.filter(({ id }) => id !== item.id);
+    this.#layers.at(-1)!.recentItems = this.#layers.at(-1)!.recentItems.filter(({ id }) => id !== item.id);
   }
 
   up() {
@@ -203,13 +245,18 @@ class CommandPaletteManager {
   }
 
   down() {
+    if (this.#isEmpty) {
+      this.#isShowAll = true;
+      return;
+    }
+
     this.selectedIndex = (this.selectedIndex + 1) % (this.results.length || 1);
   }
 
   reset() {
     this.#layers = [{ items: [], recentItems: [] }];
     this.#globalLayer = { items: [], recentItems: [] };
-    this.query = '';
+    this.#query = '';
   }
 
   addCommands(itemOrItems: MaybeArray<CommandItem & { id?: string }>, options: { global?: boolean } = {}) {
