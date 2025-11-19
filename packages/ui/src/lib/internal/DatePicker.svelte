@@ -1,6 +1,5 @@
 <script lang="ts">
   import { getFieldContext } from '$lib/common/context.svelte.js';
-  import Field from '$lib/components/Field/Field.svelte';
   import Icon from '$lib/components/Icon/Icon.svelte';
   import IconButton from '$lib/components/IconButton/IconButton.svelte';
   import Label from '$lib/components/Label/Label.svelte';
@@ -40,16 +39,10 @@
   const labelId = `label-${id}`;
 
   const containerStyles = tv({
-    base: 'flex w-full items-center bg-gray-200 py-2 outline-none disabled:cursor-not-allowed disabled:bg-gray-300 disabled:text-gray-400 dark:bg-gray-600 dark:disabled:bg-gray-800 dark:disabled:text-gray-200',
+    base: cleanClass(styleVariants.inputContainerCommon, 'flex w-full items-center'),
     variants: {
       shape: styleVariants.shape,
-      roundedSize: {
-        tiny: 'rounded-xl',
-        small: 'rounded-xl',
-        medium: 'rounded-2xl',
-        large: 'rounded-2xl',
-        giant: 'rounded-2xl',
-      },
+      roundedSize: styleVariants.inputRoundedSize,
       invalid: {
         true: 'border-danger/80 border',
         false: '',
@@ -57,18 +50,14 @@
     },
   });
 
+  const buttonStyles = tv({
+    base: 'flex h-8 w-8 items-center justify-center rounded-lg transition-colors hover:bg-neutral-200 hover:dark:bg-neutral-700',
+  });
+
   const segmentStyles = tv({
-    base: 'rounded px-1 py-0.5 tabular-nums outline-none focus:bg-gray-300 focus:text-gray-900 data-[disabled]:cursor-not-allowed data-[focused]:bg-gray-300 data-[focused]:text-gray-900 data-[placeholder]:text-gray-400 dark:focus:bg-gray-700 dark:focus:text-gray-100 dark:data-[focused]:bg-gray-700 dark:data-[focused]:text-gray-100',
+    base: 'rounded px-1 py-0.5 tabular-nums outline-none focus:bg-gray-300 focus:text-gray-900 data-disabled:cursor-not-allowed data-focused:bg-gray-300 data-focused:text-gray-900 data-placeholder:text-gray-400 dark:focus:bg-gray-700 dark:focus:text-gray-100 dark:data-focused:bg-gray-700 dark:data-focused:text-gray-100',
     variants: {
       textSize: styleVariants.textSize,
-      firstSegment: {
-        true: 'ms-4',
-        false: '',
-      },
-      lastSegment: {
-        true: 'me-auto',
-        false: '',
-      },
     },
   });
 </script>
@@ -78,57 +67,57 @@
     <Label id={labelId} for={inputId} {label} requiredIndicator={required === 'indicator'} {...labelProps} />
   {/if}
 
-  <DatePicker.Root onValueChange={onChange} minValue={minDate} maxValue={maxDate} bind:value={date} {disabled}>
-    <Field {readOnly} {required} {disabled} {invalid}>
-      <DatePicker.Input
-        id={inputId}
-        aria-labelledby={labelId}
-        class={containerStyles({
-          shape,
-          roundedSize: shape === 'semi-round' ? size : undefined,
-          invalid,
-        })}
-      >
-        {#snippet children({ segments })}
+  <DatePicker.Root
+    onValueChange={onChange}
+    minValue={minDate}
+    maxValue={maxDate}
+    bind:value={date}
+    readonly={readOnly}
+    {disabled}
+  >
+    <DatePicker.Input
+      id={inputId}
+      aria-labelledby={labelId}
+      class={containerStyles({
+        shape,
+        roundedSize: shape === 'semi-round' ? size : undefined,
+        invalid,
+      })}
+    >
+      {#snippet children({ segments })}
+        <div class={cleanClass(styleVariants.inputCommon, 'w-full px-4 py-2')}>
           {#each segments as { part, value }, i (`segment-${i}`)}
-            <DatePicker.Segment
-              {part}
-              class={segmentStyles({ textSize: size, firstSegment: i === 0, lastSegment: i === segments.length - 1 })}
-            >
+            <DatePicker.Segment {part} class={segmentStyles({ textSize: size })}>
               {value}
             </DatePicker.Segment>
           {/each}
-          <DatePicker.Trigger class="mr-2">
-            <IconButton
-              variant="ghost"
-              shape="round"
-              color="secondary"
-              {size}
-              icon={mdiCalendar}
-              {disabled}
-              aria-label="Open calendar"
-            />
-          </DatePicker.Trigger>
-        {/snippet}
-      </DatePicker.Input>
-    </Field>
+        </div>
+        <DatePicker.Trigger class="mr-2 rounded-full">
+          <IconButton
+            variant="ghost"
+            shape="round"
+            color="secondary"
+            {size}
+            icon={mdiCalendar}
+            {disabled}
+            aria-label="Open calendar"
+          />
+        </DatePicker.Trigger>
+      {/snippet}
+    </DatePicker.Input>
     <DatePicker.Portal>
       <DatePicker.Content
-        class="bg-light text-dark rounded-xl border p-4 shadow-lg outline-none select-none {zIndex.SelectDropdown}"
+        class="bg-subtle text-dark rounded-xl border p-4 shadow-lg outline-none select-none {zIndex.SelectDropdown}"
         sideOffset={10}
       >
         <DatePicker.Calendar class="w-full">
           {#snippet children({ months, weekdays })}
             <DatePicker.Header class="mb-3 flex items-center justify-between">
-              <DatePicker.PrevButton
-                class="hover:bg-subtle flex h-8 w-8 items-center justify-center rounded-lg transition-colors"
-              >
+              <DatePicker.PrevButton class={buttonStyles()}>
                 <Icon icon={mdiChevronLeft} size="1.25rem" />
               </DatePicker.PrevButton>
               <DatePicker.Heading class="text-sm font-semibold" />
-              <DatePicker.NextButton
-                class="hover:bg-subtle flex h-8 w-8 items-center justify-center rounded-lg transition-colors"
-              >
+              <DatePicker.NextButton class={buttonStyles()}>
                 <Icon icon={mdiChevronRight} size="1.25rem" />
               </DatePicker.NextButton>
             </DatePicker.Header>
@@ -151,7 +140,7 @@
                       {#each weekDates as date (`date-${date.toString()}`)}
                         <DatePicker.Cell {date} month={month.value} class="flex-1">
                           <DatePicker.Day
-                            class="hover:bg-subtle data-[selected]:bg-primary data-[selected]:text-light data-[today]:border-primary flex h-8 w-8 items-center justify-center rounded-lg border border-transparent transition-colors data-[disabled]:cursor-not-allowed data-[disabled]:opacity-40 data-[outside-month]:text-gray-400 data-[unavailable]:cursor-not-allowed data-[unavailable]:text-gray-300 data-[unavailable]:line-through"
+                            class="{buttonStyles()} data-selected:bg-primary data-selected:text-light data-today:border-primary border border-transparent data-disabled:cursor-not-allowed data-disabled:opacity-40 data-outside-month:text-gray-400 data-unavailable:cursor-not-allowed data-unavailable:text-gray-300 data-unavailable:line-through"
                           >
                             {date.day}
                           </DatePicker.Day>

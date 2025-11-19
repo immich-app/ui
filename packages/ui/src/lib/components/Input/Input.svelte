@@ -38,16 +38,10 @@
   });
 
   const containerStyles = tv({
-    base: 'focus-within:ring-primary dark:focus-within:ring-primary mt-0.5 flex w-full items-center bg-gray-100 ring-1 ring-gray-200 transition outline-none focus-within:ring-1 disabled:cursor-not-allowed dark:bg-gray-800 dark:ring-black',
+    base: cleanClass(styleVariants.inputContainerCommon, 'mt-0.5 flex w-full items-center'),
     variants: {
       shape: styleVariants.shape,
-      roundedSize: {
-        tiny: 'rounded-lg',
-        small: 'rounded-lg',
-        medium: 'rounded-lg',
-        large: 'rounded-lg',
-        giant: 'rounded-lg',
-      },
+      roundedSize: styleVariants.inputRoundedSize,
       invalid: {
         true: 'focus-within:ring-danger dark:focus-within:ring-danger dark:ring-danger-300 ring-danger-300 ring-1',
         false: '',
@@ -56,7 +50,7 @@
   });
 
   const inputStyles = tv({
-    base: 'disabled:text-dark flex-1 bg-transparent py-2 transition outline-none disabled:cursor-not-allowed disabled:bg-gray-300 dark:disabled:bg-gray-900 dark:disabled:text-gray-200',
+    base: cleanClass(styleVariants.inputCommon, 'flex-1 py-2'),
     variants: {
       textSize: styleVariants.textSize,
       leadingPadding: {
