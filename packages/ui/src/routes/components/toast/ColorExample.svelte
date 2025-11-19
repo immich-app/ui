@@ -9,16 +9,7 @@
 <Stack>
   <ComponentColors>
     {#snippet child({ color, label })}
-      <Toast variant="filled" {color} title={label} {description} />
-    {/snippet}
-  </ComponentColors>
-</Stack>
-
-<Text class="mt-4 mb-1" fontWeight="bold">Outline</Text>
-<Stack>
-  <ComponentColors>
-    {#snippet child({ color, label })}
-      <Toast variant="outline" {color} title={label} {description} />
+      <Toast {color} title={label} {description} />
     {/snippet}
   </ComponentColors>
 </Stack>

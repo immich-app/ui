@@ -79,12 +79,12 @@
         info: 'border-info bg-info/10 text-info hover:bg-info/20 border',
       },
       ghostColor: {
-        primary: 'text-primary hover:bg-primary/10',
+        primary: 'text-primary hover:bg-primary-50 dark:hover:bg-primary-950',
         secondary: 'text-dark hover:bg-dark/10',
-        success: 'text-success hover:bg-success/10',
-        danger: 'text-danger hover:bg-danger/10',
-        warning: 'text-warning hover:bg-warning/10',
-        info: 'text-info hover:bg-info/10',
+        success: 'text-success hover:bg-success-50 dark:hover:bg-success-950',
+        danger: 'text-danger hover:bg-danger-50 dark:hover:bg-danger-950',
+        warning: 'text-warning hover:bg-warning-50 dark:hover:bg-warning-950',
+        info: 'text-info hover:bg-info-50 dark:hover:bg-info-950',
       },
     },
   });

@@ -41,6 +41,7 @@ import {
   mdiMessageAlert,
   mdiMessageAlertOutline,
   mdiNumeric,
+  mdiPalette,
   mdiPanVertical,
   mdiPartyPopper,
   mdiSquare,
@@ -138,5 +139,9 @@ export const componentGroups = [
       { name: 'SupporterBadge', icon: mdiPartyPopper },
       { name: 'ThemeSwitcher', icon: mdiThemeLightDark },
     ],
+  },
+  {
+    title: 'Design',
+    components: [{ name: 'Colors', icon: mdiPalette }],
   },
 ];

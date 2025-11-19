@@ -9,15 +9,7 @@
   import { type Snippet } from 'svelte';
   import { tv } from 'tailwind-variants';
 
-  let {
-    color = 'primary',
-    variant = 'filled',
-    icon: iconOverride,
-    title,
-    description,
-    onClose,
-    children,
-  }: ToastContentProps = $props();
+  let { color = 'primary', icon: iconOverride, title, description, onClose, children }: ToastContentProps = $props();
 
   const icon = $derived(
     resolveIcon({
@@ -49,7 +41,7 @@
 <div class="flex items-center px-2">
   <div class="flex items-center">
     {#if icon}
-      <Icon {icon} class={iconStyles({ color: variant === 'filled' ? color : undefined })} />
+      <Icon {icon} class={iconStyles({ color })} />
     {/if}
   </div>
   <div class="flex grow justify-between">
@@ -63,7 +55,7 @@
     </div>
     {#if onClose}
       <div class="flex items-center">
-        <CloseButton color={variant === 'filled' ? 'secondary' : color} variant="ghost" onclick={onClose} />
+        <CloseButton color="secondary" variant="ghost" onclick={onClose} />
       </div>
     {/if}
   </div>
