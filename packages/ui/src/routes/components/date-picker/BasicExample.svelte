@@ -1,8 +1,5 @@
 <script lang="ts">
-  import DatePicker from '$lib/components/DatePicker/DatePicker.svelte';
-  import Field from '$lib/components/Field/Field.svelte';
-  import Stack from '$lib/components/Stack/Stack.svelte';
-  import Text from '$lib/components/Text/Text.svelte';
+  import { DatePicker, Field, Stack, Text } from '@immich/ui';
   import { DateTime } from 'luxon';
 
   let selectedDate: DateTime | undefined = $state(undefined);
