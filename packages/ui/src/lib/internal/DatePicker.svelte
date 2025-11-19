@@ -72,7 +72,7 @@
 
 <div class={cleanClass('flex w-full flex-col gap-1', className)}>
   {#if label}
-    <Label id={labelId} for={inputId} {label} {...labelProps} />
+    <Label id={labelId} for={inputId} {label} requiredIndicator={required === 'indicator'} {...labelProps} />
   {/if}
 
   <DatePicker.Root onValueChange={onChange} minValue={minDate} maxValue={maxDate} bind:value={date} {disabled}>
@@ -97,7 +97,7 @@
               {value}
             </DatePicker.Segment>
           {/each}
-          <DatePicker.Trigger class="mr-4">
+          <DatePicker.Trigger class="mr-2">
             <IconButton
               variant="ghost"
               shape="round"
