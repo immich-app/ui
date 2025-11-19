@@ -15,25 +15,25 @@
   // Note: DatePickerInternal/bits.ui uses DateValue, while this component uses DateTime from luxon
 
   // Convert DateTime to DateValue
-  function toDateValue(dateTime?: DateTime): DateValue | undefined {
+  const toDateValue = (dateTime?: DateTime): DateValue | undefined => {
     if (!dateTime) {
       return;
     }
     return new CalendarDate(dateTime.year, dateTime.month, dateTime.day);
-  }
+  };
 
   // Convert DateValue to DateTime
-  function toDateTime(dateValue?: DateValue): DateTime | undefined {
+  const toDateTime = (dateValue?: DateValue): DateTime | undefined => {
     if (!dateValue) {
       return;
     }
 
     return DateTime.fromObject({ year: dateValue.year, month: dateValue.month, day: dateValue.day });
-  }
+  };
 
-  function handleChange(date: DateValue | undefined) {
+  const handleChange = (date: DateValue | undefined) => {
     onChange?.(toDateTime(date));
-  }
+  };
 </script>
 
 <DatePickerInternal
