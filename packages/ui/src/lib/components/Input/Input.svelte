@@ -38,7 +38,7 @@
   });
 
   const containerStyles = tv({
-    base: cleanClass(styleVariants.inputContainerCommon, 'mt-0.5 flex w-full items-center'),
+    base: cleanClass(styleVariants.inputContainerCommon, 'flex w-full items-center'),
     variants: {
       shape: styleVariants.shape,
       roundedSize: styleVariants.inputRoundedSize,
