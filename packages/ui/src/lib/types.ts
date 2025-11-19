@@ -276,7 +276,6 @@ export type DatePickerProps = {
   value?: DateTime | undefined;
   minDate?: DateTime;
   maxDate?: DateTime;
-  disabled?: boolean;
   size?: Size;
   shape?: Shape;
   class?: string;

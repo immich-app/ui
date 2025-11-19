@@ -12,8 +12,8 @@
   <Field label="Invalid" invalid>
     <DatePicker />
   </Field>
-  <Field label="Disabled">
-    <DatePicker disabled />
+  <Field label="Disabled" disabled>
+    <DatePicker />
   </Field>
   <Field label="Minimum date">
     <DatePicker minDate={DateTime.now().minus({ days: 1 })} />

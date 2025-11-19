@@ -21,7 +21,6 @@
     class?: string;
     shape?: Shape;
     size?: Size;
-    disabled?: boolean;
   };
 
   let {
@@ -32,10 +31,9 @@
     class: className,
     shape = 'semi-round',
     size = 'small',
-    disabled = false,
   }: Props = $props();
 
-  const { readOnly, required, invalid, disabled: fieldDisabled, label, ...labelProps } = $derived(getFieldContext());
+  const { readOnly, required, invalid, disabled, label, ...labelProps } = $derived(getFieldContext());
 
   const id = generateId();
   const inputId = `datepicker-${id}`;
