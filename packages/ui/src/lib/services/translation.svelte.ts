@@ -38,6 +38,8 @@ const defaultTranslations = {
   toast_danger_title: 'Error',
 
   save: 'Save',
+
+  supporter: 'Supporter',
 };
 
 export type Translations = typeof defaultTranslations;

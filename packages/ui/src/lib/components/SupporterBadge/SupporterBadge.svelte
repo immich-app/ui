@@ -1,6 +1,7 @@
 <script lang="ts">
   import Logo from '$lib/components/Logo/Logo.svelte';
   import Text from '$lib/components/Text/Text.svelte';
+  import { t } from '$lib/services/translation.svelte.js';
   import type { Size } from '$lib/types.js';
   import { cleanClass } from '$lib/utilities/internal.js';
   import type { Snippet } from 'svelte';
@@ -13,7 +14,7 @@
     children?: Snippet;
   };
 
-  const { effect = 'hover', text = 'Supporter', size = 'medium', children }: Props = $props();
+  const { effect = 'hover', text = t('supporter'), size = 'medium', children }: Props = $props();
 
   const iconSize: Record<Size, Size> = {
     tiny: 'tiny',
