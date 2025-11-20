@@ -16,12 +16,6 @@ type StripParamIfOptional<T> = T extends void ? [] : [T];
 type OptionalParamIfEmpty<T> = ExtendsEmptyObject<T> extends never ? [] | [Record<string, never> | undefined] : [T];
 
 class ModalManager {
-  #openCount = $state(0);
-
-  get openCount() {
-    return this.#openCount;
-  }
-
   show<T extends object>(Component: Component<T>, ...props: OptionalParamIfEmpty<Omit<T, 'onClose'>>) {
     return this.open(Component, ...props).onClose;
   }
@@ -37,7 +31,6 @@ class ModalManager {
     const deferred = new Promise<K>((resolve) => {
       onClose = async (...args: OnCloseParams) => {
         await unmount(modal);
-        this.#openCount--;
         // make sure bits-ui clean up finishes before resolving
         setTimeout(() => resolve(args[0] as K), 10);
       };
@@ -49,7 +42,6 @@ class ModalManager {
           onClose,
         },
       });
-      this.#openCount++;
     });
 
     return {
