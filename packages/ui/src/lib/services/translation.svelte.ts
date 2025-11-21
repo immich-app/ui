@@ -31,6 +31,8 @@ const defaultTranslations = {
   command_palette_to_navigate: 'to navigate',
   command_palette_to_close: 'to close',
   command_palette_to_show_all: 'to show all',
+  command_palette_command_details: 'to view command details',
+  command_palette_activate_command: 'Activate by using any of the following shortcuts',
 
   toast_success_title: 'Success',
   toast_info_title: 'Info',
@@ -40,6 +42,7 @@ const defaultTranslations = {
   save: 'Save',
 
   supporter: 'Supporter',
+  global: 'Global',
 };
 
 export type Translations = typeof defaultTranslations;

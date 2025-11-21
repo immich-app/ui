@@ -5,11 +5,12 @@
   import IconButton from '$lib/components/IconButton/IconButton.svelte';
   import Kbd from '$lib/components/Kbd/Kbd.svelte';
   import Text from '$lib/components/Text/Text.svelte';
-  import type { CommandItem } from '$lib/services/command-palette-manager.svelte';
+  import type { CommandItemResponse } from '$lib/services/command-palette-manager.svelte.js';
   import { mdiClose } from '@mdi/js';
+  import Badge from '$lib/components/Badge/Badge.svelte';
 
   type Props = {
-    item: CommandItem;
+    item: CommandItemResponse;
     selected: boolean;
     onSelect: () => void;
     onRemove?: () => void;
@@ -41,46 +42,49 @@
     fullWidth
     variant={selected ? 'outline' : 'ghost'}
     color="secondary"
-    class="overflow-hidden border"
+    class="flex justify-between gap-2 overflow-hidden border {selected ? 'border-neutral-500!' : ''}"
   >
-    <div class="flex w-full place-items-center justify-between gap-2">
-      <div class="flex min-w-0 place-items-center gap-2">
-        <Icon icon={item.icon} size="2rem" class={item.iconClass} />
-        <div class="flex min-w-0 flex-col">
-          <div class="flex place-items-center gap-1">
-            <Text fontWeight="bold">{item.title}</Text>
-          </div>
-          {#if item.description}
-            <Text
-              size="small"
-              class="overflow-hidden text-ellipsis whitespace-nowrap"
-              color={selected ? undefined : 'muted'}>{item.description}</Text
-            >
-          {/if}
-        </div>
+    <div class="flex flex-col items-start">
+      <div class="flex items-center gap-1">
+        <Text fontWeight="bold">{item.title}</Text>
+        <Icon icon={item.icon} size="1.25rem" class={item.iconClass} />
       </div>
-      <div class="flex flex-col items-end gap-1">
-        {#if onRemove}
-          <IconButton
-            size="small"
-            onclick={handleRemove}
-            icon={mdiClose}
-            shape="round"
-            variant="ghost"
-            color="secondary"
-            aria-label="Remove"
-          />
-        {:else}
-          <span class="shrink-0">[{item.type}]</span>
-        {/if}
-        {#if renderedShortcuts.length > 0}
-          <div class="flex justify-end gap-1">
-            {#each renderedShortcuts[0] as key (key)}
-              <Kbd size="small">{key}</Kbd>
-            {/each}
-          </div>
+      {#if item.description}
+        <Text
+          size="small"
+          class="mt-0.5 overflow-hidden text-ellipsis whitespace-nowrap"
+          color={selected ? undefined : 'muted'}>{item.description}</Text
+        >
+      {/if}
+      <div class="mt-2">
+        <Badge size="small" color="primary" shape="rectangle">{item.type}</Badge>
+        {#if item.isGlobal}
+          <Badge size="small" shape="rectangle" color="warning">Global</Badge>
         {/if}
       </div>
     </div>
+    {#if onRemove}
+      <IconButton
+        size="small"
+        onclick={handleRemove}
+        icon={mdiClose}
+        shape="round"
+        variant="ghost"
+        color="secondary"
+        aria-label="Remove"
+      />
+    {:else if renderedShortcuts.length > 0}
+      <div>
+        <div class="flex flex-col justify-end gap-1">
+          {#each renderedShortcuts as shortcut (shortcut.join('-'))}
+            <div class="flex justify-end">
+              <Kbd size="tiny" class={selected ? '' : 'border-neutral-200 dark:border-neutral-700'}
+                >{shortcut.join(' ')}</Kbd
+              >
+            </div>
+          {/each}
+        </div>
+      </div>
+    {/if}
   </Button>
 </div>

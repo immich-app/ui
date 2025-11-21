@@ -14,8 +14,11 @@ export type CommandItem = {
   text?: string;
   shortcuts?: MaybeArray<Shortcut>;
   shortcutOptions?: { ignoreInputFields?: boolean; preventDefault?: boolean };
+  id?: string;
 } & IfLike &
-  ({ href: string } | { action: (command: CommandItem) => void });
+  ({ href: string } | { action: (command: CommandItemResponse) => void });
+
+export type CommandItemResponse = CommandItem & { id: string; isGlobal: boolean };
 
 export type CommandPaletteTranslations = TranslationProps<
   | 'search_placeholder'
@@ -26,6 +29,9 @@ export type CommandPaletteTranslations = TranslationProps<
   | 'command_palette_to_close'
   | 'command_palette_to_navigate'
   | 'command_palette_to_show_all'
+  | 'command_palette_command_details'
+  | 'command_palette_activate_command'
+  | 'global'
 >;
 
 export const asText = (...items: unknown[]) => {
@@ -37,8 +43,8 @@ export const asText = (...items: unknown[]) => {
 };
 
 type ContextLayer = {
-  items: Array<CommandItem & { id: string }>;
-  recentItems: Array<CommandItem & { id: string }>;
+  items: Array<CommandItemResponse>;
+  recentItems: Array<CommandItemResponse>;
 };
 
 const isMatch = (
@@ -143,7 +149,7 @@ class CommandPaletteManager {
     await this.#executeCommand(command);
   }
 
-  async #executeCommand(command: CommandItem) {
+  async #executeCommand(command: CommandItemResponse) {
     if ('href' in command) {
       if (!command.href.startsWith('/')) {
         window.open(command.href, '_blank');
@@ -259,9 +265,13 @@ class CommandPaletteManager {
     this.#query = '';
   }
 
-  addCommands(itemOrItems: MaybeArray<CommandItem & { id?: string }>, options: { global?: boolean } = {}) {
+  addCommands(itemOrItems: MaybeArray<CommandItem>, options: { global: boolean } = { global: false }) {
     const items = Array.isArray(itemOrItems) ? itemOrItems : [itemOrItems];
-    const itemsWithId = items.map((item) => ({ ...item, id: item.id ?? generateId() }));
+    const itemsWithId = items.map((item) => ({
+      ...item,
+      id: item.id ?? generateId(),
+      isGlobal: options.global,
+    }));
 
     if (options.global) {
       this.#globalLayer.items.push(...itemsWithId);
