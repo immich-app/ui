@@ -15,16 +15,15 @@
   }: ToastContainerProps = $props();
 
   const containerStyles = tv({
-    base: 'bg-light text-dark overflow-hidden py-1.5 shadow-xs transition-all',
+    base: 'bg-light text-dark overflow-hidden border py-1.5 shadow-xs transition-all',
     variants: {
       color: {
-        primary: 'bg-primary-100 dark:bg-primary-900',
-        secondary: 'bg-neutral-100 dark:bg-neutral-900',
-        muted: 'bg-subtle dark:bg-subtle',
-        info: 'bg-info-100 dark:bg-info-900',
-        warning: 'bg-warning-100 dark:bg-warning-900',
-        danger: 'bg-danger-100 dark:bg-danger-900',
-        success: 'bg-success-100 dark:bg-success-900',
+        primary: 'border-primary-100 bg-primary-50 dark:bg-primary-900 dark:border-primary-800',
+        secondary: 'border-neutral-200 bg-neutral-50 dark:border-neutral-700 dark:bg-neutral-800',
+        success: 'border-success-100 bg-success-50 dark:bg-success-900 dark:border-success-800',
+        info: 'border-info-100 bg-info-50 dark:bg-info-900 dark:border-info-800',
+        warning: 'border-warning-100 bg-warning-50 dark:bg-warning-900 dark:border-warning-800',
+        danger: 'border-danger-100 bg-danger-50 dark:bg-danger-900 dark:border-danger-800',
       },
       shape: styleVariants.shape,
       size: {

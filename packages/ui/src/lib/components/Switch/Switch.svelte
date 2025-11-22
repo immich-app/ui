@@ -42,12 +42,12 @@
     variants: {
       fillColor: {
         default: 'border-gray-400 bg-gray-200 dark:border-gray-500 dark:bg-gray-800',
-        primary: 'bg-primary-200 dark:bg-primary-800 border-transparent',
-        secondary: 'border-transparent bg-neutral-300 dark:bg-neutral-700',
-        success: 'bg-success-200 dark:bg-success-800 border-transparent',
-        danger: 'bg-danger-200 dark:bg-danger-800 border-transparent',
-        warning: 'bg-warning-200 dark:bg-warning-800 border-transparent',
-        info: 'bg-info-200 dark:bg-info-800 border-transparent',
+        primary: 'bg-primary-100 dark:bg-primary-800 border-transparent',
+        secondary: 'border-transparent bg-neutral-200 dark:bg-neutral-700',
+        success: 'bg-success-100 dark:bg-success-800 border-transparent',
+        danger: 'bg-danger-100 dark:bg-danger-800 border-transparent',
+        warning: 'bg-warning-100 dark:bg-warning-800 border-transparent',
+        info: 'bg-info-100 dark:bg-info-800 border-transparent',
       },
     },
   });
