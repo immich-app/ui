@@ -49,12 +49,12 @@
     base: 'flex w-full grow flex-col',
     variants: {
       color: {
-        primary: 'bg-primary-100 dark:bg-primary-900',
-        secondary: 'text-dark bg-gray-100 dark:bg-neutral-900 dark:text-white',
-        success: 'bg-success-100 dark:bg-success-900',
-        danger: 'bg-danger-100 dark:bg-danger-900',
-        warning: 'bg-warning-100 dark:bg-warning-900',
-        info: 'bg-info-100 dark:bg-info-900',
+        primary: 'bg-primary-50 dark:bg-primary-900',
+        secondary: 'text-dark bg-neutral-50 dark:bg-neutral-900 dark:text-white',
+        success: 'bg-success-50 dark:bg-success-900',
+        danger: 'bg-danger-50 dark:bg-danger-900',
+        warning: 'bg-warning-50 dark:bg-warning-900',
+        info: 'bg-info-50 dark:bg-info-900',
       },
     },
   });
