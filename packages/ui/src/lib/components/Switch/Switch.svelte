@@ -95,7 +95,7 @@
           <div class="text-start">
             <Label id={labelId} for={inputId} {label} requiredIndicator={required === 'indicator'} {...labelProps} />
             {#if description}
-              <Text color="secondary" size="small" id={descriptionId}>{description}</Text>
+              <Text color="muted" size="small" id={descriptionId}>{description}</Text>
             {/if}
           </div>
         {/if}

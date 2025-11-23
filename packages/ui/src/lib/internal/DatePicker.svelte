@@ -51,7 +51,7 @@
   });
 
   const buttonStyles = tv({
-    base: 'flex h-8 w-8 items-center justify-center rounded-lg transition-colors hover:bg-neutral-200 hover:dark:bg-neutral-700',
+    base: 'flex h-10 w-10 items-center justify-center rounded-lg hover:cursor-pointer hover:bg-neutral-200 hover:dark:bg-neutral-700',
   });
 
   const segmentStyles = tv({
@@ -85,7 +85,7 @@
       })}
     >
       {#snippet children({ segments })}
-        <div class={cleanClass(styleVariants.inputCommon, 'w-full px-4 py-2')}>
+        <div class={cleanClass(styleVariants.inputCommon, 'w-full px-3 py-2 font-medium')}>
           {#each segments as { part, value }, i (`segment-${i}`)}
             <DatePicker.Segment {part} class={segmentStyles({ textSize: size })}>
               {value}
@@ -140,7 +140,7 @@
                       {#each weekDates as date (`date-${date.toString()}`)}
                         <DatePicker.Cell {date} month={month.value} class="flex-1">
                           <DatePicker.Day
-                            class="{buttonStyles()} data-selected:bg-primary data-selected:text-light data-today:border-primary border border-transparent data-disabled:cursor-not-allowed data-disabled:opacity-40 data-outside-month:text-gray-400 data-unavailable:cursor-not-allowed data-unavailable:text-gray-300 data-unavailable:line-through"
+                            class="{buttonStyles()} data-selected:bg-primary data-selected:hover:bg-primary-300 data-selected:text-light data-today:border-primary-200 data-today:dark:border-primary-600 data-today:dark:bg-primary-800 data-today:bg-primary-50 border border-transparent text-sm data-disabled:cursor-not-allowed data-disabled:opacity-40 data-outside-month:text-gray-400 data-unavailable:cursor-not-allowed data-unavailable:text-gray-300 data-unavailable:line-through"
                           >
                             {date.day}
                           </DatePicker.Day>

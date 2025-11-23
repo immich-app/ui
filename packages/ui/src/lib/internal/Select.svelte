@@ -84,7 +84,7 @@
   <Select.Root type={multiple ? 'multiple' : 'single'} bind:value={internalValue as never} {onValueChange}>
     <Select.Trigger
       {disabled}
-      class="w-full items-center gap-1 rounded-lg focus-visible:outline-none"
+      class="w-full items-center gap-1 rounded-lg py-0 focus-visible:outline-none"
       aria-label={placeholder}
     >
       <Field {readOnly} {required} {disabled} {invalid}>
@@ -104,6 +104,7 @@
               variant="ghost"
               shape="round"
               color="secondary"
+              size="tiny"
               class="m-1"
               icon={mdiUnfoldMoreHorizontal}
               {disabled}

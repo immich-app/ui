@@ -50,7 +50,7 @@
   });
 
   const inputStyles = tv({
-    base: cleanClass(styleVariants.inputCommon, 'flex-1 py-2'),
+    base: cleanClass(styleVariants.inputCommon, 'flex-1 py-2.5'),
     variants: {
       textSize: styleVariants.textSize,
       leadingPadding: {
@@ -88,18 +88,11 @@
 
 <div class="flex w-full flex-col gap-1" bind:this={containerRef}>
   {#if label}
-    <Label
-      id={labelId}
-      for={inputId}
-      {label}
-      requiredIndicator={required === 'indicator'}
-      {...labelProps}
-      class="font-medium"
-    />
+    <Label id={labelId} for={inputId} {label} requiredIndicator={required === 'indicator'} {...labelProps} />
   {/if}
 
   {#if description}
-    <Text color="muted" size="small" id={descriptionId} class="mb-1">{description}</Text>
+    <Text color="muted" size="small" id={descriptionId} class="mb-2">{description}</Text>
   {/if}
 
   <div

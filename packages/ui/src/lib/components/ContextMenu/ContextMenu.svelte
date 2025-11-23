@@ -25,14 +25,14 @@
   };
 
   const itemStyles = tv({
-    base: 'hover:bg-subtle flex w-full items-center gap-1 rounded-md px-1 py-0.5 text-start',
+    base: 'dark:hover:bg-primary-900 hover:bg-primary-50 flex w-full items-center gap-1 rounded-lg p-1 text-start hover:cursor-pointer',
     variants: {
       color: styleVariants.textColor,
     },
   });
 
   const wrapperStyles = tv({
-    base: 'bg-light flex flex-col gap-1 overflow-hidden rounded-lg border py-1',
+    base: 'bg-light flex flex-col gap-1 overflow-hidden rounded-xl border py-1 shadow-sm dark:border-gray-600',
     variants: {
       size: {
         tiny: 'w-32',
@@ -102,7 +102,7 @@
             <div {...props} {...restProps} class={cleanClass(wrapperStyles({ size }), className)} transition:fly>
               {#each filteredItems as item, i (isDivider(item) ? i : item.title)}
                 {#if isDivider(item)}
-                  <DropdownMenu.Separator class="my-0.5 border-t" />
+                  <DropdownMenu.Separator class="my-0.5 border-t border-gray-200 dark:border-gray-800" />
                 {:else}
                   <DropdownMenu.Item
                     textValue={item.title}
@@ -112,14 +112,14 @@
                   >
                     <div class={itemStyles({ color: item.color })}>
                       <Icon icon={item.icon} class="m-2 shrink-0" />
-                      <Text class="grow text-start">{item.title}</Text>
+                      <Text class="grow text-start font-medium select-none" size="medium">{item.title}</Text>
                     </div>
                   </DropdownMenu.Item>
                 {/if}
               {/each}
 
               {#if filteredBottomItems}
-                <DropdownMenu.Separator class="my-0.5 border-t" />
+                <DropdownMenu.Separator class="my-0.5 border-t border-gray-200 dark:border-gray-800" />
                 <div class="flex gap-1 px-1">
                   {#each filteredBottomItems as item (item.title)}
                     <DropdownMenu.Item
