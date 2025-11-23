@@ -6,6 +6,8 @@
   import type { Color } from '$lib/types.js';
   import { cleanClass } from '$lib/utilities/internal.js';
   import { mdiChevronDown } from '@mdi/js';
+  import { slide } from 'svelte/transition';
+  import { cubicOut } from 'svelte/easing';
   import { type Snippet } from 'svelte';
   import type { HTMLAttributes } from 'svelte/elements';
   import { twMerge } from 'tailwind-merge';
@@ -134,9 +136,13 @@
     {/if}
 
     {#if bodyChild && expanded}
-      <Scrollable class={twMerge(cleanClass('p-4', bodyChild?.class))}>
-        {@render bodyChild?.snippet()}
-      </Scrollable>
+      <div transition:slide={{ duration: 150, easing: cubicOut }} class="overflow-hidden">
+        <div class="p-4">
+          <Scrollable class={twMerge(cleanClass('', bodyChild?.class))}>
+            {@render bodyChild?.snippet()}
+          </Scrollable>
+        </div>
+      </div>
     {/if}
 
     {#if footerChild}
