@@ -135,14 +135,16 @@
       {@render header()}
     {/if}
 
-    {#if bodyChild && expanded}
-      <div transition:slide={{ duration: 150, easing: cubicOut }} class="overflow-hidden">
-        <div class="p-4">
-          <Scrollable class={twMerge(cleanClass('', bodyChild?.class))}>
-            {@render bodyChild?.snippet()}
-          </Scrollable>
+    {#if bodyChild}
+      {#if expanded}
+        <div transition:slide={{ duration: 200, easing: cubicOut }} class="overflow-hidden">
+          <div class="p-4">
+            <Scrollable class={twMerge(cleanClass(bodyChild?.class))}>
+              {@render bodyChild?.snippet()}
+            </Scrollable>
+          </div>
         </div>
-      </div>
+      {/if}
     {/if}
 
     {#if footerChild}
