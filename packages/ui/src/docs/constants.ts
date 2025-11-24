@@ -41,6 +41,7 @@ import {
   mdiMenu,
   mdiMessageAlert,
   mdiMessageAlertOutline,
+  mdiMinus,
   mdiNumeric,
   mdiPalette,
   mdiPanVertical,
@@ -109,6 +110,7 @@ export const componentGroups = [
       { name: 'Input', icon: mdiFormTextbox },
       { name: 'NumberInput', icon: mdiNumeric },
       { name: 'PasswordInput', icon: mdiFormTextboxPassword },
+      { name: 'ProgressBar', icon: mdiMinus },
       { name: 'LoadingSpinner', icon: mdiDotsCircle },
       {
         name: 'MultiSelect',

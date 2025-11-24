@@ -58,6 +58,7 @@ export { default as NavbarGroup } from '$lib/components/Navbar/NavbarGroup.svelt
 export { default as NavbarItem } from '$lib/components/Navbar/NavbarItem.svelte';
 export { default as NumberInput } from '$lib/components/NumberInput/NumberInput.svelte';
 export { default as PasswordInput } from '$lib/components/PasswordInput/PasswordInput.svelte';
+export { default as ProgressBar } from '$lib/components/ProgressBar/ProgressBar.svelte';
 export { default as Scrollable } from '$lib/components/Scrollable/Scrollable.svelte';
 export { default as Select } from '$lib/components/Select/Select.svelte';
 export { default as SiteMetadata } from '$lib/components/SiteMetadata/SiteMetadata.svelte';
