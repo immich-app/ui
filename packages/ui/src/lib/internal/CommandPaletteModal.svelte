@@ -15,7 +15,14 @@
     type CommandPaletteTranslations,
   } from '$lib/services/command-palette-manager.svelte.js';
   import { t } from '$lib/services/translation.svelte.js';
-  import { mdiArrowDown, mdiArrowUp, mdiKeyboardEsc, mdiKeyboardReturn, mdiMagnify } from '@mdi/js';
+  import {
+    mdiAppleKeyboardShift,
+    mdiArrowDown,
+    mdiArrowUp,
+    mdiKeyboardEsc,
+    mdiKeyboardReturn,
+    mdiMagnify,
+  } from '@mdi/js';
 
   type Props = {
     onClose: () => void;
@@ -119,6 +126,14 @@
               <Icon icon={mdiKeyboardReturn} size="1rem" />
             </span>
             <Text size="small">{t('command_palette_to_select', translations)}</Text>
+          </div>
+
+          <div class="flex place-items-center gap-1">
+            <span class="flex gap-1 rounded bg-gray-300 p-1 dark:bg-gray-500">
+              <Icon icon={mdiAppleKeyboardShift} size="1rem" />
+              <Icon icon={mdiKeyboardReturn} size="1rem" />
+            </span>
+            <Text size="small">{t('command_palette_command_details', translations)}</Text>
           </div>
 
           <div class="flex place-items-center gap-1">

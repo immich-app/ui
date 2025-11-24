@@ -11,7 +11,7 @@
 
   $effect(() => {
     // prevent reactivity loop
-    const addCommands = (commands: CommandItem[], global?: boolean) =>
+    const addCommands = (commands: CommandItem[], global: boolean = false) =>
       untrack(() => commandPaletteManager.addCommands(commands, { global }));
 
     return addCommands(commands, global);
