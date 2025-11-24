@@ -28,17 +28,12 @@
     variants: {
       shape: styleVariants.shape,
       color: {
-        primary:
-          'bg-primary-100 border-primary-100 text-primary-950 dark:text-primary-50 dark:bg-primary-800 dark:border-primary-800',
-        secondary:
-          'border-neutral-20 bg-neutral-100 text-neutral-950 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-50',
-        success:
-          'border-success-100 bg-success-100 text-success-950 dark:text-success-50 dark:bg-success-800 dark:border-success-800',
-        info: 'border-info-100 bg-info-200 text-info-950 dark:text-info-50 dark:bg-info-800 dark:border-info-800',
-        warning:
-          'border-warning-100 bg-warning-200 text-warning-950 dark:text-warning-50 dark:bg-warning-800 dark:border-warning-800',
-        danger:
-          'border-danger-100 bg-danger-200 text-danger-950 dark:text-danger-50 dark:bg-danger-900 dark:border-danger-800',
+        primary: 'border-primary-100 bg-primary-100 text-primary-950 dark:bg-primary-200 dark:border-primary-200',
+        secondary: 'border-light-300 bg-light-100 text-light-950 dark:bg-light-200',
+        success: 'border-success-100 bg-success-100 text-success-950 dark:bg-success-200 dark:border-success-200',
+        info: 'border-info-200 bg-info-200 text-info-950',
+        warning: 'border-warning-200 bg-warning-200 text-warning-950',
+        danger: 'border-danger-200 bg-danger-200 text-danger-950 dark:bg-danger-200',
       },
       textSize: styleVariants.textSize,
       paddingSize: {

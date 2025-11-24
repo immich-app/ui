@@ -30,12 +30,12 @@
     base: 'h-8 w-8 shrink-0 rounded-xl py-1.75',
     variants: {
       color: {
-        primary: 'bg-primary-100 dark:bg-primary-800 text-primary',
-        secondary: 'bg-neutral-200 dark:bg-neutral-700',
-        success: 'bg-success-100 dark:bg-success-800 text-success',
-        info: 'bg-info-200 dark:bg-info-800 text-info',
-        warning: 'bg-warning-200 dark:bg-warning-700 text-warning',
-        danger: 'bg-danger-200 dark:bg-danger-800 text-danger',
+        primary: 'bg-primary-100 dark:bg-primary-200 text-primary',
+        secondary: 'bg-light-200 dark:bg-light-300',
+        success: 'bg-success-100 dark:bg-success-200 text-success',
+        info: 'bg-info-200 text-info',
+        warning: 'bg-warning-200 text-warning',
+        danger: 'bg-danger-200 text-danger',
       },
     },
   });

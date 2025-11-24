@@ -11,7 +11,6 @@
     type Color,
     type Shape,
     type Size,
-    type ToastVariant,
   } from '@immich/ui';
   import { mdiAccount, mdiCheck, mdiHeart, mdiImage, mdiInformation, mdiRocket } from '@mdi/js';
   import CustomExample from './CustomExample.svelte';
@@ -47,12 +46,6 @@
   ];
   let shape = $state(shapes[1]);
 
-  const variants: Array<{ label: string; value: ToastVariant }> = [
-    { label: 'Filled', value: 'filled' },
-    { label: 'Outline', value: 'outline' },
-  ];
-  let variant = $state(variants[0]);
-
   const icons: Array<{ label: string; value: string }> = [
     { label: 'Default', value: 'default' },
     { label: 'No icon', value: 'none' },
@@ -82,7 +75,6 @@
       {
         title,
         description,
-        variant: variant?.value,
         shape: shape?.value,
         color: color?.value,
         size: size?.value,
@@ -96,20 +88,17 @@
   };
 
   const handleClick = () => {
-    for (const variant of ['filled', 'outline'] as const) {
-      for (const color of ['primary', 'secondary', 'success', 'info', 'warning', 'danger'] as const) {
-        toastManager.show(
-          {
-            title: `${variant}-${color}`,
-            description,
-            color,
-            variant,
-          },
-          {
-            timeout,
-          },
-        );
-      }
+    for (const color of ['primary', 'secondary', 'success', 'info', 'warning', 'danger'] as const) {
+      toastManager.show(
+        {
+          title: color,
+          description,
+          color,
+        },
+        {
+          timeout,
+        },
+      );
     }
   };
 
@@ -154,12 +143,6 @@
     <div>
       <Field label="Shape">
         <Select data={shapes} bind:value={shape} />
-      </Field>
-    </div>
-
-    <div>
-      <Field label="Variant">
-        <Select data={variants} bind:value={variant} />
       </Field>
     </div>
 
