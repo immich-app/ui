@@ -1,21 +1,25 @@
 <script lang="ts">
   import { styleVariants } from '$lib/styles.js';
-  import type { Color, Size } from '$lib/types.js';
+  import type { Color, Shape, Size } from '$lib/types.js';
   import { cleanClass } from '$lib/utilities/internal.js';
+  import type { Snippet } from 'svelte';
   import { tv } from 'tailwind-variants';
 
-  interface Props {
+  type Props = {
+    progress: number;
     size?: Size;
-    progress?: number;
+    shape?: Shape;
     color?: Color;
     class?: string;
-  }
+    children?: Snippet;
+  };
 
-  let { progress = 0, size = 'medium', color = 'primary', class: className }: Props = $props();
+  let { progress, shape = 'round', size = 'medium', color = 'primary', class: className, children }: Props = $props();
 
-  const styles = tv({
-    base: 'fill-primary w-64 w-80 overflow-hidden rounded-full bg-gray-200 dark:bg-white',
+  const containerStyles = tv({
+    base: 'bg-light-100 dark:bg-light-200 dark:border-light-300 relative w-full overflow-hidden border',
     variants: {
+      shape: styleVariants.shape,
       size: {
         tiny: 'h-3',
         small: 'h-4',
@@ -23,17 +27,33 @@
         large: 'h-6',
         giant: 'h-12',
       },
+      roundedSize: {
+        tiny: 'rounded-sm',
+        small: 'rounded-md',
+        medium: 'rounded-md',
+        large: 'rounded-lg',
+        giant: 'rounded-xl',
+      },
     },
   });
 
   const barStyles = tv({
-    base: 'h-full transition-all duration-700',
+    base: 'h-full transition-all duration-700 ease-in-out',
     variants: {
       color: styleVariants.filledColor,
+      shape: styleVariants.shape,
     },
   });
 </script>
 
-<div class={cleanClass(styles({ size }), className)}>
-  <div class={cleanClass(barStyles({ color }))} style="width: {progress * 100}%"></div>
+<div
+  class={cleanClass(
+    containerStyles({ size, shape, roundedSize: shape === 'semi-round' ? size : undefined }),
+    className,
+  )}
+>
+  <div class="absolute flex h-full w-full items-center justify-center">
+    {@render children?.()}
+  </div>
+  <div class={cleanClass(barStyles({ color, shape }))} style="width: {progress * 100}%"></div>
 </div>

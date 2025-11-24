@@ -5,6 +5,8 @@
   import animatedExample from './AnimatedExample.svelte?raw';
   import ColorExample from './ColorExample.svelte';
   import colorExample from './ColorExample.svelte?raw';
+  import ShapeExample from './ShapeExample.svelte';
+  import shapeExample from './ShapeExample.svelte?raw';
   import SizeExample from './SizeExample.svelte';
   import sizeExample from './SizeExample.svelte?raw';
 </script>
@@ -13,7 +15,8 @@
   <ComponentExamples
     examples={[
       { title: 'Animated Example', code: animatedExample, component: AnimatedExample },
-      { title: 'Sizes', code: sizeExample, component: SizeExample },
+      { title: 'Size', code: sizeExample, component: SizeExample },
+      { title: 'Shape', code: shapeExample, component: ShapeExample },
       { title: 'Color', code: colorExample, component: ColorExample },
     ]}
   />
