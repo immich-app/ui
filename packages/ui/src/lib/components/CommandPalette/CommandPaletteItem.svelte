@@ -42,9 +42,9 @@
     fullWidth
     variant={selected ? 'outline' : 'ghost'}
     color="secondary"
-    class="flex justify-between gap-2 overflow-hidden border {selected ? 'border-neutral-500!' : ''}"
+    class="flex justify-between gap-3 border text-start {selected ? 'border-neutral-500!' : ''}"
   >
-    <div class="flex flex-col items-start">
+    <div class="flex flex-col">
       <div class="flex items-center gap-1">
         <Text fontWeight="bold">{item.title}</Text>
         <Icon icon={item.icon} size="1.25rem" class={item.iconClass} />
@@ -52,8 +52,8 @@
       {#if item.description}
         <Text
           size="small"
-          class="mt-0.5 overflow-hidden text-ellipsis whitespace-nowrap"
-          color={selected ? undefined : 'muted'}>{item.description}</Text
+          class="mt-0.5 line-clamp-4 w-full overflow-hidden text-ellipsis md:line-clamp-2"
+          color="muted">{item.description}</Text
         >
       {/if}
       <div class="mt-2">
@@ -67,6 +67,7 @@
       <IconButton
         size="small"
         onclick={handleRemove}
+        class="shrink-0"
         icon={mdiClose}
         shape="round"
         variant="ghost"
@@ -74,7 +75,7 @@
         aria-label="Remove"
       />
     {:else if renderedShortcuts.length > 0}
-      <div class="flex flex-col justify-end gap-1">
+      <div class="flex shrink-0 flex-col justify-end gap-1">
         {#each renderedShortcuts as shortcut (shortcut.join('-'))}
           <div class="flex justify-end">
             <Kbd size="tiny" class={selected ? '' : 'border-neutral-200 dark:border-neutral-700'}

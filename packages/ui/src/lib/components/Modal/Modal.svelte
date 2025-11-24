@@ -99,7 +99,7 @@
       {interactOutsideBehavior}
       class={cleanClass(modalContentStyles({ size }))}
     >
-      <div class={cleanClass('flex grow flex-col justify-center')}>
+      <div class={cleanClass('flex w-full grow flex-col justify-center')}>
         <Card bind:ref={cardRef} class={cleanClass(modalStyles({ size }), className)}>
           <CardHeader class="border-b border-gray-200 px-5 py-3 dark:border-white/10">
             {#if headerChildren}
