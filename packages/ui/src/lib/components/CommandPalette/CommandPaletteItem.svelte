@@ -5,7 +5,7 @@
   import IconButton from '$lib/components/IconButton/IconButton.svelte';
   import Kbd from '$lib/components/Kbd/Kbd.svelte';
   import Text from '$lib/components/Text/Text.svelte';
-  import type { CommandItemResponse } from '$lib/services/command-palette-manager.svelte.js';
+  import type { CommandItemResponse } from '$lib/services/command-palette-manager.svelte';
   import { mdiClose } from '@mdi/js';
   import Badge from '$lib/components/Badge/Badge.svelte';
 
@@ -74,16 +74,14 @@
         aria-label="Remove"
       />
     {:else if renderedShortcuts.length > 0}
-      <div>
-        <div class="flex flex-col justify-end gap-1">
-          {#each renderedShortcuts as shortcut (shortcut.join('-'))}
-            <div class="flex justify-end">
-              <Kbd size="tiny" class={selected ? '' : 'border-neutral-200 dark:border-neutral-700'}
-                >{shortcut.join(' ')}</Kbd
-              >
-            </div>
-          {/each}
-        </div>
+      <div class="flex flex-col justify-end gap-1">
+        {#each renderedShortcuts as shortcut (shortcut.join('-'))}
+          <div class="flex justify-end">
+            <Kbd size="tiny" class={selected ? '' : 'border-neutral-200 dark:border-neutral-700'}
+              >{shortcut.join(' ')}</Kbd
+            >
+          </div>
+        {/each}
       </div>
     {/if}
   </Button>
