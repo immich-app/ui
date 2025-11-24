@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.46.0 (2025-11-24)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+## What's Changed
+### 🌟 Enhancements
+* feat: show all shortcuts for command by @danieldietzler in https://github.com/immich-app/ui/pull/420
+### 🐛 Bug fixes
+* fix: remove modal open count by @danieldietzler in https://github.com/immich-app/ui/pull/417
+* fix: modal scroll by @jrasm91 in https://github.com/immich-app/ui/pull/427
+
+
+**Full Changelog**: https://github.com/immich-app/ui/compare/ui-v0.45.1...ui-v0.46.0
+
 ## 0.45.1 (2025-11-19)
 
 <!-- Release notes generated using configuration in .github/release.yml at main -->
