@@ -29,8 +29,6 @@ export type CommandPaletteTranslations = TranslationProps<
   | 'command_palette_to_close'
   | 'command_palette_to_navigate'
   | 'command_palette_to_show_all'
-  | 'command_palette_command_details'
-  | 'command_palette_activate_command'
   | 'global'
 >;
 
