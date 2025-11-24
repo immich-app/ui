@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.47.0 (2025-11-24)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+## What's Changed
+### 🚀 Features
+* feat: progress bar by @insertish in https://github.com/immich-app/ui/pull/425
+
+## New Contributors
+* @insertish made their first contribution in https://github.com/immich-app/ui/pull/425
+
+**Full Changelog**: https://github.com/immich-app/ui/compare/ui-v0.46.0...ui-v0.47.0
+
 ## 0.46.0 (2025-11-24)
 
 <!-- Release notes generated using configuration in .github/release.yml at main -->
