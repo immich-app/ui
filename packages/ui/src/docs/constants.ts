@@ -45,6 +45,7 @@ import {
   mdiPalette,
   mdiPanVertical,
   mdiPartyPopper,
+  mdiProgressHelper,
   mdiSquare,
   mdiSquareOutline,
   mdiTag,
@@ -109,6 +110,7 @@ export const componentGroups = [
       { name: 'Input', icon: mdiFormTextbox },
       { name: 'NumberInput', icon: mdiNumeric },
       { name: 'PasswordInput', icon: mdiFormTextboxPassword },
+      { name: 'ProgressBar', icon: mdiProgressHelper },
       { name: 'LoadingSpinner', icon: mdiDotsCircle },
       {
         name: 'MultiSelect',
