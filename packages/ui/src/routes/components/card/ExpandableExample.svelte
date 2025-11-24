@@ -9,7 +9,7 @@
       <CardTitle>Title</CardTitle>
     </CardHeader>
     <CardBody>
-      <Lorem />
+      <Lorem count={3} />
     </CardBody>
   </Card>
 
@@ -18,7 +18,7 @@
       <CardTitle>Title</CardTitle>
     </CardHeader>
     <CardBody>
-      <Lorem />
+      <Lorem count={3} />
     </CardBody>
   </Card>
 </Stack>
