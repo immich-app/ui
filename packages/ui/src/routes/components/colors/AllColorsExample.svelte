@@ -3,9 +3,22 @@
 
   const colorGroups = [
     {
-      name: 'Primary',
+      name: 'Theme',
       colors: [
         { name: 'primary', class: 'bg-primary' },
+        { name: 'success', class: 'bg-success' },
+        { name: 'danger', class: 'bg-danger' },
+        { name: 'warning', class: 'bg-warning' },
+        { name: 'info', class: 'bg-info' },
+        { name: 'light', class: 'bg-light' },
+        { name: 'dark', class: 'bg-dark' },
+        { name: 'muted', class: 'bg-muted' },
+        { name: 'subtle', class: 'bg-subtle' },
+      ],
+    },
+    {
+      name: 'Primary',
+      colors: [
         { name: 'primary-50', class: 'bg-primary-50' },
         { name: 'primary-100', class: 'bg-primary-100' },
         { name: 'primary-200', class: 'bg-primary-200' },
@@ -22,7 +35,6 @@
     {
       name: 'Success',
       colors: [
-        { name: 'success', class: 'bg-success' },
         { name: 'success-50', class: 'bg-success-50' },
         { name: 'success-100', class: 'bg-success-100' },
         { name: 'success-200', class: 'bg-success-200' },
@@ -39,7 +51,6 @@
     {
       name: 'Danger',
       colors: [
-        { name: 'danger', class: 'bg-danger' },
         { name: 'danger-50', class: 'bg-danger-50' },
         { name: 'danger-100', class: 'bg-danger-100' },
         { name: 'danger-200', class: 'bg-danger-200' },
@@ -56,7 +67,6 @@
     {
       name: 'Warning',
       colors: [
-        { name: 'warning', class: 'bg-warning' },
         { name: 'warning-50', class: 'bg-warning-50' },
         { name: 'warning-100', class: 'bg-warning-100' },
         { name: 'warning-200', class: 'bg-warning-200' },
@@ -73,7 +83,6 @@
     {
       name: 'Info',
       colors: [
-        { name: 'info', class: 'bg-info' },
         { name: 'info-50', class: 'bg-info-50' },
         { name: 'info-100', class: 'bg-info-100' },
         { name: 'info-200', class: 'bg-info-200' },
@@ -89,12 +98,35 @@
     },
 
     {
-      name: 'Neutral Colors',
+      name: 'Light',
       colors: [
-        { name: 'light', class: 'bg-light' },
-        { name: 'dark', class: 'bg-dark' },
-        { name: 'muted', class: 'bg-muted' },
-        { name: 'subtle', class: 'bg-subtle' },
+        { name: 'light-50', class: 'bg-light-50' },
+        { name: 'light-100', class: 'bg-light-100' },
+        { name: 'light-200', class: 'bg-light-200' },
+        { name: 'light-300', class: 'bg-light-300' },
+        { name: 'light-400', class: 'bg-light-400' },
+        { name: 'light-500', class: 'bg-light-500' },
+        { name: 'light-600', class: 'bg-light-600' },
+        { name: 'light-700', class: 'bg-light-700' },
+        { name: 'light-800', class: 'bg-light-800' },
+        { name: 'light-900', class: 'bg-light-900' },
+        { name: 'light-950', class: 'bg-light-950' },
+      ],
+    },
+    {
+      name: 'Dark',
+      colors: [
+        { name: 'dark-50', class: 'bg-dark-50' },
+        { name: 'dark-100', class: 'bg-dark-100' },
+        { name: 'dark-200', class: 'bg-dark-200' },
+        { name: 'dark-300', class: 'bg-dark-300' },
+        { name: 'dark-400', class: 'bg-dark-400' },
+        { name: 'dark-500', class: 'bg-dark-500' },
+        { name: 'dark-600', class: 'bg-dark-600' },
+        { name: 'dark-700', class: 'bg-dark-700' },
+        { name: 'dark-800', class: 'bg-dark-800' },
+        { name: 'dark-900', class: 'bg-dark-900' },
+        { name: 'dark-950', class: 'bg-dark-950' },
       ],
     },
   ];

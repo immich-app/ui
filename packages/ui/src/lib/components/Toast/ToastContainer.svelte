@@ -18,12 +18,12 @@
     base: 'bg-light text-dark overflow-hidden border py-1.5 shadow-xs transition-all',
     variants: {
       color: {
-        primary: 'border-primary-100 bg-primary-50 dark:bg-primary-900 dark:border-primary-800',
-        secondary: 'border-neutral-200 bg-neutral-50 dark:border-neutral-700 dark:bg-neutral-800',
-        success: 'border-success-100 bg-success-50 dark:bg-success-900 dark:border-success-800',
-        info: 'border-info-100 bg-info-50 dark:bg-info-900 dark:border-info-800',
-        warning: 'border-warning-100 bg-warning-50 dark:bg-warning-900 dark:border-warning-800',
-        danger: 'border-danger-100 bg-danger-50 dark:bg-danger-900 dark:border-danger-800',
+        primary: 'border-primary-100 bg-primary-50 dark:bg-primary-100 dark:border-primary-200',
+        secondary: 'border-light-200 bg-light-100 dark:bg-light-200 dark:border-light-300',
+        success: 'border-success-100 bg-success-50 dark:bg-success-100 dark:border-success-200',
+        info: 'border-info-100 bg-info-50 dark:bg-info-100 dark:border-info-200',
+        warning: 'border-warning-100 bg-warning-50 dark:bg-warning-100 dark:border-warning-200',
+        danger: 'border-danger-100 bg-danger-50 dark:bg-danger-100 dark:border-danger-200',
       },
       shape: styleVariants.shape,
       size: {

@@ -1,13 +1,14 @@
 <script lang="ts">
   import { renderShortcut } from '$lib/actions/shortcut.js';
+  import Badge from '$lib/components/Badge/Badge.svelte';
   import Button from '$lib/components/Button/Button.svelte';
   import Icon from '$lib/components/Icon/Icon.svelte';
   import IconButton from '$lib/components/IconButton/IconButton.svelte';
   import Kbd from '$lib/components/Kbd/Kbd.svelte';
   import Text from '$lib/components/Text/Text.svelte';
   import type { CommandItemResponse } from '$lib/services/command-palette-manager.svelte';
+  import { cleanClass } from '$lib/utilities/internal.js';
   import { mdiClose } from '@mdi/js';
-  import Badge from '$lib/components/Badge/Badge.svelte';
 
   type Props = {
     item: CommandItemResponse;
@@ -78,9 +79,7 @@
       <div class="flex shrink-0 flex-col justify-end gap-1">
         {#each renderedShortcuts as shortcut (shortcut.join('-'))}
           <div class="flex justify-end">
-            <Kbd size="tiny" class={selected ? '' : 'border-neutral-200 dark:border-neutral-700'}
-              >{shortcut.join(' ')}</Kbd
-            >
+            <Kbd size="tiny" class={cleanClass(selected && 'border')}>{shortcut.join(' ')}</Kbd>
           </div>
         {/each}
       </div>

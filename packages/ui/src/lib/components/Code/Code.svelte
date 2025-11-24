@@ -41,7 +41,7 @@
         false: '',
         muted: 'text-dark bg-subtle',
         primary: 'text-dark dark:bg-primary/20 bg-gray-200 dark:text-gray-200',
-        secondary: 'text-light bg-gray-700 dark:bg-gray-200',
+        secondary: 'text-light bg-light-700',
         success: 'bg-success text-light',
         danger: 'bg-danger text-light',
         warning: 'bg-warning text-light',
@@ -50,7 +50,7 @@
 
       outlineTheme: {
         false: '',
-        muted: 'border border-gray-600 text-gray-600 dark:border-gray-400 dark:text-gray-400',
+        muted: 'border-light-600 text-light-600 border',
         primary: 'border-primary text-primary border',
         secondary: 'border-dark text-dark border',
         success: 'border-success text-success border',

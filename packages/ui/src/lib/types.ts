@@ -23,7 +23,6 @@ export type HeadingSize = Size | 'title';
 export type HeadingTag = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p';
 export type Shape = 'rectangle' | 'semi-round' | 'round';
 export type Variants = 'filled' | 'outline' | 'ghost';
-export type ToastVariant = 'filled' | 'outline';
 export type Gap = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 
 export enum Theme {
@@ -219,7 +218,6 @@ export type ToastShow = {
   shape?: Shape;
   icon?: IconLike | false;
   size?: ContainerSize;
-  variant?: ToastVariant;
 };
 
 export type ToastOptions = {

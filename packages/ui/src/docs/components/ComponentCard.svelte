@@ -13,7 +13,7 @@
   href={asComponentHref(component.name)}
   variant="outline"
   color="secondary"
-  class="h-24 w-44 rounded-2xl border border-gray-300 dark:border-gray-700"
+  class="border-light-300 h-24 w-44 rounded-2xl border "
   size="large"
 >
   <VStack gap={2}>

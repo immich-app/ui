@@ -51,11 +51,11 @@
   });
 
   const buttonStyles = tv({
-    base: 'flex h-10 w-10 items-center justify-center rounded-lg hover:cursor-pointer hover:bg-neutral-200 hover:dark:bg-neutral-700',
+    base: 'hover:bg-light-200 hover:dark:bg-light-300 flex h-10 w-10 items-center justify-center rounded-lg hover:cursor-pointer',
   });
 
   const segmentStyles = tv({
-    base: 'rounded px-1 py-0.5 tabular-nums outline-none focus:bg-gray-300 focus:text-gray-900 data-disabled:cursor-not-allowed data-focused:bg-gray-300 data-focused:text-gray-900 data-placeholder:text-gray-400 dark:focus:bg-gray-700 dark:focus:text-gray-100 dark:data-focused:bg-gray-700 dark:data-focused:text-gray-100',
+    base: 'focus:bg-light-300 focus:text-light-900 data-focused:bg-light-300 data-focused:text-light-900 data-placeholder:text-light-400 dark:focus:bg-light-700 dark:focus:text-light-100 dark:data-focused:bg-light-300 dark:data-focused:text-light-900 rounded px-1 py-0.5 tabular-nums outline-none data-disabled:cursor-not-allowed',
     variants: {
       textSize: styleVariants.textSize,
     },
@@ -140,7 +140,7 @@
                       {#each weekDates as date (`date-${date.toString()}`)}
                         <DatePicker.Cell {date} month={month.value} class="flex-1">
                           <DatePicker.Day
-                            class="{buttonStyles()} data-selected:bg-primary data-selected:hover:bg-primary-300 data-selected:text-light data-today:border-primary-200 data-today:dark:border-primary-600 data-today:dark:bg-primary-800 data-today:bg-primary-50 border border-transparent text-sm data-disabled:cursor-not-allowed data-disabled:opacity-40 data-outside-month:text-gray-400 data-unavailable:cursor-not-allowed data-unavailable:text-gray-300 data-unavailable:line-through"
+                            class="{buttonStyles()} data-selected:bg-primary data-selected:hover:bg-primary-300 data-selected:text-light data-today:border-primary-200 data-today:dark:border-primary-400 data-today:dark:bg-primary-200 data-today:bg-primary-50 data-outside-month:text-light-400 data-unavailable:text-light-300 border border-transparent text-sm data-disabled:cursor-not-allowed data-disabled:opacity-40 data-unavailable:cursor-not-allowed data-unavailable:line-through"
                           >
                             {date.day}
                           </DatePicker.Day>
