@@ -294,3 +294,22 @@ export type ActionItem<T = never> = Omit<
   // https://github.com/microsoft/TypeScript/issues/31751#issuecomment-498526919
   [T] extends [never] ? 'data' : ''
 >;
+
+export type BreadcrumbsProps = {
+  separator?: IconLike | { text: string };
+  items: BreadcrumbItem[];
+} & HTMLAttributes<HTMLElement>;
+
+export type BreadcrumbItem = {
+  href?: string;
+} &
+  // either icon or title must be provided
+  (| {
+        title: string;
+        icon?: IconLike;
+      }
+    | {
+        title?: string;
+        icon: IconLike;
+      }
+  );

@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { resolve } from '$app/paths';
   import ComponentDescription from '$docs/components/ComponentDescription.svelte';
   import { siteMetadata } from '$docs/constants.js';
-  import { Container, Heading, SiteMetadata, type ContainerSize } from '@immich/ui';
+  import { Breadcrumbs, Container, Heading, SiteMetadata, type ContainerSize } from '@immich/ui';
+  import { mdiSlashForward } from '@mdi/js';
   import type { Snippet } from 'svelte';
 
   type Props = {
@@ -23,16 +23,11 @@
 <SiteMetadata site={siteMetadata} {page} />
 
 <div class="flex h-full flex-col">
-  <!-- TODO replace with breadcrumb component -->
-  <nav class="bg-light text-dark flex shrink-0 justify-between border-b p-4">
-    <div class="flex items-center gap-2">
-      <a href={resolve('/')} class="underline">Home</a>
-      <span>/</span>
-      <a href={resolve('/')} class="underline">Components</a>
-      <span>/</span>
-      <span class="capitalize">{name}</span>
-    </div>
-  </nav>
+  <Breadcrumbs
+    items={[{ title: 'Home', href: '/' }, { title: 'Components' }, { title: name }]}
+    separator={mdiSlashForward}
+    class="border-b p-4"
+  />
 
   <Container {size} class="flex flex-col p-4">
     <Heading tag="h1" size="large">{name}</Heading>
