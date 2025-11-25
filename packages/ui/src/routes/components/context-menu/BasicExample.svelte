@@ -1,7 +1,6 @@
 <script lang="ts">
-  import ContextMenuButton from '$lib/components/ContextMenu/ContextMenuButton.svelte';
   import type { ActionItem, ActionItemHandler, MenuItems } from '@immich/ui';
-  import { MenuItemType, Stack, toastManager } from '@immich/ui';
+  import { ContextMenuButton, MenuItemType, Stack, toastManager } from '@immich/ui';
   import {
     mdiContentCopy,
     mdiContentCut,
