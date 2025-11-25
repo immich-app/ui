@@ -9,6 +9,6 @@
 
 <Modal title="Modal Title" {onClose}>
   <ModalBody>
-    <Lorem />
+    <Lorem count={5} />
   </ModalBody>
 </Modal>

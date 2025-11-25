@@ -1,15 +1,14 @@
 <script lang="ts">
   import { withChildrenSnippets } from '$lib/common/use-child.svelte.js';
   import IconButton from '$lib/components/IconButton/IconButton.svelte';
-  import Scrollable from '$lib/components/Scrollable/Scrollable.svelte';
   import { ChildKey } from '$lib/constants.js';
   import type { Color } from '$lib/types.js';
   import { cleanClass } from '$lib/utilities/internal.js';
   import { mdiChevronDown } from '@mdi/js';
-  import { slide } from 'svelte/transition';
-  import { cubicOut } from 'svelte/easing';
   import { type Snippet } from 'svelte';
+  import { cubicOut } from 'svelte/easing';
   import type { HTMLAttributes } from 'svelte/elements';
+  import { slide } from 'svelte/transition';
   import { twMerge } from 'tailwind-merge';
   import { tv } from 'tailwind-variants';
 
@@ -136,10 +135,11 @@
     {/if}
 
     {#if bodyChild && expanded}
-      <div transition:slide={{ duration: expandable ? 200 : 0, easing: cubicOut }}>
-        <Scrollable class={twMerge(cleanClass('p-4', bodyChild?.class))}>
-          {@render bodyChild?.snippet()}
-        </Scrollable>
+      <div
+        transition:slide={{ duration: expandable ? 200 : 0, easing: cubicOut }}
+        class={twMerge(cleanClass('immich-scrollbar h-full w-full overflow-auto p-4', bodyChild?.class))}
+      >
+        {@render bodyChild?.snippet()}
       </div>
     {/if}
 
