@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.49.0 (2025-11-25)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+## What's Changed
+### 🚀 Features
+* feat: breadcrumbs by @jrasm91 in https://github.com/immich-app/ui/pull/438
+### 🐛 Bug fixes
+* fix: card scroll in modals by @jrasm91 in https://github.com/immich-app/ui/pull/436
+
+
+**Full Changelog**: https://github.com/immich-app/ui/compare/ui-v0.48.0...ui-v0.49.0
+
 ## 0.48.0 (2025-11-25)
 
 <!-- Release notes generated using configuration in .github/release.yml at main -->
