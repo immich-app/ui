@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.48.0 (2025-11-25)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+## What's Changed
+### 🚀 Features
+* feat: context menu button by @danieldietzler in https://github.com/immich-app/ui/pull/435
+
+
+**Full Changelog**: https://github.com/immich-app/ui/compare/ui-v0.47.0...ui-v0.48.0
+
 ## 0.47.0 (2025-11-24)
 
 <!-- Release notes generated using configuration in .github/release.yml at main -->
