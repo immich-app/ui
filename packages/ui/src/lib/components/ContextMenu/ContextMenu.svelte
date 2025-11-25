@@ -3,7 +3,7 @@
   import Text from '$lib/components/Text/Text.svelte';
   import { zIndex } from '$lib/constants.js';
   import { styleVariants } from '$lib/styles.js';
-  import { MenuItemType, type ContextMenuProps, type MenuItem } from '$lib/types.js';
+  import { MenuItemType, type ContextMenuProps, type ActionItem } from '$lib/types.js';
   import { cleanClass, isEnabled } from '$lib/utilities/internal.js';
   import { DropdownMenu } from 'bits-ui';
   import { fly } from 'svelte/transition';
@@ -20,7 +20,7 @@
     ...restProps
   }: ContextMenuProps = $props();
 
-  const isDivider = (item: MenuItem | MenuItemType): item is MenuItemType => {
+  const isDivider = (item: ActionItem | MenuItemType): item is MenuItemType => {
     return item === MenuItemType.Divider;
   };
 
@@ -107,7 +107,7 @@
                   <DropdownMenu.Item
                     textValue={item.title}
                     closeOnSelect
-                    onSelect={(event) => item.onSelect?.({ event, item })}
+                    onSelect={() => item.onAction(item)}
                     class="px-1"
                   >
                     <div class={itemStyles({ color: item.color })}>
@@ -125,7 +125,7 @@
                     <DropdownMenu.Item
                       textValue={item.title}
                       closeOnSelect
-                      onSelect={(event) => item.onSelect?.({ event, item })}
+                      onSelect={() => item.onAction(item)}
                       title={item.title}
                     >
                       <div class={cleanClass(itemStyles({ color: item.color }))}>

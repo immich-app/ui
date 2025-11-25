@@ -79,6 +79,14 @@ export type CloseButtonProps = {
   translations?: TranslationProps<'close'>;
 } & ButtonOrAnchor;
 
+export type ContextMenuButtonProps = ButtonBase & {
+  icon?: IconLike;
+  position?: ContextMenuPosition;
+  'aria-label': string;
+  items: MenuItems;
+  bottomItems?: Array<ActionItem | undefined>;
+} & Omit<HTMLButtonAttributes, 'color' | 'size'>;
+
 export type IconButtonProps = ButtonBase & {
   icon: IconLike;
   flipped?: boolean;
@@ -237,24 +245,15 @@ export type ToastButton = {
   onClick: () => void;
 };
 
-export type MenuSelectHandler = (context: { event: Event; item: MenuItem }) => void;
-
-export type MenuItem = {
-  title: string;
-  icon: IconLike;
-  color?: Color;
-  onSelect?: MenuSelectHandler;
-} & IfLike;
-
 export enum MenuItemType {
   Divider = 'divider',
 }
 
-export type MenuItems = Array<MenuItem | MenuItemType | undefined>;
+export type MenuItems = Array<ActionItem | MenuItemType | undefined>;
 
 export type MenuProps = {
   items: MenuItems;
-  bottomItems?: (MenuItem | undefined)[];
+  bottomItems?: (ActionItem | undefined)[];
   size?: MenuSize;
 } & HTMLAttributes<HTMLDivElement>;
 
@@ -280,3 +279,18 @@ export type DatePickerProps = {
 };
 
 export type IfLike = { $if?: () => boolean };
+
+export type ActionItemHandler<T = never> = (item: ActionItem<T>) => void | Promise<void>;
+
+export type ActionItem<T = never> = Omit<
+  {
+    title: string;
+    icon: IconLike;
+    color?: Color;
+    onAction: ActionItemHandler<T>;
+    data: T;
+  } & IfLike,
+  // if you are curious why you need to use arrays here:
+  // https://github.com/microsoft/TypeScript/issues/31751#issuecomment-498526919
+  [T] extends [never] ? 'data' : ''
+>;
