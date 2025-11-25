@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { beforeNavigate } from '$app/navigation';
+  import { beforeNavigate, goto } from '$app/navigation';
   import { page } from '$app/state';
   import Navbar from '$docs/components/Navbar.svelte';
   import { componentGroups } from '$docs/constants.js';
@@ -23,7 +23,7 @@
     theme,
     ThemeSwitcher,
     toggleTheme,
-    type CommandItem,
+    type ActionItem,
   } from '@immich/ui';
   import { mdiHome, mdiHomeOutline, mdiMagnify, mdiThemeLightDark } from '@mdi/js';
   import { MediaQuery } from 'svelte/reactivity';
@@ -42,10 +42,9 @@
     }
   });
 
-  const globalCommands: CommandItem[] = [];
-  const commands: CommandItem[] = [...siteCommands];
+  const commands: ActionItem[] = [...siteCommands];
 
-  globalCommands.push({
+  commands.push({
     icon: mdiThemeLightDark,
     iconClass: 'text-gray-700 dark:text-gray-200',
     type: 'Command',
@@ -55,8 +54,9 @@
       { shift: true, key: 't' },
       { alt: true, key: 't' },
     ],
-    action: () => toggleTheme(),
-    text: asText('Command', 'light', 'dark', 'theme', 'toggle'),
+    onAction: () => toggleTheme(),
+    searchText: asText('Command', 'light', 'dark', 'theme', 'toggle'),
+    isGlobal: true,
   });
 
   // components
@@ -71,8 +71,8 @@
           type: 'Component',
           title: component.name,
           description: `View the ${component.name} component`,
-          href,
-          text: asText('Component', group.title, component.name, href),
+          onAction: () => goto(href),
+          searchText: asText('Component', group.title, component.name, href),
         };
       }),
     );
@@ -145,5 +145,4 @@
   </section>
 </AppShell>
 
-<CommandPaletteContext commands={globalCommands} global />
 <CommandPaletteContext {commands} />

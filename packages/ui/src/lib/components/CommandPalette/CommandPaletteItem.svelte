@@ -6,12 +6,12 @@
   import IconButton from '$lib/components/IconButton/IconButton.svelte';
   import Kbd from '$lib/components/Kbd/Kbd.svelte';
   import Text from '$lib/components/Text/Text.svelte';
-  import type { CommandItemResponse } from '$lib/services/command-palette-manager.svelte';
+  import type { ActionItem } from '$lib/types.js';
   import { cleanClass } from '$lib/utilities/internal.js';
   import { mdiClose } from '@mdi/js';
 
   type Props = {
-    item: CommandItemResponse;
+    item: ActionItem;
     selected: boolean;
     onSelect: () => void;
     onRemove?: () => void;

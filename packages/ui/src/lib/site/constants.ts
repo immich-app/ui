@@ -1,3 +1,4 @@
+import { goto } from '$app/navigation';
 import { asText } from '$lib/services/command-palette-manager.svelte.js';
 import { mdiOpenInNew } from '@mdi/js';
 
@@ -135,6 +136,6 @@ export const siteCommands = [
   iconClass: 'text-indigo-700 dark:text-indigo-200',
   title: site.title,
   description: site.description,
-  href: site.href,
-  text: asText('Site', 'Link', site.title, site.description, site.href),
+  onAction: () => goto(site.href),
+  searchText: asText('Site', 'Link', site.title, site.description, site.href),
 }));
