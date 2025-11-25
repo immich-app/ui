@@ -1,6 +1,6 @@
 <script lang="ts">
   import Lorem from '$docs/components/Lorem.svelte';
-  import { asText, Button, CommandPaletteContext, Modal, ModalBody, ModalFooter, modalManager } from '@immich/ui';
+  import { Button, CommandPaletteContext, Modal, ModalBody, ModalFooter, modalManager } from '@immich/ui';
   import { mdiCheck } from '@mdi/js';
 
   type Props = { onClose: () => void };
@@ -25,9 +25,8 @@
     <CommandPaletteContext
       commands={[
         {
-          action: onClick,
+          onAction: onClick,
           title: 'Open Dialog',
-          text: asText('Open Dialog', 'Open nested confirm dialog'),
           description: 'Open nested confirm dialog',
           icon: mdiCheck,
           iconClass: '',

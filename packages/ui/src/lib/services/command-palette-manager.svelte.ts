@@ -1,24 +1,8 @@
-import { goto } from '$app/navigation';
-import { matchesShortcut, shortcuts, shouldIgnoreEvent, type Shortcut } from '$lib/actions/shortcut.js';
+import { matchesShortcut, shortcuts, shouldIgnoreEvent } from '$lib/actions/shortcut.js';
 import CommandPaletteModal from '$lib/internal/CommandPaletteModal.svelte';
-import type { IfLike, MaybeArray, TranslationProps } from '$lib/types.js';
+import type { ActionItem, MaybeArray, TranslationProps } from '$lib/types.js';
 import { generateId, isEnabled } from '$lib/utilities/internal.js';
 import { modalManager } from './modal-manager.svelte.js';
-
-export type CommandItem = {
-  icon: string;
-  iconClass?: string;
-  type: string;
-  title: string;
-  description?: string;
-  text?: string;
-  shortcuts?: MaybeArray<Shortcut>;
-  shortcutOptions?: { ignoreInputFields?: boolean; preventDefault?: boolean };
-  id?: string;
-} & IfLike &
-  ({ href: string } | { action: (command: CommandItemResponse) => void });
-
-export type CommandItemResponse = CommandItem & { id: string; isGlobal: boolean };
 
 export type CommandPaletteTranslations = TranslationProps<
   | 'search_placeholder'
@@ -41,19 +25,19 @@ export const asText = (...items: unknown[]) => {
 };
 
 type ContextLayer = {
-  items: Array<CommandItemResponse>;
-  recentItems: Array<CommandItemResponse>;
+  items: Array<ActionItem & { id: string }>;
+  recentItems: Array<ActionItem & { id: string }>;
 };
 
 const isMatch = (
-  { title, description, type, text = asText(title, description, type) }: CommandItem,
+  { title, description, type, searchText = asText(title, description, type) }: ActionItem,
   query: string,
 ): boolean => {
   if (!query) {
     return true;
   }
 
-  return text.includes(query);
+  return searchText.includes(query);
 };
 
 class CommandPaletteManager {
@@ -144,21 +128,7 @@ class CommandPaletteManager {
       event.preventDefault();
     }
 
-    await this.#executeCommand(command);
-  }
-
-  async #executeCommand(command: CommandItemResponse) {
-    if ('href' in command) {
-      if (!command.href.startsWith('/')) {
-        window.open(command.href, '_blank');
-        return;
-      }
-
-      await goto(command.href);
-      return;
-    }
-
-    command.action(command);
+    await command.onAction(command);
   }
 
   setTranslations(translations: CommandPaletteTranslations = {}) {
@@ -219,8 +189,7 @@ class CommandPaletteManager {
       return;
     }
 
-    const globalItem = this.#globalLayer.items.find(({ id }) => id !== selected.id);
-    if (globalItem) {
+    if (selected.isGlobal) {
       this.#globalLayer.recentItems = this.#globalLayer.recentItems.filter(({ id }) => id !== selected.id);
       this.#globalLayer.recentItems.unshift(selected);
     } else {
@@ -228,7 +197,7 @@ class CommandPaletteManager {
       this.#layers.at(-1)?.recentItems.unshift(selected);
     }
 
-    await this.#executeCommand(selected);
+    await selected.onAction(selected);
 
     await this.close();
   }
@@ -263,19 +232,17 @@ class CommandPaletteManager {
     this.#query = '';
   }
 
-  addCommands(itemOrItems: MaybeArray<CommandItem>, options: { global: boolean } = { global: false }) {
+  addCommands(itemOrItems: MaybeArray<ActionItem>) {
     const items = Array.isArray(itemOrItems) ? itemOrItems : [itemOrItems];
     const itemsWithId = items.map((item) => ({
       ...item,
-      id: item.id ?? generateId(),
-      isGlobal: options.global,
+      id: generateId(),
     }));
+    const globalItems = itemsWithId.filter(({ isGlobal }) => isGlobal);
+    const localItems = itemsWithId.filter(({ isGlobal }) => !isGlobal);
 
-    if (options.global) {
-      this.#globalLayer.items.push(...itemsWithId);
-    } else {
-      this.#layers.at(-1)!.items.push(...itemsWithId);
-    }
+    this.#globalLayer.items.push(...globalItems);
+    this.#layers.at(-1)!.items.push(...localItems);
 
     return () => this.removeCommands(itemsWithId);
   }

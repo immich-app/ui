@@ -1,19 +1,18 @@
 <script lang="ts">
-  import { commandPaletteManager, type CommandItem } from '$lib/services/command-palette-manager.svelte';
+  import { commandPaletteManager } from '$lib/services/command-palette-manager.svelte';
+  import type { ActionItem } from '$lib/types.js';
   import { untrack } from 'svelte';
 
   type Props = {
-    commands?: CommandItem[];
-    global?: boolean;
+    commands?: ActionItem[];
   };
 
-  const { commands = [], global }: Props = $props();
+  const { commands = [] }: Props = $props();
 
   $effect(() => {
     // prevent reactivity loop
-    const addCommands = (commands: CommandItem[], global: boolean = false) =>
-      untrack(() => commandPaletteManager.addCommands(commands, { global }));
+    const addCommands = (commands: ActionItem[]) => untrack(() => commandPaletteManager.addCommands(commands));
 
-    return addCommands(commands, global);
+    return addCommands(commands);
   });
 </script>
