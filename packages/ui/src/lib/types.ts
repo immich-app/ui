@@ -211,6 +211,10 @@ export type ToastContainerProps = ToastCommonProps & {
   size?: ContainerSize;
 } & Omit<HTMLAttributes<HTMLElement>, 'title' | 'color' | 'size'>;
 
+export type ToastPanelProps = {
+  items: Array<ToastItem & ToastId>;
+} & HTMLAttributes<HTMLDivElement>;
+
 export type ToastProps = ToastContentProps & ToastContainerProps;
 
 type Closable = { onClose: () => void };
