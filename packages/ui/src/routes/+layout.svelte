@@ -22,6 +22,7 @@
     Text,
     theme,
     ThemeSwitcher,
+    toastManager,
     toggleTheme,
     type ActionItem,
   } from '@immich/ui';
@@ -41,6 +42,8 @@
       open = false;
     }
   });
+
+  toastManager.setOptions({ class: 'top-[58px]' });
 
   const commands: ActionItem[] = [...siteCommands];
 

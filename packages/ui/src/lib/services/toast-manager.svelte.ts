@@ -1,6 +1,6 @@
 import ToastPanel from '$lib/components/Toast/ToastPanel.svelte';
 import { t } from '$lib/services/translation.svelte.js';
-import type { ToastCustom, ToastId, ToastItem, ToastOptions, ToastShow } from '$lib/types.js';
+import type { ToastCustom, ToastId, ToastItem, ToastOptions, ToastPanelProps, ToastShow } from '$lib/types.js';
 import { generateId } from '$lib/utilities/internal.js';
 import { mount, unmount } from 'svelte';
 
@@ -11,7 +11,7 @@ const expand = (item?: string | ToastShow): ToastShow =>
 
 class ToastManager {
   #ref: unknown;
-  #props = $state({ items: [] as Array<ToastItem & ToastId> });
+  #props = $state<ToastPanelProps>({ items: [] });
 
   show(item: ToastShow, options?: ToastOptions) {
     return this.open(item, options);
@@ -19,6 +19,10 @@ class ToastManager {
 
   custom(item: ToastCustom, options?: ToastOptions) {
     return this.open(item, options);
+  }
+
+  setOptions(options: Omit<ToastPanelProps, 'items'>) {
+    Object.assign(this.#props, options);
   }
 
   open(item: ToastItem, options?: ToastOptions) {
@@ -45,6 +49,15 @@ class ToastManager {
     }
   }
 
+  async mount() {
+    if (!this.#ref) {
+      this.#ref = await mount(ToastPanel, {
+        target: document.body,
+        props: this.#props,
+      });
+    }
+  }
+
   async unmount() {
     if (this.#ref) {
       await unmount(this.#ref);
@@ -65,15 +78,6 @@ class ToastManager {
 
   danger(item?: string | ToastShow, options?: ToastOptions) {
     this.show({ title: t('toast_danger_title'), color: 'danger', ...expand(item) }, options);
-  }
-
-  async mount() {
-    if (!this.#ref) {
-      this.#ref = await mount(ToastPanel, {
-        target: document.body,
-        props: this.#props,
-      });
-    }
   }
 
   private remove(target: ToastItem & ToastId) {
