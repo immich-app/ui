@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.49.2 (2025-11-25)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+
+
+**Full Changelog**: https://github.com/immich-app/ui/compare/ui-v0.49.1...ui-v0.49.2
+
 ## 0.49.1 (2025-11-25)
 
 <!-- Release notes generated using configuration in .github/release.yml at main -->
