@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.49.3 (2025-11-26)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+## What's Changed
+### 🐛 Bug fixes
+* fix: toast panel attributes by @jrasm91 in https://github.com/immich-app/ui/pull/444
+
+
+**Full Changelog**: https://github.com/immich-app/ui/compare/ui-v0.49.2...ui-v0.49.3
+
 ## 0.49.2 (2025-11-25)
 
 <!-- Release notes generated using configuration in .github/release.yml at main -->
