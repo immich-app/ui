@@ -41,6 +41,8 @@ const defaultTranslations = {
 
   supporter: 'Supporter',
   global: 'Global',
+
+  shortcuts: 'Shortcuts',
 };
 
 export type Translations = typeof defaultTranslations;

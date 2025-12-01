@@ -1,8 +1,8 @@
 import { matchesShortcut, shortcuts, shouldIgnoreEvent } from '$lib/actions/shortcut.js';
 import CommandPaletteModal from '$lib/internal/CommandPaletteModal.svelte';
+import { modalManager } from '$lib/services/modal-manager.svelte.js';
 import type { ActionItem, MaybeArray, TranslationProps } from '$lib/types.js';
 import { generateId, isEnabled } from '$lib/utilities/internal.js';
-import { modalManager } from './modal-manager.svelte.js';
 
 export type CommandPaletteTranslations = TranslationProps<
   | 'search_placeholder'
@@ -29,33 +29,77 @@ type ContextLayer = {
   recentItems: Array<ActionItem & { id: string }>;
 };
 
+const keywords = ['type', 'is', 'has'] as const;
+type Keyword = (typeof keywords)[number];
+
+const matchesFilter = (keyword: Keyword, item: ActionItem, value: string) => {
+  switch (keyword) {
+    case 'is': {
+      const field = item[`is${value.charAt(0).toUpperCase()}${value.slice(1)}` as keyof ActionItem];
+
+      return field === true;
+    }
+
+    case 'has': {
+      const field = item[value as keyof ActionItem];
+      return field !== undefined;
+    }
+
+    default: {
+      return value === String(item[keyword]);
+    }
+  }
+};
+
 const isMatch = (
-  { title, description, type, searchText = asText(title, description, type) }: ActionItem,
+  groups: { not: boolean; keyword: Keyword; value: string }[],
+  item: ActionItem,
   query: string,
 ): boolean => {
   if (!query) {
     return true;
   }
 
-  return searchText.includes(query);
+  for (const { not, keyword, value } of groups) {
+    query = query.replace(`${not ? '-' : ''}${keyword}:${value ?? ''}`, '');
+
+    if (!value) {
+      continue;
+    }
+
+    if (not === matchesFilter(keyword, item, value)) {
+      return false;
+    }
+  }
+
+  return asText(item.title, item.description, item.type).includes(query.toLowerCase());
 };
+
+const filtersRegex = new RegExp(`(?<not>-)?(?<keyword>${keywords.join('|')}):(?<value>[^ ]+)?`, 'dg')
 
 class CommandPaletteManager {
   #query = $state('');
+  formattedQuery = $derived(this.#query.replace(filtersRegex, (match) => `<div class="p-2 border border-red-500 rounded">${match}</div>`))
   selectedIndex = $state(0);
 
   #isEnabled = $state(false);
-  #normalizedQuery = $derived(this.#query.toLowerCase());
   #modal?: { close: () => Promise<void> };
   #translations: CommandPaletteTranslations = {};
-  #isOpen: boolean = false;
   #isShowAll: boolean = $state(false);
+  #matches = $derived(
+    this.#query
+      .matchAll(filtersRegex)
+      .map(({ groups }) => groups)
+      .filter((group) => group !== undefined)
+      .map(({ not, keyword, value }) => ({ not: !!not, keyword: keyword as Keyword, value }))
+      .toArray(),
+  );
 
   #globalLayer = $state<ContextLayer>({ items: [], recentItems: [] });
   #layers = $state<ContextLayer[]>([{ items: [], recentItems: [] }]);
 
   items = $derived([...this.#globalLayer.items, ...this.#layers.at(-1)!.items].filter(isEnabled));
-  filteredItems = $derived(this.items.filter((item) => isMatch(item, this.#normalizedQuery)).slice(0, 100));
+  filteredItems = $derived(this.items.filter((item) => isMatch(this.#matches, item, this.#query)).slice(0, 100));
   recentItems = $derived([...this.#globalLayer.recentItems, ...this.#layers.at(-1)!.recentItems].filter(isEnabled));
 
   results = $derived(this.#isShowAll ? this.items : this.#query ? this.filteredItems : this.recentItems);
@@ -76,7 +120,11 @@ class CommandPaletteManager {
       shortcuts(document.body, [
         { shortcut: { key: 'k', meta: true }, onShortcut: () => this.open() },
         { shortcut: { key: 'k', ctrl: true }, onShortcut: () => this.open() },
-        { shortcut: { key: '/' }, preventDefault: true, onShortcut: () => this.open() },
+        { shortcut: { key: '/' }, onShortcut: () => this.open() },
+        {
+          shortcut: { shift: true, key: '?' },
+          onShortcut: () => this.openShortcutsOverview(),
+        },
       ]);
       document.body.addEventListener('keydown', (event) => this.#handleKeydown(event));
     }
@@ -140,11 +188,6 @@ class CommandPaletteManager {
       return;
     }
 
-    // we do not want the command palette to have its own context layer
-    if (this.#isOpen) {
-      return;
-    }
-
     this.#layers.push({ items: [], recentItems: [] });
 
     return () => this.popContextLayer();
@@ -156,13 +199,17 @@ class CommandPaletteManager {
     }
   }
 
+  openShortcutsOverview() {
+    this.#query = 'has:shortcuts';
+    this.open();
+  }
+
   open() {
     if (this.#modal || !this.#isEnabled) {
       return;
     }
 
     this.selectedIndex = 0;
-    this.#isOpen = true;
     const { close, onClose } = modalManager.open(CommandPaletteModal, { translations: this.#translations });
     this.#modal = { close };
     void onClose.then(() => this.#onClose());
@@ -179,7 +226,6 @@ class CommandPaletteManager {
   #onClose() {
     this.#query = '';
     this.#modal = undefined;
-    this.#isOpen = false;
     this.#isShowAll = false;
   }
 

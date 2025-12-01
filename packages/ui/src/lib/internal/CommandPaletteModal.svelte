@@ -3,7 +3,6 @@
   import CloseButton from '$lib/components/CloseButton/CloseButton.svelte';
   import CommandPaletteItem from '$lib/components/CommandPalette/CommandPaletteItem.svelte';
   import Icon from '$lib/components/Icon/Icon.svelte';
-  import Input from '$lib/components/Input/Input.svelte';
   import Modal from '$lib/components/Modal/Modal.svelte';
   import ModalBody from '$lib/components/Modal/ModalBody.svelte';
   import ModalFooter from '$lib/components/Modal/ModalFooter.svelte';
@@ -15,7 +14,7 @@
     type CommandPaletteTranslations,
   } from '$lib/services/command-palette-manager.svelte.js';
   import { t } from '$lib/services/translation.svelte.js';
-  import { mdiArrowDown, mdiArrowUp, mdiKeyboardEsc, mdiKeyboardReturn, mdiMagnify } from '@mdi/js';
+  import { mdiArrowDown, mdiArrowUp, mdiKeyboardEsc, mdiKeyboardReturn } from '@mdi/js';
 
   type Props = {
     onClose: () => void;
@@ -61,15 +60,21 @@
   ]}
 />
 
-<Modal size="large" {onClose} closeOnBackdropClick class="max-h-[75vh] lg:max-h-[50vh]">
+<Modal size="large" {onClose} closeOnBackdropClick class="max-h-[75vh] lg:max-h-[50vh]" pushContext={false}>
   <ModalHeader>
     <div class="flex place-items-center gap-1">
-      <Input
+      <!-- <Input
         bind:value={commandPaletteManager.query}
         placeholder={t('search_placeholder', translations)}
         leadingIcon={mdiMagnify}
         tabindex={1}
-      />
+      /> -->
+      <div
+        contenteditable="plaintext-only"
+        class="flex h-16 w-full"
+        bind:innerHTML={commandPaletteManager.formattedQuery}
+        bind:textContent={commandPaletteManager.query}
+      ></div>
       <div>
         <CloseButton onclick={() => commandPaletteManager.close()} class="md:hidden" />
       </div>

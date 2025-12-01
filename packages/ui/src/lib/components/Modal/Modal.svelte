@@ -27,6 +27,7 @@
     children: Snippet;
     onClose?: () => void;
     onEscapeKeydown?: (event: KeyboardEvent) => void;
+    pushContext?: boolean;
   };
 
   let {
@@ -39,6 +40,7 @@
     closeOnEsc = true,
     closeOnBackdropClick = false,
     children,
+    pushContext = true,
   }: Props = $props();
 
   const modalStyles = tv({
@@ -87,7 +89,7 @@
   const interactOutsideBehavior = $derived(closeOnBackdropClick ? 'close' : 'ignore');
   const escapeKeydownBehavior = $derived(closeOnEsc ? 'close' : 'ignore');
 
-  onMount(() => commandPaletteManager.pushContextLayer());
+  onMount(() => pushContext && commandPaletteManager.pushContextLayer());
 </script>
 
 <Dialog.Root open={true} onOpenChange={(isOpen: boolean) => !isOpen && handleClose()}>
