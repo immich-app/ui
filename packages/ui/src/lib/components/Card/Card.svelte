@@ -9,7 +9,6 @@
   import { cubicOut } from 'svelte/easing';
   import type { HTMLAttributes } from 'svelte/elements';
   import { slide } from 'svelte/transition';
-  import { twMerge } from 'tailwind-merge';
   import { tv } from 'tailwind-variants';
 
   type Props = HTMLAttributes<HTMLDivElement> & {
@@ -87,14 +86,12 @@
   const headerPadding = $derived(headerBorder || !expanded);
 
   const headerContainerClasses = $derived(
-    twMerge(
-      cleanClass(
-        headerContainerStyles({
-          padding: headerPadding,
-          border: headerBorder,
-        }),
-        headerChild?.class,
-      ),
+    cleanClass(
+      headerContainerStyles({
+        padding: headerPadding,
+        border: headerBorder,
+      }),
+      headerChild?.class,
     ),
   );
 </script>
@@ -137,14 +134,14 @@
     {#if bodyChild && expanded}
       <div
         transition:slide={{ duration: expandable ? 200 : 0, easing: cubicOut }}
-        class={twMerge(cleanClass('immich-scrollbar h-full w-full overflow-auto p-4', bodyChild?.class))}
+        class={cleanClass('immich-scrollbar h-full w-full overflow-auto p-4', bodyChild?.class)}
       >
         {@render bodyChild?.snippet()}
       </div>
     {/if}
 
     {#if footerChild}
-      <div class={twMerge(cleanClass('flex items-center border-t p-4', footerChild.class))}>
+      <div class={cleanClass('flex items-center border-t p-4', footerChild.class)}>
         {@render footerChild.snippet()}
       </div>
     {/if}
