@@ -18,7 +18,7 @@
   <Scrollable
     class={cleanClass(
       'bg-light text-dark absolute shrink-0 border-e shadow-lg transition-all duration-200 md:relative',
-      open ? `${zIndex.AppShellSidebar} w-[min(100vw,16rem)]` : 'w-[0px] border-e-0',
+      open ? `${zIndex.AppShellSidebar} w-[min(100vw,16rem)]` : 'w-0 border-e-0',
       className,
     )}
   >
