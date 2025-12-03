@@ -39,6 +39,6 @@
 
 <Stack>
   {#each options as position (position)}
-    <ContextMenuButton aria-label="Open menu" {position} {items} {bottomItems} />
+    <ContextMenuButton {position} {items} {bottomItems} />
   {/each}
 </Stack>
