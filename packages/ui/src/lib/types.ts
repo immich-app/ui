@@ -1,3 +1,4 @@
+import type { Shortcut } from '$lib/actions/shortcut.js';
 import type { Translations } from '$lib/services/translation.svelte.js';
 import type { DateTime } from 'luxon';
 import type { Component, Snippet } from 'svelte';
@@ -9,7 +10,6 @@ import type {
   HTMLLabelAttributes,
   HTMLTextareaAttributes,
 } from 'svelte/elements';
-import type { Shortcut } from '$lib/actions/shortcut.js';
 
 export type Color = 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info';
 export type TextColor = Color | 'muted';
@@ -83,9 +83,9 @@ export type CloseButtonProps = {
 export type ContextMenuButtonProps = ButtonBase & {
   icon?: IconLike;
   position?: ContextMenuPosition;
-  'aria-label': string;
   items: MenuItems;
   bottomItems?: Array<ActionItem | undefined>;
+  translations?: TranslationProps<'open_menu'>;
 } & Omit<HTMLButtonAttributes, 'color' | 'size'>;
 
 export type IconButtonProps = ButtonBase & {

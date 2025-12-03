@@ -25,6 +25,9 @@ const defaultTranslations = {
   // theme switcher
   dark_theme: 'Toggle dark theme',
 
+  // context menu
+  open_menu: 'Open menu',
+
   // command palette
   command_palette_prompt_default: 'Quickly find pages, actions, or commands',
   command_palette_to_select: 'to select',
