@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.50.0 (2025-12-03)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+## What's Changed
+### 🌟 Enhancements
+* feat: open menu translation by @jrasm91 in https://github.com/immich-app/ui/pull/451
+### 🐛 Bug fixes
+* fix: wrap long breadcrumbs by @jrasm91 in https://github.com/immich-app/ui/pull/452
+* fix: broken action item data type by @jrasm91 in https://github.com/immich-app/ui/pull/453
+* fix: hide trailing dividers by @jrasm91 in https://github.com/immich-app/ui/pull/454
+
+
+**Full Changelog**: https://github.com/immich-app/ui/compare/ui-v0.49.3...ui-v0.50.0
+
 ## 0.49.3 (2025-11-26)
 
 <!-- Release notes generated using configuration in .github/release.yml at main -->
