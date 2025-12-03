@@ -285,27 +285,21 @@ export type DatePickerProps = {
 
 export type IfLike = { $if?: () => boolean };
 
-export type ActionItemHandler<T = never> = (item: ActionItem<T>) => void | Promise<void>;
+export type ActionItemHandler<T extends ActionItem = ActionItem> = (item: T) => void | Promise<void>;
 
-export type ActionItem<T = never> = Omit<
-  {
-    title: string;
-    description?: string;
-    type?: string;
-    searchText?: string;
-    icon: IconLike;
-    iconClass?: string;
-    color?: Color;
-    onAction: ActionItemHandler<T>;
-    data: T;
-    shortcuts?: MaybeArray<Shortcut>;
-    shortcutOptions?: { ignoreInputFields?: boolean; preventDefault?: boolean };
-    isGlobal?: boolean;
-  } & IfLike,
-  // if you are curious why you need to use arrays here:
-  // https://github.com/microsoft/TypeScript/issues/31751#issuecomment-498526919
-  [T] extends [never] ? 'data' : ''
->;
+export type ActionItem = {
+  title: string;
+  description?: string;
+  type?: string;
+  searchText?: string;
+  icon: IconLike;
+  iconClass?: string;
+  color?: Color;
+  onAction: ActionItemHandler;
+  shortcuts?: MaybeArray<Shortcut>;
+  shortcutOptions?: { ignoreInputFields?: boolean; preventDefault?: boolean };
+  isGlobal?: boolean;
+} & IfLike;
 
 export type BreadcrumbsProps = {
   separator?: IconLike | { text: string };
