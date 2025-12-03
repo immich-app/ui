@@ -1,4 +1,5 @@
 import { env } from '$env/dynamic/public';
+import { MenuItemType, type ActionItem } from '$lib/types.js';
 import type { DateTime } from 'luxon';
 
 const getImmichApp = (host: string | undefined) => {
@@ -45,6 +46,10 @@ export type ArticleMetadata = {
   authors?: string[];
   section?: string;
   tags?: string[];
+};
+
+export const isMenuItemType = (item: ActionItem | MenuItemType): item is MenuItemType => {
+  return item === MenuItemType.Divider;
 };
 
 export const resolveMetadata = (site: Metadata, page?: Metadata, article?: ArticleMetadata) => {
