@@ -19,7 +19,7 @@
   </span>
 {/snippet}
 
-<nav class={cleanClass('flex items-center gap-1', className)} {...props}>
+<nav class={cleanClass('flex flex-wrap items-center gap-1', className)} {...props}>
   {#each items as item, index (index)}
     {#if index > 0}
       {#if typeof separator === 'object' && 'text' in separator}
