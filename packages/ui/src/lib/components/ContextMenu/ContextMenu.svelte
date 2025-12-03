@@ -3,7 +3,8 @@
   import Text from '$lib/components/Text/Text.svelte';
   import { zIndex } from '$lib/constants.js';
   import { styleVariants } from '$lib/styles.js';
-  import { MenuItemType, type ContextMenuProps, type ActionItem } from '$lib/types.js';
+  import { type ActionItem, type ContextMenuProps, type MenuItems } from '$lib/types.js';
+  import { isMenuItemType } from '$lib/utilities/common.js';
   import { cleanClass, isEnabled } from '$lib/utilities/internal.js';
   import { DropdownMenu } from 'bits-ui';
   import { fly } from 'svelte/transition';
@@ -19,10 +20,6 @@
     class: className,
     ...restProps
   }: ContextMenuProps = $props();
-
-  const isDivider = (item: ActionItem | MenuItemType): item is MenuItemType => {
-    return item === MenuItemType.Divider;
-  };
 
   const itemStyles = tv({
     base: 'hover:bg-light-200 flex w-full items-center gap-1 rounded-lg p-1 text-start hover:cursor-pointer',
@@ -83,10 +80,35 @@
     }
   };
 
-  const filteredItems = $derived(
-    items.filter((item) => item !== undefined).filter((item) => isDivider(item) || isEnabled(item)),
-  );
-  const filteredBottomItems = $derived(bottomItems?.filter((item) => item !== undefined).filter(isEnabled));
+  const getFilteredItems = (items?: MenuItems) => {
+    if (!items) {
+      return [];
+    }
+
+    const results = [];
+    for (const item of items) {
+      if (item && (isMenuItemType(item) || isEnabled(item))) {
+        results.push(item);
+        continue;
+      }
+    }
+
+    // remove trailing dividers
+    for (let i = results.length - 1; i >= 0; i--) {
+      const item = results[i];
+      if (isMenuItemType(item)) {
+        results.pop();
+        continue;
+      }
+
+      break;
+    }
+
+    return results;
+  };
+
+  const filteredItems = $derived(getFilteredItems(items));
+  const filteredBottomItems = $derived(getFilteredItems(bottomItems) as ActionItem[]);
 
   const alignOffset = $derived(target.clientWidth / 2);
   const sideOffset = $derived(-target.clientHeight / 2);
@@ -100,8 +122,8 @@
         {#if open}
           <div {...wrapperProps} class={zIndex.ContextMenu}>
             <div {...props} {...restProps} class={cleanClass(wrapperStyles({ size }), className)} transition:fly>
-              {#each filteredItems as item, i (isDivider(item) ? i : item.title)}
-                {#if isDivider(item)}
+              {#each filteredItems as item, i (isMenuItemType(item) ? i : item.title)}
+                {#if isMenuItemType(item)}
                   <DropdownMenu.Separator class="dark:border-light-300 my-0.5 border-t" />
                 {:else}
                   <DropdownMenu.Item
@@ -118,7 +140,7 @@
                 {/if}
               {/each}
 
-              {#if filteredBottomItems}
+              {#if filteredBottomItems.length > 0}
                 <DropdownMenu.Separator class="dark:border-light-300 my-0.5 border-t" />
                 <div class="flex gap-1 px-1">
                   {#each filteredBottomItems as item (item.title)}
