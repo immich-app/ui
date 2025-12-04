@@ -4,8 +4,8 @@
   import ModalBody from '$lib/components/Modal/ModalBody.svelte';
   import ModalFooter from '$lib/components/Modal/ModalFooter.svelte';
   import HStack from '$lib/components/Stack/HStack.svelte';
-  import type { Color } from '$lib/types.js';
   import { t } from '$lib/services/translation.svelte.js';
+  import type { Color, ModalSize } from '$lib/types.js';
   import type { Snippet } from 'svelte';
 
   interface Props {
@@ -15,7 +15,7 @@
     confirmText?: string;
     confirmColor?: Color;
     disabled?: boolean;
-    size?: 'small' | 'medium';
+    size?: ModalSize;
     onClose: (confirmed: boolean) => void;
     promptSnippet?: Snippet;
   }
