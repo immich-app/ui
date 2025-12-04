@@ -5,7 +5,7 @@
   import ModalFooter from '$lib/components/Modal/ModalFooter.svelte';
   import HStack from '$lib/components/Stack/HStack.svelte';
   import { t } from '$lib/services/translation.svelte.js';
-  import type { Color } from '$lib/types.js';
+  import type { Color, ModalSize } from '$lib/types.js';
   import { generateId } from '$lib/utilities/internal.js';
   import type { Snippet } from 'svelte';
 
@@ -15,7 +15,7 @@
     submitText?: string;
     submitColor?: Color;
     disabled?: boolean;
-    size?: 'small' | 'medium';
+    size?: ModalSize;
     preventDefault?: boolean;
     onClose: () => void;
     onSubmit: (event: SubmitEvent) => void;
