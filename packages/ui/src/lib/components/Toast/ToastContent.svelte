@@ -27,15 +27,15 @@
   );
 
   const iconStyles = tv({
-    base: 'h-8 w-8 shrink-0 rounded-xl py-1.75',
+    base: 'h-8 w-8 shrink-0 rounded-xl py-1.75 text-white',
     variants: {
       color: {
-        primary: 'bg-primary-100 dark:bg-primary-200 text-primary',
-        secondary: 'bg-light-200 dark:bg-light-300',
-        success: 'bg-success-100 dark:bg-success-200 text-success',
-        info: 'bg-info-200 text-info',
-        warning: 'bg-warning-200 text-warning',
-        danger: 'bg-danger-200 text-danger',
+        primary: 'bg-primary dark:bg-primary-200',
+        secondary: 'bg-dark dark:bg-light-300',
+        success: 'bg-success dark:bg-success-200',
+        info: 'bg-info dark:text-info-50',
+        warning: 'bg-warning dark:text-warning-50',
+        danger: 'bg-danger dark:text-danger-50',
       },
     },
   });

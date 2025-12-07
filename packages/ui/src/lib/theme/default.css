@@ -119,7 +119,7 @@
     --immich-ui-primary-900: oklch(0.211 0.068 273.01);
     --immich-ui-primary-950: oklch(0.15 0.05 273.01);
 
-    --immich-ui-success-50: oklch(0.969 0.051 148.59);
+    --immich-ui-success-50: oklch(0.983 0.0115 162.06);
     --immich-ui-success-100: oklch(0.937 0.109 148.66);
     --immich-ui-success-200: oklch(0.863 0.249 147.5);
     --immich-ui-success-300: oklch(0.813 0.234 147.54);
@@ -131,7 +131,7 @@
     --immich-ui-success-900: oklch(0.252 0.073 147.47);
     --immich-ui-success-950: oklch(0.194 0.056 147.87);
 
-    --immich-ui-danger-50: oklch(0.96 0.018 17.57);
+    --immich-ui-danger-50: oklch(0.9747 0.0109 24.32);
     --immich-ui-danger-100: oklch(0.926 0.034 17.84);
     --immich-ui-danger-200: oklch(0.853 0.074 19.77);
     --immich-ui-danger-300: oklch(0.774 0.125 21.53);
@@ -143,7 +143,7 @@
     --immich-ui-danger-900: oklch(0.245 0.094 29.51);
     --immich-ui-danger-950: oklch(0.186 0.07 29.56);
 
-    --immich-ui-warning: oklch(0.812 0.17 76.3);
+    --immich-ui-warning: oklch(0.9887 0.0126 86.83);
     --immich-ui-warning-50: oklch(0.983 0.01 58.27);
     --immich-ui-warning-100: oklch(0.959 0.027 63.96);
     --immich-ui-warning-200: oklch(0.925 0.051 64.24);
@@ -156,7 +156,7 @@
     --immich-ui-warning-900: oklch(0.27 0.057 76.33);
     --immich-ui-warning-950: oklch(0.209 0.044 77.51);
 
-    --immich-ui-info-50: oklch(0.958 0.02 267.31);
+    --immich-ui-info-50: oklch(0.9801 0.0096 252.81);
     --immich-ui-info-100: oklch(0.922 0.036 268.3);
     --immich-ui-info-200: oklch(0.845 0.073 265.19);
     --immich-ui-info-300: oklch(0.769 0.114 261.53);

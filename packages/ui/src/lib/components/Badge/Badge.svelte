@@ -24,31 +24,31 @@
   }: Props = $props();
 
   const styles = tv({
-    base: 'border px-2 py-0.5',
+    base: 'text-light inline-flex items-center border font-medium antialiased',
     variants: {
       shape: styleVariants.shape,
       color: {
-        primary: 'border-primary-100 bg-primary-100 text-primary-950 dark:bg-primary-200 dark:border-primary-200',
-        secondary: 'border-light-300 bg-light-100 text-light-950 dark:bg-light-200',
-        success: 'border-success-100 bg-success-100 text-success-950 dark:bg-success-200 dark:border-success-200',
-        info: 'border-info-200 bg-info-200 text-info-950',
-        warning: 'border-warning-200 bg-warning-200 text-warning-950',
-        danger: 'border-danger-200 bg-danger-200 text-danger-950 dark:bg-danger-200',
+        primary: 'bg-primary',
+        secondary: 'bg-dark',
+        success: 'bg-success',
+        info: 'bg-info',
+        warning: 'bg-warning',
+        danger: 'bg-danger text-danger-50',
       },
       textSize: styleVariants.textSize,
       paddingSize: {
-        tiny: 'px-1.5 py-px',
-        small: 'px-1.75 py-0.5',
-        medium: 'px-2.5 py-0.75',
+        tiny: 'px-1.5 py-1',
+        small: 'px-1.75 py-0.75',
+        medium: 'px-2.5 py-1',
         large: 'px-2.75 py-1',
         giant: 'px-3 py-1.25',
       },
       roundedSize: {
-        tiny: 'rounded-md',
-        small: 'rounded-md',
-        medium: 'rounded-md',
-        large: 'rounded-lg',
-        giant: 'rounded-lg',
+        tiny: 'rounded-lg',
+        small: 'rounded-lg',
+        medium: 'rounded-lg',
+        large: 'rounded-xl',
+        giant: 'rounded-xl',
       },
     },
   });

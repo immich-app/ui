@@ -11,7 +11,7 @@
   const { color = 'primary', size = 'medium', name }: Props = $props();
 
   const styles = tv({
-    base: 'flex h-full w-full items-center justify-center font-medium select-none',
+    base: 'flex h-full w-full items-center justify-center font-medium text-white select-none',
     variants: {
       size: {
         tiny: 'h-5 w-5 text-xs',
@@ -22,15 +22,15 @@
       },
       color: {
         primary: 'bg-primary text-light',
-        pink: 'text-light bg-pink-400',
-        red: 'text-light bg-red-500',
-        yellow: 'text-light bg-yellow-500',
-        purple: 'text-dark bg-purple-600',
-        orange: 'text-light bg-orange-600',
-        gray: 'text-dark bg-gray-600',
-        amber: 'text-light bg-amber-600',
-        blue: 'text-dark bg-blue-500',
-        green: 'text-dark bg-green-600',
+        pink: 'bg-pink-400',
+        red: 'bg-red-500',
+        yellow: 'bg-yellow-500',
+        purple: 'bg-purple-600',
+        orange: 'bg-orange-600',
+        gray: 'bg-gray-600',
+        amber: 'bg-amber-600',
+        blue: 'bg-blue-500',
+        green: 'bg-green-600',
       },
     },
   });
