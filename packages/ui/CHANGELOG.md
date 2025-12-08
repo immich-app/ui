@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.50.1 (2025-12-08)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+## What's Changed
+### 🐛 Bug fixes
+* chore: expose more modal size options by @danieldietzler in https://github.com/immich-app/ui/pull/455
+
+
+**Full Changelog**: https://github.com/immich-app/ui/compare/ui-v0.50.0...ui-v0.50.1
+
 ## 0.50.0 (2025-12-03)
 
 <!-- Release notes generated using configuration in .github/release.yml at main -->
