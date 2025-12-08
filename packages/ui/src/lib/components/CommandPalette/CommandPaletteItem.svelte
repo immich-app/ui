@@ -43,11 +43,13 @@
     fullWidth
     variant={selected ? 'outline' : 'ghost'}
     color="secondary"
-    class="flex justify-between gap-3 border text-start {selected ? 'border-neutral-500!' : ''}"
+    class="hover:bg-primary-50 flex justify-between gap-3 border py-4 text-start {selected
+      ? 'border-primary/50 bg-primary-50'
+      : 'border-light-200 dark:border-light-300'}"
   >
     <div class="flex flex-col">
-      <div class="flex items-center gap-1">
-        <Text fontWeight="bold">{item.title}</Text>
+      <div class="flex place-items-center gap-2">
+        <Text fontWeight="semi-bold">{item.title}</Text>
         <Icon icon={item.icon} size="1.25rem" class={item.iconClass} />
       </div>
       {#if item.description}
@@ -58,9 +60,9 @@
         >
       {/if}
       <div class="mt-2">
-        <Badge size="small" color="primary" shape="rectangle">{item.type}</Badge>
+        <Badge color="primary" size="small">{item.type}</Badge>
         {#if item.isGlobal}
-          <Badge size="small" shape="rectangle" color="warning">Global</Badge>
+          <Badge color="warning" size="small">Global</Badge>
         {/if}
       </div>
     </div>
