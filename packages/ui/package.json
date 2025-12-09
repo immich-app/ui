@@ -65,7 +65,7 @@
     "@mdi/js": "^7.4.47",
     "bits-ui": "^2.9.8",
     "luxon": "^3.7.2",
-    "simple-icons": "^15.14.0",
+    "simple-icons": "^16.0.0",
     "svelte-highlight": "^7.8.4",
     "tailwind-merge": "^3.0.0",
     "tailwind-variants": "^3.0.0"
