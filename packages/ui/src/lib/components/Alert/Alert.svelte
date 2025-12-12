@@ -83,7 +83,7 @@
 {#if open}
   <Card {color} class={cleanClass(className)}>
     <CardBody>
-      <div class="flex items-center justify-between">
+      <div class={cleanClass((closable || onClose) && 'flex items-center justify-between')}>
         <div class={cleanClass('flex gap-2')}>
           {#if icon}
             <div>
