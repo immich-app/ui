@@ -2,18 +2,18 @@ import { isExternalLink, resolveMetadata, resolveUrl } from '$lib/utilities/comm
 import { DateTime } from 'luxon';
 import { beforeAll, describe, expect, it } from 'vitest';
 
-beforeAll(() => {
-  Object.defineProperty(globalThis, 'location', {
-    value: {
-      href: 'http://localhost/',
-      origin: 'http://localhost',
-      hostname: 'localhost',
-    },
-    configurable: true,
-  });
-});
-
 describe('isExternalLink', () => {
+  beforeAll(() => {
+    Object.defineProperty(globalThis, 'location', {
+      value: {
+        href: 'http://localhost/',
+        origin: 'http://localhost',
+        hostname: 'localhost',
+      },
+      configurable: true,
+    });
+  });
+
   const tests = [
     { url: 'https://immich.app/test', result: true },
     { url: 'http://immich.app/test', result: true },
@@ -23,6 +23,8 @@ describe('isExternalLink', () => {
     { url: 'app.immich://', result: true },
     { url: '/testing', result: false },
     { url: '#testing', result: false },
+    { url: 'http://localhost/folders', result: false },
+    { url: '/folders', result: false },
   ];
 
   it.each(tests)('$url should be $result', ({ url, result }) => {

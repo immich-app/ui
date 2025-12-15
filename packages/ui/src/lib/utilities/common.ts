@@ -30,9 +30,8 @@ export const resolveUrl = (url: string, currentHostname?: string) => {
 };
 
 export const isExternalLink = (href: string): boolean => {
-  if (href.startsWith('/') || href.startsWith('#')) return false;
   try {
-    const current = new URL(globalThis.location?.href ?? '');
+    const current = new URL(globalThis.location.href);
     const target = new URL(href, current);
 
     return target.origin !== current.origin;
