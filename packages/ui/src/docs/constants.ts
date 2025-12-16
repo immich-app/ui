@@ -34,6 +34,8 @@ import {
   mdiHomeCircleOutline,
   mdiImage,
   mdiImageOutline,
+  mdiInformationSlabCircle,
+  mdiInformationSlabCircleOutline,
   mdiKeyboardVariant,
   mdiLanguageMarkdownOutline,
   mdiLink,
@@ -98,6 +100,7 @@ export const componentGroups = [
       { name: 'Scrollable', icon: mdiPanVertical },
       { name: 'Stack', icon: mdiViewSequentialOutline, activeIcon: mdiViewSequential },
       { name: 'Toast', icon: mdiMessageAlertOutline, activeIcon: mdiMessageAlert },
+      { name: 'Tooltip', icon: mdiInformationSlabCircleOutline, activeIcon: mdiInformationSlabCircle },
     ],
   },
   {

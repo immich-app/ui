@@ -24,6 +24,7 @@
     ThemeSwitcher,
     toastManager,
     toggleTheme,
+    TooltipProvider,
     type ActionItem,
   } from '@immich/ui';
   import { mdiHome, mdiHomeOutline, mdiMagnify, mdiThemeLightDark } from '@mdi/js';
@@ -87,65 +88,67 @@
   });
 </script>
 
-<AppShell>
-  <AppShellHeader>
-    <Navbar theme={theme.value} onToggleSidebar={() => (open = !open)}>
-      {#if commandPaletteManager.isEnabled}
-        <div class="hidden place-items-center lg:flex">
-          <button
+<TooltipProvider>
+  <AppShell>
+    <AppShellHeader>
+      <Navbar theme={theme.value} onToggleSidebar={() => (open = !open)}>
+        {#if commandPaletteManager.isEnabled}
+          <div class="hidden place-items-center lg:flex">
+            <button
+              onclick={() => commandPaletteManager.open()}
+              class="border-light flex cursor-pointer place-items-center gap-2 rounded-2xl bg-gray-200 px-4 py-2 text-sm dark:bg-neutral-700"
+            >
+              <Icon icon={mdiMagnify} size="1.25rem" />
+              <Text>Search</Text>
+              <span class="rounded-lg bg-white px-2 py-0.5 dark:bg-neutral-900">/</span>
+            </button>
+          </div>
+          <IconButton
+            icon={mdiMagnify}
+            shape="round"
+            variant="ghost"
+            color="secondary"
+            aria-label="Search"
+            class="lg:hidden"
             onclick={() => commandPaletteManager.open()}
-            class="border-light flex cursor-pointer place-items-center gap-2 rounded-2xl bg-gray-200 px-4 py-2 text-sm dark:bg-neutral-700"
-          >
-            <Icon icon={mdiMagnify} size="1.25rem" />
-            <Text>Search</Text>
-            <span class="rounded-lg bg-white px-2 py-0.5 dark:bg-neutral-900">/</span>
-          </button>
-        </div>
-        <IconButton
-          icon={mdiMagnify}
-          shape="round"
-          variant="ghost"
-          color="secondary"
-          aria-label="Search"
-          class="lg:hidden"
-          onclick={() => commandPaletteManager.open()}
-        />
-      {/if}
-      <ThemeSwitcher size="medium" />
-    </Navbar>
-  </AppShellHeader>
-
-  <AppShellSidebar bind:open>
-    <div class="my-4 me-4">
-      <NavbarItem
-        title="Home"
-        icon={mdiHomeOutline}
-        activeIcon={mdiHome}
-        href="/"
-        isActive={() => page.url.pathname === '/'}
-      />
-      {#each componentGroups as group (group.title)}
-        <NavbarGroup title={group.title} />
-        {#each group.components as component (component.name)}
-          {@const href = asComponentHref(component.name)}
-          <NavbarItem
-            {href}
-            isActive={() => page.url.pathname === href}
-            title={component.name}
-            icon={component.icon}
-            activeIcon={component.activeIcon}
           />
+        {/if}
+        <ThemeSwitcher size="medium" />
+      </Navbar>
+    </AppShellHeader>
+
+    <AppShellSidebar bind:open>
+      <div class="my-4 me-4">
+        <NavbarItem
+          title="Home"
+          icon={mdiHomeOutline}
+          activeIcon={mdiHome}
+          href="/"
+          isActive={() => page.url.pathname === '/'}
+        />
+        {#each componentGroups as group (group.title)}
+          <NavbarGroup title={group.title} />
+          {#each group.components as component (component.name)}
+            {@const href = asComponentHref(component.name)}
+            <NavbarItem
+              {href}
+              isActive={() => page.url.pathname === href}
+              title={component.name}
+              icon={component.icon}
+              activeIcon={component.activeIcon}
+            />
+          {/each}
         {/each}
-      {/each}
-    </div>
-  </AppShellSidebar>
+      </div>
+    </AppShellSidebar>
 
-  <section class="flex h-full flex-col">
-    <div class="grow">
-      {@render children?.()}
-    </div>
-    <SiteFooter />
-  </section>
-</AppShell>
+    <section class="flex h-full flex-col">
+      <div class="grow">
+        {@render children?.()}
+      </div>
+      <SiteFooter />
+    </section>
+  </AppShell>
 
-<CommandPaletteContext {commands} />
+  <CommandPaletteContext {commands} />
+</TooltipProvider>

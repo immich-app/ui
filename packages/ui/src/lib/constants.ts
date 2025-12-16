@@ -21,4 +21,5 @@ export const zIndex = {
   SelectDropdown: 'z-55',
   ToastPanel: 'z-60',
   ContextMenu: 'z-70!',
+  Tooltip: 'z-90',
 };

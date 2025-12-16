@@ -8,6 +8,7 @@
   import CloseButton from '$lib/components/CloseButton/CloseButton.svelte';
   import Icon from '$lib/components/Icon/Icon.svelte';
   import Logo from '$lib/components/Logo/Logo.svelte';
+  import TooltipProvider from '$lib/components/Tooltip/TooltipProvider.svelte';
   import { ChildKey, zIndex } from '$lib/constants.js';
   import { commandPaletteManager } from '$lib/services/command-palette-manager.svelte.js';
   import type { ModalSize } from '$lib/types.js';
@@ -99,35 +100,37 @@
       {interactOutsideBehavior}
       class={cleanClass(modalContentStyles({ size }))}
     >
-      <div class={cleanClass('flex w-full grow flex-col justify-center')}>
-        <Card bind:ref={cardRef} class={cleanClass(modalStyles({ size }), className)}>
-          <CardHeader class="border-b border-gray-200 px-5 py-3 dark:border-white/10">
-            {#if headerChildren}
-              {@render headerChildren.snippet()}
-            {:else if title}
-              <div class="flex items-center justify-between gap-2">
-                {#if typeof icon === 'string'}
-                  <Icon {icon} size="1.5rem" aria-hidden />
-                {:else if icon}
-                  <Logo variant="icon" size="tiny" />
-                {/if}
-                <CardTitle tag="p" class="text-dark/90 grow text-lg font-semibold">{title}</CardTitle>
-                <CloseButton class="-me-2" onclick={() => handleClose()} />
-              </div>
+      <TooltipProvider>
+        <div class={cleanClass('flex w-full grow flex-col justify-center')}>
+          <Card bind:ref={cardRef} class={cleanClass(modalStyles({ size }), className)}>
+            <CardHeader class="border-b border-gray-200 px-5 py-3 dark:border-white/10">
+              {#if headerChildren}
+                {@render headerChildren.snippet()}
+              {:else if title}
+                <div class="flex items-center justify-between gap-2">
+                  {#if typeof icon === 'string'}
+                    <Icon {icon} size="1.5rem" aria-hidden />
+                  {:else if icon}
+                    <Logo variant="icon" size="tiny" />
+                  {/if}
+                  <CardTitle tag="p" class="text-dark/90 grow text-lg font-semibold">{title}</CardTitle>
+                  <CloseButton class="-me-2" onclick={() => handleClose()} />
+                </div>
+              {/if}
+            </CardHeader>
+
+            <CardBody class="grow px-5">
+              {@render bodyChildren?.snippet()}
+            </CardBody>
+
+            {#if footerChildren}
+              <CardFooter class="border-t border-gray-200 dark:border-white/10">
+                {@render footerChildren.snippet()}
+              </CardFooter>
             {/if}
-          </CardHeader>
-
-          <CardBody class="grow px-5">
-            {@render bodyChildren?.snippet()}
-          </CardBody>
-
-          {#if footerChildren}
-            <CardFooter class="border-t border-gray-200 dark:border-white/10">
-              {@render footerChildren.snippet()}
-            </CardFooter>
-          {/if}
-        </Card>
-      </div>
+          </Card>
+        </div>
+      </TooltipProvider>
     </Dialog.Content>
   </Dialog.Portal>
 </Dialog.Root>
