@@ -76,6 +76,8 @@ export { default as Toast } from '$lib/components/Toast/Toast.svelte';
 export { default as ToastContainer } from '$lib/components/Toast/ToastContainer.svelte';
 export { default as ToastContent } from '$lib/components/Toast/ToastContent.svelte';
 export { default as ToastPanel } from '$lib/components/Toast/ToastPanel.svelte';
+export { default as Tooltip } from '$lib/components/Tooltip/Tooltip.svelte';
+export { default as TooltipProvider } from '$lib/components/Tooltip/TooltipProvider.svelte';
 
 // helpers
 export * from '$lib/services/command-palette-manager.svelte.js';

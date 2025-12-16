@@ -1,6 +1,7 @@
 <script lang="ts">
   import Icon from '$lib/components/Icon/Icon.svelte';
   import LoadingSpinner from '$lib/components/LoadingSpinner/LoadingSpinner.svelte';
+  import Tooltip from '$lib/components/Tooltip/Tooltip.svelte';
   import { styleVariants } from '$lib/styles.js';
   import type { ButtonProps, Size } from '$lib/types.js';
   import { isExternalLink, resolveUrl } from '$lib/utilities/common.js';
@@ -27,6 +28,7 @@
     leadingIcon,
     trailingIcon,
     icon = false,
+    title,
     class: className = '',
     children,
     ...restProps
@@ -149,29 +151,35 @@
   {/if}
 {/snippet}
 
-{#if href}
-  {@const resolved = resolveUrl(href)}
-  {@const external = isExternalLink(resolved)}
-  <a
-    bind:this={ref}
-    href={resolved}
-    class={classList}
-    aria-disabled={disabled}
-    target={external ? '_blank' : undefined}
-    rel={external ? 'noopener noreferrer' : undefined}
-    {...restProps as HTMLAnchorAttributes}
-  >
-    {@render wrapper()}
-  </a>
-{:else}
-  <ButtonPrimitive.Root
-    bind:ref
-    class={classList}
-    type={type as HTMLButtonAttributes['type']}
-    {...restProps as HTMLButtonAttributes}
-    {disabled}
-    aria-disabled={disabled}
-  >
-    {@render wrapper()}
-  </ButtonPrimitive.Root>
-{/if}
+<Tooltip text={title}>
+  {#snippet child({ props })}
+    {#if href}
+      {@const resolved = resolveUrl(href)}
+      {@const external = isExternalLink(resolved)}
+      <a
+        bind:this={ref}
+        {...props}
+        href={resolved}
+        class={classList}
+        aria-disabled={disabled}
+        target={external ? '_blank' : undefined}
+        rel={external ? 'noopener noreferrer' : undefined}
+        {...restProps as HTMLAnchorAttributes}
+      >
+        {@render wrapper()}
+      </a>
+    {:else}
+      <ButtonPrimitive.Root
+        bind:ref
+        {...props}
+        class={classList}
+        type={type as HTMLButtonAttributes['type']}
+        {...restProps as HTMLButtonAttributes}
+        {disabled}
+        aria-disabled={disabled}
+      >
+        {@render wrapper()}
+      </ButtonPrimitive.Root>
+    {/if}
+  {/snippet}
+</Tooltip>
