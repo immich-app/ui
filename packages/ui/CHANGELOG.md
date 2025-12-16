@@ -1,5 +1,22 @@
 # Changelog
 
+## 0.51.0 (2025-12-16)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+## What's Changed
+### 🚀 Features
+* feat: tooltip by @alextran1502 in https://github.com/immich-app/ui/pull/467
+### 🐛 Bug fixes
+* fix: alert content width by @jrasm91 in https://github.com/immich-app/ui/pull/464
+* fix: remove unnecessary cursor-pointer by @meesfrensel in https://github.com/immich-app/ui/pull/472
+* fix: compare origin in external link check by @YarosMallorca in https://github.com/immich-app/ui/pull/462
+
+## New Contributors
+* @YarosMallorca made their first contribution in https://github.com/immich-app/ui/pull/462
+
+**Full Changelog**: https://github.com/immich-app/ui/compare/ui-v0.50.1...ui-v0.51.0
+
 ## 0.50.1 (2025-12-08)
 
 <!-- Release notes generated using configuration in .github/release.yml at main -->
