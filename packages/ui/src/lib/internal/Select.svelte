@@ -136,7 +136,7 @@
             >
               {#snippet children({ selected })}
                 <div
-                  class="flex cursor-pointer items-center justify-center gap-2 text-sm font-medium whitespace-nowrap transition-colors"
+                  class="flex items-center justify-center gap-2 text-sm font-medium whitespace-nowrap transition-colors"
                 >
                   <span>{label}</span>
                 </div>
