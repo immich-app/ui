@@ -30,7 +30,14 @@ export const resolveUrl = (url: string, currentHostname?: string) => {
 };
 
 export const isExternalLink = (href: string): boolean => {
-  return !(href.startsWith('/') || href.startsWith('#'));
+  try {
+    const current = new URL(globalThis.location.href);
+    const target = new URL(href, current);
+
+    return target.origin !== current.origin;
+  } catch {
+    return false;
+  }
 };
 
 export type Metadata = {
