@@ -60,9 +60,9 @@
         >
       {/if}
       <div class="mt-2">
-        <Badge color="primary" size="small">{item.type}</Badge>
+        <Badge color="primary" size="small" shape="round">{item.type}</Badge>
         {#if item.isGlobal}
-          <Badge color="warning" size="small">Global</Badge>
+          <Badge color="warning" size="small" shape="round">Global</Badge>
         {/if}
       </div>
     </div>

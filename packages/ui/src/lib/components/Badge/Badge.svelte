@@ -24,7 +24,7 @@
   }: Props = $props();
 
   const styles = tv({
-    base: 'text-light inline-flex items-center border font-medium antialiased',
+    base: 'text-light inline-flex items-center font-medium antialiased',
     variants: {
       shape: styleVariants.shape,
       color: {
@@ -37,11 +37,11 @@
       },
       textSize: styleVariants.textSize,
       paddingSize: {
-        tiny: 'px-1.5 py-1',
-        small: 'px-1.75 py-0.75',
-        medium: 'px-2.5 py-1',
-        large: 'px-2.75 py-1',
-        giant: 'px-3 py-1.25',
+        tiny: 'px-3 py-1',
+        small: 'px-3.25 py-1.25',
+        medium: 'px-3.75 py-1.5',
+        large: 'px-4 py-1.75',
+        giant: 'px-4.25 py-2',
       },
       roundedSize: {
         tiny: 'rounded-lg',
