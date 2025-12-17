@@ -197,9 +197,9 @@ class CommandPaletteManager {
       this.#layers.at(-1)?.recentItems.unshift(selected);
     }
 
-    await selected.onAction(selected);
-
     await this.close();
+
+    await selected.onAction(selected);
   }
 
   remove(index: number) {
