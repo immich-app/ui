@@ -10,11 +10,10 @@
   import Logo from '$lib/components/Logo/Logo.svelte';
   import TooltipProvider from '$lib/components/Tooltip/TooltipProvider.svelte';
   import { ChildKey, zIndex } from '$lib/constants.js';
-  import { commandPaletteManager } from '$lib/services/command-palette-manager.svelte.js';
   import type { ModalSize } from '$lib/types.js';
   import { cleanClass } from '$lib/utilities/internal.js';
   import { Dialog } from 'bits-ui';
-  import { onMount, tick, type Snippet } from 'svelte';
+  import { tick, type Snippet } from 'svelte';
   import { tv } from 'tailwind-variants';
 
   type Props = {
@@ -87,8 +86,6 @@
 
   const interactOutsideBehavior = $derived(closeOnBackdropClick ? 'close' : 'ignore');
   const escapeKeydownBehavior = $derived(closeOnEsc ? 'close' : 'ignore');
-
-  onMount(() => commandPaletteManager.pushContextLayer());
 </script>
 
 <Dialog.Root open={true} onOpenChange={(isOpen: boolean) => !isOpen && handleClose()}>
@@ -103,7 +100,9 @@
       <TooltipProvider>
         <div class={cleanClass('flex w-full grow flex-col justify-center')}>
           <Card bind:ref={cardRef} class={cleanClass(modalStyles({ size }), className)}>
-            <CardHeader class="border-b border-gray-200 px-5 py-3 dark:border-white/10">
+            <CardHeader
+              class={cleanClass(headerChildren?.class, 'border-b border-gray-200 px-5 py-3 dark:border-white/10')}
+            >
               {#if headerChildren}
                 {@render headerChildren.snippet()}
               {:else if title}
@@ -119,7 +118,7 @@
               {/if}
             </CardHeader>
 
-            <CardBody class="grow px-5">
+            <CardBody class={cleanClass(bodyChildren?.class, 'grow px-5')}>
               {@render bodyChildren?.snippet()}
             </CardBody>
 

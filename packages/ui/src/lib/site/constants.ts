@@ -1,5 +1,5 @@
 import { goto } from '$app/navigation';
-import { asText } from '$lib/services/command-palette-manager.svelte.js';
+import { asText, isExternalLink } from '$lib/utilities/common.js';
 import { mdiOpenInNew } from '@mdi/js';
 
 export const Constants = {
@@ -132,10 +132,15 @@ export const siteCommands = [
   },
 ].map((site) => ({
   icon: mdiOpenInNew,
-  type: 'Link',
   iconClass: 'text-indigo-700 dark:text-indigo-200',
   title: site.title,
   description: site.description,
-  onAction: () => goto(site.href),
+  onAction: () => {
+    if (isExternalLink(site.href)) {
+      window.open(site.href, '_blank', 'noopener noreferrer');
+    } else {
+      goto(site.href);
+    }
+  },
   searchText: asText('Site', 'Link', site.title, site.description, site.href),
 }));

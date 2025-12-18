@@ -2,25 +2,58 @@
   import { shortcuts } from '$lib/actions/shortcut.js';
   import CloseButton from '$lib/components/CloseButton/CloseButton.svelte';
   import CommandPaletteItem from '$lib/components/CommandPalette/CommandPaletteItem.svelte';
+  import Heading from '$lib/components/Heading/Heading.svelte';
   import Icon from '$lib/components/Icon/Icon.svelte';
   import Input from '$lib/components/Input/Input.svelte';
   import Modal from '$lib/components/Modal/Modal.svelte';
   import ModalBody from '$lib/components/Modal/ModalBody.svelte';
   import ModalFooter from '$lib/components/Modal/ModalFooter.svelte';
   import ModalHeader from '$lib/components/Modal/ModalHeader.svelte';
-  import Stack from '$lib/components/Stack/Stack.svelte';
   import Text from '$lib/components/Text/Text.svelte';
   import {
     commandPaletteManager,
     type CommandPaletteTranslations,
   } from '$lib/services/command-palette-manager.svelte.js';
   import { t } from '$lib/services/translation.svelte.js';
+  import type { ActionGroup, ActionItem, ActionProvider } from '$lib/types.js';
   import { mdiArrowDown, mdiArrowUp, mdiKeyboardEsc, mdiKeyboardReturn, mdiMagnify } from '@mdi/js';
+  import { debounce } from 'lodash-es';
 
   type Props = {
-    onClose: () => void;
+    onClose: (action?: ActionItem) => void;
+    query?: string;
+    providers: ActionProvider[];
     translations?: CommandPaletteTranslations;
   };
+
+  const { onClose, query: initialQuery = '', providers, translations }: Props = $props();
+
+  let groups = $state<ActionGroup[]>([]);
+  let items = $state<ActionItem[]>([]);
+  let query = $derived(initialQuery);
+  let selectedIndex = $state(0);
+
+  const search = async ({ force }: { force?: boolean } = {}) => {
+    selectedIndex = 0;
+
+    const newItems: ActionItem[] = [];
+    const newGroups: ActionGroup[] = [];
+
+    if (query || force) {
+      for (const provider of providers) {
+        const items = await provider.onSearch(query);
+        if (items.length > 0) {
+          newGroups.push({ name: provider.name, items });
+          newItems.push(...items);
+        }
+      }
+    }
+
+    groups = newGroups;
+    items = newItems;
+  };
+
+  const onChange = debounce(() => search(), 200, { maxWait: 100, leading: true });
 
   const handleUp = (event: KeyboardEvent) => handleNavigate(event, 'up');
   const handleDown = (event: KeyboardEvent) => handleNavigate(event, 'down');
@@ -30,23 +63,33 @@
 
     switch (direction) {
       case 'up': {
-        commandPaletteManager.up();
+        if (items.length === 0) {
+          break;
+        }
+
+        selectedIndex = (selectedIndex - 1 + items.length) % items.length;
         break;
       }
 
       case 'down': {
-        commandPaletteManager.down();
+        if (items.length === 0) {
+          // show all
+          if (!query) {
+            search({ force: true });
+          }
+          break;
+        }
+
+        selectedIndex = (selectedIndex + 1) % items.length;
         break;
       }
 
       case 'select': {
-        await commandPaletteManager.select();
+        onClose(items[selectedIndex]);
         break;
       }
     }
   };
-
-  const { onClose, translations }: Props = $props();
 </script>
 
 <svelte:window
@@ -61,58 +104,50 @@
   ]}
 />
 
-<Modal size="large" {onClose} closeOnBackdropClick class="max-h-[75vh] lg:max-h-[50vh]">
-  <ModalHeader>
+<Modal size="large" {onClose} closeOnBackdropClick class="max-h-[75vh]">
+  <ModalHeader class="px-4!">
     <div class="flex place-items-center gap-1">
       <Input
-        bind:value={commandPaletteManager.query}
+        bind:value={query}
         placeholder={t('search_placeholder', translations)}
         leadingIcon={mdiMagnify}
         tabindex={1}
+        oninput={onChange}
       />
       <div>
         <CloseButton onclick={() => commandPaletteManager.close()} class="md:hidden" />
       </div>
     </div>
   </ModalHeader>
-  <ModalBody>
-    <Stack gap={2}>
-      {#if commandPaletteManager.query}
-        {#if commandPaletteManager.results.length === 0}
-          <Text>{t('search_no_results', translations)}</Text>
-        {/if}
-      {:else if commandPaletteManager.recentItems.length > 0}
-        <Text>{t('search_recently_used', translations)}</Text>
+  <ModalBody class="px-4!">
+    {#if groups.length === 0}
+      {#if query}
+        <Text>{t('search_no_results', translations)}</Text>
       {:else}
         <Text>{t('command_palette_prompt_default', translations)}</Text>
       {/if}
+    {/if}
 
-      {#if commandPaletteManager.results.length > 0}
-        <div class="flex flex-col">
-          {#each commandPaletteManager.results as item, i (item.id)}
-            <CommandPaletteItem
-              {item}
-              selected={commandPaletteManager.selectedIndex === i}
-              onRemove={commandPaletteManager.query || commandPaletteManager.isShowAll
-                ? undefined
-                : () => commandPaletteManager.remove(i)}
-              onSelect={() => commandPaletteManager.select(i)}
-            />
-          {/each}
+    <div class="flex flex-col gap-2">
+      {#each groups as group (group.name)}
+        <div>
+          <Heading size="tiny" tag="h6" fontWeight="bold" class="mb-1">{group.name}</Heading>
+          <div class="flex flex-col gap-1">
+            {#each group.items as item, i (i)}
+              <CommandPaletteItem
+                {item}
+                selected={item.onAction === items[selectedIndex]?.onAction}
+                onSelect={() => onClose(items[selectedIndex])}
+              />
+            {/each}
+          </div>
         </div>
-      {/if}
-    </Stack>
+      {/each}
+    </div>
   </ModalBody>
   <ModalFooter>
     <div class="flex w-full justify-around">
-      {#if commandPaletteManager.isEmpty}
-        <div class="flex place-items-center gap-1">
-          <span class="flex gap-1 rounded bg-gray-300 p-1 dark:bg-gray-500">
-            <Icon icon={mdiArrowDown} size="1rem" />
-          </span>
-          <Text size="small">{t('command_palette_to_show_all', translations)}</Text>
-        </div>
-      {:else}
+      {#if query}
         <div class="flex gap-4">
           <div class="flex place-items-center gap-1">
             <span class="rounded bg-gray-300 p-1 dark:bg-gray-500">
@@ -120,7 +155,6 @@
             </span>
             <Text size="small">{t('command_palette_to_select', translations)}</Text>
           </div>
-
           <div class="flex place-items-center gap-1">
             <span class="flex gap-1 rounded bg-gray-300 p-1 dark:bg-gray-500">
               <Icon icon={mdiArrowUp} size="1rem" />
@@ -135,6 +169,13 @@
             </span>
             <Text size="small">{t('command_palette_to_close', translations)}</Text>
           </div>
+        </div>
+      {:else}
+        <div class="flex place-items-center gap-1">
+          <span class="flex gap-1 rounded bg-gray-300 p-1 dark:bg-gray-500">
+            <Icon icon={mdiArrowDown} size="1rem" />
+          </span>
+          <Text size="small">{t('command_palette_to_show_all', translations)}</Text>
         </div>
       {/if}
     </div>

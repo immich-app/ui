@@ -10,8 +10,9 @@
     AppShellHeader,
     AppShellSidebar,
     asText,
-    CommandPaletteContext,
     commandPaletteManager,
+    CommandPaletteProvider,
+    defaultProvider,
     Icon,
     IconButton,
     initializeTheme,
@@ -26,6 +27,8 @@
     toggleTheme,
     TooltipProvider,
     type ActionItem,
+    type ActionProvider,
+    type Searchable,
   } from '@immich/ui';
   import { mdiHome, mdiHomeOutline, mdiMagnify, mdiThemeLightDark } from '@mdi/js';
   import { MediaQuery } from 'svelte/reactivity';
@@ -46,33 +49,30 @@
 
   toastManager.setOptions({ class: 'top-[58px]' });
 
-  const commands: ActionItem[] = [...siteCommands];
+  const commands: Searchable<ActionItem>[] = [
+    {
+      icon: mdiThemeLightDark,
+      iconClass: 'text-gray-700 dark:text-gray-200',
+      title: 'Toggle theme',
+      description: 'Switch between light and dark theme',
+      shortcuts: [
+        { shift: true, key: 't' },
+        { alt: true, key: 't' },
+      ],
+      onAction: () => toggleTheme(),
+      searchText: asText('Command', 'light', 'dark', 'theme', 'toggle'),
+    },
+  ];
 
-  commands.push({
-    icon: mdiThemeLightDark,
-    iconClass: 'text-gray-700 dark:text-gray-200',
-    type: 'Command',
-    title: 'Toggle theme',
-    description: 'Switch between light and dark theme',
-    shortcuts: [
-      { shift: true, key: 't' },
-      { alt: true, key: 't' },
-    ],
-    onAction: () => toggleTheme(),
-    searchText: asText('Command', 'light', 'dark', 'theme', 'toggle'),
-    isGlobal: true,
-  });
-
-  // components
+  const components = [];
   for (const group of componentGroups) {
-    commands.push(
+    components.push(
       ...group.components.map((component) => {
         const href = asComponentHref(component.name);
 
         return {
           icon: component.icon,
           iconClass: '',
-          type: 'Component',
           title: component.name,
           description: `View the ${component.name} component`,
           onAction: () => goto(href),
@@ -81,6 +81,12 @@
       }),
     );
   }
+
+  const providers: ActionProvider[] = [
+    defaultProvider({ name: 'Command', items: commands }),
+    defaultProvider({ name: 'Component', items: components }),
+    defaultProvider({ name: 'Site', items: siteCommands }),
+  ];
 
   commandPaletteManager.enable();
   commandPaletteManager.setTranslations({
@@ -150,5 +156,5 @@
     </section>
   </AppShell>
 
-  <CommandPaletteContext {commands} />
+  <CommandPaletteProvider {providers} />
 </TooltipProvider>

@@ -2,8 +2,7 @@
   import { Button, commandPaletteManager, HStack } from '@immich/ui';
 
   const onSearch = (query: string) => {
-    commandPaletteManager.query = query;
-    commandPaletteManager.open();
+    commandPaletteManager.open({ query });
   };
 </script>
 

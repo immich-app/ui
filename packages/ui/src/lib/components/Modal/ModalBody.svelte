@@ -5,11 +5,12 @@
 
   type Props = {
     children: Snippet;
+    class?: string;
   };
 
-  let { children }: Props = $props();
+  let { children, class: className }: Props = $props();
 </script>
 
-<Child for={ChildKey.Modal} as={ChildKey.ModalBody}>
+<Child for={ChildKey.Modal} as={ChildKey.ModalBody} class={className}>
   {@render children?.()}
 </Child>

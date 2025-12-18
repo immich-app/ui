@@ -1,28 +1,18 @@
 <script lang="ts">
   import { renderShortcut } from '$lib/actions/shortcut.js';
-  import Badge from '$lib/components/Badge/Badge.svelte';
   import Button from '$lib/components/Button/Button.svelte';
   import Icon from '$lib/components/Icon/Icon.svelte';
-  import IconButton from '$lib/components/IconButton/IconButton.svelte';
   import Kbd from '$lib/components/Kbd/Kbd.svelte';
   import Text from '$lib/components/Text/Text.svelte';
   import type { ActionItem } from '$lib/types.js';
-  import { cleanClass } from '$lib/utilities/internal.js';
-  import { mdiClose } from '@mdi/js';
 
   type Props = {
     item: ActionItem;
     selected: boolean;
     onSelect: () => void;
-    onRemove?: () => void;
   };
 
-  const { item, selected, onRemove, onSelect }: Props = $props();
-
-  const handleRemove = (event: MouseEvent) => {
-    event.stopPropagation();
-    onRemove?.();
-  };
+  const { item, selected, onSelect }: Props = $props();
 
   const shortcuts =
     item.shortcuts === undefined ? [] : Array.isArray(item.shortcuts) ? item.shortcuts : [item.shortcuts];
@@ -37,19 +27,20 @@
   });
 </script>
 
-<div bind:this={ref} class="p-1">
+<div bind:this={ref}>
   <Button
     onclick={() => onSelect()}
     fullWidth
-    variant={selected ? 'outline' : 'ghost'}
+    variant="ghost"
     color="secondary"
-    class="hover:bg-primary-50 flex justify-between gap-3 border py-4 text-start {selected
-      ? 'border-primary/50 bg-primary-50'
-      : 'border-light-200 dark:border-light-300'}"
+    shape="semi-round"
+    class="hover:bg-primary-50 flex justify-between gap-3 border! text-start  {selected
+      ? 'border-primary-200 bg-primary-50 '
+      : 'border-dark-700 bg-dark-900'}"
   >
     <div class="flex flex-col">
       <div class="flex place-items-center gap-2">
-        <Text fontWeight="semi-bold">{item.title}</Text>
+        <Text>{item.title}</Text>
         <Icon icon={item.icon} size="1.25rem" class={item.iconClass} />
       </div>
       {#if item.description}
@@ -59,29 +50,12 @@
           color="muted">{item.description}</Text
         >
       {/if}
-      <div class="mt-2">
-        <Badge color="primary" size="small" shape="round">{item.type}</Badge>
-        {#if item.isGlobal}
-          <Badge color="warning" size="small" shape="round">Global</Badge>
-        {/if}
-      </div>
     </div>
-    {#if onRemove}
-      <IconButton
-        size="small"
-        onclick={handleRemove}
-        class="shrink-0"
-        icon={mdiClose}
-        shape="round"
-        variant="ghost"
-        color="secondary"
-        aria-label="Remove"
-      />
-    {:else if renderedShortcuts.length > 0}
+    {#if renderedShortcuts.length > 0}
       <div class="flex shrink-0 flex-col justify-end gap-1">
         {#each renderedShortcuts as shortcut (shortcut.join('-'))}
           <div class="flex justify-end">
-            <Kbd size="tiny" class={cleanClass(selected && 'border')}>{shortcut.join(' ')}</Kbd>
+            <Kbd size="tiny">{shortcut.join(' ')}</Kbd>
           </div>
         {/each}
       </div>

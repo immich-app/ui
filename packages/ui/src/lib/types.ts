@@ -290,16 +290,29 @@ export type ActionItemHandler<T extends ActionItem = ActionItem> = (item: T) => 
 export type ActionItem = {
   title: string;
   description?: string;
-  type?: string;
-  searchText?: string;
   icon: IconLike;
   iconClass?: string;
   color?: Color;
   onAction: ActionItemHandler;
   shortcuts?: MaybeArray<Shortcut>;
   shortcutOptions?: { ignoreInputFields?: boolean; preventDefault?: boolean };
-  isGlobal?: boolean;
-} & IfLike;
+};
+
+export type Searchable<T> = {
+  searchText?: string;
+} & T;
+
+type MaybePromise<T> = T | Promise<T>;
+
+export type ActionProvider = {
+  name: string;
+  onSearch(query?: string): MaybePromise<ActionItem[]>;
+};
+
+export type ActionGroup = {
+  name: string;
+  items: ActionItem[];
+};
 
 export type BreadcrumbsProps = {
   separator?: IconLike | { text: string };

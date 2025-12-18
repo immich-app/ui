@@ -1,5 +1,5 @@
 import { env } from '$env/dynamic/public';
-import { MenuItemType, type ActionItem } from '$lib/types.js';
+import { MenuItemType, type ActionItem, type Searchable } from '$lib/types.js';
 import type { DateTime } from 'luxon';
 
 const getImmichApp = (host: string | undefined) => {
@@ -57,6 +57,35 @@ export type ArticleMetadata = {
 
 export const isMenuItemType = (item: ActionItem | MenuItemType): item is MenuItemType => {
   return item === MenuItemType.Divider;
+};
+
+export const asText = (...items: unknown[]) => {
+  return items
+    .filter((item) => item !== undefined && item !== null)
+    .map((items) => String(items))
+    .join('|')
+    .toLowerCase();
+};
+
+export const isMatch = (
+  { title, description, searchText = asText(title, description) }: Searchable<ActionItem>,
+  query?: string,
+): boolean => {
+  if (!query) {
+    return true;
+  }
+
+  return searchText.includes(query);
+};
+
+export const defaultSearch = (actions: Searchable<ActionItem>[]) => {
+  return (query?: string) => {
+    return actions.filter((action) => isMatch(action, query));
+  };
+};
+
+export const defaultProvider = ({ name, items }: { name: string; items: Searchable<ActionItem>[] }) => {
+  return { name, onSearch: defaultSearch(items) };
 };
 
 export const resolveMetadata = (site: Metadata, page?: Metadata, article?: ArticleMetadata) => {

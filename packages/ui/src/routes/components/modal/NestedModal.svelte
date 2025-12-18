@@ -1,6 +1,14 @@
 <script lang="ts">
   import Lorem from '$docs/components/Lorem.svelte';
-  import { Button, CommandPaletteContext, Modal, ModalBody, ModalFooter, modalManager } from '@immich/ui';
+  import {
+    Button,
+    CommandPaletteProvider,
+    defaultProvider,
+    Modal,
+    ModalBody,
+    ModalFooter,
+    modalManager,
+  } from '@immich/ui';
   import { mdiCheck } from '@mdi/js';
 
   type Props = { onClose: () => void };
@@ -18,22 +26,23 @@
       onClose();
     }
   };
+
+  const commands = [
+    {
+      onAction: onClick,
+      title: 'Open Dialog',
+      description: 'Open nested confirm dialog',
+      icon: mdiCheck,
+      iconClass: '',
+    },
+  ];
+
+  const providers = [defaultProvider({ name: 'Page', items: commands })];
 </script>
 
 <Modal title="Modal Title" {onClose}>
   <ModalBody>
-    <CommandPaletteContext
-      commands={[
-        {
-          onAction: onClick,
-          title: 'Open Dialog',
-          description: 'Open nested confirm dialog',
-          icon: mdiCheck,
-          iconClass: '',
-          type: 'Type',
-        },
-      ]}
-    />
+    <CommandPaletteProvider {providers} />
     <Lorem />
   </ModalBody>
   <ModalFooter>
