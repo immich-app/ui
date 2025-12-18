@@ -10,11 +10,10 @@
   import Logo from '$lib/components/Logo/Logo.svelte';
   import TooltipProvider from '$lib/components/Tooltip/TooltipProvider.svelte';
   import { ChildKey, zIndex } from '$lib/constants.js';
-  import { commandPaletteManager } from '$lib/services/command-palette-manager.svelte.js';
   import type { ModalSize } from '$lib/types.js';
   import { cleanClass } from '$lib/utilities/internal.js';
   import { Dialog } from 'bits-ui';
-  import { onMount, tick, type Snippet } from 'svelte';
+  import { tick, type Snippet } from 'svelte';
   import { tv } from 'tailwind-variants';
 
   type Props = {
@@ -87,8 +86,6 @@
 
   const interactOutsideBehavior = $derived(closeOnBackdropClick ? 'close' : 'ignore');
   const escapeKeydownBehavior = $derived(closeOnEsc ? 'close' : 'ignore');
-
-  onMount(() => commandPaletteManager.pushContextLayer());
 </script>
 
 <Dialog.Root open={true} onOpenChange={(isOpen: boolean) => !isOpen && handleClose()}>

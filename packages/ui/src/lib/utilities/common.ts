@@ -84,3 +84,11 @@ export const resolveMetadata = (site: Metadata, page?: Metadata, article?: Artic
       : undefined,
   };
 };
+
+export const asText = (...items: unknown[]) => {
+  return items
+    .filter((item) => item !== undefined && item !== null)
+    .map((items) => String(items))
+    .join('|')
+    .toLowerCase();
+};

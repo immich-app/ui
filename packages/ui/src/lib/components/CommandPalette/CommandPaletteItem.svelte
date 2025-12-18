@@ -3,26 +3,18 @@
   import Badge from '$lib/components/Badge/Badge.svelte';
   import Button from '$lib/components/Button/Button.svelte';
   import Icon from '$lib/components/Icon/Icon.svelte';
-  import IconButton from '$lib/components/IconButton/IconButton.svelte';
   import Kbd from '$lib/components/Kbd/Kbd.svelte';
   import Text from '$lib/components/Text/Text.svelte';
   import type { ActionItem } from '$lib/types.js';
   import { cleanClass } from '$lib/utilities/internal.js';
-  import { mdiClose } from '@mdi/js';
 
   type Props = {
     item: ActionItem;
     selected: boolean;
     onSelect: () => void;
-    onRemove?: () => void;
   };
 
-  const { item, selected, onRemove, onSelect }: Props = $props();
-
-  const handleRemove = (event: MouseEvent) => {
-    event.stopPropagation();
-    onRemove?.();
-  };
+  const { item, selected, onSelect }: Props = $props();
 
   const shortcuts =
     item.shortcuts === undefined ? [] : Array.isArray(item.shortcuts) ? item.shortcuts : [item.shortcuts];
@@ -66,18 +58,7 @@
         {/if}
       </div>
     </div>
-    {#if onRemove}
-      <IconButton
-        size="small"
-        onclick={handleRemove}
-        class="shrink-0"
-        icon={mdiClose}
-        shape="round"
-        variant="ghost"
-        color="secondary"
-        aria-label="Remove"
-      />
-    {:else if renderedShortcuts.length > 0}
+    {#if renderedShortcuts.length > 0}
       <div class="flex shrink-0 flex-col justify-end gap-1">
         {#each renderedShortcuts as shortcut (shortcut.join('-'))}
           <div class="flex justify-end">
