@@ -1,4 +1,5 @@
-import type { Color, IconLike, IfLike, TextColor } from '$lib/types.js';
+import type { ActionItem, Color, IconLike, IfLike, MaybeArray, TextColor } from '$lib/types.js';
+import { asText } from '$lib/utilities/common.js';
 import { twMerge } from 'tailwind-merge';
 
 export const cleanClass = (...classNames: unknown[]) => {
@@ -47,3 +48,8 @@ export const resolveIcon = ({
 };
 
 export const isEnabled = ({ $if }: IfLike) => $if?.() ?? true;
+
+export const asArray = <T>(items?: MaybeArray<T>) => (Array.isArray(items) ? items : items ? [items] : []);
+
+export const getSearchString = ({ title, description, type, searchText }: ActionItem) =>
+  searchText ?? asText(title, description, type);

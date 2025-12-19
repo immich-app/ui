@@ -15,12 +15,16 @@
     type CommandPaletteTranslations,
   } from '$lib/services/command-palette-manager.svelte.js';
   import { t } from '$lib/services/translation.svelte.js';
+  import type { ActionItem } from '$lib/types.js';
   import { mdiArrowDown, mdiArrowUp, mdiKeyboardEsc, mdiKeyboardReturn, mdiMagnify } from '@mdi/js';
 
   type Props = {
-    onClose: () => void;
+    onClose: (action?: ActionItem) => void;
     translations?: CommandPaletteTranslations;
+    initialQuery?: string;
   };
+
+  const { onClose, translations, initialQuery = '' }: Props = $props();
 
   const handleUp = (event: KeyboardEvent) => handleNavigate(event, 'up');
   const handleDown = (event: KeyboardEvent) => handleNavigate(event, 'down');
@@ -30,23 +34,31 @@
 
     switch (direction) {
       case 'up': {
-        commandPaletteManager.up();
+        selectedIndex = Math.max((selectedIndex === 0 ? commandPaletteManager.items.length : selectedIndex) - 1, 0);
         break;
       }
 
       case 'down': {
-        commandPaletteManager.down();
+        if (!query && commandPaletteManager.items.length === 0) {
+          commandPaletteManager.loadAllItems();
+          break;
+        }
+
+        selectedIndex = (selectedIndex + 1) % commandPaletteManager.items.length || 0;
         break;
       }
 
       case 'select': {
-        await commandPaletteManager.select();
+        onClose(commandPaletteManager.items[selectedIndex]);
         break;
       }
     }
   };
 
-  const { onClose, translations }: Props = $props();
+  let selectedIndex = $state(0);
+  let query = $state(initialQuery);
+
+  $effect(() => commandPaletteManager.queryUpdate(query));
 </script>
 
 <svelte:window
@@ -61,43 +73,34 @@
   ]}
 />
 
-<Modal size="large" {onClose} closeOnBackdropClick class="max-h-[75vh] lg:max-h-[50vh]">
+<Modal size="large" {onClose} closeOnBackdropClick class="max-h-[85vh] lg:max-h-[75vh]">
   <ModalHeader>
     <div class="flex place-items-center gap-1">
       <Input
-        bind:value={commandPaletteManager.query}
+        bind:value={query}
         placeholder={t('search_placeholder', translations)}
         leadingIcon={mdiMagnify}
         tabindex={1}
       />
       <div>
-        <CloseButton onclick={() => commandPaletteManager.close()} class="md:hidden" />
+        <CloseButton onclick={() => onClose()} class="md:hidden" />
       </div>
     </div>
   </ModalHeader>
   <ModalBody>
     <Stack gap={2}>
-      {#if commandPaletteManager.query}
-        {#if commandPaletteManager.results.length === 0}
+      {#if query}
+        {#if commandPaletteManager.items.length === 0}
           <Text>{t('search_no_results', translations)}</Text>
         {/if}
-      {:else if commandPaletteManager.recentItems.length > 0}
-        <Text>{t('search_recently_used', translations)}</Text>
       {:else}
         <Text>{t('command_palette_prompt_default', translations)}</Text>
       {/if}
 
-      {#if commandPaletteManager.results.length > 0}
+      {#if commandPaletteManager.items.length > 0}
         <div class="flex flex-col">
-          {#each commandPaletteManager.results as item, i (item.id)}
-            <CommandPaletteItem
-              {item}
-              selected={commandPaletteManager.selectedIndex === i}
-              onRemove={commandPaletteManager.query || commandPaletteManager.isShowAll
-                ? undefined
-                : () => commandPaletteManager.remove(i)}
-              onSelect={() => commandPaletteManager.select(i)}
-            />
+          {#each commandPaletteManager.items as item, i (item.id)}
+            <CommandPaletteItem {item} selected={selectedIndex === i} onSelect={() => onClose(item)} />
           {/each}
         </div>
       {/if}
@@ -105,7 +108,7 @@
   </ModalBody>
   <ModalFooter>
     <div class="flex w-full justify-around">
-      {#if commandPaletteManager.isEmpty}
+      {#if !query && commandPaletteManager.items.length === 0}
         <div class="flex place-items-center gap-1">
           <span class="flex gap-1 rounded bg-gray-300 p-1 dark:bg-gray-500">
             <Icon icon={mdiArrowDown} size="1rem" />

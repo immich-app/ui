@@ -4,13 +4,13 @@
   import Navbar from '$docs/components/Navbar.svelte';
   import { componentGroups } from '$docs/constants.js';
   import { asComponentHref } from '$docs/utilities.js';
+  import CommandPaletteDefaultProvider from '$lib/components/CommandPalette/CommandPaletteDefaultProvider.svelte';
   import '$lib/theme/default.css';
   import {
     AppShell,
     AppShellHeader,
     AppShellSidebar,
     asText,
-    CommandPaletteContext,
     commandPaletteManager,
     Icon,
     IconButton,
@@ -150,5 +150,5 @@
     </section>
   </AppShell>
 
-  <CommandPaletteContext {commands} />
+  <CommandPaletteDefaultProvider actions={commands} name="General" />
 </TooltipProvider>

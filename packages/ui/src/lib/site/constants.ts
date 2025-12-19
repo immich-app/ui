@@ -1,5 +1,5 @@
 import { goto } from '$app/navigation';
-import { asText } from '$lib/services/command-palette-manager.svelte.js';
+import { asText } from '$lib/utilities/common.js';
 import { mdiOpenInNew } from '@mdi/js';
 
 export const Constants = {

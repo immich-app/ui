@@ -1,6 +1,7 @@
 <script lang="ts">
   import Lorem from '$docs/components/Lorem.svelte';
-  import { Button, CommandPaletteContext, Modal, ModalBody, ModalFooter, modalManager } from '@immich/ui';
+  import CommandPaletteDefaultProvider from '$lib/components/CommandPalette/CommandPaletteDefaultProvider.svelte';
+  import { Button, Modal, ModalBody, ModalFooter, modalManager } from '@immich/ui';
   import { mdiCheck } from '@mdi/js';
 
   type Props = { onClose: () => void };
@@ -22,8 +23,8 @@
 
 <Modal title="Modal Title" {onClose}>
   <ModalBody>
-    <CommandPaletteContext
-      commands={[
+    <CommandPaletteDefaultProvider
+      actions={[
         {
           onAction: onClick,
           title: 'Open Dialog',
@@ -33,6 +34,7 @@
           type: 'Type',
         },
       ]}
+      name="Example"
     />
     <Lorem />
   </ModalBody>
