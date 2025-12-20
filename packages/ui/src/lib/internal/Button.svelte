@@ -37,7 +37,7 @@
   const disabled = $derived((restProps as HTMLButtonAttributes).disabled || loading);
 
   const buttonVariants = tv({
-    base: 'ring-offset-background focus-visible:ring-ring flex items-center justify-center gap-1 rounded-md text-sm font-medium transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none',
+    base: 'flex items-center justify-center gap-1 rounded-md text-sm font-medium outline-offset-2 transition-colors focus-visible:outline-2',
     variants: {
       disabled: {
         true: 'disabled:pointer-events-none disabled:opacity-50 aria-disabled:opacity-50',
@@ -68,6 +68,14 @@
         medium: 'rounded-xl',
         large: 'rounded-xl',
         giant: 'rounded-2xl',
+      },
+      focusOutlineColor: {
+        primary: 'outline-primary',
+        secondary: 'outline-dark',
+        success: 'outline-success',
+        danger: 'outline-danger',
+        warning: 'outline-warning',
+        info: 'outline-info',
       },
       filledColor: styleVariants.filledColor,
       filledColorHover: styleVariants.filledColorHover,
@@ -112,6 +120,7 @@
         filledColorHover: variant === 'filled' ? color : undefined,
         outlineColor: variant === 'outline' ? color : undefined,
         ghostColor: variant === 'ghost' ? color : undefined,
+        focusOutlineColor: color,
       }),
       className,
     ),
