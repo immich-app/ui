@@ -5,6 +5,7 @@
   import { styleVariants } from '$lib/styles.js';
   import type { TextareaProps } from '$lib/types.js';
   import { cleanClass, generateId } from '$lib/utilities/internal.js';
+  import { onMount } from 'svelte';
   import type { FormEventHandler } from 'svelte/elements';
   import { tv } from 'tailwind-variants';
 
@@ -53,15 +54,20 @@
   const labelId = `label-${id}`;
   const descriptionId = $derived(description ? `description-${id}` : undefined);
 
-  const onInput: FormEventHandler<HTMLTextAreaElement> = (event) => {
-    const element = event.target as HTMLTextAreaElement;
+  const autogrow = (element: HTMLTextAreaElement | null) => {
     if (element && grow) {
+      element.style.minHeight = '0';
       element.style.height = 'auto';
       element.style.height = `${element.scrollHeight}px`;
     }
+  };
 
+  const onInput: FormEventHandler<HTMLTextAreaElement> = (event) => {
+    autogrow(event.target as HTMLTextAreaElement);
     restProps?.oninput?.(event);
   };
+
+  onMount(() => autogrow(ref));
 </script>
 
 <div class="flex w-full flex-col gap-1" bind:this={containerRef}>
