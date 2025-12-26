@@ -2,6 +2,7 @@
 * Default theme variables for Immich UI components
 * Generate color pallet from https://www.tints.dev/ with lock at 500 value
 */
+
 @import 'tailwindcss';
 
 @theme inline {
