@@ -11,33 +11,30 @@
 
   const { children, id, level }: Props = $props();
 
-  const getSizeAndTag = (level?: number): { size: Size; tag: HeadingTag } => {
+  const getSizeAndTag = (level?: number): { size: Size; tag: HeadingTag; padding: string } => {
     switch (level) {
       case 1: {
-        return { size: 'giant', tag: 'h1' };
+        return { size: 'giant', tag: 'h1', padding: 'mb-6' };
       }
       case 2: {
-        return { size: 'large', tag: 'h2' };
+        return { size: 'large', tag: 'h2', padding: 'my-4' };
       }
       case 3: {
-        return { size: 'medium', tag: 'h3' };
+        return { size: 'medium', tag: 'h3', padding: 'my-3' };
       }
       case 4: {
-        return { size: 'small', tag: 'h4' };
+        return { size: 'small', tag: 'h4', padding: 'my-1' };
       }
       case 5: {
-        return { size: 'tiny', tag: 'h5' };
-      }
-      case 6: {
-        return { size: 'tiny', tag: 'h6' };
+        return { size: 'tiny', tag: 'h5', padding: 'my-0.5' };
       }
       default: {
-        return { size: 'tiny', tag: 'p' };
+        return { size: 'tiny', tag: 'p', padding: '' };
       }
     }
   };
 
-  let { size, tag } = $derived(getSizeAndTag(level));
+  let { size, tag, padding } = $derived(getSizeAndTag(level));
 </script>
 
-<Heading {size} {tag} class="mt-4 mb-1" {id} {children} />
+<Heading {size} {tag} class={padding} {id} {children} />
