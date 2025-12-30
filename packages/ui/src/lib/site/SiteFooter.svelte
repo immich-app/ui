@@ -31,6 +31,9 @@
           <SiteFooterLink href={Constants.Sites.Docs} text="Documentation" />
           <SiteFooterLink href={Constants.Sites.My} text="My Immich" />
           <SiteFooterLink href={Constants.Sites.Api} text="Immich API" />
+          <SiteFooterLink href={Constants.Sites.Data} text="Immich Data" />
+          <SiteFooterLink href={Constants.Sites.Datasets} text="Immich Datasets" />
+          <SiteFooterLink href={Constants.Sites.Awesome} text="Awesome Immich" />
         </Stack>
 
         <Stack>

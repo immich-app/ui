@@ -31,6 +31,7 @@ export const Constants = {
     Get: 'https://get.immich.app/',
     My: 'https://my.immich.app/',
     Store: 'https://immich.store/',
+    Awesome: 'https://awesome.immich.app/',
     Ui: 'https://ui.immich.app/',
   },
   Pages: {
