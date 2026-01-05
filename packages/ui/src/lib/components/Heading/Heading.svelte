@@ -20,25 +20,18 @@
     children: Snippet;
   } & HTMLAttributes<HTMLElement>;
 
-  const {
-    tag = 'p',
-    size = 'medium',
-    fontWeight = 'semi-bold',
-    class: className,
-    children,
-    ...restProps
-  }: Props = $props();
+  const { tag = 'p', size = 'medium', fontWeight = 'bold', class: className, children, ...restProps }: Props = $props();
 
   const styles = tv({
     base: 'leading-none tracking-tight',
     variants: {
       size: {
-        tiny: 'text-lg',
-        small: 'text-xl',
-        medium: 'text-2xl',
+        tiny: 'text-base',
+        small: 'text-lg',
+        medium: 'text-xl',
         large: 'text-3xl',
-        giant: 'text-4xl',
-        title: 'text-5xl',
+        giant: 'text-5xl',
+        title: 'text-7xl',
       },
     },
   });
