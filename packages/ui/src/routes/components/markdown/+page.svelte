@@ -4,6 +4,7 @@
   // @ts-expect-error: .md files are handled by the md preprocessor
   import BasicExample from './BasicExample.md';
   import basicExample from './BasicExample.md?raw';
+  // @ts-expect-error: .md files are handled by the md preprocessor
   import BlogExample from './BlogExample.md';
   import blogExample from './BlogExample.md?raw';
 </script>

@@ -1,10 +1,13 @@
 ---
-{ authors: [Immich Team], description: A review of the major milestones accomplished
-    in 2025., id: 153e5050-88b9-43e7-8b7b-ef0c0438057d, publishedAt: 2025-12-22, slug: 2025-year-in-review, title: 2025 - A year in review }
+authors: [Immich Team]
+description: A review of the major milestones accomplished in 2025.
+id: 153e5050-88b9-43e7-8b7b-ef0c0438057d
+publishedAt: 2025-12-22
+slug: 2025-year-in-review
+title: 2025 - A year in review
 ---
 
 # 2025 - A year in review (H1)
-
 
 Hello everyone!
 
@@ -29,6 +32,7 @@ Three major technical overhauls defined the year's goal
 We rebuilt how Immich's server talks to the database, the core system that pieces everything together. We migrated the entire server database-fetching mechanism to a new library that gives us more control over how we interact with data, while still providing a superb developer experience. This results in rewriting ALL the database queries on the server.
 
 ##### Challenges (H5)
+
 - Touched everything
 
 #### 2. Streaming Sync Infrastructure (H4)
@@ -36,6 +40,7 @@ We rebuilt how Immich's server talks to the database, the core system that piece
 With the new database foundation in place, we could finally build a mechanism to continuously stream data from the server to the mobile app, rather than a single large request. This required creating entirely new data-streaming capabilities on the server, enabling your server and mobile app to handle the data flow efficiently. This is one of the most complex works to date; it requires handling when the data changes, determining what should be sent to the server, and in what order.
 
 ##### Challenges (H5)
+
 - When
 - What
 
@@ -46,9 +51,9 @@ The old mobile app wasn't designed for this new sync approach. So we rewrote it 
 Each of these steps came with its own set of challenges, requiring countless hours of discussion, debugging, and iteration. The team showed incredible dedication, working through problems together via chat, voice calls, and late-night troubleshooting sessions.
 
 ##### Challenges (H5)
+
 - Rewrite the entire app
 - New background mechanism
-
 
 ### Other accomplishments (H3)
 
