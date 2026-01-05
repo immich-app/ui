@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.52.0 (2026-01-05)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+## What's Changed
+### 🐛 Bug fixes
+* fix: focus outlines for buttons by @ben-basten in https://github.com/immich-app/ui/pull/477
+* fix: autogrow textarea bugs during animation by @midzelis in https://github.com/immich-app/ui/pull/480
+* fix: tooltip in toast by @alextran1502 in https://github.com/immich-app/ui/pull/485
+
+## New Contributors
+* @aviv926 made their first contribution in https://github.com/immich-app/ui/pull/486
+
+**Full Changelog**: https://github.com/immich-app/ui/compare/ui-v0.51.0...ui-v0.52.0
+
 ## 0.51.0 (2025-12-16)
 
 <!-- Release notes generated using configuration in .github/release.yml at main -->
