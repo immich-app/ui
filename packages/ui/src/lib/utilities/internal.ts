@@ -1,4 +1,4 @@
-import type { ActionItem, Color, IconLike, IfLike, MaybeArray, TextColor } from '$lib/types.js';
+import type { ActionItem, Color, IconLike, MaybeArray, TextColor } from '$lib/types.js';
 import { asText } from '$lib/utilities/common.js';
 import { twMerge } from 'tailwind-merge';
 
@@ -46,8 +46,6 @@ export const resolveIcon = ({
 
   return icons[color] ?? fallback;
 };
-
-export const isEnabled = ({ $if }: IfLike) => $if?.() ?? true;
 
 export const asArray = <T>(items?: MaybeArray<T>) => (Array.isArray(items) ? items : items ? [items] : []);
 

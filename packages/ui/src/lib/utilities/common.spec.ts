@@ -1,4 +1,4 @@
-import { isExternalLink, resolveMetadata, resolveUrl } from '$lib/utilities/common.js';
+import { isEnabled, isExternalLink, resolveMetadata, resolveUrl } from '$lib/utilities/common.js';
 import { DateTime } from 'luxon';
 import { beforeAll, describe, expect, it } from 'vitest';
 
@@ -119,5 +119,24 @@ describe(resolveMetadata.name, () => {
     ).toMatchObject({
       type: 'article',
     });
+  });
+});
+
+describe(isEnabled.name, () => {
+  it('should default to true, when not present', () => {
+    expect(isEnabled({})).toBe(true);
+  });
+
+  it('should map evaluate to true', () => {
+    expect(isEnabled({ $if: () => true })).toBe(true);
+  });
+
+  it('should map evaluate to false', () => {
+    expect(isEnabled({ $if: () => false })).toBe(false);
+  });
+
+  it('should map undefined to false', () => {
+    const user: object = undefined as unknown as object;
+    expect(isEnabled({ $if: () => user && true })).toBe(false);
   });
 });
