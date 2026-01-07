@@ -1,12 +1,12 @@
 <script lang="ts">
-  import ComponentColors from '$docs/components/ComponentColors.svelte';
+  import ComponentTextColors from '$docs/components/ComponentTextColors.svelte';
   import { Heading, Stack } from '@immich/ui';
 </script>
 
 <Stack>
-  <ComponentColors>
-    {#snippet child({ color })}
-      <Heading tag="h1" size="medium" {color}>Heading</Heading>
+  <ComponentTextColors>
+    {#snippet child({ color, label })}
+      <Heading tag="h1" size="medium" {color}>Heading ({label})</Heading>
     {/snippet}
-  </ComponentColors>
+  </ComponentTextColors>
 </Stack>

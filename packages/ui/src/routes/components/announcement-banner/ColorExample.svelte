@@ -1,14 +1,14 @@
 <script lang="ts">
-  import ComponentColors from '$docs/components/ComponentColors.svelte';
+  import ComponentTextColors from '$docs/components/ComponentTextColors.svelte';
   import { AnnouncementBanner, Link, Stack } from '@immich/ui';
 </script>
 
 <Stack>
-  <ComponentColors>
+  <ComponentTextColors>
     {#snippet child({ color })}
       <AnnouncementBanner {color}>
         Super important announcement &mdash; Read more <Link href="#">here</Link> ({color})
       </AnnouncementBanner>
     {/snippet}
-  </ComponentColors>
+  </ComponentTextColors>
 </Stack>

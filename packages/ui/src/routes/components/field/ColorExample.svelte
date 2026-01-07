@@ -1,10 +1,10 @@
 <script lang="ts">
-  import ComponentColors from '$docs/components/ComponentColors.svelte';
+  import ComponentTextColors from '$docs/components/ComponentTextColors.svelte';
   import { Field, Input, Stack } from '@immich/ui';
 </script>
 
 <Stack gap={4}>
-  <ComponentColors>
+  <ComponentTextColors>
     {#snippet child({ color, label })}
       <div>
         <Field {label} {color}>
@@ -12,5 +12,5 @@
         </Field>
       </div>
     {/snippet}
-  </ComponentColors>
+  </ComponentTextColors>
 </Stack>
