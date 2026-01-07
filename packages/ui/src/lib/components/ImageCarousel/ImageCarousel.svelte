@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { resizeObserver } from '$lib/actions/resize-observer.js';
   import IconButton from '$lib/components/IconButton/IconButton.svelte';
   import { zIndex } from '$lib/constants.js';
   import { t } from '$lib/services/translation.svelte.js';
@@ -55,7 +54,7 @@
 {#if shouldRender}
   <section
     bind:this={ref}
-    use:resizeObserver={({ width }) => (offsetWidth = width)}
+    bind:clientWidth={offsetWidth}
     class={cleanClass('relative mt-3 overflow-x-scroll overflow-y-hidden whitespace-nowrap transition-all', className)}
     style="scrollbar-width:none"
     onscroll={onScroll}
@@ -95,7 +94,7 @@
         {/if}
       </div>
     {/if}
-    <div class="inline-block" use:resizeObserver={({ width }) => (innerWidth = width)}>
+    <div class="inline-block" bind:clientWidth={innerWidth}>
       {#each items as item, i (item.id ?? i)}
         {@render child(item)}
       {/each}
