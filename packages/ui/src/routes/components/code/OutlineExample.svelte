@@ -1,15 +1,15 @@
 <script lang="ts">
-  import ComponentColors from '$docs/components/ComponentColors.svelte';
+  import ComponentTextColors from '$docs/components/ComponentTextColors.svelte';
   import { Code, Stack, Text } from '@immich/ui';
 </script>
 
 <Stack>
-  <ComponentColors>
+  <ComponentTextColors>
     {#snippet child({ color, label })}
       <div>
         <Text class="mb-1" fontWeight="bold">{label}</Text>
         <Text>Use <Code {color} variant="outline">console.log</Code> to print text to the console.</Text>
       </div>
     {/snippet}
-  </ComponentColors>
+  </ComponentTextColors>
 </Stack>
