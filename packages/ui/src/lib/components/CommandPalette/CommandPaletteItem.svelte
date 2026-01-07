@@ -51,12 +51,11 @@
           color="muted">{item.description}</Text
         >
       {/if}
-      <div class="mt-2">
-        <Badge color="primary" size="small" shape="round">{item.type}</Badge>
-        {#if item.isGlobal}
-          <Badge color="warning" size="small" shape="round">Global</Badge>
-        {/if}
-      </div>
+      {#if item.type}
+        <div class="mt-2">
+          <Badge color="primary" size="small" shape="round">{item.type}</Badge>
+        </div>
+      {/if}
     </div>
     {#if renderedShortcuts.length > 0}
       <div class="flex shrink-0 flex-col justify-end gap-1">

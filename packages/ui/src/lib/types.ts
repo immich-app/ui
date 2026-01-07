@@ -299,7 +299,6 @@ export type ActionItem = {
   onAction: ActionItemHandler;
   shortcuts?: MaybeArray<Shortcut>;
   shortcutOptions?: { ignoreInputFields?: boolean; preventDefault?: boolean };
-  isGlobal?: boolean;
 } & IfLike;
 
 export type BreadcrumbsProps = {
