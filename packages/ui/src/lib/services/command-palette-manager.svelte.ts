@@ -1,4 +1,4 @@
-import { matchesShortcut, shortcuts } from '$lib/actions/shortcut.js';
+import { matchesShortcut, shortcuts, shouldIgnoreEvent } from '$lib/actions/shortcut.js';
 import CommandPaletteModal from '$lib/internal/CommandPaletteModal.svelte';
 import { modalManager } from '$lib/services/modal-manager.svelte.js';
 import type { ActionItem, MaybePromise, TranslationProps } from '$lib/types.js';
@@ -82,10 +82,24 @@ class CommandPaletteManager {
     const actions = await Promise.all(this.#providers.map((provider) => Promise.resolve(provider.onSearch())));
 
     for (const action of actions.flat()) {
-      const shortcuts = asArray(action.shortcuts);
-      if (shortcuts.some((shortcut) => matchesShortcut(event, shortcut)) && isEnabled(action)) {
-        action?.onAction(action);
+      if (!asArray(action.shortcuts).some((shortcut) => matchesShortcut(event, shortcut))) {
+        continue;
       }
+
+      if (!isEnabled(action)) {
+        continue;
+      }
+
+      const { ignoreInputFields = true, preventDefault = true } = action.shortcutOptions || {};
+      if (ignoreInputFields && shouldIgnoreEvent(event)) {
+        continue;
+      }
+
+      if (preventDefault) {
+        event.preventDefault();
+      }
+
+      action?.onAction(action);
     }
   }
 
