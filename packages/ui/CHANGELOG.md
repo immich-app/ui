@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.53.2 (2026-01-07)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+## What's Changed
+### 🐛 Bug fixes
+* fix: command palette shortcuts by @jrasm91 in https://github.com/immich-app/ui/pull/494
+
+
+**Full Changelog**: https://github.com/immich-app/ui/compare/ui-v0.53.1...ui-v0.53.2
+
 ## 0.53.1 (2026-01-07)
 
 <!-- Release notes generated using configuration in .github/release.yml at main -->
