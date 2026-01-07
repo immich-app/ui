@@ -56,6 +56,7 @@ import {
   mdiThemeLightDark,
   mdiToggleSwitch,
   mdiToggleSwitchOutline,
+  mdiVectorSquare,
   mdiViewSequential,
   mdiViewSequentialOutline,
   mdiWindowMaximize,
@@ -146,6 +147,7 @@ export const componentGroups = [
     components: [
       { name: 'Avatar', icon: mdiAccountCircleOutline, activeIcon: mdiAccountCircle },
       { name: 'CommandPalette', icon: mdiMenu, activeIcon: mdiMenu },
+      { name: 'Icon', icon: mdiVectorSquare },
       { name: 'Logo', icon: mdiImageOutline, activeIcon: mdiImage },
       { name: 'Markdown', icon: mdiLanguageMarkdownOutline, activeIcon: mdiLanguageMarkdownOutline },
       { name: 'SupporterBadge', icon: mdiPartyPopper },
