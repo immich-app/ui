@@ -319,3 +319,11 @@ export type BreadcrumbItem = {
         icon: IconLike;
       }
   );
+
+export type CarouselImageItem = {
+  title: string;
+  href: string;
+  src: string;
+  alt?: string;
+  id?: string;
+};

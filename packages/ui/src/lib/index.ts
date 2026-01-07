@@ -45,6 +45,7 @@ export { default as Heading } from '$lib/components/Heading/Heading.svelte';
 export { default as HelperText } from '$lib/components/HelperText/HelperText.svelte';
 export { default as Icon } from '$lib/components/Icon/Icon.svelte';
 export { default as IconButton } from '$lib/components/IconButton/IconButton.svelte';
+export { default as ImageCarousel } from '$lib/components/ImageCarousel/ImageCarousel.svelte';
 export { default as Input } from '$lib/components/Input/Input.svelte';
 export { default as Kbd } from '$lib/components/Kbd/Kbd.svelte';
 export { default as Label } from '$lib/components/Label/Label.svelte';
@@ -81,6 +82,8 @@ export { default as Tooltip } from '$lib/components/Tooltip/Tooltip.svelte';
 export { default as TooltipProvider } from '$lib/components/Tooltip/TooltipProvider.svelte';
 
 // helpers
+export * from '$lib/actions/resize-observer.js';
+export * from '$lib/actions/shortcut.js';
 export * from '$lib/services/command-palette-manager.svelte.js';
 export * from '$lib/services/menu-manager.svelte.js';
 export * from '$lib/services/modal-manager.svelte.js';

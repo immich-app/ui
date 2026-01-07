@@ -35,6 +35,10 @@ const defaultTranslations = {
   command_palette_to_close: 'to close',
   command_palette_to_show_all: 'to show all',
 
+  // navigation
+  navigate_next: 'Next',
+  navigate_previous: 'Previous',
+
   toast_success_title: 'Success',
   toast_info_title: 'Info',
   toast_warning_title: 'Warning',
