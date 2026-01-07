@@ -133,7 +133,9 @@
                     class="px-1"
                   >
                     <div class={itemStyles({ color: item.color })}>
-                      <Icon icon={item.icon} class="m-2 shrink-0" />
+                      {#if item.icon}
+                        <Icon icon={item.icon} class="m-2 shrink-0" />
+                      {/if}
                       <Text class="grow text-start font-medium select-none" size="medium">{item.title}</Text>
                     </div>
                   </DropdownMenu.Item>
@@ -144,16 +146,18 @@
                 <DropdownMenu.Separator class="dark:border-light-300 my-0.5 border-t" />
                 <div class="flex gap-1 px-1">
                   {#each filteredBottomItems as item (item.title)}
-                    <DropdownMenu.Item
-                      textValue={item.title}
-                      closeOnSelect
-                      onSelect={() => item.onAction(item)}
-                      title={item.title}
-                    >
-                      <div class={cleanClass(itemStyles({ color: item.color }))}>
-                        <Icon icon={item.icon} class="m-2 shrink-0" />
-                      </div>
-                    </DropdownMenu.Item>
+                    {#if item.icon}
+                      <DropdownMenu.Item
+                        textValue={item.title}
+                        closeOnSelect
+                        onSelect={() => item.onAction(item)}
+                        title={item.title}
+                      >
+                        <div class={cleanClass(itemStyles({ color: item.color }))}>
+                          <Icon icon={item.icon} class="m-2 shrink-0" />
+                        </div>
+                      </DropdownMenu.Item>
+                    {/if}
                   {/each}
                 </div>
               {/if}

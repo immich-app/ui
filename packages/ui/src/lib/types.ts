@@ -293,7 +293,7 @@ export type ActionItem = {
   description?: string;
   type?: string;
   searchText?: string;
-  icon: IconLike;
+  icon?: IconLike;
   iconClass?: string;
   color?: Color;
   onAction: ActionItemHandler;

@@ -42,7 +42,9 @@
     <div class="flex flex-col">
       <div class="flex place-items-center gap-2">
         <Text fontWeight="semi-bold">{item.title}</Text>
-        <Icon icon={item.icon} size="1.25rem" class={item.iconClass} />
+        {#if item.icon}
+          <Icon icon={item.icon} size="1.25rem" class={item.iconClass} />
+        {/if}
       </div>
       {#if item.description}
         <Text
