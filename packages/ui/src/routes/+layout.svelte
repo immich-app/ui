@@ -60,7 +60,6 @@
     ],
     onAction: () => toggleTheme(),
     searchText: asText('Command', 'light', 'dark', 'theme', 'toggle'),
-    isGlobal: true,
   });
 
   // components

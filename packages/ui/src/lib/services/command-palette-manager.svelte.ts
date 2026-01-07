@@ -64,7 +64,10 @@ class CommandPaletteManager {
 
   async #onSearch(query?: string) {
     const newItems = await Promise.all(this.#providers.map((provider) => Promise.resolve(provider.onSearch(query))));
-    this.#items = newItems.flat().map((item) => ({ ...item, id: generateId() }));
+    this.#items = newItems
+      .flat()
+      .filter((item) => isEnabled(item))
+      .map((item) => ({ ...item, id: generateId() }));
   }
 
   queryUpdate(query: string) {
