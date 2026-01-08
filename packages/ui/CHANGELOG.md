@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.54.0 (2026-01-08)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+## What's Changed
+### 🚀 Features
+* feat: image carousel by @jrasm91 in https://github.com/immich-app/ui/pull/499
+### 🐛 Bug fixes
+* fix: better is-enabled checks by @jrasm91 in https://github.com/immich-app/ui/pull/498
+
+
+**Full Changelog**: https://github.com/immich-app/ui/compare/ui-v0.53.3...ui-v0.54.0
+
 ## 0.53.3 (2026-01-07)
 
 <!-- Release notes generated using configuration in .github/release.yml at main -->
