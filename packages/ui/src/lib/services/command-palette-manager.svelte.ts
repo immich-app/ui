@@ -2,7 +2,8 @@ import { matchesShortcut, shortcuts, shouldIgnoreEvent } from '$lib/actions/shor
 import CommandPaletteModal from '$lib/internal/CommandPaletteModal.svelte';
 import { modalManager } from '$lib/services/modal-manager.svelte.js';
 import type { ActionItem, MaybePromise, TranslationProps } from '$lib/types.js';
-import { asArray, generateId, getSearchString, isEnabled } from '$lib/utilities/internal.js';
+import { isEnabled } from '$lib/utilities/common.js';
+import { asArray, generateId, getSearchString } from '$lib/utilities/internal.js';
 
 export type CommandPaletteTranslations = TranslationProps<
   | 'search_placeholder'

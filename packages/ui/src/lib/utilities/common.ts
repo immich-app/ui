@@ -1,5 +1,5 @@
 import { env } from '$env/dynamic/public';
-import { MenuItemType, type ActionItem } from '$lib/types.js';
+import { MenuItemType, type ActionItem, type IfLike } from '$lib/types.js';
 import type { DateTime } from 'luxon';
 
 const getImmichApp = (host: string | undefined) => {
@@ -91,4 +91,12 @@ export const asText = (...items: unknown[]) => {
     .map((items) => String(items))
     .join('|')
     .toLowerCase();
+};
+
+export const isEnabled = ({ $if }: IfLike) => {
+  if (!$if) {
+    return true;
+  }
+
+  return !!$if();
 };

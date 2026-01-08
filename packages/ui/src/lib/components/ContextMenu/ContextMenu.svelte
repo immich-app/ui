@@ -4,8 +4,8 @@
   import { zIndex } from '$lib/constants.js';
   import { styleVariants } from '$lib/styles.js';
   import { type ActionItem, type ContextMenuProps, type MenuItems } from '$lib/types.js';
-  import { isMenuItemType } from '$lib/utilities/common.js';
-  import { cleanClass, isEnabled } from '$lib/utilities/internal.js';
+  import { isEnabled, isMenuItemType } from '$lib/utilities/common.js';
+  import { cleanClass } from '$lib/utilities/internal.js';
   import { DropdownMenu } from 'bits-ui';
   import { fly } from 'svelte/transition';
   import { tv } from 'tailwind-variants';
