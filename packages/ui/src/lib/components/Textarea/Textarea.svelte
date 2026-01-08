@@ -31,7 +31,7 @@
         round: 'px-5 py-3',
       },
       grow: {
-        true: 'resize-none',
+        true: 'resize-none overflow-hidden',
         false: '',
       },
       roundedSize: {
@@ -59,6 +59,13 @@
       element.style.minHeight = '0';
       element.style.height = 'auto';
       element.style.height = `${element.scrollHeight}px`;
+
+      // Show scrollbar only if there is a max-height and content exceeds it
+      const maxHeight = parseFloat(getComputedStyle(element).maxHeight);
+      const hasMaxHeight = maxHeight != undefined;
+      if (hasMaxHeight && element.scrollHeight > maxHeight) {
+        element.style.overflow = 'auto';
+      }
     }
   };
 
