@@ -59,6 +59,17 @@
       element.style.minHeight = '0';
       element.style.height = 'auto';
       element.style.height = `${element.scrollHeight}px`;
+
+      // Show scrollbar only if there is a max-height and content exceeds it
+      const maxHeight = Number.parseFloat(getComputedStyle(element).maxHeight);
+      const hasMaxHeight = maxHeight !== undefined;
+      if (hasMaxHeight && element.scrollHeight > maxHeight) {
+        element.style.overflow = 'auto';
+      } else if (hasMaxHeight && element.scrollHeight <= maxHeight) {
+        element.style.overflow = 'hidden';
+      } else {
+        element.style.overflow = '';
+      }
     }
   };
 
