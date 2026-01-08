@@ -12,6 +12,16 @@
   <Field label="Required" required="indicator">
     <Textarea />
   </Field>
+  <Field label="Scrollbar example" description="Show scrollbar when content exceed max-height">
+    <Textarea
+      placeholder="Maximum height is set to 120px"
+      class="focus:border-immich-primary dark:focus:border-immich-dark-primary max-h-30 resize-none border-b border-gray-500 bg-transparent ring-0 outline-none focus:border-b-2 focus:ring-0 dark:bg-transparent"
+      rows={1}
+      grow
+      shape="rectangle"
+    />
+  </Field>
+
   <Field label="Disabled" disabled>
     <Textarea />
   </Field>
