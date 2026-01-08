@@ -65,6 +65,10 @@
       const hasMaxHeight = maxHeight != undefined;
       if (hasMaxHeight && element.scrollHeight > maxHeight) {
         element.style.overflow = 'auto';
+      } else if (hasMaxHeight && element.scrollHeight <= maxHeight) {
+        element.style.overflow = 'hidden';
+      } else {
+        element.style.overflow = '';
       }
     }
   };
