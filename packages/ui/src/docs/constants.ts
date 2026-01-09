@@ -92,6 +92,7 @@ export const componentGroups = [
       { name: 'Alert', icon: mdiAlertCircleOutline, activeIcon: mdiAlertCircle },
       { name: 'AnnouncementBanner', icon: mdiBullhornVariantOutline, activeIcon: mdiBullhornVariant },
       { name: 'AppShell', icon: mdiApplicationOutline, activeIcon: mdiApplication },
+      { name: 'BasicModal', icon: mdiWindowMaximize },
       { name: 'Breadcrumbs', icon: mdiChevronRight },
       { name: 'Card', icon: mdiCardOutline, activeIcon: mdiCard },
       { name: 'ConfirmModal', icon: mdiCheckboxOutline },
