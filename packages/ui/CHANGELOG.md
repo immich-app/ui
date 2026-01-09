@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.56.1 (2026-01-09)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+## What's Changed
+### 🐛 Bug fixes
+* fix: on close by @jrasm91 in https://github.com/immich-app/ui/pull/509
+
+
+**Full Changelog**: https://github.com/immich-app/ui/compare/ui-v0.56.0...ui-v0.56.1
+
 ## 0.56.0 (2026-01-09)
 
 <!-- Release notes generated using configuration in .github/release.yml at main -->
