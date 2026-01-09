@@ -11,13 +11,12 @@
   interface Props {
     title?: string;
     icon?: string | boolean;
-    prompt?: string;
+    prompt?: string | Snippet;
     confirmText?: string;
     confirmColor?: Color;
     disabled?: boolean;
     size?: ModalSize;
     onClose: (confirmed: boolean) => void;
-    promptSnippet?: Snippet;
   }
 
   let {
@@ -29,7 +28,6 @@
     disabled = false,
     size = 'small',
     onClose,
-    promptSnippet,
   }: Props = $props();
 
   const handleConfirm = () => {
@@ -39,8 +37,10 @@
 
 <Modal {title} onClose={() => onClose(false)} {size} {icon}>
   <ModalBody>
-    {#if promptSnippet}{@render promptSnippet()}{:else}
+    {#if typeof prompt === 'string'}
       <p>{prompt}</p>
+    {:else}
+      {@render prompt()}
     {/if}
   </ModalBody>
 
