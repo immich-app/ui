@@ -18,8 +18,9 @@
     size?: ModalSize;
     preventDefault?: boolean;
     onClose: () => void;
+    onReset?: (event: Event) => void;
     onSubmit: (event: SubmitEvent) => void;
-    children: Snippet;
+    children: Snippet<[{ formId: string }]>;
   };
 
   let {
@@ -31,6 +32,7 @@
     size = 'small',
     preventDefault = true,
     onClose = () => {},
+    onReset,
     onSubmit,
     children,
   }: Props = $props();
@@ -43,13 +45,21 @@
     onSubmit(event);
   };
 
+  const onreset = (event: Event) => {
+    if (preventDefault) {
+      event.preventDefault();
+    }
+
+    onReset?.(event);
+  };
+
   const formId = generateId();
 </script>
 
 <Modal {title} {onClose} {size} {icon}>
   <ModalBody>
-    <form {onsubmit} id={formId}>
-      {@render children()}
+    <form {onsubmit} {onreset} id={formId}>
+      {@render children({ formId })}
     </form>
   </ModalBody>
   <ModalFooter>
