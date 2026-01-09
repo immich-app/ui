@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.56.0 (2026-01-09)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+## What's Changed
+### 🌟 Enhancements
+* feat: remove prompt snippet by @jrasm91 in https://github.com/immich-app/ui/pull/506
+* feat: add cancel text property by @jrasm91 in https://github.com/immich-app/ui/pull/508
+
+
+**Full Changelog**: https://github.com/immich-app/ui/compare/ui-v0.55.0...ui-v0.56.0
+
 ## 0.55.0 (2026-01-09)
 
 <!-- Release notes generated using configuration in .github/release.yml at main -->
