@@ -8,11 +8,12 @@
 
 {#if isOpen}
   <ConfirmModal
+    confirmColor="primary"
     onClose={() => {
       isOpen = false;
     }}
   >
-    {#snippet promptSnippet()}
+    {#snippet prompt()}
       <Link href="https://immich.store">Support Immich!</Link>
     {/snippet}
   </ConfirmModal>
