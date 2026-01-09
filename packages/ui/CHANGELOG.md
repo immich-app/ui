@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.55.0 (2026-01-09)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+## What's Changed
+### 🚀 Features
+* feat: basic modal by @jrasm91 in https://github.com/immich-app/ui/pull/505
+### 🌟 Enhancements
+* feat: form onreset support by @jrasm91 in https://github.com/immich-app/ui/pull/504
+
+
+**Full Changelog**: https://github.com/immich-app/ui/compare/ui-v0.54.0...ui-v0.55.0
+
 ## 0.54.0 (2026-01-08)
 
 <!-- Release notes generated using configuration in .github/release.yml at main -->
