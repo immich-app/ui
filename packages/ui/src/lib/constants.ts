@@ -12,6 +12,10 @@ export enum ChildKey {
   ModalHeader = 'modal-header',
   ModalBody = 'modal-body',
   ModalFooter = 'modal-footer',
+  Table = 'table',
+  TableHeader = 'table-header',
+  TableBody = 'table-body',
+  TableFooter = 'table-footer',
 }
 
 export const zIndex = {
