@@ -14,6 +14,8 @@
     icon?: string | boolean;
     submitText?: string;
     submitColor?: Color;
+    cancelText?: string;
+    cancelColor?: Color;
     disabled?: boolean;
     size?: ModalSize;
     preventDefault?: boolean;
@@ -28,6 +30,8 @@
     icon,
     submitText = t('save'),
     submitColor = 'primary',
+    cancelText = t('cancel'),
+    cancelColor = 'secondary',
     disabled = false,
     size = 'small',
     preventDefault = true,
@@ -64,8 +68,8 @@
   </ModalBody>
   <ModalFooter>
     <HStack fullWidth>
-      <Button shape="round" color="secondary" fullWidth onclick={onClose}>
-        {t('cancel')}
+      <Button shape="round" color={cancelColor} fullWidth onclick={onClose}>
+        {cancelText}
       </Button>
       <Button shape="round" type="submit" tabindex={1} color={submitColor} fullWidth {disabled} form={formId}>
         {submitText}
