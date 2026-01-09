@@ -68,7 +68,7 @@
   </ModalBody>
   <ModalFooter>
     <HStack fullWidth>
-      <Button shape="round" color={cancelColor} fullWidth onclick={onClose}>
+      <Button shape="round" color={cancelColor} fullWidth onclick={() => onClose()}>
         {cancelText}
       </Button>
       <Button shape="round" type="submit" tabindex={1} color={submitColor} fullWidth {disabled} form={formId}>
