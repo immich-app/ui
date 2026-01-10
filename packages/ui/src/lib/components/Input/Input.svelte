@@ -12,7 +12,7 @@
     ref = $bindable(null),
     containerRef = $bindable(null),
     shape = 'semi-round',
-    size = 'medium',
+    size: initialSize,
     class: className,
     value = $bindable<string>(),
     leadingIcon,
@@ -22,7 +22,10 @@
     ...restProps
   }: InputProps = $props();
 
-  const { label, description, readOnly, required, invalid, disabled, ...labelProps } = $derived(getFieldContext());
+  const context = getFieldContext();
+
+  const { label, description, readOnly, required, invalid, disabled, ...labelProps } = $derived(context());
+  const size = $derived(labelProps.size ?? initialSize ?? 'medium');
 
   const iconStyles = tv({
     base: 'flex shrink-0 items-center justify-center',

@@ -23,7 +23,7 @@
   let {
     data,
     shape,
-    size = 'medium',
+    size: initialSize,
     multiple = false,
     values = $bindable([]),
     onChange,
@@ -45,7 +45,9 @@
 
   const options = $derived(asOptions(data));
 
-  const { readOnly, required, invalid, disabled, label, ...labelProps } = $derived(getFieldContext());
+  const context = getFieldContext();
+  const { readOnly, required, invalid, disabled, label, ...labelProps } = $derived(context());
+  const size = $derived(labelProps.size ?? initialSize ?? 'medium');
 
   const id = generateId();
   const inputId = `input-${id}`;
