@@ -45,7 +45,8 @@
 
   const options = $derived(asOptions(data));
 
-  const { readOnly, required, invalid, disabled, label, ...labelProps } = $derived(getFieldContext());
+  const context = getFieldContext();
+  const { readOnly, required, invalid, disabled, label, ...labelProps } = $derived(context());
 
   const id = generateId();
   const inputId = `input-${id}`;
