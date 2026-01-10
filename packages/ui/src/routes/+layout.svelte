@@ -3,8 +3,11 @@
   import { page } from '$app/state';
   import Navbar from '$docs/components/Navbar.svelte';
   import { componentGroups } from '$docs/constants.js';
+  import { Font, initializeFont, setFont, uiFont } from '$docs/font.svelte.js';
   import { asComponentHref } from '$docs/utilities.js';
   import CommandPaletteDefaultProvider from '$lib/components/CommandPalette/CommandPaletteDefaultProvider.svelte';
+  import Label from '$lib/components/Label/Label.svelte';
+  import Stack from '$lib/components/Stack/Stack.svelte';
   import '$lib/theme/default.css';
   import {
     AppShell,
@@ -12,11 +15,14 @@
     AppShellSidebar,
     asText,
     commandPaletteManager,
+    Field,
+    FormModal,
     Icon,
     IconButton,
     initializeTheme,
     NavbarGroup,
     NavbarItem,
+    Select,
     siteCommands,
     SiteFooter,
     Text,
@@ -26,12 +32,14 @@
     toggleTheme,
     TooltipProvider,
     type ActionItem,
+    type SelectItem,
   } from '@immich/ui';
-  import { mdiHome, mdiHomeOutline, mdiMagnify, mdiThemeLightDark } from '@mdi/js';
+  import { mdiCog, mdiHome, mdiHomeOutline, mdiMagnify, mdiThemeLightDark } from '@mdi/js';
   import { MediaQuery } from 'svelte/reactivity';
   import '../app.css';
 
   initializeTheme();
+  initializeFont();
 
   let { children } = $props();
 
@@ -44,7 +52,7 @@
     }
   });
 
-  toastManager.setOptions({ class: 'top-[58px]' });
+  toastManager.setOptions({ class: 'top-14.5' });
 
   const commands: ActionItem[] = [...siteCommands];
 
@@ -85,6 +93,21 @@
   commandPaletteManager.setTranslations({
     command_palette_prompt_default: 'Quickly find components, links, and commands',
   });
+
+  let isPreferenceModalOpen = $state(false);
+
+  const fontOptions: SelectItem[] = [
+    { value: Font.Immich, label: 'Immich (Google Sans)' },
+    { value: Font.System, label: 'System Font' },
+  ];
+
+  const getCurrentFont = () => fontOptions.find((f) => f.value === uiFont) ?? fontOptions[0];
+  let selectedFont = $state(getCurrentFont());
+
+  const handleFontChange = (item: SelectItem) => {
+    setFont(item.value as Font);
+    selectedFont = item;
+  };
 </script>
 
 <TooltipProvider>
@@ -112,7 +135,16 @@
             onclick={() => commandPaletteManager.open()}
           />
         {/if}
-        <ThemeSwitcher size="medium" />
+
+        <IconButton
+          shape="round"
+          color="secondary"
+          variant="ghost"
+          size="medium"
+          aria-label="Preferences"
+          icon={mdiCog}
+          onclick={() => (isPreferenceModalOpen = true)}
+        />
       </Navbar>
     </AppShellHeader>
 
@@ -150,4 +182,25 @@
   </AppShell>
 
   <CommandPaletteDefaultProvider actions={commands} name="General" />
+
+  {#if isPreferenceModalOpen}
+    <FormModal
+      title="Preferences"
+      icon={mdiCog}
+      onClose={() => (isPreferenceModalOpen = false)}
+      onSubmit={() => (isPreferenceModalOpen = false)}
+      submitText="Done"
+      cancelText="Close"
+    >
+      <Stack gap={6}>
+        <Label label="Theme">
+          <ThemeSwitcher size="medium" />
+        </Label>
+
+        <Field label="Font">
+          <Select data={fontOptions} value={selectedFont} onChange={handleFontChange} placeholder="Select font" />
+        </Field>
+      </Stack>
+    </FormModal>
+  {/if}
 </TooltipProvider>

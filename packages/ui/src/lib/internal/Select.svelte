@@ -8,7 +8,7 @@
   import { zIndex } from '$lib/constants.js';
   import type { SelectCommonProps, SelectItem } from '$lib/types.js';
   import { cleanClass, generateId } from '$lib/utilities/internal.js';
-  import { mdiArrowDown, mdiArrowUp, mdiCheck, mdiUnfoldMoreHorizontal } from '@mdi/js';
+  import { mdiArrowDown, mdiArrowUp, mdiCheck, mdiChevronDown } from '@mdi/js';
   import { Select } from 'bits-ui';
 
   type T = SelectItem;
@@ -104,9 +104,8 @@
               variant="ghost"
               shape="round"
               color="secondary"
-              size="tiny"
               class="m-1"
-              icon={mdiUnfoldMoreHorizontal}
+              icon={mdiChevronDown}
               {disabled}
               aria-label="Expand"
             />
