@@ -29,11 +29,12 @@
     date = $bindable<DateValue | undefined>(undefined),
     class: className,
     shape = 'semi-round',
-    size = 'small',
+    size: initialSize,
   }: Props = $props();
 
   const context = getFieldContext();
   const { readOnly, required, invalid, disabled, label, ...labelProps } = $derived(context());
+  const size = $derived(labelProps.size ?? initialSize ?? 'small');
 
   const id = generateId();
   const inputId = `datepicker-${id}`;

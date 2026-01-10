@@ -72,8 +72,8 @@
     },
   });
 
-  const inputId = `input-${id}`;
-  const labelId = `label-${id}`;
+  const inputId = $derived(`input-${id}`);
+  const labelId = $derived(`label-${id}`);
   const descriptionId = $derived(description ? `description-${id}` : undefined);
 </script>
 
