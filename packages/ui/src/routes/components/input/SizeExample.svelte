@@ -1,12 +1,14 @@
 <script>
   import ComponentSizes from '$docs/components/ComponentSizes.svelte';
-  import { Stack, Input } from '@immich/ui';
+  import { Field, Input, Stack } from '@immich/ui';
 </script>
 
 <Stack>
   <ComponentSizes>
     {#snippet child({ size, label })}
-      <Input placeholder={label} {size} />
+      <Field {size} {label}>
+        <Input placeholder={label} />
+      </Field>
     {/snippet}
   </ComponentSizes>
 </Stack>

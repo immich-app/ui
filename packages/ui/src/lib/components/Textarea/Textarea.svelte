@@ -13,7 +13,7 @@
     ref = $bindable(null),
     containerRef = $bindable(null),
     shape = 'semi-round',
-    size = 'medium',
+    size: initialSize,
     class: className,
     grow,
     value = $bindable<string>(),
@@ -22,6 +22,7 @@
 
   const context = getFieldContext();
   const { label, description, readOnly, required, invalid, disabled, ...labelProps } = $derived(context());
+  const size = $derived(initialSize ?? labelProps.size ?? 'small');
 
   const styles = tv({
     base: 'focus-within:ring-primary dark:focus-within:ring-primary w-full bg-gray-100 ring-1 ring-gray-200 outline-none focus-within:ring-1 disabled:cursor-not-allowed disabled:bg-gray-300 disabled:text-gray-400 dark:bg-gray-800 dark:ring-black dark:disabled:bg-gray-800 dark:disabled:text-gray-200',
@@ -84,7 +85,7 @@
 
 <div class="flex w-full flex-col gap-1" bind:this={containerRef}>
   {#if label}
-    <Label id={labelId} for={inputId} {label} requiredIndicator={required === 'indicator'} {...labelProps} />
+    <Label id={labelId} for={inputId} {label} requiredIndicator={required === 'indicator'} {...labelProps} {size} />
   {/if}
 
   {#if description}

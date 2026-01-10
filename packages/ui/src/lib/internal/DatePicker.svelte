@@ -29,11 +29,12 @@
     date = $bindable<DateValue | undefined>(undefined),
     class: className,
     shape = 'semi-round',
-    size = 'small',
+    size: initialSize,
   }: Props = $props();
 
   const context = getFieldContext();
   const { readOnly, required, invalid, disabled, label, ...labelProps } = $derived(context());
+  const size = $derived(initialSize ?? labelProps.size ?? 'small');
 
   const id = generateId();
   const inputId = `datepicker-${id}`;
@@ -65,7 +66,7 @@
 
 <div class={cleanClass('flex w-full flex-col gap-1', className)}>
   {#if label}
-    <Label id={labelId} for={inputId} {label} requiredIndicator={required === 'indicator'} {...labelProps} />
+    <Label id={labelId} for={inputId} {label} requiredIndicator={required === 'indicator'} {...labelProps} {size} />
   {/if}
 
   <DatePicker.Root

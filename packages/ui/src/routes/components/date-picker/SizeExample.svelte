@@ -6,8 +6,8 @@
 <Stack gap={4} class="max-w-[250px]">
   <ComponentSizes>
     {#snippet child({ size, label })}
-      <Field {label}>
-        <DatePicker {size} />
+      <Field {size} {label}>
+        <DatePicker />
       </Field>
     {/snippet}
   </ComponentSizes>
