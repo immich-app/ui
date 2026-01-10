@@ -13,7 +13,7 @@
   import stackedExample from './StackedExample.svelte?raw';
 </script>
 
-<ComponentPage name="Logo">
+<ComponentPage name="Logo" description="A component for displaying various versions of the Immich logo">
   <ComponentExamples
     examples={[
       { title: 'Size', code: sizeExample, component: SizeExample },

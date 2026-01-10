@@ -12,7 +12,7 @@
   import variantExample from './VariantExample.svelte?raw';
 </script>
 
-<ComponentPage name="Navbar">
+<ComponentPage name="Navbar" description="A component for creating navigation items in a sidebar">
   <ComponentDescription
     >This component exports a NavbarItem for creating navigation menus. This is usually used in conjunction with the <Link
       href={asComponentHref('AppShell')}>AppSidebar</Link

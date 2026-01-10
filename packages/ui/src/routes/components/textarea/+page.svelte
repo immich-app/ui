@@ -13,7 +13,7 @@
   import sizeExample from './SizeExample.svelte?raw';
 </script>
 
-<ComponentPage name="Textarea">
+<ComponentPage name="Textarea" description="A multi-line text input field with auto grow/shrink functionality">
   <ComponentFieldCard />
   <ComponentTipCard>
     <Text>See <ComponentLink name="Input" /> for single-line input fields</Text>

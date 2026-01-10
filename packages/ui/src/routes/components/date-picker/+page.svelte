@@ -11,7 +11,7 @@
   import validationExample from './ValidationExample.svelte?raw';
 </script>
 
-<ComponentPage name="DatePicker">
+<ComponentPage name="DatePicker" description="A component for selecting dates from a calendar interface">
   <ComponentExamples examples={[{ title: 'Basic', code: basicExample, component: BasicExample }]} />
   <ComponentExamples examples={[{ title: 'Size', code: sizeExample, component: SizeExample }]} />
   <ComponentExamples examples={[{ title: 'Validation', code: validationExample, component: ValidationExample }]} />

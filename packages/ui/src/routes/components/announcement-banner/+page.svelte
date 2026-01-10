@@ -11,7 +11,7 @@
   import sizeExample from './SizeExample.svelte?raw';
 </script>
 
-<ComponentPage name="Banner" description="A banner component to display important messages across the top of the page.">
+<ComponentPage name="Banner" description="A banner component to display important messages across the top of the page">
   <ComponentExamples
     examples={[
       { title: 'Basic', code: basicExample, component: BasicExample },

@@ -7,7 +7,11 @@
   import centerExample from './CenterExample.svelte?raw';
 </script>
 
-<ComponentPage name="Container" size="full">
+<ComponentPage
+  name="Container"
+  description="A component for containing and centering content and clamping content width"
+  size="full"
+>
   <ComponentExamples
     examples={[
       { title: 'Basic', code: basicExample, component: BasicExample },

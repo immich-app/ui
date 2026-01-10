@@ -9,7 +9,7 @@
   import sizeExample from './SizeExample.svelte?raw';
 </script>
 
-<ComponentPage name="Text">
+<ComponentPage name="Text" description="A component for displaying text with standardized sizes and styles">
   <ComponentExamples
     examples={[
       { title: 'Size', code: sizeExample, component: SizeExample },
