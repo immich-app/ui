@@ -12,6 +12,6 @@ export const withChildrenSnippets = (key: ChildKey) => {
   });
 
   return {
-    getChildren: (key: ChildKey) => map.get(key)?.(),
+    getChildren: <T>(key: ChildKey) => map.get(key)?.() as ChildData<T> | undefined,
   };
 };

@@ -105,9 +105,10 @@ type StackBaseProps = {
   fullHeight?: boolean;
 };
 
-export type ChildData = {
+export type ChildData<T = unknown> = {
   snippet: Snippet;
   class?: string;
+  props?: T;
 };
 
 export type StackProps = StackBaseProps & {
@@ -134,6 +135,13 @@ export type FieldContext = {
   required?: boolean | 'indicator';
   readOnly?: boolean;
 } & LabelProps;
+
+export type TableSpacing = Size;
+
+export type TableContext = {
+  spacing?: TableSpacing;
+  striped?: boolean;
+};
 
 type BaseInputProps<T> = {
   ref?: HTMLInputElement | null;

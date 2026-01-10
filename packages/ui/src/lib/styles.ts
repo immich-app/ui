@@ -89,4 +89,12 @@ export const styleVariants = {
     bold: 'font-bold',
     'extra-bold': 'font-extrabold',
   },
+
+  tableSpacing: {
+    tiny: '',
+    small: 'py-1',
+    medium: 'py-2',
+    large: 'py-3',
+    giant: 'py-4',
+  },
 };
