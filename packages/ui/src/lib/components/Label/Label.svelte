@@ -7,7 +7,7 @@
   const { label, size, color, class: className, children, requiredIndicator, ...restProps }: LabelProps = $props();
 
   const styles = tv({
-    base: 'font-medium',
+    base: 'text-sm font-medium',
     variants: {
       size: styleVariants.textSize,
       color: styleVariants.textColor,

@@ -28,7 +28,7 @@
   let value = $state(themes[0]);
 </script>
 
-<Stack class="mb-8 max-w-[250px]" gap={8}>
+<Stack class="mb-8 max-w-62.5" gap={8}>
   <Field label="Framework">
     <Select data={['Svelte', 'React', 'Angular']} />
   </Field>
