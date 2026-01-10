@@ -9,7 +9,7 @@
   import blogExample from './BlogExample.md?raw';
 </script>
 
-<ComponentPage name="Markdown" description="A set of components for rendering markdown content.">
+<ComponentPage name="Markdown" description="A set of components for rendering markdown content">
   <ComponentExamples examples={[{ title: 'Basic', code: basicExample, component: BasicExample }]} />
   <ComponentExamples examples={[{ title: 'Blog', code: blogExample, component: BlogExample }]} />
 </ComponentPage>

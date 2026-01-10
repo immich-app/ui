@@ -11,7 +11,10 @@
   import verticalExample from './VerticalExample.svelte?raw';
 </script>
 
-<ComponentPage name="Stack">
+<ComponentPage
+  name="Stack"
+  description="A layout component for arranging child elements in a stack, either vertically or horizontally"
+>
   <ComponentExamples
     examples={[
       { title: 'Stack', code: basicExample, component: BasicExample },

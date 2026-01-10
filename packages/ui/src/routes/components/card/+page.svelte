@@ -9,7 +9,7 @@
   import subtleExample from './SubtleExample.svelte?raw';
 </script>
 
-<ComponentPage name="Card">
+<ComponentPage name="Card" description="An elevated container used to group related content">
   <ComponentExamples
     examples={[
       { title: 'Basic', code: basicExample, component: BasicExample },

@@ -11,7 +11,7 @@
   import sizeExample from './SizeExample.svelte?raw';
 </script>
 
-<ComponentPage name="ProgressBar">
+<ComponentPage name="ProgressBar" description="A component for displaying progress of a task">
   <ComponentExamples
     examples={[
       { title: 'Animated Example', code: animatedExample, component: AnimatedExample },

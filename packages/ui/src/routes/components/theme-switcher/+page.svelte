@@ -11,7 +11,10 @@
   import variantExample from './VariantExample.svelte?raw';
 </script>
 
-<ComponentPage name="ThemeSwitcher">
+<ComponentPage
+  name="ThemeSwitcher"
+  description="A component for switching between different themes such as light and dark modes"
+>
   <ComponentExamples
     examples={[
       { title: 'Basic', code: basicExample, component: BasicExample },

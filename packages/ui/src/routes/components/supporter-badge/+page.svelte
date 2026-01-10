@@ -9,7 +9,7 @@
   import sizeExample from './SizeExample.svelte?raw';
 </script>
 
-<ComponentPage name="SupporterBadge">
+<ComponentPage name="SupporterBadge" description="A component for displaying the Immich supporter badge">
   <ComponentExamples
     examples={[
       { title: 'Effect', code: effectExample, component: EffectExample },

@@ -5,6 +5,6 @@
   import basicExample from './BasicExample.svelte?raw';
 </script>
 
-<ComponentPage name="Scrollable">
+<ComponentPage name="Scrollable" description="A component that provides a scrollable container for overflowing content">
   <ComponentExamples examples={[{ title: 'Basic', code: basicExample, component: BasicExample }]} />
 </ComponentPage>
