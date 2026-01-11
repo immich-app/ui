@@ -5,13 +5,13 @@
   import basicExample from './BasicExample.svelte?raw';
   import ColorExample from './ColorExample.svelte';
   import colorExample from './ColorExample.svelte?raw';
-  import StripedExample from './StripedExample.svelte';
-  import stripedExample from './StripedExample.svelte?raw';
   import SpacingExample from './SpacingExample.svelte';
   import spacingExample from './SpacingExample.svelte?raw';
+  import StripedExample from './StripedExample.svelte';
+  import stripedExample from './StripedExample.svelte?raw';
 </script>
 
-<ComponentPage name="Table">
+<ComponentPage name="Table" description="The Table component is used to display data in a structured tabular format">
   <ComponentExamples
     examples={[
       { title: 'Basic', code: basicExample, component: BasicExample },

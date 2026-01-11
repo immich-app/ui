@@ -10,6 +10,7 @@ export const getFieldContext = () => {
   const {
     label,
     color = 'secondary',
+    size = 'small',
     invalid = false,
     readOnly = false,
     required = false,
@@ -17,7 +18,7 @@ export const getFieldContext = () => {
     description,
   } = (getContext(fieldKey) as FieldContext) || {};
 
-  return { label, description, color, invalid, readOnly, required, disabled };
+  return { label, description, color, invalid, readOnly, required, disabled, size };
 };
 
 const tableKey = Symbol(withPrefix('table'));
