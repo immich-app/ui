@@ -12,13 +12,14 @@
     as: ChildKey;
     class?: string;
     children: Snippet;
+    props?: unknown;
   };
 
-  const { for: key, as, children, class: className }: Props = $props();
+  const { for: key, as, children, class: className, props = {} }: Props = $props();
 
   const context = getContext<ContextType>(withPrefix(key));
 
-  const data = $derived({ snippet: children, class: className });
+  const data = $derived({ snippet: children, class: className, props });
 
   if (context) {
     context.register(as, () => data);

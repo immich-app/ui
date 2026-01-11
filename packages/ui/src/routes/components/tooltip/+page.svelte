@@ -6,7 +6,7 @@
   import basicExample from './BasicExample.svelte?raw';
 </script>
 
-<ComponentPage name="Tooltip">
+<ComponentPage name="Tooltip" description="A component for displaying tooltips on hover or focus">
   <ComponentDescription>
     Displays supplementary information when users hover over or interact with an element.
   </ComponentDescription>

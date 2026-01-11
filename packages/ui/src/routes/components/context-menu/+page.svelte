@@ -7,7 +7,7 @@
   import modalExample from './ModalExample.svelte?raw';
 </script>
 
-<ComponentPage name="ContextMenu">
+<ComponentPage name="ContextMenu" description="A component for displaying context menus">
   <ComponentExamples
     examples={[
       { title: 'Basic', code: basicExample, component: BasicExample },

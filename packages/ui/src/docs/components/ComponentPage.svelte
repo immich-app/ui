@@ -7,17 +7,14 @@
 
   type Props = {
     name: string;
-    description?: string;
+    description: string;
     size?: ContainerSize;
     children?: Snippet;
   };
 
   const { size = 'medium', name, description, children }: Props = $props();
 
-  const page = {
-    title: name,
-    description: description || `The <code>${name}</code> component`,
-  };
+  const page = $derived({ title: name, description });
 </script>
 
 <SiteMetadata site={siteMetadata} {page} />
@@ -30,9 +27,9 @@
   />
 
   <Container {size} class="flex flex-col p-4">
-    <Heading tag="h1" size="large">{name}</Heading>
-    {#if description}
-      <ComponentDescription>{description}</ComponentDescription>
+    <Heading tag="h1" size="large">{page.title}</Heading>
+    {#if page.description}
+      <ComponentDescription>{page.description}</ComponentDescription>
     {/if}
     {@render children?.()}
   </Container>

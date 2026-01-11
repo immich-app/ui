@@ -21,7 +21,7 @@
   import sizeExample from './SizeExample.svelte?raw';
 </script>
 
-<ComponentPage name="IconButton">
+<ComponentPage name="IconButton" description="An icon-only version of the Button component">
   <ComponentDescription>An icon-only version of the <ComponentLink name="Button" /> component</ComponentDescription>
   <ComponentExamples
     examples={[

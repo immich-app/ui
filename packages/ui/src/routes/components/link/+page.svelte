@@ -5,6 +5,6 @@
   import basicExample from './BasicExample.svelte?raw';
 </script>
 
-<ComponentPage name="Link">
+<ComponentPage name="Link" description="A component for displaying links for both internal and external navigation">
   <ComponentExamples examples={[{ title: 'Basic', code: basicExample, component: BasicExample }]} />
 </ComponentPage>

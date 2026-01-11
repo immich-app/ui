@@ -7,7 +7,10 @@
   import sizeExample from './SizeExample.svelte?raw';
 </script>
 
-<ComponentPage name="LoadingSpinner">
+<ComponentPage
+  name="LoadingSpinner"
+  description="A component to display a spinner while waiting for an action to complete"
+>
   <ComponentExamples
     examples={[
       { title: 'Sizes', code: sizeExample, component: SizeExample },

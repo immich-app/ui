@@ -19,7 +19,7 @@
   import sizeExample from './SizeExample.svelte?raw';
 </script>
 
-<ComponentPage name="Modal">
+<ComponentPage name="Modal" description="A component for displaying content in a modal dialog">
   <ComponentNoteCard>
     <Text>Modals are always screen width and height on small devices</Text>
   </ComponentNoteCard>
