@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.57.0 (2026-01-11)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+## What's Changed
+### 🚀 Features
+* feat: tables by @jrasm91 in https://github.com/immich-app/ui/pull/511
+
+
+**Full Changelog**: https://github.com/immich-app/ui/compare/ui-v0.56.1...ui-v0.57.0
+
 ## 0.56.1 (2026-01-09)
 
 <!-- Release notes generated using configuration in .github/release.yml at main -->
