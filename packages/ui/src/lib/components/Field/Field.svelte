@@ -13,9 +13,9 @@
 
   const { class: className, children, ...props }: Props = $props();
 
-  const state = $state(props);
+  const state = $derived(props);
 
-  setFieldContext(state);
+  setFieldContext(() => state);
 
   const { getChildren: getChildSnippet } = withChildrenSnippets(ChildKey.Field);
   const helperTextChildren = $derived(getChildSnippet(ChildKey.HelperText));

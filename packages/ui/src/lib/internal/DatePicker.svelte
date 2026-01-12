@@ -32,7 +32,8 @@
     size = 'small',
   }: Props = $props();
 
-  const { readOnly, required, invalid, disabled, label, ...labelProps } = $derived(getFieldContext());
+  const context = getFieldContext();
+  const { readOnly, required, invalid, disabled, label, ...labelProps } = $derived(context());
 
   const id = generateId();
   const inputId = `datepicker-${id}`;
