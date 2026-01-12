@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.57.1 (2026-01-12)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+## What's Changed
+### 🐛 Bug fixes
+* fix: field context by @jrasm91 in https://github.com/immich-app/ui/pull/514
+
+
+**Full Changelog**: https://github.com/immich-app/ui/compare/ui-v0.57.0...ui-v0.57.1
+
 ## 0.57.0 (2026-01-11)
 
 <!-- Release notes generated using configuration in .github/release.yml at main -->
