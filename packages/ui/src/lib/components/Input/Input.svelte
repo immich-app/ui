@@ -49,11 +49,15 @@
         true: 'focus-within:ring-danger dark:focus-within:ring-danger dark:ring-danger-300 ring-danger-300 ring-1',
         false: '',
       },
+      disabled: {
+        true: 'bg-light-300 dark:bg-gray-900',
+        false: '',
+      },
     },
   });
 
   const inputStyles = tv({
-    base: cleanClass(styleVariants.inputCommon, 'flex-1 py-2.5'),
+    base: cleanClass(styleVariants.inputCommon, 'w-full flex-1 py-2.5'),
     variants: {
       textSize: styleVariants.textSize,
       leadingPadding: {
@@ -89,7 +93,7 @@
   const descriptionId = $derived(description ? `description-${id}` : undefined);
 </script>
 
-<div class="flex w-full flex-col gap-1" bind:this={containerRef}>
+<div class="flex w-full flex-col gap-1">
   {#if label}
     <Label id={labelId} for={inputId} {label} requiredIndicator={required === 'indicator'} {...labelProps} {size} />
   {/if}
@@ -99,8 +103,10 @@
   {/if}
 
   <div
+    bind:this={containerRef}
     class={cleanClass(
       containerStyles({
+        disabled,
         shape,
         roundedSize: shape === 'semi-round' ? size : undefined,
         invalid,

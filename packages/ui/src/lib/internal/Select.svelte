@@ -1,15 +1,14 @@
 <script lang="ts">
   import { getFieldContext } from '$lib/common/context.svelte.js';
-  import Field from '$lib/components/Field/Field.svelte';
   import Icon from '$lib/components/Icon/Icon.svelte';
   import IconButton from '$lib/components/IconButton/IconButton.svelte';
   import Input from '$lib/components/Input/Input.svelte';
-  import Label from '$lib/components/Label/Label.svelte';
   import { zIndex } from '$lib/constants.js';
   import type { SelectCommonProps, SelectItem } from '$lib/types.js';
-  import { cleanClass, generateId } from '$lib/utilities/internal.js';
-  import { mdiArrowDown, mdiArrowUp, mdiCheck, mdiUnfoldMoreHorizontal } from '@mdi/js';
+  import { cleanClass } from '$lib/utilities/internal.js';
+  import { mdiArrowDown, mdiArrowUp, mdiCheck, mdiChevronDown } from '@mdi/js';
   import { Select } from 'bits-ui';
+  import { tv } from 'tailwind-variants';
 
   type T = SelectItem;
 
@@ -46,16 +45,22 @@
   const options = $derived(asOptions(data));
 
   const context = getFieldContext();
-  const { readOnly, required, invalid, disabled, label, ...labelProps } = $derived(context());
+  const { invalid, disabled, ...labelProps } = $derived(context());
   const size = $derived(initialSize ?? labelProps.size ?? 'small');
-
-  const id = generateId();
-  const inputId = `input-${id}`;
-  const labelId = `label-${id}`;
 
   const selectedLabel = $derived(asLabel(values));
 
-  let inputRef = $state<HTMLElement | null>(null);
+  const triggerStyles = tv({
+    base: 'w-full gap-1 rounded-lg py-0 text-start focus-visible:outline-none',
+    variants: {
+      invalid: {
+        true: 'border-danger border',
+        false: '',
+      },
+    },
+  });
+
+  let inputRef = $state<HTMLInputElement | null>(null);
   let contentRef = $state<HTMLElement | null>(null);
   let ref = $state<HTMLElement | null>(null);
 
@@ -79,48 +84,37 @@
 </script>
 
 <div class={cleanClass('flex flex-col gap-1', className)} bind:this={ref}>
-  {#if label}
-    <Label id={labelId} for={inputId} {label} requiredIndicator={required === 'indicator'} {...labelProps} {size} />
-  {/if}
-
   <Select.Root type={multiple ? 'multiple' : 'single'} bind:value={internalValue as never} {onValueChange}>
-    <Select.Trigger
-      {disabled}
-      class="w-full items-center gap-1 rounded-lg py-0 focus-visible:outline-none"
-      aria-label={placeholder}
-    >
-      <Field {readOnly} {required} {disabled} {invalid}>
-        <Input
-          bind:containerRef={inputRef}
-          id={inputId}
-          {size}
-          {shape}
-          {placeholder}
-          value={selectedLabel}
-          readonly
-          aria-labelledby={labelId}
-          aria-readonly
-        >
-          {#snippet trailingIcon()}
-            <IconButton
-              variant="ghost"
-              shape="round"
-              color="secondary"
-              size="tiny"
-              class="m-1"
-              icon={mdiUnfoldMoreHorizontal}
-              {disabled}
-              aria-label="Expand"
-            />
-          {/snippet}
-        </Input>
-      </Field>
+    <Select.Trigger {disabled} class={cleanClass(triggerStyles({ invalid: false }))} aria-label={placeholder}>
+      <Input
+        bind:containerRef={inputRef}
+        {size}
+        {shape}
+        {placeholder}
+        value={selectedLabel}
+        readonly
+        class={cleanClass('text-start', invalid && 'border-danger')}
+      >
+        {#snippet trailingIcon()}
+          <IconButton
+            variant="ghost"
+            shape="round"
+            color="secondary"
+            size="tiny"
+            class="m-1"
+            icon={mdiChevronDown}
+            {disabled}
+            aria-label="Expand"
+          />
+        {/snippet}
+      </Input>
     </Select.Trigger>
     <Select.Portal>
       <Select.Content
         bind:ref={contentRef}
-        class="bg-light text-dark max-h-96 rounded-xl border py-3 outline-none select-none {zIndex.SelectDropdown}"
-        sideOffset={10}
+        class="text-dark dark:bg-primary-100 bg-light-100 max-h-96 rounded-xl border py-3 outline-none select-none {zIndex.SelectDropdown}"
+        customAnchor={inputRef}
+        sideOffset={4}
       >
         <Select.ScrollUpButton class="flex w-full items-center justify-center">
           <Icon icon={mdiArrowUp} />
@@ -129,7 +123,7 @@
           {#each options as { value, label, disabled }, i (i + value)}
             <Select.Item
               class={cleanClass(
-                'hover:bg-subtle data-selected:bg-primary/10 flex h-10 w-full items-center px-5 py-3 text-sm duration-75 outline-none select-none data-disabled:opacity-50',
+                'hover:bg-light-200 hover:dark:bg-primary-200 data-selected:bg-light-200 dark:data-selected:bg-primary-200 flex h-10 w-full items-center px-5 py-3 text-sm duration-75 outline-none select-none data-disabled:opacity-50',
                 disabled ? 'cursor-not-allowed' : 'cursor-pointer',
               )}
               {value}
