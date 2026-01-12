@@ -1,24 +1,26 @@
 import type { FieldContext, TableContext } from '$lib/types.js';
 import { withPrefix } from '$lib/utilities/internal.js';
-import { getContext, hasContext, setContext } from 'svelte';
+import { getContext, setContext } from 'svelte';
 
 const fieldKey = Symbol(withPrefix('field'));
 
-export const setFieldContext = (context: FieldContext) => setContext(fieldKey, context);
-export const hasFieldContext = (): boolean => hasContext(fieldKey);
+export const setFieldContext = (context: () => FieldContext) => setContext(fieldKey, context);
 export const getFieldContext = () => {
-  const {
-    label,
-    color = 'secondary',
-    size = 'small',
-    invalid = false,
-    readOnly = false,
-    required = false,
-    disabled = false,
-    description,
-  } = (getContext(fieldKey) as FieldContext) || {};
+  return () => {
+    const context = getContext(fieldKey) as undefined | (() => FieldContext);
+    const {
+      label,
+      color = 'secondary',
+      size = 'small',
+      invalid = false,
+      readOnly = false,
+      required = false,
+      disabled = false,
+      description,
+    } = context?.() || {};
 
-  return { label, description, color, invalid, readOnly, required, disabled, size };
+    return { label, description, color, size, invalid, readOnly, required, disabled };
+  };
 };
 
 const tableKey = Symbol(withPrefix('table'));
