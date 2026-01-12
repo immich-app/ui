@@ -26,11 +26,29 @@
   ];
 
   let value = $state(themes[0]);
+
+  const frameworks = [
+    { label: 'Svelte', value: 'svelte' },
+    { label: 'React', value: 'react' },
+    { label: 'Angular', value: 'angular' },
+  ];
+
+  let invalidItem = $state<SelectItem>(frameworks[2]);
 </script>
 
 <Stack class="mb-8 max-w-62.5" gap={8}>
   <Field label="Framework">
     <Select data={['Svelte', 'React', 'Angular']} />
+  </Field>
+
+  <div class="w-1/2">
+    <Field label="Framework">
+      <Select data={['Svelte', 'React', 'Angular']} />
+    </Field>
+  </div>
+
+  <Field label="Framework" invalid={invalidItem.value === 'angular'}>
+    <Select data={frameworks} bind:value={invalidItem} />
   </Field>
 
   <Field label="Label">
