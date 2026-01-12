@@ -5,6 +5,8 @@
   import basicExample from './BasicExample.svelte?raw';
   import ColorExample from './ColorExample.svelte';
   import colorExample from './ColorExample.svelte?raw';
+  import SizeExample from './SizeExample.svelte';
+  import sizeExample from './SizeExample.svelte?raw';
   import SpacingExample from './SpacingExample.svelte';
   import spacingExample from './SpacingExample.svelte?raw';
   import StripedExample from './StripedExample.svelte';
@@ -18,6 +20,7 @@
       { title: 'Striped', code: stripedExample, component: StripedExample },
       { title: 'Color', code: colorExample, component: ColorExample },
       { title: 'Spacing', code: spacingExample, component: SpacingExample },
+      { title: 'Size', code: sizeExample, component: SizeExample },
     ]}
   />
 </ComponentPage>

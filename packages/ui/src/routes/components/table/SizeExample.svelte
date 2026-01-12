@@ -12,7 +12,7 @@
 <ComponentSizes>
   {#snippet child({ label, size })}
     <Heading size="small" fontWeight="bold" class="mt-6 mb-2">{label}</Heading>
-    <Table striped spacing={size}>
+    <Table striped {size}>
       <TableHeader>
         <TableHeading>Name</TableHeading>
         <TableHeading>Nickname</TableHeading>

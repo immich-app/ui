@@ -11,13 +11,26 @@
   type Props = {
     class?: string;
     ref?: HTMLTableElement | null;
+    rounded?: boolean;
+    shape?: 'semi-round' | 'rectangle';
+    border?: boolean;
     children?: Snippet;
   } & TableContext &
     Omit<HTMLAttributes<HTMLTableElement>, 'color' | 'size'>;
 
-  let { ref = $bindable(null), class: className, striped = false, spacing, children, ...restProps }: Props = $props();
+  let {
+    ref = $bindable(null),
+    class: className,
+    size,
+    striped = false,
+    spacing,
+    border = true,
+    shape = 'semi-round',
+    children,
+    ...restProps
+  }: Props = $props();
 
-  setTableContext(() => ({ spacing, striped }));
+  setTableContext(() => ({ spacing, striped, size }));
 
   const { getChildren: getChildSnippet } = withChildrenSnippets(ChildKey.Table);
   const headerChild = $derived(getChildSnippet(ChildKey.TableHeader));
@@ -28,13 +41,31 @@
     base: 'bg-dark-900 flex w-full place-items-center',
     variants: {
       spacing: styleVariants.tableSpacing,
+      shape: {
+        'semi-round': 'rounded-md',
+        rectangle: 'rounded-none',
+      },
+    },
+  });
+
+  const commonStyles = tv({
+    base: '',
+    variants: {
+      shape: {
+        'semi-round': 'rounded-md',
+        rectangle: 'rounded-none',
+      },
+      border: {
+        true: 'border',
+        false: '',
+      },
     },
   });
 </script>
 
 <table bind:this={ref} class={cleanClass('w-full text-center', className)} {...restProps}>
   {#if headerChild}
-    <thead class="text-primary mb-4 flex w-full overflow-hidden rounded-md border">
+    <thead class={cleanClass('text-primary mb-4 flex w-full overflow-hidden', commonStyles({ shape, border }))}>
       <tr class={headerRowStyles({ spacing })}>
         {@render headerChild?.snippet()}
       </tr>
@@ -42,7 +73,7 @@
   {/if}
 
   {#if bodyChild}
-    <tbody class={cleanClass('block w-full overflow-y-auto rounded-md border', bodyChild.class)}>
+    <tbody class={cleanClass('block w-full overflow-y-auto', bodyChild.class, commonStyles({ shape, border }))}>
       {@render bodyChild?.snippet()}
     </tbody>
   {/if}
@@ -51,7 +82,12 @@
 </table>
 
 {#if footerChild}
-  <div class="text-primary bg-subtle mt-4 flex h-12 w-full place-items-center rounded-md border p-4">
+  <div
+    class={cleanClass(
+      'text-primary bg-subtle mt-4 flex h-12 w-full place-items-center p-4',
+      commonStyles({ shape, border }),
+    )}
+  >
     {@render footerChild?.snippet()}
   </div>
 {/if}

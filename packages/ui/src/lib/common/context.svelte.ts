@@ -29,7 +29,7 @@ export const setTableContext = (context: () => TableContext) => setContext(table
 export const getTableContext = () => {
   return () => {
     const context = getContext(tableKey) as () => TableContext;
-    const { spacing = 'medium', striped = false } = context?.() || {};
-    return { spacing, striped };
+    const { spacing = 'medium', size = 'medium', striped = false } = context?.() || {};
+    return { spacing, size, striped };
   };
 };
