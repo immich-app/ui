@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.57.2 (2026-01-12)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+## What's Changed
+### 🐛 Bug fixes
+* fix: title font size on different screen size by @alextran1502 in https://github.com/immich-app/ui/pull/519
+* fix: select by @jrasm91 in https://github.com/immich-app/ui/pull/521
+
+
+**Full Changelog**: https://github.com/immich-app/ui/compare/ui-v0.57.1...ui-v0.57.2
+
 ## 0.57.1 (2026-01-12)
 
 <!-- Release notes generated using configuration in .github/release.yml at main -->
