@@ -22,12 +22,13 @@
     class: className,
     color = 'primary',
     shape = 'semi-round',
-    size = 'small',
+    size: initialSize,
     ...restProps
   }: CheckboxProps = $props();
 
   const context = getFieldContext();
   const { readOnly, required, invalid, disabled, label, description, ...labelProps } = $derived(context());
+  const size = $derived(initialSize ?? labelProps.size ?? 'small');
 
   const containerStyles = tv({
     base: 'ring-offset-background focus-visible:ring-ring peer data-[state=checked]:bg-primary box-content overflow-hidden border-2 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-50',
@@ -82,7 +83,7 @@
 
 <div class="flex flex-col gap-1">
   {#if label}
-    <Label id={labelId} for={inputId} {label} requiredIndicator={required === 'indicator'} {...labelProps} />
+    <Label id={labelId} for={inputId} {label} requiredIndicator={required === 'indicator'} {...labelProps} {size} />
     {#if description}
       <Text color="secondary" size="small" id={descriptionId}>{description}</Text>
     {/if}

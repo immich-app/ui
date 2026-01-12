@@ -11,15 +11,15 @@ export const getFieldContext = () => {
     const {
       label,
       color = 'secondary',
-      size = 'small',
       invalid = false,
       readOnly = false,
       required = false,
       disabled = false,
       description,
+      ...restProps
     } = context?.() || {};
 
-    return { label, description, color, size, invalid, readOnly, required, disabled };
+    return { label, description, color, invalid, readOnly, required, disabled, ...restProps };
   };
 };
 

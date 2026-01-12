@@ -1,16 +1,14 @@
 <script lang="ts">
   import ComponentSizes from '$docs/components/ComponentSizes.svelte';
-  import { Field, Stack, Textarea } from '@immich/ui';
-
-  const lorem = `The quick brown fox jumps over the lazy dog`;
+  import { Field, Input, Stack } from '@immich/ui';
 </script>
 
-<Stack>
+<Stack gap={4}>
   <ComponentSizes>
     {#snippet child({ size, label })}
       <div>
         <Field {label} {size}>
-          <Textarea value={lorem}></Textarea>
+          <Input placeholder="placeholder" />
         </Field>
       </div>
     {/snippet}

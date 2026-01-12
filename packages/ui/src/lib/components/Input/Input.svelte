@@ -12,7 +12,7 @@
     ref = $bindable(null),
     containerRef = $bindable(null),
     shape = 'semi-round',
-    size = 'medium',
+    size: initialSize,
     class: className,
     value = $bindable<string>(),
     leadingIcon,
@@ -25,6 +25,7 @@
   const context = getFieldContext();
 
   const { label, description, readOnly, required, invalid, disabled, ...labelProps } = $derived(context());
+  const size = $derived(initialSize ?? labelProps.size ?? 'small');
 
   const iconStyles = tv({
     base: 'flex shrink-0 items-center justify-center',
@@ -90,7 +91,7 @@
 
 <div class="flex w-full flex-col gap-1" bind:this={containerRef}>
   {#if label}
-    <Label id={labelId} for={inputId} {label} requiredIndicator={required === 'indicator'} {...labelProps} />
+    <Label id={labelId} for={inputId} {label} requiredIndicator={required === 'indicator'} {...labelProps} {size} />
   {/if}
 
   {#if description}

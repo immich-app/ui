@@ -25,6 +25,7 @@
 
   const context = getFieldContext();
   const { readOnly, required, disabled, label, description, ...labelProps } = $derived(context());
+  const size = $derived(labelProps.size ?? 'small');
 
   const enabled = $derived(checked && !disabled);
 
@@ -72,8 +73,8 @@
     },
   });
 
-  const inputId = `input-${id}`;
-  const labelId = `label-${id}`;
+  const inputId = $derived(`input-${id}`);
+  const labelId = $derived(`label-${id}`);
   const descriptionId = $derived(description ? `description-${id}` : undefined);
 </script>
 
@@ -94,7 +95,14 @@
       <div class={cleanClass(label && 'flex items-center justify-between gap-1')}>
         {#if label}
           <div class="text-start">
-            <Label id={labelId} for={inputId} {label} requiredIndicator={required === 'indicator'} {...labelProps} />
+            <Label
+              id={labelId}
+              for={inputId}
+              {label}
+              requiredIndicator={required === 'indicator'}
+              {...labelProps}
+              {size}
+            />
             {#if description}
               <Text color="muted" size="small" id={descriptionId}>{description}</Text>
             {/if}

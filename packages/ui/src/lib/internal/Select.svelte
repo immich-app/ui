@@ -23,7 +23,7 @@
   let {
     data,
     shape,
-    size = 'medium',
+    size: initialSize,
     multiple = false,
     values = $bindable([]),
     onChange,
@@ -47,6 +47,7 @@
 
   const context = getFieldContext();
   const { readOnly, required, invalid, disabled, label, ...labelProps } = $derived(context());
+  const size = $derived(initialSize ?? labelProps.size ?? 'small');
 
   const id = generateId();
   const inputId = `input-${id}`;
@@ -79,7 +80,7 @@
 
 <div class={cleanClass('flex flex-col gap-1', className)} bind:this={ref}>
   {#if label}
-    <Label id={labelId} for={inputId} {label} requiredIndicator={required === 'indicator'} {...labelProps} />
+    <Label id={labelId} for={inputId} {label} requiredIndicator={required === 'indicator'} {...labelProps} {size} />
   {/if}
 
   <Select.Root type={multiple ? 'multiple' : 'single'} bind:value={internalValue as never} {onValueChange}>
