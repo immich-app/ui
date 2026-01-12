@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.57.3 (2026-01-12)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+## What's Changed
+### 🐛 Bug fixes
+* fix: table html attributes by @jrasm91 in https://github.com/immich-app/ui/pull/522
+
+
+**Full Changelog**: https://github.com/immich-app/ui/compare/ui-v0.57.2...ui-v0.57.3
+
 ## 0.57.2 (2026-01-12)
 
 <!-- Release notes generated using configuration in .github/release.yml at main -->
