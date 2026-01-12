@@ -140,6 +140,7 @@ export type TableSpacing = Size;
 
 export type TableContext = {
   spacing?: TableSpacing;
+  size?: Size;
   striped?: boolean;
 };
 

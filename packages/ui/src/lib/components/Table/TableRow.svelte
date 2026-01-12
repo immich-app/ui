@@ -4,6 +4,7 @@
   import type { Color } from '$lib/types.js';
   import { cleanClass } from '$lib/utilities/internal.js';
   import type { Snippet } from 'svelte';
+  import type { HTMLAttributes } from 'svelte/elements';
   import { tv } from 'tailwind-variants';
 
   type Props = {
@@ -11,9 +12,9 @@
     children?: Snippet;
     center?: boolean;
     color?: Color;
-  };
+  } & HTMLAttributes<HTMLTableRowElement>;
 
-  const { color, class: className, children }: Props = $props();
+  const { color, class: className, children, ...restProps }: Props = $props();
 
   const context = getTableContext();
 
@@ -40,6 +41,6 @@
   });
 </script>
 
-<tr class={cleanClass(styles({ color, striped, spacing }), className)}>
+<tr class={cleanClass(styles({ color, striped, spacing }), className)} {...restProps}>
   {@render children?.()}
 </tr>
