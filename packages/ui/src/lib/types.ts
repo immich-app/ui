@@ -14,7 +14,7 @@ import type {
 export type Color = 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info';
 export type TextColor = Color | 'muted';
 export type TextVariant = 'italic';
-export type FontWeight = 'light' | 'normal' | 'semi-bold' | 'bold' | 'extra-bold';
+export type FontWeight = 'light' | 'normal' | 'medium' | 'semi-bold' | 'bold' | 'extra-bold';
 export type HeadingColor = TextColor;
 export type Size = 'tiny' | 'small' | 'medium' | 'large' | 'giant';
 export type ModalSize = Size | 'full';

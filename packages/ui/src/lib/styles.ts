@@ -85,6 +85,7 @@ export const styleVariants = {
   fontWeight: {
     light: 'font-light',
     normal: 'font-normal',
+    medium: 'font-medium',
     'semi-bold': 'font-semibold',
     bold: 'font-bold',
     'extra-bold': 'font-extrabold',
