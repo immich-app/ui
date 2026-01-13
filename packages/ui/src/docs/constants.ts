@@ -9,6 +9,7 @@ import {
   mdiBullhornVariant,
   mdiBullhornVariantOutline,
   mdiButtonCursor,
+  mdiButtonPointer,
   mdiCalendar,
   mdiCard,
   mdiCardOutline,
@@ -123,6 +124,7 @@ export const componentGroups = [
       { name: 'NumberInput', icon: mdiNumeric },
       { name: 'PasswordInput', icon: mdiFormTextboxPassword },
       { name: 'ProgressBar', icon: mdiProgressHelper },
+      { name: 'ListButton', icon: mdiButtonPointer },
       { name: 'LoadingSpinner', icon: mdiDotsCircle },
       {
         name: 'MultiSelect',

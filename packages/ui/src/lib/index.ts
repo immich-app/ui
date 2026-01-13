@@ -51,6 +51,7 @@ export { default as Input } from '$lib/components/Input/Input.svelte';
 export { default as Kbd } from '$lib/components/Kbd/Kbd.svelte';
 export { default as Label } from '$lib/components/Label/Label.svelte';
 export { default as Link } from '$lib/components/Link/Link.svelte';
+export { default as ListButton } from '$lib/components/ListButton/ListButton.svelte';
 export { default as LoadingSpinner } from '$lib/components/LoadingSpinner/LoadingSpinner.svelte';
 export { default as Logo } from '$lib/components/Logo/Logo.svelte';
 export { Markdown } from '$lib/components/Markdown/index.js';

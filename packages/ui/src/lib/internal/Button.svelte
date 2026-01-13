@@ -20,7 +20,7 @@
     type = 'button',
     href,
     variant = 'filled',
-    color = 'primary',
+    color,
     shape = 'semi-round',
     size = 'medium',
     loading = false,
