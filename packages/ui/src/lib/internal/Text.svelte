@@ -10,7 +10,7 @@
     /**
      * The HTML element type.
      */
-    tag?: HeadingTag;
+    tag?: HeadingTag | 'span';
     fontWeight?: FontWeight;
     variant?: TextVariant;
     color?: HeadingColor;
