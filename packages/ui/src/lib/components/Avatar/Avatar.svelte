@@ -11,7 +11,7 @@
   const { color = 'primary', size = 'medium', name }: Props = $props();
 
   const styles = tv({
-    base: 'flex h-full w-full items-center justify-center font-medium text-white select-none',
+    base: 'flex items-center justify-center font-medium text-white select-none',
     variants: {
       size: {
         tiny: 'h-5 w-5 text-xs',
@@ -36,7 +36,7 @@
   });
 
   const wrapper = tv({
-    base: 'overflow-hidden rounded-full shadow-md',
+    base: 'block w-full overflow-hidden rounded-full shadow-md',
   });
 
   const getInitials = (name: string) => {

@@ -22,20 +22,18 @@
     selectedIcon?: IconLike | Snippet | false;
   } = $props();
 
-  const color = $derived(selected ? 'secondary' : 'primary');
-
   const styles = tv({
-    base: 'justify-between',
+    base: 'hover:bg-light-200 dark:hover:bg-light-300 text-dark',
     variants: {
-      color: {
-        primary: 'dark:bg-primary-200 dark:hover:bg-primary-300 bg-light-200 hover:bg-light-300 text-dark',
-        secondary: 'bg-light-300 dark:bg-primary-300 text-dark',
+      selected: {
+        true: 'bg-light-200 dark:bg-light-300',
+        false: '',
       },
     },
   });
 </script>
 
-<Button bind:ref fullWidth {color} class={cleanClass(styles({ color }), className)} {...props}>
+<Button bind:ref fullWidth class={cleanClass(styles({ selected }), className)} {...props}>
   {#if selectedIcon}
     <HStack fullWidth class="justify-between">
       {@render children?.()}
