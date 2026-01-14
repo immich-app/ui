@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.58.3 (2026-01-14)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+## What's Changed
+### 🐛 Bug fixes
+* fix: select bind value by @jrasm91 in https://github.com/immich-app/ui/pull/535
+
+
+**Full Changelog**: https://github.com/immich-app/ui/compare/ui-v0.58.2...ui-v0.58.3
+
 ## 0.58.2 (2026-01-14)
 
 <!-- Release notes generated using configuration in .github/release.yml at main -->
