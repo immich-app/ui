@@ -1,5 +1,5 @@
-import { mount, unmount, type Component, type ComponentProps } from 'svelte';
 import ConfirmModal from '$lib/components/ConfirmModal/ConfirmModal.svelte';
+import { mount, unmount, type Component, type ComponentProps } from 'svelte';
 
 // if `T = () => void`, `R` will be `unknown` which we turn into `void` instead
 type OnCloseData<T> = T extends { onClose: (data: infer R) => void }
@@ -31,8 +31,7 @@ class ModalManager {
     const deferred = new Promise<K>((resolve) => {
       onClose = async (...args: OnCloseParams) => {
         await unmount(modal);
-        // make sure bits-ui clean up finishes before resolving
-        setTimeout(() => resolve(args[0] as K), 10);
+        resolve(args[0] as K);
       };
 
       modal = mount(Component, {

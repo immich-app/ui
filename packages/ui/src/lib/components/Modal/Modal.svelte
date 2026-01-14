@@ -10,10 +10,11 @@
   import Logo from '$lib/components/Logo/Logo.svelte';
   import TooltipProvider from '$lib/components/Tooltip/TooltipProvider.svelte';
   import { ChildKey, zIndex } from '$lib/constants.js';
+  import { modalState } from '$lib/state/modal-state.svelte.js';
   import type { ModalSize } from '$lib/types.js';
   import { cleanClass } from '$lib/utilities/internal.js';
   import { Dialog } from 'bits-ui';
-  import { tick, type Snippet } from 'svelte';
+  import { onMount, type Snippet } from 'svelte';
   import { tv } from 'tailwind-variants';
 
   type Props = {
@@ -74,21 +75,28 @@
   const bodyChildren = $derived(getChildSnippet(ChildKey.ModalBody));
   const footerChildren = $derived(getChildSnippet(ChildKey.ModalFooter));
 
-  const handleClose = async () => {
-    // wait for bits-ui to complete its event cycle
-    await tick();
-    await new Promise((resolve) => setTimeout(resolve, 10));
-
-    onClose?.();
-  };
-
   let cardRef = $state<HTMLElement | null>(null);
 
   const interactOutsideBehavior = $derived(closeOnBackdropClick ? 'close' : 'ignore');
   const escapeKeydownBehavior = $derived(closeOnEsc ? 'close' : 'ignore');
+
+  let layer = $state<number>();
+  const isHidden = $derived(layer !== modalState.layer);
+
+  const onOpenChangeComplete = (isOpen: boolean) => {
+    if (!isOpen && !isHidden) {
+      onClose?.();
+    }
+  };
+
+  onMount(() => {
+    layer = modalState.incrementLayer();
+
+    return () => modalState.decrementLayer();
+  });
 </script>
 
-<Dialog.Root open={true} onOpenChange={(isOpen: boolean) => !isOpen && handleClose()}>
+<Dialog.Root open={!isHidden} {onOpenChangeComplete}>
   <Dialog.Portal>
     <Dialog.Overlay class="{zIndex.ModalBackdrop} fixed start-0 top-0  flex h-dvh max-h-dvh w-screen bg-black/30" />
     <Dialog.Content
@@ -111,7 +119,7 @@
                     <Logo variant="icon" size="tiny" />
                   {/if}
                   <CardTitle tag="p" class="text-dark/90 grow text-lg font-semibold">{title}</CardTitle>
-                  <CloseButton class="-me-2" onclick={() => handleClose()} />
+                  <CloseButton class="-me-2" onclick={() => onClose?.()} />
                 </div>
               {/if}
             </CardHeader>
