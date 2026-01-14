@@ -1,3 +1,4 @@
+import { goto } from '$app/navigation';
 import { env } from '$env/dynamic/public';
 import { MenuItemType, type ActionItem, type IfLike } from '$lib/types.js';
 import type { DateTime } from 'luxon';
@@ -12,6 +13,17 @@ const getImmichApp = (host: string | undefined) => {
   }
 
   return host.split('.')[0];
+};
+
+export const navigateTo = async (url: string) => {
+  const resolvedUrl = resolveUrl(url);
+  const external = isExternalLink(resolvedUrl);
+
+  if (external) {
+    window.open(resolvedUrl, '_blank', 'noreferrer');
+  } else {
+    await goto(resolvedUrl);
+  }
 };
 
 export const resolveUrl = (url: string, currentHostname?: string) => {
