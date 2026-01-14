@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.58.0 (2026-01-14)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+## What's Changed
+### 🚀 Features
+* feat: list button by @danieldietzler in https://github.com/immich-app/ui/pull/527
+### 🌟 Enhancements
+* feat: text improvements by @jrasm91 in https://github.com/immich-app/ui/pull/529
+
+
+**Full Changelog**: https://github.com/immich-app/ui/compare/ui-v0.57.3...ui-v0.58.0
+
 ## 0.57.3 (2026-01-12)
 
 <!-- Release notes generated using configuration in .github/release.yml at main -->
