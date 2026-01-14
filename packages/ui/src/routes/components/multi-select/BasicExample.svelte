@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { CodeBlock, Field, MultiSelect, Stack, Text, toastManager, type SelectItem } from '@immich/ui';
+  import { CodeBlock, Field, MultiSelect, Stack, Text, toastManager, type SelectOption } from '@immich/ui';
   import { json } from 'svelte-highlight/languages';
 
-  const themes: SelectItem[] = [
+  const themes: SelectOption[] = [
     { value: 'light-monochrome', label: 'Light Monochrome' },
     { value: 'dark-green', label: 'Dark Green' },
     { value: 'svelte-orange', label: 'Svelte Orange' },
@@ -34,7 +34,7 @@
 
   let values = $state([themes[0].value, themes[1].value]);
 
-  const onItemChange = (items: SelectItem[]) => {
+  const onSelect = (items: SelectOption[]) => {
     toastManager.primary({
       title: `Theme change`,
       description: `New value: ${items.map((item) => `${item.label}`).join(', ')}`,
@@ -44,15 +44,15 @@
 
 <Stack class="mb-8 max-w-[250px]" gap={8}>
   <Field label="Framework">
-    <MultiSelect data={frameworks} />
+    <MultiSelect options={frameworks} />
   </Field>
 
   <Field label="Disabled option">
-    <MultiSelect data={[{ value: 'Svelte' }, { value: 'React' }, { value: 'Angular', disabled: true }]} />
+    <MultiSelect options={[{ value: 'Svelte' }, { value: 'React' }, { value: 'Angular', disabled: true }]} />
   </Field>
 
   <Field label="Long list">
-    <MultiSelect bind:values data={themes} {onItemChange} />
+    <MultiSelect bind:values options={themes} {onSelect} />
   </Field>
 </Stack>
 <div class="w-full">

@@ -187,14 +187,14 @@ export type TextareaProps = {
   grow?: boolean;
 } & HTMLTextareaAttributes;
 
-export type SelectItem<T extends string = string> = {
+export type SelectOption<T extends string = string> = {
   label?: string;
   value: T;
   disabled?: boolean;
 };
 
 export type SelectCommonProps<T extends string> = {
-  data: string[] | SelectItem<T>[];
+  options: string[] | SelectOption<T>[];
   size?: Size;
   shape?: Shape;
   placeholder?: string;
@@ -204,13 +204,13 @@ export type SelectCommonProps<T extends string> = {
 export type SelectProps<T extends string> = SelectCommonProps<T> & {
   value?: T;
   onChange?: (value: T) => void;
-  onItemChange?: (item: SelectItem<T>) => void;
+  onSelect?: (options: SelectOption<T>) => void;
 };
 
 export type MultiSelectProps<T extends string> = SelectCommonProps<T> & {
   values?: T[];
   onChange?: (values: T[]) => void;
-  onItemChange?: (items: SelectItem<T>[]) => void;
+  onSelect?: (options: SelectOption<T>[]) => void;
 };
 
 export type ToastId = { id: string };

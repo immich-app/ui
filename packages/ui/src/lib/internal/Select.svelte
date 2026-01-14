@@ -4,7 +4,7 @@
   import IconButton from '$lib/components/IconButton/IconButton.svelte';
   import Input from '$lib/components/Input/Input.svelte';
   import { zIndex } from '$lib/constants.js';
-  import type { SelectCommonProps, SelectItem } from '$lib/types.js';
+  import type { SelectCommonProps, SelectOption } from '$lib/types.js';
   import { cleanClass } from '$lib/utilities/internal.js';
   import { mdiArrowDown, mdiArrowUp, mdiCheck, mdiChevronDown } from '@mdi/js';
   import { Select } from 'bits-ui';
@@ -13,28 +13,28 @@
   type Props = {
     multiple?: boolean;
     values: T[];
-    asLabel?: (items: SelectItem<T>[]) => string;
+    asLabel?: (items: SelectOption<T>[]) => string;
     onChange?: (values: T[]) => void;
-    onItemChange?: (items: SelectItem<T>[]) => void;
+    onSelect?: (items: SelectOption<T>[]) => void;
   } & SelectCommonProps<T>;
 
   let {
-    data,
+    options: optionsOrItems,
     shape,
     size: initialSize,
     multiple = false,
     values = $bindable([]),
     onChange,
-    onItemChange,
-    asLabel = (options: SelectItem<T>[]) => options.map(({ label }) => label).join(', '),
+    onSelect: onItemChange,
+    asLabel = (options: SelectOption<T>[]) => options.map(({ label }) => label).join(', '),
     placeholder,
     class: className,
   }: Props = $props();
 
-  const asOptions = (items: string[] | SelectItem<T>[]) => {
+  const asOptions = (items: string[] | SelectOption<T>[]) => {
     return items.map((item) => {
       if (typeof item === 'string') {
-        return { value: item, label: item } as SelectItem<T>;
+        return { value: item, label: item } as SelectOption<T>;
       }
 
       const label = item.label ?? item.value;
@@ -45,11 +45,11 @@
   const context = getFieldContext();
   const { invalid, disabled, ...labelProps } = $derived(context());
   const size = $derived(initialSize ?? labelProps.size ?? 'small');
-  const options = $derived(asOptions(data));
+  const options = $derived(asOptions(optionsOrItems));
 
   const findOption = (value: string) => options.find((option) => option.value === value);
   const valuesToOptions = (values: T[]) =>
-    values.map(findOption).filter((item): item is SelectItem<T> => Boolean(item));
+    values.map(findOption).filter((item): item is SelectOption<T> => Boolean(item));
 
   const selectedLabel = $derived(asLabel(valuesToOptions(values)));
 
@@ -75,7 +75,9 @@
 
   const onValueChange = (newValues: string[] | string) => {
     values = (Array.isArray(newValues) ? newValues : [newValues]) as T[];
-    const items = values.map((value) => findOption(value)).filter((item): item is SelectItem<T> => item !== undefined);
+    const items = values
+      .map((value) => findOption(value))
+      .filter((item): item is SelectOption<T> => item !== undefined);
 
     onChange?.(values);
     onItemChange?.(items);
