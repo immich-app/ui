@@ -1,12 +1,10 @@
-<script lang="ts">
+<script lang="ts" generics="T extends string">
   import InternalSelect from '$lib/internal/Select.svelte';
   import type { MultiSelectProps, SelectItem } from '$lib/types.js';
 
-  type T = SelectItem;
-
   let { onChange, values = $bindable([]), ...restProps }: MultiSelectProps<T> = $props();
 
-  const handleChange = (items: T[]) => {
+  const handleChange = (items: SelectItem<T>[]) => {
     onChange?.(items);
   };
 </script>

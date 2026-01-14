@@ -1,4 +1,4 @@
-<script lang="ts">
+<script lang="ts" generics="T extends string">
   import { getFieldContext } from '$lib/common/context.svelte.js';
   import Icon from '$lib/components/Icon/Icon.svelte';
   import IconButton from '$lib/components/IconButton/IconButton.svelte';
@@ -10,13 +10,11 @@
   import { Select } from 'bits-ui';
   import { tv } from 'tailwind-variants';
 
-  type T = SelectItem;
-
   type Props = {
     multiple?: boolean;
-    values: T[];
-    asLabel?: (items: T[]) => string;
-    onChange?: (values: T[]) => void;
+    values: SelectItem<T>[];
+    asLabel?: (items: SelectItem<T>[]) => string;
+    onChange?: (values: SelectItem<T>[]) => void;
   } & SelectCommonProps<T>;
 
   let {
@@ -26,15 +24,15 @@
     multiple = false,
     values = $bindable([]),
     onChange,
-    asLabel = (options: T[]) => options.map(({ label }) => label).join(', '),
+    asLabel = (options: SelectItem<T>[]) => options.map(({ label }) => label).join(', '),
     placeholder,
     class: className,
   }: Props = $props();
 
-  const asOptions = (items: string[] | T[]) => {
+  const asOptions = (items: string[] | SelectItem<T>[]) => {
     return items.map((item) => {
       if (typeof item === 'string') {
-        return { value: item, label: item } as T;
+        return { value: item, label: item } as SelectItem<T>;
       }
 
       const label = item.label ?? item.value;
@@ -73,9 +71,7 @@
   const findOption = (value: string) => options.find((option) => option.value === value);
 
   const onValueChange = (items: string[] | string) => {
-    values = multiple
-      ? ((items as string[]).map(findOption) as T[])
-      : [findOption(items as string) as T].filter(Boolean);
+    values = (Array.isArray(items) ? items : [items]).map(findOption).filter((item) => item !== undefined);
 
     onChange?.(values);
   };
