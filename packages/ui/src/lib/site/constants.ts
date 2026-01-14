@@ -1,5 +1,4 @@
-import { goto } from '$app/navigation';
-import { asText } from '$lib/utilities/common.js';
+import { asText, navigateTo } from '$lib/utilities/common.js';
 import { mdiOpenInNew } from '@mdi/js';
 
 export const Constants = {
@@ -137,6 +136,6 @@ export const siteCommands = [
   iconClass: 'text-indigo-700 dark:text-indigo-200',
   title: site.title,
   description: site.description,
-  onAction: () => goto(site.href),
+  onAction: () => navigateTo(site.href),
   searchText: asText('Site', 'Link', site.title, site.description, site.href),
 }));
