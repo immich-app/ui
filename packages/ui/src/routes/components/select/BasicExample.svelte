@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { CodeBlock, Field, Select, Stack, Text, type SelectItem } from '@immich/ui';
+  import { CodeBlock, Field, Select, Stack, Text, toastManager, type SelectItem } from '@immich/ui';
   import { json } from 'svelte-highlight/languages';
 
   const themes: SelectItem[] = [
@@ -25,50 +25,43 @@
     { value: 'burnt-orange', label: 'Burnt Orange' },
   ];
 
-  let value = $state(themes[0]);
-
   const frameworks = [
-    { label: 'Svelte', value: 'svelte' },
-    { label: 'React', value: 'react' },
     { label: 'Angular', value: 'angular' },
+    { label: 'React', value: 'react' },
+    { label: 'Svelte', value: 'svelte' },
+    { label: 'Vue', value: 'vue' },
   ];
 
-  let invalidItem = $state<SelectItem>(frameworks[2]);
+  let value = $state(themes[0].value);
+
+  let invalidItem = $state('angular');
+
+  const onItemChange = (item: SelectItem) => {
+    toastManager.primary({ title: 'Theme change', description: `New value: ${item.label} (${item.value})` });
+  };
 </script>
 
 <Stack class="mb-8 max-w-62.5" gap={8}>
   <Field label="Framework">
-    <Select data={['Svelte', 'React', 'Angular']} />
+    <Select data={frameworks} />
   </Field>
 
   <div class="w-1/2">
     <Field label="Framework">
-      <Select data={['Svelte', 'React', 'Angular']} />
+      <Select data={frameworks} />
     </Field>
   </div>
 
-  <Field label="Framework" invalid={invalidItem.value === 'angular'}>
+  <Field label="Framework" invalid={invalidItem === 'angular'}>
     <Select data={frameworks} bind:value={invalidItem} />
   </Field>
 
   <Field label="Label">
-    <Select
-      data={[
-        { label: 'Svelte', value: 'svelte' },
-        { label: 'React', value: 'react' },
-        { label: 'Angular', value: 'angular' },
-      ]}
-    />
+    <Select data={frameworks} />
   </Field>
 
   <Field label="Required" required="indicator">
-    <Select
-      data={[
-        { label: 'Svelte', value: 'svelte' },
-        { label: 'React', value: 'react' },
-        { label: 'Angular', value: 'angular' },
-      ]}
-    />
+    <Select data={frameworks} />
   </Field>
 
   <Field label="Disabled option">
@@ -80,7 +73,7 @@
   </Field>
 
   <Field label="Long list">
-    <Select bind:value data={themes} />
+    <Select bind:value data={themes} {onItemChange} />
   </Field>
 </Stack>
 

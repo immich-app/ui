@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { CodeBlock, Field, MultiSelect, Stack, Text, type SelectItem } from '@immich/ui';
+  import { CodeBlock, Field, MultiSelect, Stack, Text, toastManager, type SelectItem } from '@immich/ui';
   import { json } from 'svelte-highlight/languages';
 
   const themes: SelectItem[] = [
@@ -25,22 +25,26 @@
     { value: 'burnt-orange', label: 'Burnt Orange' },
   ];
 
-  let values = $state([themes[0], themes[1]]);
+  const frameworks = [
+    { label: 'Angular', value: 'angular' },
+    { label: 'React', value: 'react' },
+    { label: 'Svelte', value: 'svelte' },
+    { label: 'Vue', value: 'vue' },
+  ];
+
+  let values = $state([themes[0].value, themes[1].value]);
+
+  const onItemChange = (items: SelectItem[]) => {
+    toastManager.primary({
+      title: `Theme change`,
+      description: `New value: ${items.map((item) => `${item.label}`).join(', ')}`,
+    });
+  };
 </script>
 
 <Stack class="mb-8 max-w-[250px]" gap={8}>
   <Field label="Framework">
-    <MultiSelect data={['Svelte', 'React', 'Angular']} />
-  </Field>
-
-  <Field label="Label">
-    <MultiSelect
-      data={[
-        { label: 'Svelte', value: 'svelte' },
-        { label: 'React', value: 'react' },
-        { label: 'Angular', value: 'angular' },
-      ]}
-    />
+    <MultiSelect data={frameworks} />
   </Field>
 
   <Field label="Disabled option">
@@ -48,7 +52,7 @@
   </Field>
 
   <Field label="Long list">
-    <MultiSelect bind:values data={themes} />
+    <MultiSelect bind:values data={themes} {onItemChange} />
   </Field>
 </Stack>
 <div class="w-full">
