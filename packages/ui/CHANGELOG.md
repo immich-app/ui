@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.58.1 (2026-01-14)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+## What's Changed
+### 🌟 Enhancements
+* chore: stricter types for select components by @danieldietzler in https://github.com/immich-app/ui/pull/530
+
+
+**Full Changelog**: https://github.com/immich-app/ui/compare/ui-v0.58.0...ui-v0.58.1
+
 ## 0.58.0 (2026-01-14)
 
 <!-- Release notes generated using configuration in .github/release.yml at main -->
