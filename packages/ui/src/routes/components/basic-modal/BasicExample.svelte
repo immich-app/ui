@@ -1,8 +1,8 @@
 <script lang="ts">
   import Lorem from '$docs/components/Lorem.svelte';
-  import { BasicModal, Button, Field, Input, Select, Stack, type Color, type SelectItem } from '@immich/ui';
+  import { BasicModal, Button, Field, Input, Select, Stack, type Color, type SelectOption } from '@immich/ui';
 
-  const colors: SelectItem<Color>[] = [
+  const colors: SelectOption<Color>[] = [
     { label: 'Primary', value: 'primary' },
     { label: 'Secondary', value: 'secondary' },
   ];
@@ -20,7 +20,7 @@
   </Field>
 
   <Field label="Close color">
-    <Select bind:value={closeColor} data={colors} />
+    <Select bind:value={closeColor} options={colors} />
   </Field>
 
   <div>

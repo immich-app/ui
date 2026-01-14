@@ -1,19 +1,19 @@
 <script lang="ts" generics="T extends string">
   import InternalSelect from '$lib/internal/Select.svelte';
-  import type { SelectItem, SelectProps } from '$lib/types.js';
+  import type { SelectOption, SelectProps } from '$lib/types.js';
 
-  let { onChange, onItemChange, value = $bindable(), ...restProps }: SelectProps<T> = $props();
+  let { onChange, onSelect, value = $bindable(), ...restProps }: SelectProps<T> = $props();
 
-  let values = $derived(value ? [value] : []);
+  let values = $derived(value === null || value === undefined ? [] : [value]);
 
   const handleChange = (values: T[]) => {
     value = values[0];
     onChange?.(value);
   };
 
-  const handleItemChange = (items: SelectItem<T>[]) => {
-    onItemChange?.(items[0]);
+  const handleSelect = (items: SelectOption<T>[]) => {
+    onSelect?.(items[0]);
   };
 </script>
 
-<InternalSelect bind:values onChange={handleChange} onItemChange={handleItemChange} {...restProps} />
+<InternalSelect bind:values onChange={handleChange} onSelect={handleSelect} {...restProps} />

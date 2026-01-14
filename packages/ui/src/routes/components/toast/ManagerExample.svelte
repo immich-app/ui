@@ -9,7 +9,7 @@
     Stack,
     toastManager,
     type Color,
-    type SelectItem,
+    type SelectOption,
     type Shape,
     type Size,
   } from '@immich/ui';
@@ -21,7 +21,7 @@
   let timeout = $state(5000);
   let closable = $state(true);
 
-  const colors: SelectItem<Color>[] = [
+  const colors: SelectOption<Color>[] = [
     { label: 'Primary', value: 'primary' },
     { label: 'Secondary', value: 'secondary' },
     { label: 'Success', value: 'success' },
@@ -31,7 +31,7 @@
   ];
   let color = $state<Color>('primary');
 
-  const sizes: SelectItem<Size>[] = [
+  const sizes: SelectOption<Size>[] = [
     { label: 'Tiny', value: 'tiny' },
     { label: 'Small', value: 'small' },
     { label: 'Medium', value: 'medium' },
@@ -40,14 +40,14 @@
   ];
   let size = $state<Size>('medium');
 
-  const shapes: SelectItem<Shape>[] = [
+  const shapes: SelectOption<Shape>[] = [
     { label: 'Round', value: 'round' },
     { label: 'Semi-round', value: 'semi-round' },
     { label: 'Rectangle', value: 'rectangle' },
   ];
   let shape = $state<Shape>('semi-round');
 
-  const icons: SelectItem[] = [
+  const icons: SelectOption[] = [
     { label: 'Default', value: 'default' },
     { label: 'No icon', value: 'none' },
     { label: 'Account', value: mdiAccount },
@@ -118,25 +118,25 @@
 
     <div>
       <Field label="Size">
-        <Select data={sizes} bind:value={size} />
+        <Select options={sizes} bind:value={size} />
       </Field>
     </div>
 
     <div>
       <Field label="Color">
-        <Select data={colors} bind:value={color} />
+        <Select options={colors} bind:value={color} />
       </Field>
     </div>
 
     <div>
       <Field label="Shape">
-        <Select data={shapes} bind:value={shape} />
+        <Select options={shapes} bind:value={shape} />
       </Field>
     </div>
 
     <div>
       <Field label="Icon">
-        <Select data={icons} bind:value={icon} />
+        <Select options={icons} bind:value={icon} />
       </Field>
     </div>
 
