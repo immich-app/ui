@@ -202,13 +202,15 @@ export type SelectCommonProps<T extends string> = {
 };
 
 export type SelectProps<T extends string> = SelectCommonProps<T> & {
-  value?: SelectItem<T>;
-  onChange?: (value: SelectItem<T>) => void;
+  value?: T;
+  onChange?: (value: T) => void;
+  onItemChange?: (item: SelectItem<T>) => void;
 };
 
 export type MultiSelectProps<T extends string> = SelectCommonProps<T> & {
-  values?: SelectItem<T>[];
-  onChange?: (values: SelectItem<T>[]) => void;
+  values?: T[];
+  onChange?: (values: T[]) => void;
+  onItemChange?: (items: SelectItem<T>[]) => void;
 };
 
 export type ToastId = { id: string };

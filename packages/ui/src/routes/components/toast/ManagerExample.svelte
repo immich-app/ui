@@ -9,6 +9,7 @@
     Stack,
     toastManager,
     type Color,
+    type SelectItem,
     type Shape,
     type Size,
   } from '@immich/ui';
@@ -20,7 +21,7 @@
   let timeout = $state(5000);
   let closable = $state(true);
 
-  const colors: Array<{ label: string; value: Color }> = [
+  const colors: SelectItem<Color>[] = [
     { label: 'Primary', value: 'primary' },
     { label: 'Secondary', value: 'secondary' },
     { label: 'Success', value: 'success' },
@@ -28,25 +29,25 @@
     { label: 'Danger', value: 'danger' },
     { label: 'Info', value: 'info' },
   ];
-  let color = $state(colors[0]);
+  let color = $state<Color>('primary');
 
-  const sizes: Array<{ label: string; value: Size }> = [
+  const sizes: SelectItem<Size>[] = [
     { label: 'Tiny', value: 'tiny' },
     { label: 'Small', value: 'small' },
     { label: 'Medium', value: 'medium' },
     { label: 'Large', value: 'large' },
     { label: 'Giant', value: 'giant' },
   ];
-  let size = $state(sizes[2]);
+  let size = $state<Size>('medium');
 
-  const shapes: Array<{ label: string; value: Shape }> = [
+  const shapes: SelectItem<Shape>[] = [
     { label: 'Round', value: 'round' },
     { label: 'Semi-round', value: 'semi-round' },
     { label: 'Rectangle', value: 'rectangle' },
   ];
-  let shape = $state(shapes[1]);
+  let shape = $state<Shape>('semi-round');
 
-  const icons: Array<{ label: string; value: string }> = [
+  const icons: SelectItem[] = [
     { label: 'Default', value: 'default' },
     { label: 'No icon', value: 'none' },
     { label: 'Account', value: mdiAccount },
@@ -56,7 +57,7 @@
     { label: 'Info circle', value: mdiInformation },
     { label: 'Rocket', value: mdiRocket },
   ];
-  let icon = $state(icons[0]);
+  let icon = $state<string>('default');
 
   const resolveIcon = (icon?: string) => {
     if (icon === 'none') {
@@ -71,20 +72,7 @@
   };
 
   const handleOpen = async () => {
-    toastManager.show(
-      {
-        title,
-        description,
-        shape: shape?.value,
-        color: color?.value,
-        size: size?.value,
-        icon: resolveIcon(icon?.value),
-      },
-      {
-        timeout,
-        closable,
-      },
-    );
+    toastManager.show({ title, description, shape, color, size, icon: resolveIcon(icon) }, { timeout, closable });
   };
 
   const handleClick = () => {

@@ -12,9 +12,10 @@
 
   type Props = {
     multiple?: boolean;
-    values: SelectItem<T>[];
+    values: T[];
     asLabel?: (items: SelectItem<T>[]) => string;
-    onChange?: (values: SelectItem<T>[]) => void;
+    onChange?: (values: T[]) => void;
+    onItemChange?: (items: SelectItem<T>[]) => void;
   } & SelectCommonProps<T>;
 
   let {
@@ -24,6 +25,7 @@
     multiple = false,
     values = $bindable([]),
     onChange,
+    onItemChange,
     asLabel = (options: SelectItem<T>[]) => options.map(({ label }) => label).join(', '),
     placeholder,
     class: className,
@@ -40,13 +42,16 @@
     });
   };
 
-  const options = $derived(asOptions(data));
-
   const context = getFieldContext();
   const { invalid, disabled, ...labelProps } = $derived(context());
   const size = $derived(initialSize ?? labelProps.size ?? 'small');
+  const options = $derived(asOptions(data));
 
-  const selectedLabel = $derived(asLabel(values));
+  const findOption = (value: string) => options.find((option) => option.value === value);
+  const valuesToOptions = (values: T[]) =>
+    values.map(findOption).filter((item): item is SelectItem<T> => Boolean(item));
+
+  const selectedLabel = $derived(asLabel(valuesToOptions(values)));
 
   const triggerStyles = tv({
     base: 'w-full gap-1 rounded-lg py-0 text-start focus-visible:outline-none',
@@ -68,15 +73,15 @@
     }
   });
 
-  const findOption = (value: string) => options.find((option) => option.value === value);
-
-  const onValueChange = (items: string[] | string) => {
-    values = (Array.isArray(items) ? items : [items]).map(findOption).filter((item) => item !== undefined);
+  const onValueChange = (newValues: string[] | string) => {
+    values = (Array.isArray(newValues) ? newValues : [newValues]) as T[];
+    const items = values.map((value) => findOption(value)).filter((item): item is SelectItem<T> => item !== undefined);
 
     onChange?.(values);
+    onItemChange?.(items);
   };
 
-  let internalValue = $derived(multiple ? values.map(({ value }) => value) : (values[0]?.value ?? ''));
+  let internalValue = $derived(multiple ? values : (values[0] ?? ''));
 </script>
 
 <div class={cleanClass('flex flex-col gap-1', className)} bind:this={ref}>

@@ -1,14 +1,14 @@
 <script lang="ts">
   import Lorem from '$docs/components/Lorem.svelte';
-  import { BasicModal, Button, Field, Input, Select, Stack, type Color } from '@immich/ui';
+  import { BasicModal, Button, Field, Input, Select, Stack, type Color, type SelectItem } from '@immich/ui';
 
-  const colors: Array<{ label: string; value: Color }> = [
+  const colors: SelectItem<Color>[] = [
     { label: 'Primary', value: 'primary' },
     { label: 'Secondary', value: 'secondary' },
   ];
 
   let closeText = $state('Close');
-  let closeColor = $state(colors[1]);
+  let closeColor = $state<Color>('primary');
   let isOpen = $state(false);
 
   const onClose = () => (isOpen = false);
@@ -29,7 +29,7 @@
 </Stack>
 
 {#if isOpen}
-  <BasicModal title="Basic Modal" {closeText} closeColor={closeColor.value} {onClose}>
+  <BasicModal title="Basic Modal" {closeText} {closeColor} {onClose}>
     <Lorem />
   </BasicModal>
 {/if}

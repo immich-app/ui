@@ -64,6 +64,10 @@ class ToastManager {
     }
   }
 
+  primary(item?: string | ToastShow, options?: ToastOptions) {
+    this.show({ title: t('toast_success_title'), color: 'primary', ...expand(item) }, options);
+  }
+
   success(item?: string | ToastShow, options?: ToastOptions) {
     this.show({ title: t('toast_success_title'), color: 'success', ...expand(item) }, options);
   }
