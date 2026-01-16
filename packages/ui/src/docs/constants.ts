@@ -17,7 +17,6 @@ import {
   mdiCheckboxMultipleMarked,
   mdiCheckboxMultipleMarkedOutline,
   mdiCheckboxOutline,
-  mdiChevronRight,
   mdiCloseCircle,
   mdiCloseCircleOutline,
   mdiCodeBlockBraces,
@@ -50,6 +49,7 @@ import {
   mdiPanVertical,
   mdiPartyPopper,
   mdiProgressHelper,
+  mdiSlashForward,
   mdiSquare,
   mdiSquareOutline,
   mdiTable,
@@ -87,22 +87,42 @@ export const siteMetadata = {
   description: 'A Svelte component library for Immich',
 };
 
-export const componentGroups = [
+export type ComponentItem = {
+  name: string;
+  title?: string;
+  href?: string;
+  icon: string;
+  activeIcon?: string;
+  items?: ComponentItem[];
+};
+
+export type ComponentGroup = {
+  title: string;
+  components: ComponentItem[];
+};
+
+export const componentGroups: ComponentGroup[] = [
   {
     title: 'Layout',
     components: [
       { name: 'Alert', icon: mdiAlertCircleOutline, activeIcon: mdiAlertCircle },
       { name: 'AnnouncementBanner', icon: mdiBullhornVariantOutline, activeIcon: mdiBullhornVariant },
       { name: 'AppShell', icon: mdiApplicationOutline, activeIcon: mdiApplication },
-      { name: 'BasicModal', icon: mdiWindowMaximize },
-      { name: 'Breadcrumbs', icon: mdiChevronRight },
+      { name: 'Breadcrumbs', icon: mdiSlashForward },
       { name: 'Card', icon: mdiCardOutline, activeIcon: mdiCard },
-      { name: 'ConfirmModal', icon: mdiCheckboxOutline },
       { name: 'Container', icon: mdiSquareOutline, activeIcon: mdiSquare },
       { name: 'ContextMenu', icon: mdiDotsVertical },
-      { name: 'FormModal', icon: mdiWindowMaximize },
       { name: 'ImageCarousel', icon: mdiViewCarouselOutline, activeIcon: mdiViewCarousel },
-      { name: 'Modal', icon: mdiWindowMaximize },
+      {
+        name: 'Modal',
+        title: 'Modals',
+        icon: mdiWindowMaximize,
+        items: [
+          { name: 'BasicModal', icon: mdiWindowMaximize },
+          { name: 'ConfirmModal', icon: mdiCheckboxOutline },
+          { name: 'FormModal', icon: mdiWindowMaximize },
+        ],
+      },
       { name: 'Navbar', icon: mdiMenu },
       { name: 'Scrollable', icon: mdiPanVertical },
       { name: 'Stack', icon: mdiViewSequentialOutline, activeIcon: mdiViewSequential },
@@ -114,17 +134,23 @@ export const componentGroups = [
   {
     title: 'Forms',
     components: [
-      { name: 'Button', icon: mdiButtonCursor },
-      { name: 'IconButton', icon: mdiHomeCircleOutline, activeIcon: mdiHomeCircle },
+      {
+        name: 'Button',
+        title: 'Buttons',
+        icon: mdiButtonCursor,
+        items: [
+          { name: 'CloseButton', icon: mdiCloseCircleOutline, activeIcon: mdiCloseCircle },
+          { name: 'IconButton', icon: mdiHomeCircleOutline, activeIcon: mdiHomeCircle },
+          { name: 'ListButton', icon: mdiButtonPointer },
+        ],
+      },
       { name: 'Checkbox', icon: mdiCheckboxOutline, activeIcon: mdiCheckboxMarked },
-      { name: 'CloseButton', icon: mdiCloseCircleOutline, activeIcon: mdiCloseCircle },
       { name: 'Field', icon: mdiListBoxOutline, activeIcon: mdiListBox },
       { name: 'HelperText', icon: mdiHelpBoxOutline, activeIcon: mdiHelpBox },
       { name: 'Input', icon: mdiFormTextbox },
       { name: 'NumberInput', icon: mdiNumeric },
       { name: 'PasswordInput', icon: mdiFormTextboxPassword },
       { name: 'ProgressBar', icon: mdiProgressHelper },
-      { name: 'ListButton', icon: mdiButtonPointer },
       { name: 'LoadingSpinner', icon: mdiDotsCircle },
       {
         name: 'MultiSelect',

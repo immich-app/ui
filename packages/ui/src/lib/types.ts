@@ -47,6 +47,21 @@ export type IconLike = string | { path: string };
 export type MaybeArray<T> = T | T[];
 export type MaybePromise<T> = T | Promise<T>;
 
+export type NavbarVariant = 'compact';
+
+export type NavbarProps = {
+  title: string;
+  href: string;
+  active?: boolean;
+  variant?: NavbarVariant;
+  isActive?: () => boolean;
+  icon?: string | IconProps;
+  activeIcon?: string | IconProps;
+  expanded?: boolean;
+  items?: NavbarProps[] | Snippet;
+  class?: string;
+};
+
 export type IconProps = {
   icon: IconLike;
   title?: string;
