@@ -5,6 +5,8 @@ const defaultTranslations = {
   cancel: 'Cancel',
   close: 'Close',
   confirm: 'Confirm',
+  expand: 'Expand',
+  collapse: 'Collapse',
 
   // code
   code_copy: 'Copy',

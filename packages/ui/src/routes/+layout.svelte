@@ -2,7 +2,7 @@
   import { beforeNavigate, goto } from '$app/navigation';
   import { page } from '$app/state';
   import Navbar from '$docs/components/Navbar.svelte';
-  import { componentGroups } from '$docs/constants.js';
+  import { componentGroups, type ComponentGroup, type ComponentItem } from '$docs/constants.js';
   import { asComponentHref } from '$docs/utilities.js';
   import CommandPaletteDefaultProvider from '$lib/components/CommandPalette/CommandPaletteDefaultProvider.svelte';
   import '$lib/theme/default.css';
@@ -26,6 +26,7 @@
     toggleTheme,
     TooltipProvider,
     type ActionItem,
+    type NavbarProps,
   } from '@immich/ui';
   import { mdiHome, mdiHomeOutline, mdiMagnify, mdiThemeLightDark } from '@mdi/js';
   import { MediaQuery } from 'svelte/reactivity';
@@ -62,23 +63,27 @@
     searchText: asText('Command', 'light', 'dark', 'theme', 'toggle'),
   });
 
+  const asCommand = (group: ComponentGroup, component: ComponentItem): ActionItem => {
+    const href = asComponentHref(component.name);
+    return {
+      icon: component.icon,
+      iconClass: '',
+      type: 'Component',
+      title: component.name,
+      description: `View the ${component.name} component`,
+      onAction: () => goto(href),
+      searchText: asText('Component', group.title, component.name, href),
+    };
+  };
+
   // components
   for (const group of componentGroups) {
-    commands.push(
-      ...group.components.map((component) => {
-        const href = asComponentHref(component.name);
-
-        return {
-          icon: component.icon,
-          iconClass: '',
-          type: 'Component',
-          title: component.name,
-          description: `View the ${component.name} component`,
-          onAction: () => goto(href),
-          searchText: asText('Component', group.title, component.name, href),
-        };
-      }),
-    );
+    for (const component of group.components) {
+      commands.push(asCommand(group, component));
+      for (const item of component.items ?? []) {
+        commands.push(asCommand(group, item));
+      }
+    }
   }
 
   commandPaletteManager.enable();
@@ -132,9 +137,17 @@
             <NavbarItem
               {href}
               isActive={() => page.url.pathname === href}
-              title={component.name}
+              title={component.title ?? component.name}
               icon={component.icon}
               activeIcon={component.activeIcon}
+              items={component.items?.map(
+                ({ name, ...item }) =>
+                  ({
+                    title: name,
+                    href: asComponentHref(name),
+                    ...item,
+                  }) as NavbarProps,
+              )}
             />
           {/each}
         {/each}
