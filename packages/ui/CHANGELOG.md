@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.60.0 (2026-01-20)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+## What's Changed
+### 🚀 Features
+* feat: control bar by @jrasm91 in https://github.com/immich-app/ui/pull/550
+### 🌟 Enhancements
+* fix: improve progress bar design by @meesfrensel in https://github.com/immich-app/ui/pull/544
+
+
+**Full Changelog**: https://github.com/immich-app/ui/compare/ui-v0.59.0...ui-v0.60.0
+
 ## 0.59.0 (2026-01-16)
 
 <!-- Release notes generated using configuration in .github/release.yml at main -->
