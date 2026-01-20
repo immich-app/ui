@@ -7,7 +7,7 @@
   import shapeExample from './ShapeExample.svelte?raw';
 </script>
 
-<ComponentPage name="ListButton" description="A list button component that can be used in (multi) select scenarios.">
+<ComponentPage name="ListButton" description="A list button component that can be used in (multi) select scenarios">
   <ComponentExamples
     examples={[
       { title: 'Basic', code: basicExample, component: BasicExample },

@@ -1,6 +1,5 @@
 <script lang="ts">
-  import Input from '$lib/components/Input/Input.svelte';
-  import { Button, Field, FormModal, toastManager } from '@immich/ui';
+  import { Button, Field, FormModal, Input, toastManager } from '@immich/ui';
 
   let isOpen = $state(false);
   let value = $state('World');

@@ -13,9 +13,12 @@ export { default as obtainiumBadge } from '$lib/assets/obtainium-badge.png';
 export { default as playStoreBadge } from '$lib/assets/playstore-badge.png';
 
 // components
+export { default as ActionBar } from '$lib/components/ActionBar/ActionBar.svelte';
+export { default as ActionButton } from '$lib/components/ActionButton/ActionButton.svelte';
 export { default as Alert } from '$lib/components/Alert/Alert.svelte';
 export { default as AnnouncementBanner } from '$lib/components/AnnouncementBanner/AnnouncementBanner.svelte';
 export { default as AppShell } from '$lib/components/AppShell/AppShell.svelte';
+export { default as AppShellBar } from '$lib/components/AppShell/AppShellBar.svelte';
 export { default as AppShellHeader } from '$lib/components/AppShell/AppShellHeader.svelte';
 export { default as AppShellSidebar } from '$lib/components/AppShell/AppShellSidebar.svelte';
 export { default as Avatar } from '$lib/components/Avatar/Avatar.svelte';
@@ -38,6 +41,12 @@ export { default as CommandPaletteProvider } from '$lib/components/CommandPalett
 export { default as ConfirmModal } from '$lib/components/ConfirmModal/ConfirmModal.svelte';
 export { default as Container } from '$lib/components/Container/Container.svelte';
 export { default as ContextMenuButton } from '$lib/components/ContextMenu/ContextMenuButton.svelte';
+export { default as ControlBar } from '$lib/components/ControlBar/ControlBar.svelte';
+export { default as ControlBarContent } from '$lib/components/ControlBar/ControlBarContent.svelte';
+export { default as ControlBarDescription } from '$lib/components/ControlBar/ControlBarDescription.svelte';
+export { default as ControlBarHeader } from '$lib/components/ControlBar/ControlBarHeader.svelte';
+export { default as ControlBarOverflow } from '$lib/components/ControlBar/ControlBarOverflow.svelte';
+export { default as ControlBarTitle } from '$lib/components/ControlBar/ControlBarTitle.svelte';
 export { default as DatePicker } from '$lib/components/DatePicker/DatePicker.svelte';
 export { default as Field } from '$lib/components/Field/Field.svelte';
 export { default as FormatBytes } from '$lib/components/FormatBytes/FormatBytes.svelte';

@@ -1,4 +1,5 @@
 import type { Shortcut } from '$lib/actions/shortcut.js';
+import type { ChildKey } from '$lib/constants.js';
 import type { Translations } from '$lib/services/translation.svelte.js';
 import type { DateTime } from 'luxon';
 import type { Component, Snippet } from 'svelte';
@@ -361,4 +362,26 @@ export type CarouselImageItem = {
   src: string;
   alt?: string;
   id?: string;
+};
+
+export type ControlBarProps = {
+  ref?: HTMLElement | null;
+  closeIcon?: IconLike | Snippet;
+  variant?: Variants;
+  shape?: 'semi-round' | 'rectangle';
+  translations?: TranslationProps<'close'>;
+  onClose?: () => void;
+  children?: Snippet;
+  closeOnEsc?: boolean;
+  static?: boolean;
+} & HTMLAttributes<HTMLElement>;
+
+export type ActionBarProps = ControlBarProps & {
+  actions: ActionItem[];
+  overflowActions?: ActionItem[];
+};
+
+export type ContextType = {
+  register: (key: ChildKey, data: () => ChildData) => void;
+  unregister: (key: ChildKey) => void;
 };

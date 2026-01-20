@@ -23,12 +23,14 @@
   };
 </script>
 
-<IconButton
-  {icon}
-  {color}
-  {shape}
-  {variant}
-  aria-label={ariaLabel ?? t('open_menu', translations)}
-  {...rest}
-  {onclick}
-/>
+{#if items.length > 0}
+  <IconButton
+    {icon}
+    {color}
+    {shape}
+    {variant}
+    aria-label={ariaLabel ?? t('open_menu', translations)}
+    {...rest}
+    {onclick}
+  />
+{/if}

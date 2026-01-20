@@ -1,6 +1,5 @@
 <script lang="ts">
-  import HStack from '$lib/components/Stack/HStack.svelte';
-  import { Heading, Icon, Stack, Text } from '@immich/ui';
+  import { HStack, Heading, Icon, Stack, Text } from '@immich/ui';
   import { mdiAccount } from '@mdi/js';
 
   const icon = mdiAccount;

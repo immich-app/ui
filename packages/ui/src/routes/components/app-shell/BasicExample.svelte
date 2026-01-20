@@ -1,15 +1,30 @@
 <script lang="ts">
-  import { AppShell, AppShellHeader, AppShellSidebar, Button, Heading, NavbarItem, Stack } from '@immich/ui';
+  import { exampleActions } from '$docs/constants.js';
+  import {
+    ActionBar,
+    AppShell,
+    AppShellBar,
+    AppShellHeader,
+    AppShellSidebar,
+    Button,
+    ControlBarHeader,
+    ControlBarTitle,
+    Heading,
+    NavbarItem,
+    Stack,
+  } from '@immich/ui';
   import { mdiHome } from '@mdi/js';
 
   let open = $state(true);
+
+  let selectionActive = $state(false);
 </script>
 
 <Stack>
   <div class="border">
     <AppShell class="h-[400px]">
       <AppShellHeader>
-        <div class="p-4">
+        <div class="flex h-full items-center p-4">
           <Heading size="tiny">Header</Heading>
         </div>
       </AppShellHeader>
@@ -42,6 +57,16 @@
 
   <div class="border">
     <AppShell class="h-[400px]">
+      {#if selectionActive}
+        <AppShellBar>
+          <ActionBar actions={exampleActions} onClose={() => (selectionActive = false)} variant="filled">
+            <ControlBarHeader>
+              <ControlBarTitle>2 Selected</ControlBarTitle>
+            </ControlBarHeader>
+          </ActionBar>
+        </AppShellBar>
+      {/if}
+
       <AppShellHeader>
         <div class="p-4">
           <Heading size="tiny">Header</Heading>
@@ -57,8 +82,11 @@
         </Stack>
       </AppShellSidebar>
 
-      <div class="p-4">
+      <div class="flex gap-2 p-4">
         <Button onclick={() => (open = !open)}>Toggle Sidebar</Button>
+        {#if !selectionActive}
+          <Button onclick={() => (selectionActive = true)}>Open control bar</Button>
+        {/if}
       </div>
     </AppShell>
   </div>

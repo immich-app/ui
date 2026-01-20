@@ -1,12 +1,9 @@
 <script lang="ts">
   import { ChildKey } from '$lib/constants.js';
-  import type { ChildData } from '$lib/types.js';
+  import type { ContextType } from '$lib/types.js';
   import { withPrefix } from '$lib/utilities/internal.js';
-  import { getContext, type Snippet } from 'svelte';
+  import { getContext, onDestroy, type Snippet } from 'svelte';
 
-  type ContextType = {
-    register: (key: ChildKey, data: () => ChildData) => void;
-  };
   type Props = {
     for: ChildKey;
     as: ChildKey;
@@ -26,4 +23,8 @@
   } else {
     console.log('Unable to find context for key:', key);
   }
+
+  onDestroy(() => {
+    context?.unregister(as);
+  });
 </script>
