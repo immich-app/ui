@@ -28,8 +28,8 @@
     base: `h-control-bar flex w-full items-center gap-2 px-2`,
     variants: {
       variant: {
-        filled: 'dark:bg-subtle bg-white shadow-lg',
-        outline: 'dark:border-light-200 border-light-200 border shadow-md',
+        filled: 'dark:bg-subtle bg-light-50',
+        outline: 'dark:border-light-200 shadow-md dark:border',
         ghost: '',
       },
       shape: {
