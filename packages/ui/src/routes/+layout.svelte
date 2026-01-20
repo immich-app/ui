@@ -1,26 +1,29 @@
 <script lang="ts">
   import { beforeNavigate, goto } from '$app/navigation';
+  import { resolve } from '$app/paths';
   import { page } from '$app/state';
-  import Navbar from '$docs/components/Navbar.svelte';
   import { componentGroups, type ComponentGroup, type ComponentItem } from '$docs/constants.js';
   import { asComponentHref } from '$docs/utilities.js';
-  import CommandPaletteDefaultProvider from '$lib/components/CommandPalette/CommandPaletteDefaultProvider.svelte';
   import '$lib/theme/default.css';
   import {
     AppShell,
     AppShellHeader,
     AppShellSidebar,
     asText,
+    CommandPaletteDefaultProvider,
     commandPaletteManager,
+    ControlBar,
+    ControlBarHeader,
+    ControlBarOverflow,
     Icon,
     IconButton,
     initializeTheme,
+    Logo,
     NavbarGroup,
     NavbarItem,
     siteCommands,
     SiteFooter,
     Text,
-    theme,
     ThemeSwitcher,
     toastManager,
     toggleTheme,
@@ -28,7 +31,7 @@
     type ActionItem,
     type NavbarProps,
   } from '@immich/ui';
-  import { mdiHome, mdiHomeOutline, mdiMagnify, mdiThemeLightDark } from '@mdi/js';
+  import { mdiHome, mdiHomeOutline, mdiMagnify, mdiMenu, mdiThemeLightDark } from '@mdi/js';
   import { MediaQuery } from 'svelte/reactivity';
   import '../app.css';
 
@@ -95,30 +98,47 @@
 <TooltipProvider>
   <AppShell>
     <AppShellHeader>
-      <Navbar theme={theme.value} onToggleSidebar={() => (open = !open)}>
-        {#if commandPaletteManager.isEnabled}
-          <div class="hidden place-items-center lg:flex">
-            <button
-              onclick={() => commandPaletteManager.open()}
-              class="border-light flex cursor-pointer place-items-center gap-2 rounded-2xl bg-gray-200 px-4 py-2 text-sm dark:bg-neutral-700"
-            >
-              <Icon icon={mdiMagnify} size="1.25rem" />
-              <Text>Search</Text>
-              <span class="rounded-lg bg-white px-2 py-0.5 dark:bg-neutral-900">/</span>
-            </button>
-          </div>
+      <ControlBar static>
+        <ControlBarHeader>
           <IconButton
-            icon={mdiMagnify}
             shape="round"
-            variant="ghost"
             color="secondary"
-            aria-label="Search"
-            class="lg:hidden"
-            onclick={() => commandPaletteManager.open()}
+            variant="ghost"
+            size="medium"
+            aria-label="Main menu"
+            icon={mdiMenu}
+            onclick={() => (open = !open)}
+            class="md:hidden"
           />
-        {/if}
-        <ThemeSwitcher size="medium" />
-      </Navbar>
+          <a href={resolve('/')}>
+            <Logo variant="inline" />
+          </a>
+        </ControlBarHeader>
+        <ControlBarOverflow>
+          {#if commandPaletteManager.isEnabled}
+            <div class="hidden place-items-center lg:flex">
+              <button
+                onclick={() => commandPaletteManager.open()}
+                class="border-light flex cursor-pointer place-items-center gap-2 rounded-2xl bg-gray-200 px-4 py-2 text-sm dark:bg-neutral-700"
+              >
+                <Icon icon={mdiMagnify} size="1.25rem" />
+                <Text>Search</Text>
+                <span class="rounded-lg bg-white px-2 py-0.5 dark:bg-neutral-900">/</span>
+              </button>
+            </div>
+            <IconButton
+              icon={mdiMagnify}
+              shape="round"
+              variant="ghost"
+              color="secondary"
+              aria-label="Search"
+              class="lg:hidden"
+              onclick={() => commandPaletteManager.open()}
+            />
+          {/if}
+          <ThemeSwitcher size="medium" />
+        </ControlBarOverflow>
+      </ControlBar>
     </AppShellHeader>
 
     <AppShellSidebar bind:open>

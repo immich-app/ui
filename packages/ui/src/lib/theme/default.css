@@ -5,6 +5,11 @@
 
 @import 'tailwindcss';
 
+@theme {
+  --spacing-control-bar-container: --spacing(18);
+  --spacing-control-bar: --spacing(16);
+}
+
 @theme inline {
   --color-primary-50: var(--immich-ui-primary-50);
   --color-primary-100: var(--immich-ui-primary-100);

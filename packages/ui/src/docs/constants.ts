@@ -1,4 +1,11 @@
-import type { Theme } from '@immich/ui';
+import {
+  MenuItemType,
+  toastManager,
+  type ActionItem,
+  type ActionItemHandler,
+  type MenuItems,
+  type Theme,
+} from '@immich/ui';
 import {
   mdiAccountCircle,
   mdiAccountCircleOutline,
@@ -21,8 +28,10 @@ import {
   mdiCloseCircleOutline,
   mdiCodeBlockBraces,
   mdiCodeBraces,
+  mdiContentCopy,
   mdiDotsCircle,
   mdiDotsVertical,
+  mdiDownload,
   mdiFormatHeaderPound,
   mdiFormDropdown,
   mdiFormTextarea,
@@ -48,7 +57,9 @@ import {
   mdiPalette,
   mdiPanVertical,
   mdiPartyPopper,
+  mdiPencilOutline,
   mdiProgressHelper,
+  mdiShareVariant,
   mdiSlashForward,
   mdiSquare,
   mdiSquareOutline,
@@ -58,6 +69,7 @@ import {
   mdiThemeLightDark,
   mdiToggleSwitch,
   mdiToggleSwitchOutline,
+  mdiTrashCanOutline,
   mdiVectorSquare,
   mdiViewCarousel,
   mdiViewCarouselOutline,
@@ -112,6 +124,12 @@ export const componentGroups: ComponentGroup[] = [
       { name: 'Card', icon: mdiCardOutline, activeIcon: mdiCard },
       { name: 'Container', icon: mdiSquareOutline, activeIcon: mdiSquare },
       { name: 'ContextMenu', icon: mdiDotsVertical },
+      {
+        name: 'ControlBar',
+        icon: mdiApplicationOutline,
+        activeIcon: mdiApplication,
+        items: [{ name: 'ActionBar', icon: mdiCardOutline, activeIcon: mdiCard }],
+      },
       { name: 'ImageCarousel', icon: mdiViewCarouselOutline, activeIcon: mdiViewCarousel },
       {
         name: 'Modal',
@@ -139,6 +157,7 @@ export const componentGroups: ComponentGroup[] = [
         title: 'Buttons',
         icon: mdiButtonCursor,
         items: [
+          { name: 'ActionButton', icon: mdiButtonPointer },
           { name: 'CloseButton', icon: mdiCloseCircleOutline, activeIcon: mdiCloseCircle },
           { name: 'IconButton', icon: mdiHomeCircleOutline, activeIcon: mdiHomeCircle },
           { name: 'ListButton', icon: mdiButtonPointer },
@@ -192,4 +211,37 @@ export const componentGroups: ComponentGroup[] = [
     title: 'Design',
     components: [{ name: 'Colors', icon: mdiPalette }],
   },
+];
+
+const onAction: ActionItemHandler = (item) => {
+  toastManager.show({
+    title: `Clicked ${item.title}`,
+    color: item.color ?? 'primary',
+    icon: item.icon,
+  });
+};
+
+export const ExampleActions: Record<string, ActionItem> = {
+  Copy: { title: 'Copy', icon: mdiContentCopy, onAction },
+  Share: { title: 'Share', icon: mdiShareVariant, onAction },
+  Edit: { title: 'Edit album', icon: mdiPencilOutline, onAction },
+  Download: { title: 'Download', icon: mdiDownload, onAction },
+  Delete: { title: 'Delete', icon: mdiTrashCanOutline, color: 'danger', onAction },
+};
+
+export const exampleActions: ActionItem[] = [
+  ExampleActions.Share,
+  ExampleActions.Copy,
+  ExampleActions.Download,
+  ExampleActions.Edit,
+  ExampleActions.Delete,
+];
+
+export const exampleMenuItems: MenuItems = [
+  ExampleActions.Share,
+  ExampleActions.Copy,
+  ExampleActions.Edit,
+  ExampleActions.Download,
+  MenuItemType.Divider,
+  ExampleActions.Delete,
 ];

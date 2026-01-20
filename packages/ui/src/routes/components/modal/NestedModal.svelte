@@ -1,7 +1,6 @@
 <script lang="ts">
   import Lorem from '$docs/components/Lorem.svelte';
-  import CommandPaletteDefaultProvider from '$lib/components/CommandPalette/CommandPaletteDefaultProvider.svelte';
-  import { Button, Modal, ModalBody, ModalFooter, modalManager } from '@immich/ui';
+  import { Button, CommandPaletteDefaultProvider, Modal, ModalBody, ModalFooter, modalManager } from '@immich/ui';
   import { mdiCheck } from '@mdi/js';
 
   type Props = { onClose: () => void };

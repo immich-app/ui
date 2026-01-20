@@ -1,6 +1,5 @@
 <script lang="ts">
-  import Text from '$lib/internal/Text.svelte';
-  import { Icon } from '@immich/ui';
+  import { Icon, Text } from '@immich/ui';
   import { mdiAccount } from '@mdi/js';
 
   type Item = { size: string; label: string };
