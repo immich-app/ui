@@ -19,7 +19,7 @@
 </script>
 
 <HStack wrap>
-  <ProgressBar {progress}>
+  <ProgressBar {progress} size="large" border>
     <Text size="small" class={progress > 0.5 ? 'text-light' : 'text-dark'}>Loading...</Text>
   </ProgressBar>
 </HStack>

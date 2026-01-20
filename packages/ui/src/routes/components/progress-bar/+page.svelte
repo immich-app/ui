@@ -5,6 +5,8 @@
   import animatedExample from './AnimatedExample.svelte?raw';
   import ColorExample from './ColorExample.svelte';
   import colorExample from './ColorExample.svelte?raw';
+  import OtherExample from './OtherExample.svelte';
+  import otherExample from './OtherExample.svelte?raw';
   import ShapeExample from './ShapeExample.svelte';
   import shapeExample from './ShapeExample.svelte?raw';
   import SizeExample from './SizeExample.svelte';
@@ -18,6 +20,7 @@
       { title: 'Size', code: sizeExample, component: SizeExample },
       { title: 'Shape', code: shapeExample, component: ShapeExample },
       { title: 'Color', code: colorExample, component: ColorExample },
+      { title: 'Other', code: otherExample, component: OtherExample },
     ]}
   />
 </ComponentPage>
