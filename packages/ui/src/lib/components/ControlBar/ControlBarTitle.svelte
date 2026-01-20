@@ -15,7 +15,7 @@
     children: Snippet;
   };
 
-  const { size = 'small', fontWeight = 'medium', color = 'primary', tag, class: className, children }: Props = $props();
+  const { size = 'small', fontWeight = 'medium', color, tag, class: className, children }: Props = $props();
 </script>
 
 <Heading {tag} {size} {color} {fontWeight} class={className}>
