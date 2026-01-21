@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { withChildrenSnippets } from '$lib/common/use-child.svelte.js';
+  import { setChildContext } from '$lib/common/context.svelte.js';
   import IconButton from '$lib/components/IconButton/IconButton.svelte';
   import { ChildKey } from '$lib/constants.js';
   import type { Color } from '$lib/types.js';
@@ -77,10 +77,10 @@
     expanded = !expanded;
   };
 
-  const { getChildren: getChildSnippet } = withChildrenSnippets(ChildKey.Card);
-  const headerChild = $derived(getChildSnippet(ChildKey.CardHeader));
-  const bodyChild = $derived(getChildSnippet(ChildKey.CardBody));
-  const footerChild = $derived(getChildSnippet(ChildKey.CardFooter));
+  const { getByKey } = setChildContext(ChildKey.Card);
+  const headerChild = $derived(getByKey(ChildKey.CardHeader));
+  const bodyChild = $derived(getByKey(ChildKey.CardBody));
+  const footerChild = $derived(getByKey(ChildKey.CardFooter));
 
   const headerBorder = $derived(!color);
   const headerPadding = $derived(headerBorder || !expanded);
@@ -103,8 +103,8 @@
       onclick={onToggle}
       class={cleanClass('flex w-full items-center justify-between px-4', headerContainerClasses)}
     >
-      <div class="flex flex-col">
-        {@render headerChild?.snippet()}
+      <div class={cleanClass('flex flex-col', headerChild?.class)}>
+        {@render headerChild?.children?.()}
       </div>
       <div>
         <IconButton
@@ -119,8 +119,8 @@
       </div>
     </button>
   {:else}
-    <div class={cleanClass('flex flex-col', headerContainerClasses)}>
-      {@render headerChild?.snippet()}
+    <div class={cleanClass('flex flex-col', headerContainerClasses, headerChild?.class)}>
+      {@render headerChild?.children?.()}
     </div>
   {/if}
 {/snippet}
@@ -136,13 +136,13 @@
         transition:slide={{ duration: expandable ? 200 : 0, easing: cubicOut }}
         class={cleanClass('immich-scrollbar h-full w-full overflow-auto p-4', bodyChild?.class)}
       >
-        {@render bodyChild?.snippet()}
+        {@render bodyChild?.children?.()}
       </div>
     {/if}
 
     {#if footerChild}
       <div class={cleanClass('flex items-center border-t p-4', footerChild.class)}>
-        {@render footerChild.snippet()}
+        {@render footerChild.children?.()}
       </div>
     {/if}
 

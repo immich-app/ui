@@ -3,6 +3,7 @@ import {
   toastManager,
   type ActionItem,
   type ActionItemHandler,
+  type CarouselImageItem,
   type MenuItems,
   type Theme,
 } from '@immich/ui';
@@ -221,13 +222,13 @@ const onAction: ActionItemHandler = (item) => {
   });
 };
 
-export const ExampleActions: Record<string, ActionItem> = {
+export const ExampleActions = {
   Copy: { title: 'Copy', icon: mdiContentCopy, onAction },
   Share: { title: 'Share', icon: mdiShareVariant, onAction },
   Edit: { title: 'Edit album', icon: mdiPencilOutline, onAction },
   Download: { title: 'Download', icon: mdiDownload, onAction },
   Delete: { title: 'Delete', icon: mdiTrashCanOutline, color: 'danger', onAction },
-};
+} satisfies Record<string, ActionItem>;
 
 export const exampleActions: ActionItem[] = [
   ExampleActions.Share,
@@ -244,4 +245,55 @@ export const exampleMenuItems: MenuItems = [
   ExampleActions.Download,
   MenuItemType.Divider,
   ExampleActions.Delete,
+];
+
+export const carouselImageItems: CarouselImageItem[] = [
+  {
+    title: '1 year ago',
+    href: '#',
+    src: 'https://picsum.photos/id/1011/800/600',
+    alt: 'Sample image',
+  },
+  {
+    title: '2 years ago',
+    href: '#',
+    src: 'https://picsum.photos/id/1012/800/600',
+    alt: 'Sample image',
+  },
+  {
+    title: '3 years ago',
+    href: '#',
+    src: 'https://picsum.photos/id/1013/800/600',
+    alt: 'Sample image',
+  },
+  {
+    title: '4 years ago',
+    href: '#',
+    src: 'https://picsum.photos/id/1015/800/600',
+    alt: 'Sample image',
+  },
+  {
+    title: '5 years ago',
+    href: '#',
+    src: 'https://picsum.photos/id/1016/800/600',
+    alt: 'Sample image',
+  },
+  {
+    title: '6 years ago',
+    href: '#',
+    src: 'https://picsum.photos/id/1018/800/600',
+    alt: 'Sample image',
+  },
+  {
+    title: '7 years ago',
+    href: '#',
+    src: 'https://picsum.photos/id/1020/800/600',
+    alt: 'Sample image',
+  },
+  {
+    title: '8 years ago',
+    href: '#',
+    src: 'https://picsum.photos/id/1024/800/600',
+    alt: 'Sample image',
+  },
 ];

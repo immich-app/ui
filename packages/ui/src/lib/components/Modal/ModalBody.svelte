@@ -1,15 +1,9 @@
 <script lang="ts">
   import { ChildKey } from '$lib/constants.js';
   import Child from '$lib/internal/Child.svelte';
-  import type { Snippet } from 'svelte';
+  import type { ChildData } from '$lib/types.js';
 
-  type Props = {
-    children: Snippet;
-  };
-
-  let { children }: Props = $props();
+  let props: ChildData = $props();
 </script>
 
-<Child for={ChildKey.Modal} as={ChildKey.ModalBody}>
-  {@render children?.()}
-</Child>
+<Child for={ChildKey.Modal} as={ChildKey.ModalBody} {...props} />

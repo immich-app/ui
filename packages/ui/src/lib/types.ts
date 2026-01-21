@@ -130,10 +130,9 @@ type StackBaseProps = {
   fullHeight?: boolean;
 };
 
-export type ChildData<T = unknown> = {
-  snippet: Snippet;
+export type ChildData = {
+  children?: Snippet;
   class?: string;
-  props?: T;
 };
 
 export type StackProps = StackBaseProps & {
@@ -381,7 +380,6 @@ export type ActionBarProps = ControlBarProps & {
   overflowActions?: ActionItem[];
 };
 
-export type ContextType = {
+export type ChildContext = {
   register: (key: ChildKey, data: () => ChildData) => void;
-  unregister: (key: ChildKey) => void;
 };

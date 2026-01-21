@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { withChildrenSnippets } from '$lib/common/use-child.svelte.js';
+  import { setChildContext } from '$lib/common/context.svelte.js';
   import Card from '$lib/components/Card/Card.svelte';
   import CardBody from '$lib/components/Card/CardBody.svelte';
   import CardFooter from '$lib/components/Card/CardFooter.svelte';
@@ -70,10 +70,10 @@
     },
   });
 
-  const { getChildren: getChildSnippet } = withChildrenSnippets(ChildKey.Modal);
-  const headerChildren = $derived(getChildSnippet(ChildKey.ModalHeader));
-  const bodyChildren = $derived(getChildSnippet(ChildKey.ModalBody));
-  const footerChildren = $derived(getChildSnippet(ChildKey.ModalFooter));
+  const { getByKey } = setChildContext(ChildKey.Modal);
+  const headerChildren = $derived(getByKey(ChildKey.ModalHeader));
+  const bodyChildren = $derived(getByKey(ChildKey.ModalBody));
+  const footerChildren = $derived(getByKey(ChildKey.ModalFooter));
 
   let cardRef = $state<HTMLElement | null>(null);
 
@@ -110,7 +110,7 @@
           <Card bind:ref={cardRef} class={cleanClass(modalStyles({ size }), className)}>
             <CardHeader class="border-b border-gray-200 px-5 py-3 dark:border-white/10">
               {#if headerChildren}
-                {@render headerChildren.snippet()}
+                {@render headerChildren.children?.()}
               {:else if title}
                 <div class="flex items-center justify-between gap-2">
                   {#if typeof icon === 'string'}
@@ -124,13 +124,13 @@
               {/if}
             </CardHeader>
 
-            <CardBody class="grow px-5">
-              {@render bodyChildren?.snippet()}
+            <CardBody class={cleanClass('grow px-5', bodyChildren?.class)}>
+              {@render bodyChildren?.children?.()}
             </CardBody>
 
             {#if footerChildren}
-              <CardFooter class="border-t border-gray-200 dark:border-white/10">
-                {@render footerChildren.snippet()}
+              <CardFooter class={cleanClass('border-t border-gray-200 dark:border-white/10', footerChildren.class)}>
+                {@render footerChildren.children?.()}
               </CardFooter>
             {/if}
           </Card>

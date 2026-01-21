@@ -1,16 +1,9 @@
 <script lang="ts">
   import { ChildKey } from '$lib/constants.js';
   import Child from '$lib/internal/Child.svelte';
-  import type { Snippet } from 'svelte';
+  import type { ChildData } from '$lib/types.js';
 
-  type Props = {
-    children: Snippet;
-    class?: string;
-  };
-
-  let { children, class: className }: Props = $props();
+  let props: ChildData = $props();
 </script>
 
-<Child for={ChildKey.AppShell} as={ChildKey.AppShellBar} class={className}>
-  {@render children?.()}
-</Child>
+<Child for={ChildKey.AppShell} as={ChildKey.AppShellBar} {...props} />
