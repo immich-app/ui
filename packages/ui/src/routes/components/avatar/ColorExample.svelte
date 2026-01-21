@@ -2,7 +2,7 @@
   import { Avatar, HStack } from '@immich/ui';
 </script>
 
-<HStack>
+<HStack wrap>
   <Avatar color="primary" name="Immich User" />
   <Avatar color="gray" name="Immich User" />
   <Avatar color="purple" name="Immich User" />
