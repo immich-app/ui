@@ -5,3 +5,5 @@
 <HStack>
   <Avatar name="Immich User" />
 </HStack>
+
+<Avatar name="Mich Tester" color="orange" class="mt-4" />
