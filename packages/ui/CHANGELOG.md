@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.60.2 (2026-01-21)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+## What's Changed
+### 🐛 Bug fixes
+* chore: control bar tweaks by @jrasm91 in https://github.com/immich-app/ui/pull/553
+
+
+**Full Changelog**: https://github.com/immich-app/ui/compare/ui-v0.60.1...ui-v0.60.2
+
 ## 0.60.1 (2026-01-20)
 
 <!-- Release notes generated using configuration in .github/release.yml at main -->
