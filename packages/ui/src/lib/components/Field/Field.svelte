@@ -1,6 +1,5 @@
 <script lang="ts">
-  import { setFieldContext } from '$lib/common/context.svelte.js';
-  import { withChildrenSnippets } from '$lib/common/use-child.svelte.js';
+  import { setChildContext, setFieldContext } from '$lib/common/context.svelte.js';
   import { ChildKey } from '$lib/constants.js';
   import type { FieldContext } from '$lib/types.js';
   import { cleanClass } from '$lib/utilities/internal.js';
@@ -17,15 +16,11 @@
 
   setFieldContext(() => state);
 
-  const { getChildren: getChildSnippet } = withChildrenSnippets(ChildKey.Field);
-  const helperTextChildren = $derived(getChildSnippet(ChildKey.HelperText));
+  const { getByKey } = setChildContext(ChildKey.Field);
+  const helperTextChild = $derived(getByKey(ChildKey.HelperText));
 </script>
 
 <div class={cleanClass('w-full', className)}>
   {@render children()}
-  {#if helperTextChildren}
-    <div class={cleanClass('pt-1', helperTextChildren.class)}>
-      {@render helperTextChildren.snippet()}
-    </div>
-  {/if}
+  {@render helperTextChild?.children?.()}
 </div>

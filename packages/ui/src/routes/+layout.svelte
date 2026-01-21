@@ -98,8 +98,8 @@
 <TooltipProvider>
   <AppShell>
     <AppShellHeader>
-      <ControlBar static>
-        <ControlBarHeader>
+      <ControlBar static variant="ghost">
+        <ControlBarHeader class="flex-row items-center">
           <IconButton
             shape="round"
             color="secondary"

@@ -1,15 +1,29 @@
 <script lang="ts">
   import { ChildKey } from '$lib/constants.js';
   import Child from '$lib/internal/Child.svelte';
-  import type { Snippet } from 'svelte';
+  import type { ChildData } from '$lib/types.js';
+  import { cleanClass } from '$lib/utilities/internal.js';
+  import { tv } from 'tailwind-variants';
 
   type Props = {
-    children: Snippet;
-  };
+    border?: boolean;
+  } & ChildData;
 
-  let { children }: Props = $props();
+  let { border = true, class: className, children }: Props = $props();
+
+  const styles = tv({
+    base: 'h-control-bar-container flex items-center gap-2',
+    variants: {
+      border: {
+        true: 'border-b',
+        false: '',
+      },
+    },
+  });
 </script>
 
 <Child for={ChildKey.AppShell} as={ChildKey.AppShellHeader}>
-  {@render children?.()}
+  <header class={cleanClass(styles({ border }), className)}>
+    {@render children?.()}
+  </header>
 </Child>

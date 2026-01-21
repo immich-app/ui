@@ -1,6 +1,5 @@
 <script lang="ts">
-  import { setTableContext } from '$lib/common/context.svelte.js';
-  import { withChildrenSnippets } from '$lib/common/use-child.svelte.js';
+  import { setChildContext, setTableContext } from '$lib/common/context.svelte.js';
   import { ChildKey } from '$lib/constants.js';
   import { styleVariants } from '$lib/styles.js';
   import type { TableContext } from '$lib/types.js';
@@ -32,10 +31,10 @@
 
   setTableContext(() => ({ spacing, striped, size }));
 
-  const { getChildren: getChildSnippet } = withChildrenSnippets(ChildKey.Table);
-  const headerChild = $derived(getChildSnippet(ChildKey.TableHeader));
-  const bodyChild = $derived(getChildSnippet(ChildKey.TableBody));
-  const footerChild = $derived(getChildSnippet(ChildKey.TableFooter));
+  const { getByKey } = setChildContext(ChildKey.Table);
+  const headerChild = $derived(getByKey(ChildKey.TableHeader));
+  const bodyChild = $derived(getByKey(ChildKey.TableBody));
+  const footerChild = $derived(getByKey(ChildKey.TableFooter));
 
   const headerRowStyles = tv({
     base: 'bg-dark-900 flex w-full place-items-center',
@@ -66,15 +65,15 @@
 <table bind:this={ref} class={cleanClass('w-full text-center', className)} {...restProps}>
   {#if headerChild}
     <thead class={cleanClass('text-primary mb-4 flex w-full overflow-hidden', commonStyles({ shape, border }))}>
-      <tr class={headerRowStyles({ spacing })}>
-        {@render headerChild?.snippet()}
+      <tr class={cleanClass(headerRowStyles({ spacing }), headerChild.class)}>
+        {@render headerChild?.children?.()}
       </tr>
     </thead>
   {/if}
 
   {#if bodyChild}
-    <tbody class={cleanClass('block w-full overflow-y-auto', bodyChild.class, commonStyles({ shape, border }))}>
-      {@render bodyChild?.snippet()}
+    <tbody class={cleanClass('block w-full overflow-y-auto', commonStyles({ shape, border }), bodyChild.class)}>
+      {@render bodyChild?.children?.()}
     </tbody>
   {/if}
 
@@ -86,8 +85,9 @@
     class={cleanClass(
       'text-primary bg-subtle mt-4 flex h-12 w-full place-items-center p-4',
       commonStyles({ shape, border }),
+      footerChild.class,
     )}
   >
-    {@render footerChild?.snippet()}
+    {@render footerChild?.children?.()}
   </div>
 {/if}

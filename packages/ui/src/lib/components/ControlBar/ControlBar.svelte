@@ -1,6 +1,6 @@
 <script lang="ts">
   import { shortcuts } from '$lib/actions/shortcut.js';
-  import { withChildrenSnippets } from '$lib/common/use-child.svelte.js';
+  import { setChildContext } from '$lib/common/context.svelte.js';
   import IconButton from '$lib/components/IconButton/IconButton.svelte';
   import { ChildKey } from '$lib/constants.js';
   import { t } from '$lib/services/translation.svelte.js';
@@ -45,10 +45,10 @@
     }
   };
 
-  const { getChildren: getChildSnippet } = withChildrenSnippets(ChildKey.ControlBar);
-  const headerChild = $derived(getChildSnippet(ChildKey.ControlBarHeader));
-  const contentChild = $derived(getChildSnippet(ChildKey.ControlBarContent));
-  const overflowChild = $derived(getChildSnippet(ChildKey.ControlBarOverflow));
+  const { getByKey } = setChildContext(ChildKey.ControlBar);
+  const headerChild = $derived(getByKey(ChildKey.ControlBarHeader));
+  const contentChild = $derived(getByKey(ChildKey.ControlBarContent));
+  const overflowChild = $derived(getByKey(ChildKey.ControlBarOverflow));
 </script>
 
 <svelte:window use:shortcuts={[{ shortcut: { key: 'Escape' }, onShortcut: onEscape }]} />
@@ -73,18 +73,20 @@
       />
     {/if}
 
-    <div class={cleanClass('flex shrink-0 flex-col')}>
-      {@render headerChild?.snippet()}
-    </div>
+    {#if headerChild}
+      <div class={cleanClass('flex shrink-0 flex-col', headerChild.class)}>
+        {@render headerChild.children?.()}
+      </div>
+    {/if}
   </div>
 
   <div class={cleanClass('flex grow items-center gap-2', contentChild?.class)}>
-    {@render contentChild?.snippet()}
+    {@render contentChild?.children?.()}
   </div>
 
   {#if overflowChild}
     <div class={cleanClass('flex shrink-0 items-center gap-2', overflowChild.class)}>
-      {@render overflowChild.snippet()}
+      {@render overflowChild.children?.()}
     </div>
   {/if}
 
