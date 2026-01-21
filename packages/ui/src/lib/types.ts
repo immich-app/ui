@@ -377,7 +377,7 @@ export type ControlBarProps = {
 } & HTMLAttributes<HTMLElement>;
 
 export type ActionBarProps = ControlBarProps & {
-  actions: ActionItem[];
+  actions?: ActionItem[];
   overflowActions?: ActionItem[];
 };
 

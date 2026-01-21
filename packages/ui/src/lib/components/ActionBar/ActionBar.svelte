@@ -6,7 +6,7 @@
   import type { ActionBarProps } from '$lib/types.js';
   import { isEnabled } from '$lib/utilities/common.js';
 
-  const { actions, overflowActions = [], children, ...restProps }: ActionBarProps = $props();
+  const { actions = [], overflowActions = [], children, ...restProps }: ActionBarProps = $props();
 
   const items = $derived(overflowActions.filter((action) => isEnabled(action)));
 </script>

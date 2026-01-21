@@ -15,7 +15,7 @@
     closeIcon,
     class: className,
     shape = 'semi-round',
-    variant = 'ghost',
+    variant = 'filled',
     closeOnEsc = true,
     static: isStatic = false,
     translations,
@@ -28,7 +28,7 @@
     base: `h-control-bar flex w-full items-center gap-2 px-2`,
     variants: {
       variant: {
-        filled: 'dark:bg-subtle bg-light-50',
+        filled: 'bg-subtle',
         outline: 'dark:border-light-200 shadow-md dark:border',
         ghost: '',
       },
