@@ -61,7 +61,7 @@ importers:
         version: 5.46.4
     devDependencies:
       '@types/node':
-        specifier: ^24.10.8
+        specifier: ^24.10.9
         version: 24.10.9
       front-matter:
         specifier: ^4.0.2
