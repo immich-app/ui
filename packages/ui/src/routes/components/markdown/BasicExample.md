@@ -115,6 +115,22 @@ Now a nested list:
 
     Do not bump wooden spoon or it will fall.
 
+## Tables
+
+| Name  | Power        | Level |
+| ----- | ------------ | ----- |
+| Mich  | Photography  | 9000  |
+| Alice | Cryptography | 4096  |
+| Body  | Hacking      | -1    |
+
+## Emojis via short codes
+
+```
+:heart: :unicorn: :tada:
+```
+
+:heart: :unicorn: :tada:
+
 ## Image
 
 ![example image](/img/social-preview.webp 'Immich share card')
