@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.61.1 (2026-01-30)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+## What's Changed
+### 🐛 Bug fixes
+* fix: dependencies by @jrasm91 in https://github.com/immich-app/ui/pull/563
+* fix: initial text sizes by @jrasm91 in https://github.com/immich-app/ui/pull/565
+
+
+**Full Changelog**: https://github.com/immich-app/ui/compare/ui-v0.61.0...ui-v0.61.1
+
 ## 0.61.0 (2026-01-30)
 
 <!-- Release notes generated using configuration in .github/release.yml at main -->
