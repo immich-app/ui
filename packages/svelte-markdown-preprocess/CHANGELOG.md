@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.2.1 (2026-01-30)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+## What's Changed
+### 🐛 Bug fixes
+* fix: dependencies by @jrasm91 in https://github.com/immich-app/ui/pull/563
+
+
+**Full Changelog**: https://github.com/immich-app/ui/compare/svelte-markdown-preprocess-v0.2.0...svelte-markdown-preprocess-v0.2.1
+
 ## 0.2.0 (2026-01-30)
 
 <!-- Release notes generated using configuration in .github/release.yml at main -->
