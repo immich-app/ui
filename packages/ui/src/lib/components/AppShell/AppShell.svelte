@@ -20,7 +20,7 @@
 
 <div class={cleanClass('flex h-dvh flex-col overflow-hidden', className)}>
   {#if bar}
-    <div class={cleanClass('h-control-bar-container px-2 pt-2', zIndex.AppShellBar, bar.class)}>
+    <div class={cleanClass('min-h-control-bar-container px-2 pt-2', zIndex.AppShellBar, bar.class)}>
       {@render bar.children?.()}
     </div>
   {:else if header}
