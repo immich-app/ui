@@ -1,6 +1,6 @@
 {
   "name": "@immich/svelte-markdown-preprocess",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "license": "GNU Affero General Public License version 3",
   "repository": {
     "type": "git",
