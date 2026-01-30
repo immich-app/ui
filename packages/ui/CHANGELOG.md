@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.61.0 (2026-01-30)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+## What's Changed
+### 🚀 Features
+* feat: markdown improvements by @jrasm91 in https://github.com/immich-app/ui/pull/561
+
+
+**Full Changelog**: https://github.com/immich-app/ui/compare/ui-v0.60.3...ui-v0.61.0
+
 ## 0.60.3 (2026-01-21)
 
 <!-- Release notes generated using configuration in .github/release.yml at main -->
