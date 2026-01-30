@@ -1,7 +1,8 @@
-import { Marked } from 'marked';
+import { MarkedExtension } from 'marked';
+import { emojify } from 'node-emoji';
 import { escapeSvelteCode, getIdFromText } from './utility.js';
 
-export const md = new Marked().use({
+export const markedSvelte = (): MarkedExtension => ({
   tokenizer: {
     code(src) {
       if (src.startsWith('    ')) {
@@ -48,6 +49,8 @@ export const md = new Marked().use({
 
     paragraph({ tokens }) {
       const children = this.parser.parseInline(tokens);
+
+      // pass through svelte syntax unchanged
       if (
         children.startsWith('{#') ||
         children.startsWith('{/') ||
@@ -59,8 +62,45 @@ export const md = new Marked().use({
       return `<Markdown.Paragraph>${children}</Markdown.Paragraph>\n`;
     },
 
+    text(token) {
+      if (token.type === 'text') {
+        return token.tokens ? this.parser.parseInline(token.tokens) : emojify(token.text);
+      }
+
+      return token.text;
+    },
+
     space() {
       return `<Markdown.Space />\n`;
+    },
+
+    table({ header, rows }) {
+      // table
+      let output = `<Markdown.Table>\n`;
+
+      // header
+      output += `<Markdown.TableHeader>\n`;
+      for (const cell of header) {
+        const content = this.parser.parseInline(cell.tokens);
+        output += `<Markdown.TableHeading>${content}</Markdown.TableHeading>\n`;
+      }
+      output += `</Markdown.TableHeader>\n`;
+
+      // body
+      output += `<Markdown.TableBody>\n`;
+      for (const row of rows) {
+        output += `<Markdown.TableRow>\n`;
+        for (const cell of row) {
+          const content = this.parser.parseInline(cell.tokens);
+          output += `<Markdown.TableCell>${content}</Markdown.TableCell>\n`;
+        }
+        output += `</Markdown.TableRow>\n`;
+      }
+      output += `</Markdown.TableBody>\n`;
+
+      output += `</Markdown.Table>\n`;
+
+      return output;
     },
 
     code({ text, lang }) {

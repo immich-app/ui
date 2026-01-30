@@ -1,8 +1,9 @@
 import fm from 'front-matter';
+import { marked, MarkedExtension } from 'marked';
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { dirname } from 'node:path';
 import type { PreprocessorGroup } from 'svelte/compiler';
-import { md } from './markdown.js';
+import { markedSvelte } from './marked-svelte.js';
 import { SvelteFile } from './svelte-file.js';
 
 type Layouts = Record<string, string>;
@@ -11,6 +12,8 @@ type Options = {
   markdownPackageName?: string;
   debugPath?: string;
   layouts?: Layouts;
+  /** additional extensions to use with marked */
+  markedExtensions?: MarkedExtension[];
 };
 
 const resolveLayout = (layout?: string, layouts?: Layouts) => {
@@ -41,7 +44,9 @@ const parse = (content: string) => {
 };
 
 export const svelteMarkdownPreprocess = (options: Options) => {
-  const { layouts, debugPath, markdownPackageName = '@immich/ui' } = options || {};
+  const { layouts, debugPath, markdownPackageName = '@immich/ui', markedExtensions = [] } = options || {};
+
+  const md = marked.use(...markedExtensions, markedSvelte());
 
   return {
     name: '@immich/svelte-markdown-preprocess',

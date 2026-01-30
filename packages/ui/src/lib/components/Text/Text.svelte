@@ -17,7 +17,7 @@
     children?: Snippet;
   } & HTMLAttributes<HTMLElement>;
 
-  const { color, inline, size, fontWeight = 'normal', children, class: className, ...restProps }: Props = $props();
+  const { color, inline, size, fontWeight = 'normal', class: className, ...restProps }: Props = $props();
 
   const styles = tv({
     variants: {
@@ -26,6 +26,4 @@
   });
 </script>
 
-<Text tag={inline ? 'span' : 'p'} {color} {fontWeight} class={cleanClass(styles({ size }), className)} {...restProps}>
-  {@render children?.()}
-</Text>
+<Text tag={inline ? 'span' : 'p'} {color} {fontWeight} class={cleanClass(styles({ size }), className)} {...restProps} />

@@ -16,8 +16,7 @@
     color?: HeadingColor;
     size?: Size;
     class?: string;
-
-    children: Snippet;
+    children?: Snippet;
   } & HTMLAttributes<HTMLElement>;
 
   const { tag = 'p', color, fontWeight, variant, size, class: className, children, ...restProps }: Props = $props();
@@ -45,5 +44,5 @@
 </script>
 
 <svelte:element this={tag} class={classList} {...restProps}>
-  {@render children()}
+  {@render children?.()}
 </svelte:element>
