@@ -11,7 +11,7 @@
     children?: Snippet;
   } & HTMLAttributes<HTMLElement>;
 
-  const { class: className, size = 'small', children, ...restProps }: Props = $props();
+  const { class: className, size, children, ...restProps }: Props = $props();
 
   const styles = tv({
     base: 'bg-subtle rounded-md border border-b-2 px-1 py-0.5 font-mono shadow',

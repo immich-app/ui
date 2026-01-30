@@ -34,6 +34,8 @@ This is ~~strike-through~~
 
 This is `code`
 
+#### Headers can also container `code`
+
 ### Link
 
 Here's a link to [Immich](https://immich.app/)

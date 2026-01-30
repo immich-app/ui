@@ -14,14 +14,7 @@
     children: Snippet;
   } & HTMLAttributes<HTMLElement>;
 
-  const {
-    class: className,
-    size = 'medium',
-    variant = 'filled',
-    color = 'primary',
-    children,
-    ...restProps
-  }: Props = $props();
+  const { class: className, size, variant = 'filled', color = 'primary', children, ...restProps }: Props = $props();
 
   const styles = tv({
     base: 'font-monospace rounded-lg px-2 py-1',
