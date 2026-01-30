@@ -29,11 +29,13 @@
   "peerDependencies": {
     "svelte": "^5.0.0"
   },
-  "devDependencies": {
-    "@types/node": "^24.10.9",
+  "dependencies": {
     "front-matter": "^4.0.2",
     "marked": "^17.0.0",
-    "node-emoji": "^2.2.0",
+    "node-emoji": "^2.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.9",
     "vite": "^7.1.12",
     "vitest": "^4.0.5"
   },
