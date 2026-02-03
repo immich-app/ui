@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.61.2 (2026-02-03)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+## What's Changed
+### 🐛 Bug fixes
+* fix: cursor-not-allowed on disabled button by @meesfrensel in https://github.com/immich-app/ui/pull/568
+* fix: app shell header height by @jrasm91 in https://github.com/immich-app/ui/pull/567
+
+
+**Full Changelog**: https://github.com/immich-app/ui/compare/ui-v0.61.1...ui-v0.61.2
+
 ## 0.61.1 (2026-01-30)
 
 <!-- Release notes generated using configuration in .github/release.yml at main -->
