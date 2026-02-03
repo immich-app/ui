@@ -4,7 +4,7 @@
   "description": "monorepo for immich and friends",
   "private": true,
   "type": "module",
-  "packageManager": "pnpm@10.28.1",
+  "packageManager": "pnpm@10.28.2",
   "engines": {
     "pnpm": ">=10.0.0"
   },
