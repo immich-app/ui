@@ -12,7 +12,7 @@
   let { border = true, class: className, children }: Props = $props();
 
   const styles = tv({
-    base: 'h-control-bar-container flex items-center gap-2',
+    base: 'min-h-control-bar-container flex items-center gap-2',
     variants: {
       border: {
         true: 'border-b',
