@@ -66,12 +66,12 @@ export const styleVariants = {
   },
 
   filledColorHover: {
-    primary: 'hover:bg-primary/80',
-    secondary: 'hover:bg-dark/80',
-    success: 'hover:bg-success/80',
-    danger: 'hover:bg-danger/80',
-    warning: 'hover:bg-warning/80',
-    info: 'hover:bg-info/80',
+    primary: 'not-disabled:hover:bg-primary/80',
+    secondary: 'not-disabled:hover:bg-dark/80',
+    success: 'not-disabled:hover:bg-success/80',
+    danger: 'not-disabled:hover:bg-danger/80',
+    warning: 'not-disabled:hover:bg-warning/80',
+    info: 'not-disabled:hover:bg-info/80',
   },
 
   textSize: {
