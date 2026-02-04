@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.61.3 (2026-02-04)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+## What's Changed
+### 🐛 Bug fixes
+* fix: avoid invalid label/button nesting in switch by @michelheusschen in https://github.com/immich-app/ui/pull/571
+
+## New Contributors
+* @michelheusschen made their first contribution in https://github.com/immich-app/ui/pull/571
+
+**Full Changelog**: https://github.com/immich-app/ui/compare/ui-v0.61.2...ui-v0.61.3
+
 ## 0.61.2 (2026-02-03)
 
 <!-- Release notes generated using configuration in .github/release.yml at main -->
