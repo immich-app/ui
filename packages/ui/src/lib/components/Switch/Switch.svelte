@@ -75,44 +75,35 @@
 
   const inputId = $derived(`input-${id}`);
   const labelId = $derived(`label-${id}`);
-  const descriptionId = $derived(description ? `description-${id}` : undefined);
+  const descriptionId = $derived(description ? `description-${id}` : restProps['aria-describedby']);
 </script>
 
-<Switch.Root
-  bind:checked
-  bind:ref
-  id={inputId}
-  disabled={disabled || readOnly}
-  required={!!required}
-  class={cleanClass(label && 'w-full', className)}
-  aria-readonly={readOnly}
-  aria-labelledby={labelId}
-  aria-describedby={descriptionId}
-  {...restProps}
->
-  <Switch.Thumb>
-    {#snippet child()}
-      <div class={cleanClass(label && 'flex items-center justify-between gap-1')}>
-        {#if label}
-          <div class="text-start">
-            <Label
-              id={labelId}
-              for={inputId}
-              {label}
-              requiredIndicator={required === 'indicator'}
-              {...labelProps}
-              {size}
-            />
-            {#if description}
-              <Text color="muted" size="small" id={descriptionId}>{description}</Text>
-            {/if}
-          </div>
-        {/if}
-        <span class={wrapper({ disabled })}>
-          <span class={bar({ fillColor: enabled ? color : 'default' })}> </span>
-          <span class={dot({ checked: enabled, fillColor: enabled ? color : 'default' })}></span>
-        </span>
-      </div>
-    {/snippet}
-  </Switch.Thumb>
-</Switch.Root>
+<div class={cleanClass(label ? 'flex w-full items-center gap-3' : undefined, className)}>
+  {#if label}
+    <div class="min-w-0 flex-1 text-start">
+      <Label id={labelId} for={inputId} {label} requiredIndicator={required === 'indicator'} {...labelProps} {size} />
+      {#if description}
+        <Text color="muted" size="small" id={descriptionId}>{description}</Text>
+      {/if}
+    </div>
+  {/if}
+
+  <Switch.Root
+    bind:checked
+    bind:ref
+    id={inputId}
+    disabled={disabled || readOnly}
+    required={!!required}
+    aria-readonly={readOnly}
+    aria-labelledby={labelId}
+    aria-describedby={descriptionId}
+    {...restProps}
+  >
+    <Switch.Thumb>
+      <span class={wrapper({ disabled })}>
+        <span class={bar({ fillColor: enabled ? color : 'default' })}> </span>
+        <span class={dot({ checked: enabled, fillColor: enabled ? color : 'default' })}></span>
+      </span>
+    </Switch.Thumb>
+  </Switch.Root>
+</div>
