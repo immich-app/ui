@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.61.4 (2026-02-06)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+## What's Changed
+### 🐛 Bug fixes
+* perf: remove forceMount from tooltip by @michelheusschen in https://github.com/immich-app/ui/pull/573
+
+
+**Full Changelog**: https://github.com/immich-app/ui/compare/ui-v0.61.3...ui-v0.61.4
+
 ## 0.61.3 (2026-02-04)
 
 <!-- Release notes generated using configuration in .github/release.yml at main -->
