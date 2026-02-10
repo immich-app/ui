@@ -4,12 +4,12 @@
 
 <Stack gap={4} class="max-w-[250px]">
   <Field label="Round">
-    <DatePicker shape="round" locale={navigator.language} />
+    <DatePicker shape="round" />
   </Field>
   <Field label="Semi-round">
-    <DatePicker shape="semi-round" locale={navigator.language} />
+    <DatePicker shape="semi-round" />
   </Field>
   <Field label="Rectangle">
-    <DatePicker shape="rectangle" locale={navigator.language} />
+    <DatePicker shape="rectangle" />
   </Field>
 </Stack>

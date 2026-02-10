@@ -4,6 +4,7 @@
   import IconButton from '$lib/components/IconButton/IconButton.svelte';
   import Label from '$lib/components/Label/Label.svelte';
   import { zIndex } from '$lib/constants.js';
+  import { getLocale } from '$lib/state/locale-state.svelte.js';
   import { styleVariants } from '$lib/styles.js';
   import type { Shape, Size } from '$lib/types.js';
   import { cleanClass, generateId } from '$lib/utilities/internal.js';
@@ -13,7 +14,6 @@
   import { tv } from 'tailwind-variants';
 
   type Props = {
-    locale: string | undefined;
     onChange?: (date?: DateValue) => void;
     minDate?: DateValue;
     maxDate?: DateValue;
@@ -24,7 +24,6 @@
   };
 
   let {
-    locale,
     onChange,
     minDate,
     maxDate,
@@ -77,7 +76,7 @@
     maxValue={maxDate}
     bind:value={date}
     readonly={readOnly}
-    {locale}
+    locale={getLocale()}
     {disabled}
   >
     <DatePicker.Input

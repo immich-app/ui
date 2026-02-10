@@ -7,7 +7,7 @@
 
 <Stack gap={4} class="max-w-[250px]">
   <Field label="Select a date">
-    <DatePicker bind:value={selectedDate} locale={navigator.language} />
+    <DatePicker bind:value={selectedDate} />
   </Field>
   <Text>Selected date: {selectedDate?.toISODate() ?? 'undefined'}</Text>
 </Stack>

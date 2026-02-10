@@ -7,7 +7,7 @@
   <ComponentSizes>
     {#snippet child({ size, label })}
       <Field {size} {label}>
-        <DatePicker locale={navigator.language} />
+        <DatePicker />
       </Field>
     {/snippet}
   </ComponentSizes>
