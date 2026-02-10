@@ -5,18 +5,18 @@
 
 <Stack gap={4} class="max-w-[250px]">
   <Field label="Required" required="indicator">
-    <DatePicker />
+    <DatePicker locale={navigator.language} />
   </Field>
   <Field label="Invalid" invalid>
-    <DatePicker />
+    <DatePicker locale={navigator.language} />
   </Field>
   <Field label="Disabled" disabled>
-    <DatePicker />
+    <DatePicker locale={navigator.language} />
   </Field>
   <Field label="Minimum date">
-    <DatePicker minDate={DateTime.now().minus({ days: 1 })} />
+    <DatePicker minDate={DateTime.now().minus({ days: 1 })} locale={navigator.language} />
   </Field>
   <Field label="Maximum date">
-    <DatePicker maxDate={DateTime.now().plus({ days: 1 })} />
+    <DatePicker maxDate={DateTime.now().plus({ days: 1 })} locale={navigator.language} />
   </Field>
 </Stack>

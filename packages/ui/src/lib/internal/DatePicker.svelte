@@ -13,6 +13,7 @@
   import { tv } from 'tailwind-variants';
 
   type Props = {
+    locale: string | undefined;
     onChange?: (date?: DateValue) => void;
     minDate?: DateValue;
     maxDate?: DateValue;
@@ -23,6 +24,7 @@
   };
 
   let {
+    locale,
     onChange,
     minDate,
     maxDate,
@@ -75,6 +77,7 @@
     maxValue={maxDate}
     bind:value={date}
     readonly={readOnly}
+    {locale}
     {disabled}
   >
     <DatePicker.Input

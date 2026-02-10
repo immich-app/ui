@@ -310,6 +310,7 @@ export type ContextMenuProps = ContextMenuBaseProps & {
 };
 
 export type DatePickerProps = {
+  locale: string | undefined;
   onChange?: (date: DateTime | undefined) => void;
   value?: DateTime | undefined;
   minDate?: DateTime;
