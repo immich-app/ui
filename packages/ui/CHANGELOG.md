@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.62.0 (2026-02-10)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+## What's Changed
+### 🌟 Enhancements
+* feat: support locale in DatePicker by @michelheusschen in https://github.com/immich-app/ui/pull/578
+### 🐛 Bug fixes
+* fix: gate command palette and shortcut fixes by @michelheusschen in https://github.com/immich-app/ui/pull/579
+
+
+**Full Changelog**: https://github.com/immich-app/ui/compare/ui-v0.61.4...ui-v0.62.0
+
 ## 0.61.4 (2026-02-06)
 
 <!-- Release notes generated using configuration in .github/release.yml at main -->
