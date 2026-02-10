@@ -1,9 +1,11 @@
 import { matchesShortcut, shortcuts, shouldIgnoreEvent } from '$lib/actions/shortcut.js';
 import CommandPaletteModal from '$lib/internal/CommandPaletteModal.svelte';
 import { modalManager } from '$lib/services/modal-manager.svelte.js';
+import { isModalOpen } from '$lib/state/modal-state.svelte.js';
 import type { ActionItem, MaybePromise, TranslationProps } from '$lib/types.js';
 import { isEnabled } from '$lib/utilities/common.js';
 import { asArray, generateId, getSearchString } from '$lib/utilities/internal.js';
+import { on } from 'svelte/events';
 
 export type CommandPaletteTranslations = TranslationProps<
   | 'search_placeholder'
@@ -55,7 +57,7 @@ class CommandPaletteManager {
         { shortcut: { key: 'k', ctrl: true }, onShortcut: () => this.open() },
         { shortcut: { key: '/' }, preventDefault: true, onShortcut: () => this.open() },
       ]);
-      document.body.addEventListener('keydown', (event) => this.#handleKeydown(event));
+      on(document.body, 'keydown', (event) => this.#handleKeydown(event));
     }
   }
 
@@ -80,6 +82,10 @@ class CommandPaletteManager {
   }
 
   async #handleKeydown(event: KeyboardEvent) {
+    if (event.defaultPrevented || isModalOpen()) {
+      return;
+    }
+
     const actions = await Promise.all(this.#providers.map((provider) => Promise.resolve(provider.onSearch())));
 
     for (const action of actions.flat()) {
@@ -101,6 +107,7 @@ class CommandPaletteManager {
       }
 
       action?.onAction(action);
+      return;
     }
   }
 

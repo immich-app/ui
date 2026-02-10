@@ -1,4 +1,5 @@
 import type { ActionReturn } from 'svelte/action';
+import { on } from 'svelte/events';
 
 export type Shortcut = {
   key: string;
@@ -111,6 +112,9 @@ export const shortcuts = <T extends HTMLElement>(
   options: ShortcutOptions<T>[],
 ): ActionReturn<ShortcutOptions<T>[]> => {
   function onKeydown(event: KeyboardEvent) {
+    if (event.defaultPrevented) {
+      return;
+    }
     const ignoreShortcut = shouldIgnoreEvent(event);
     for (const { shortcut, onShortcut, ignoreInputFields = true, preventDefault = true } of options) {
       if (ignoreInputFields && ignoreShortcut) {
@@ -127,14 +131,14 @@ export const shortcuts = <T extends HTMLElement>(
     }
   }
 
-  node.addEventListener('keydown', onKeydown);
+  const off = on(node, 'keydown', onKeydown);
 
   return {
     update(newOptions) {
       options = newOptions;
     },
     destroy() {
-      node.removeEventListener('keydown', onKeydown);
+      off();
     },
   };
 };

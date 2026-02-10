@@ -19,3 +19,4 @@ class ModalState {
 }
 
 export const modalState = new ModalState();
+export const isModalOpen = () => modalState.layer > 0;
