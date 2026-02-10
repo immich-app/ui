@@ -110,6 +110,7 @@ export * from '$lib/services/translation.svelte.js';
 export * from '$lib/types.js';
 export * from '$lib/utilities/byte-units.js';
 export * from '$lib/utilities/common.js';
+export { isModalOpen } from '$lib/state/modal-state.svelte.js';
 
 // site
 export * from '$lib/site/constants.js';

@@ -89,6 +89,11 @@
     }
   };
 
+  const handleEscapeKeydown = (event: KeyboardEvent) => {
+    event.stopImmediatePropagation();
+    onEscapeKeydown?.(event);
+  };
+
   onMount(() => {
     layer = modalState.incrementLayer();
 
@@ -100,7 +105,7 @@
   <Dialog.Portal>
     <Dialog.Overlay class="{zIndex.ModalBackdrop} fixed start-0 top-0  flex h-dvh max-h-dvh w-screen bg-black/30" />
     <Dialog.Content
-      {onEscapeKeydown}
+      onEscapeKeydown={handleEscapeKeydown}
       {escapeKeydownBehavior}
       {interactOutsideBehavior}
       class={cleanClass(modalContentStyles({ size }))}
