@@ -15,7 +15,6 @@ const defaultTranslations = {
   // search
   search_placeholder: 'Search...',
   search_no_results: 'No results',
-  search_recently_used: 'Recently used',
 
   // modal
   prompt_default: 'Are you sure you want to do this?',
@@ -41,6 +40,9 @@ const defaultTranslations = {
   navigate_next: 'Next',
   navigate_previous: 'Previous',
 
+  // date picker
+  open_calendar: 'Open calendar',
+
   toast_success_title: 'Success',
   toast_info_title: 'Info',
   toast_warning_title: 'Warning',
@@ -49,7 +51,6 @@ const defaultTranslations = {
   save: 'Save',
 
   supporter: 'Supporter',
-  global: 'Global',
 };
 
 export type Translations = typeof defaultTranslations;

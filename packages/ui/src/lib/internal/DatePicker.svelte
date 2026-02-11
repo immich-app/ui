@@ -4,6 +4,7 @@
   import IconButton from '$lib/components/IconButton/IconButton.svelte';
   import Label from '$lib/components/Label/Label.svelte';
   import { zIndex } from '$lib/constants.js';
+  import { t } from '$lib/services/translation.svelte.js';
   import { getLocale } from '$lib/state/locale-state.svelte.js';
   import { styleVariants } from '$lib/styles.js';
   import type { Shape, Size } from '$lib/types.js';
@@ -104,7 +105,7 @@
             {size}
             icon={mdiCalendar}
             {disabled}
-            aria-label="Open calendar"
+            aria-label={t('open_calendar')}
           />
         </DatePicker.Trigger>
       {/snippet}

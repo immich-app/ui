@@ -4,6 +4,7 @@
   import IconButton from '$lib/components/IconButton/IconButton.svelte';
   import Input from '$lib/components/Input/Input.svelte';
   import { zIndex } from '$lib/constants.js';
+  import { t } from '$lib/services/translation.svelte.js';
   import type { SelectCommonProps, SelectOption } from '$lib/types.js';
   import { cleanClass } from '$lib/utilities/internal.js';
   import { mdiArrowDown, mdiArrowUp, mdiCheck, mdiChevronDown } from '@mdi/js';
@@ -107,7 +108,7 @@
             class="m-1"
             icon={mdiChevronDown}
             {disabled}
-            aria-label="Expand"
+            aria-label={t('expand')}
           />
         {/snippet}
       </Input>
