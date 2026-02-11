@@ -2,6 +2,7 @@
   import { setChildContext } from '$lib/common/context.svelte.js';
   import IconButton from '$lib/components/IconButton/IconButton.svelte';
   import { ChildKey } from '$lib/constants.js';
+  import { t } from '$lib/services/translation.svelte.js';
   import type { Color } from '$lib/types.js';
   import { cleanClass } from '$lib/utilities/internal.js';
   import { mdiChevronDown } from '@mdi/js';
@@ -114,7 +115,7 @@
           variant="ghost"
           shape="round"
           size="large"
-          aria-label="Expand"
+          aria-label={t('expand')}
         />
       </div>
     </button>

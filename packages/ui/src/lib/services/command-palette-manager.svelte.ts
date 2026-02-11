@@ -10,13 +10,11 @@ import { on } from 'svelte/events';
 export type CommandPaletteTranslations = TranslationProps<
   | 'search_placeholder'
   | 'search_no_results'
-  | 'search_recently_used'
   | 'command_palette_prompt_default'
   | 'command_palette_to_select'
   | 'command_palette_to_close'
   | 'command_palette_to_navigate'
   | 'command_palette_to_show_all'
-  | 'global'
 >;
 
 export type ActionProvider = {
