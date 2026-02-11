@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.62.1 (2026-02-11)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+## What's Changed
+### 🐛 Bug fixes
+* fix: update translations by @michelheusschen in https://github.com/immich-app/ui/pull/582
+
+
+**Full Changelog**: https://github.com/immich-app/ui/compare/ui-v0.62.0...ui-v0.62.1
+
 ## 0.62.0 (2026-02-10)
 
 <!-- Release notes generated using configuration in .github/release.yml at main -->
