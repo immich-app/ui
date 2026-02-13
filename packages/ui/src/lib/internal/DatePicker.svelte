@@ -8,7 +8,7 @@
   import { getLocale } from '$lib/state/locale-state.svelte.js';
   import { styleVariants } from '$lib/styles.js';
   import type { Shape, Size } from '$lib/types.js';
-  import { cleanClass, generateId } from '$lib/utilities/internal.js';
+  import { cleanClass } from '$lib/utilities/internal.js';
   import type { DateValue } from '@internationalized/date';
   import { mdiCalendar, mdiChevronLeft, mdiChevronRight } from '@mdi/js';
   import { DatePicker } from 'bits-ui';
@@ -38,10 +38,6 @@
   const { readOnly, required, invalid, disabled, label, ...labelProps } = $derived(context());
   const size = $derived(initialSize ?? labelProps.size ?? 'small');
 
-  const id = generateId();
-  const inputId = `datepicker-${id}`;
-  const labelId = `label-${id}`;
-
   const containerStyles = tv({
     base: cleanClass(styleVariants.inputContainerCommon, 'flex w-full items-center'),
     variants: {
@@ -67,10 +63,6 @@
 </script>
 
 <div class={cleanClass('flex w-full flex-col gap-1', className)}>
-  {#if label}
-    <Label id={labelId} for={inputId} {label} requiredIndicator={required === 'indicator'} {...labelProps} {size} />
-  {/if}
-
   <DatePicker.Root
     onValueChange={onChange}
     minValue={minDate}
@@ -80,9 +72,22 @@
     locale={getLocale()}
     {disabled}
   >
+    {#if label}
+      <DatePicker.Label>
+        {#snippet child({ props })}
+          <Label
+            {...labelProps}
+            {...props}
+            class={cleanClass(labelProps.class, props.class)}
+            requiredIndicator={required === 'indicator'}
+            {label}
+            {size}
+          />
+        {/snippet}
+      </DatePicker.Label>
+    {/if}
+
     <DatePicker.Input
-      id={inputId}
-      aria-labelledby={labelId}
       class={containerStyles({
         shape,
         roundedSize: shape === 'semi-round' ? size : undefined,
