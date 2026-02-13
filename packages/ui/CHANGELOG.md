@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.62.2 (2026-02-13)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+## What's Changed
+### 🐛 Bug fixes
+* fix: properly link date picker label and input by @michelheusschen in https://github.com/immich-app/ui/pull/584
+
+
+**Full Changelog**: https://github.com/immich-app/ui/compare/ui-v0.62.1...ui-v0.62.2
+
 ## 0.62.1 (2026-02-11)
 
 <!-- Release notes generated using configuration in .github/release.yml at main -->
