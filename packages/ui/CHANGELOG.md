@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.63.0 (2026-02-16)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+## What's Changed
+### 🌟 Enhancements
+* feat: allow customizing initial modal focus by @michelheusschen in https://github.com/immich-app/ui/pull/586
+
+
+**Full Changelog**: https://github.com/immich-app/ui/compare/ui-v0.62.2...ui-v0.63.0
+
 ## 0.62.2 (2026-02-13)
 
 <!-- Release notes generated using configuration in .github/release.yml at main -->
