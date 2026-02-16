@@ -28,6 +28,7 @@
     children: Snippet;
     onClose?: () => void;
     onEscapeKeydown?: (event: KeyboardEvent) => void;
+    onOpenAutoFocus?: (event: Event) => void;
   };
 
   let {
@@ -40,6 +41,7 @@
     closeOnEsc = true,
     closeOnBackdropClick = false,
     children,
+    onOpenAutoFocus,
   }: Props = $props();
 
   const modalStyles = tv({
@@ -105,6 +107,7 @@
   <Dialog.Portal>
     <Dialog.Overlay class="{zIndex.ModalBackdrop} fixed start-0 top-0  flex h-dvh max-h-dvh w-screen bg-black/30" />
     <Dialog.Content
+      {onOpenAutoFocus}
       onEscapeKeydown={handleEscapeKeydown}
       {escapeKeydownBehavior}
       {interactOutsideBehavior}

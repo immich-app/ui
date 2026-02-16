@@ -20,6 +20,7 @@
     size?: ModalSize;
     preventDefault?: boolean;
     onClose: () => void;
+    onOpenAutoFocus?: (event: Event) => void;
     onReset?: (event: Event) => void;
     onSubmit: (event: SubmitEvent) => void;
     children: Snippet<[{ formId: string }]>;
@@ -36,6 +37,7 @@
     size = 'small',
     preventDefault = true,
     onClose = () => {},
+    onOpenAutoFocus,
     onReset,
     onSubmit,
     children,
@@ -60,7 +62,7 @@
   const formId = generateId();
 </script>
 
-<Modal {title} {onClose} {size} {icon}>
+<Modal {title} {onClose} {size} {icon} {onOpenAutoFocus}>
   <ModalBody>
     <form {onsubmit} {onreset} id={formId}>
       {@render children({ formId })}
