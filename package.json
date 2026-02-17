@@ -23,11 +23,11 @@
     "test": "pnpm -r --filter=./packages/* test"
   },
   "devDependencies": {
-    "@eslint/js": "^9.38.0",
+    "@eslint/js": "^10.0.0",
     "@sveltejs/eslint-config": "^8.3.4",
     "@types/eslint": "^9.6.1",
     "acorn": "latest",
-    "eslint": "^9.38.0",
+    "eslint": "^10.0.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-svelte": "^3.12.5",
     "globals": "^17.0.0",
