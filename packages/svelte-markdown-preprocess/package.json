@@ -35,7 +35,7 @@
     "node-emoji": "^2.2.0"
   },
   "devDependencies": {
-    "@types/node": "^24.10.11",
+    "@types/node": "^24.10.13",
     "vite": "^7.1.12",
     "vitest": "^4.0.5"
   },
