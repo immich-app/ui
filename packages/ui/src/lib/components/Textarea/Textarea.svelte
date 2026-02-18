@@ -5,8 +5,6 @@
   import { styleVariants } from '$lib/styles.js';
   import type { TextareaProps } from '$lib/types.js';
   import { cleanClass, generateId } from '$lib/utilities/internal.js';
-  import { onMount } from 'svelte';
-  import type { FormEventHandler } from 'svelte/elements';
   import { tv } from 'tailwind-variants';
 
   let {
@@ -75,12 +73,10 @@
     }
   };
 
-  const onInput: FormEventHandler<HTMLTextAreaElement> = (event) => {
-    autogrow(event.target as HTMLTextAreaElement);
-    restProps?.oninput?.(event);
-  };
-
-  onMount(() => autogrow(ref));
+  $effect(() => {
+    void value;
+    autogrow(ref);
+  });
 </script>
 
 <div class="flex w-full flex-col gap-1" bind:this={containerRef}>
@@ -94,7 +90,6 @@
 
   <div class="relative w-full">
     <textarea
-      oninput={onInput}
       id={inputId}
       aria-labelledby={label && labelId}
       required={!!required}
