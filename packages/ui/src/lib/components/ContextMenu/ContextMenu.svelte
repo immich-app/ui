@@ -22,9 +22,12 @@
   }: ContextMenuProps = $props();
 
   const itemStyles = tv({
-    base: 'hover:bg-light-200 flex w-full items-center gap-1 rounded-lg p-1 text-start hover:cursor-pointer',
+    base: 'data-highlighted:bg-light-200 flex items-center gap-1 rounded-lg p-1 text-start outline-none hover:cursor-pointer',
     variants: {
       color: styleVariants.textColor,
+      inset: {
+        true: 'mx-1',
+      },
     },
   });
 
@@ -130,14 +133,12 @@
                     textValue={item.title}
                     closeOnSelect
                     onSelect={() => item.onAction(item)}
-                    class="px-1"
+                    class={itemStyles({ color: item.color, inset: true })}
                   >
-                    <div class={itemStyles({ color: item.color })}>
-                      {#if item.icon}
-                        <Icon icon={item.icon} class="m-2 shrink-0" />
-                      {/if}
-                      <Text class="grow text-start font-medium select-none" size="medium">{item.title}</Text>
-                    </div>
+                    {#if item.icon}
+                      <Icon icon={item.icon} class="m-2 shrink-0" />
+                    {/if}
+                    <Text class="grow text-start font-medium select-none" size="medium">{item.title}</Text>
                   </DropdownMenu.Item>
                 {/if}
               {/each}
@@ -152,10 +153,9 @@
                         closeOnSelect
                         onSelect={() => item.onAction(item)}
                         title={item.title}
+                        class={itemStyles({ color: item.color })}
                       >
-                        <div class={cleanClass(itemStyles({ color: item.color }))}>
-                          <Icon icon={item.icon} class="m-2 shrink-0" />
-                        </div>
+                        <Icon icon={item.icon} class="m-2 shrink-0" />
                       </DropdownMenu.Item>
                     {/if}
                   {/each}
