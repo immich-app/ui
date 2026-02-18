@@ -32,7 +32,7 @@
   });
 
   const wrapperStyles = tv({
-    base: 'bg-light-100 dark:border-light-300 flex flex-col gap-1 overflow-hidden rounded-xl border py-1 shadow-sm',
+    base: 'bg-light-100 dark:border-light-300 flex flex-col gap-1 overflow-hidden rounded-xl border py-1 shadow-sm outline-none',
     variants: {
       size: {
         tiny: 'w-32',
