@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.64.0 (2026-02-18)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+## What's Changed
+### 🌟 Enhancements
+* feat: rework select component by @michelheusschen in https://github.com/immich-app/ui/pull/593
+### 🐛 Bug fixes
+* fix: keyboard styling for context menu items by @michelheusschen in https://github.com/immich-app/ui/pull/594
+* fix: resize textarea when value changes by @michelheusschen in https://github.com/immich-app/ui/pull/595
+
+
+**Full Changelog**: https://github.com/immich-app/ui/compare/ui-v0.63.0...ui-v0.64.0
+
 ## 0.63.0 (2026-02-16)
 
 <!-- Release notes generated using configuration in .github/release.yml at main -->
