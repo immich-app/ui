@@ -7,6 +7,10 @@
   import { Text } from '@immich/ui';
   import BasicExample from './BasicExample.svelte';
   import basicExample from './BasicExample.svelte?raw';
+  import ShapeExample from './ShapeExample.svelte';
+  import shapeExample from './ShapeExample.svelte?raw';
+  import SizeExample from './SizeExample.svelte';
+  import sizeExample from './SizeExample.svelte?raw';
 </script>
 
 <ComponentPage name="Select" description="Allows the user to select a single option from a dropdown list">
@@ -17,5 +21,11 @@
       but only allows the user to select a single option.
     </Text>
   </ComponentTipCard>
-  <ComponentExamples examples={[{ title: 'Basic', code: basicExample, component: BasicExample }]} />
+  <ComponentExamples
+    examples={[
+      { title: 'Basic', code: basicExample, component: BasicExample },
+      { title: 'Shapes', code: shapeExample, component: ShapeExample },
+      { title: 'Sizes', code: sizeExample, component: SizeExample },
+    ]}
+  />
 </ComponentPage>
