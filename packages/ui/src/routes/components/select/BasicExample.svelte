@@ -48,6 +48,10 @@
     <Select options={frameworks} />
   </Field>
 
+  <Field label="Framework" description="Please choose your preferred framework">
+    <Select options={frameworks} />
+  </Field>
+
   <Field label="Empty">
     <Select options={empty} value="" />
   </Field>
