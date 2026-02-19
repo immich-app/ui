@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.64.1 (2026-02-19)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+## What's Changed
+### 🐛 Bug fixes
+* fix: onAction return type by @jrasm91 in https://github.com/immich-app/ui/pull/596
+
+
+**Full Changelog**: https://github.com/immich-app/ui/compare/ui-v0.64.0...ui-v0.64.1
+
 ## 0.64.0 (2026-02-18)
 
 <!-- Release notes generated using configuration in .github/release.yml at main -->
