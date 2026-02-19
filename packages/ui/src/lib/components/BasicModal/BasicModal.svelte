@@ -12,6 +12,8 @@
     icon?: string | boolean;
     closeText?: string;
     closeColor?: Color;
+    closeOnBackdropClick?: boolean;
+    closeOnEsc?: boolean;
     size?: ModalSize;
     onClose: () => void;
     children: Snippet;
@@ -22,13 +24,15 @@
     icon,
     closeText = t('close'),
     closeColor = 'secondary',
+    closeOnBackdropClick = true,
+    closeOnEsc = true,
     size = 'small',
     onClose = () => {},
     children,
   }: Props = $props();
 </script>
 
-<Modal {title} {onClose} {size} {icon}>
+<Modal {title} {onClose} {size} {icon} {closeOnBackdropClick} {closeOnEsc}>
   <ModalBody {children} />
   <ModalFooter>
     <Button shape="round" color={closeColor} fullWidth onclick={onClose}>
