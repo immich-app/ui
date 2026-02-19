@@ -321,7 +321,7 @@ export type DatePickerProps = {
 
 export type IfLike = { $if?: () => boolean };
 
-export type ActionItemHandler<T extends ActionItem = ActionItem> = (item: T) => void | Promise<void>;
+export type ActionItemHandler<T extends ActionItem = ActionItem> = (item: T) => unknown | Promise<unknown>;
 
 export type ActionItem = {
   title: string;
