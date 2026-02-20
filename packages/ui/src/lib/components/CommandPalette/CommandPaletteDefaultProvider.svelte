@@ -4,7 +4,7 @@
   import type { ActionItem } from '$lib/types.js';
 
   type Props = {
-    name: string;
+    name?: string;
     actions?: ActionItem[];
   };
 
