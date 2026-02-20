@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.65.0 (2026-02-20)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+## What's Changed
+### 🌟 Enhancements
+* fix: make action provider names optional by @jrasm91 in https://github.com/immich-app/ui/pull/601
+### 🐛 Bug fixes
+* fix: basic modal by @jrasm91 in https://github.com/immich-app/ui/pull/599
+
+
+**Full Changelog**: https://github.com/immich-app/ui/compare/ui-v0.64.1...ui-v0.65.0
+
 ## 0.64.1 (2026-02-19)
 
 <!-- Release notes generated using configuration in .github/release.yml at main -->
