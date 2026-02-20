@@ -132,7 +132,6 @@ export const siteCommands = [
   },
 ].map((site) => ({
   icon: mdiOpenInNew,
-  type: 'Link',
   iconClass: 'text-indigo-700 dark:text-indigo-200',
   title: site.title,
   description: site.description,

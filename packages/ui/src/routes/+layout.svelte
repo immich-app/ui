@@ -1,20 +1,21 @@
 <script lang="ts">
-  import { beforeNavigate, goto } from '$app/navigation';
+  import { beforeNavigate } from '$app/navigation';
   import { resolve } from '$app/paths';
   import { page } from '$app/state';
-  import { componentGroups, type ComponentGroup, type ComponentItem } from '$docs/constants.js';
+  import { componentCommands, componentGroups } from '$docs/constants.js';
   import { asComponentHref } from '$docs/utilities.js';
+  import CommandPaletteProvider from '$lib/components/CommandPalette/CommandPaletteProvider.svelte';
   import '$lib/theme/default.css';
   import {
     AppShell,
     AppShellHeader,
     AppShellSidebar,
     asText,
-    CommandPaletteDefaultProvider,
     commandPaletteManager,
     ControlBar,
     ControlBarHeader,
     ControlBarOverflow,
+    defaultProvider,
     Icon,
     IconButton,
     initializeTheme,
@@ -50,50 +51,34 @@
 
   toastManager.setOptions({ class: 'top-[58px]' });
 
-  const commands: ActionItem[] = [...siteCommands];
-
-  commands.push({
-    icon: mdiThemeLightDark,
-    iconClass: 'text-gray-700 dark:text-gray-200',
-    type: 'Command',
-    title: 'Toggle theme',
-    description: 'Switch between light and dark theme',
-    shortcuts: [
-      { shift: true, key: 't' },
-      { alt: true, key: 't' },
-    ],
-    onAction: () => toggleTheme(),
-    searchText: asText('Command', 'light', 'dark', 'theme', 'toggle'),
-  });
-
-  const asCommand = (group: ComponentGroup, component: ComponentItem): ActionItem => {
-    const href = asComponentHref(component.name);
-    return {
-      icon: component.icon,
-      iconClass: '',
-      type: 'Component',
-      title: component.name,
-      description: `View the ${component.name} component`,
-      onAction: () => goto(href),
-      searchText: asText('Component', group.title, component.name, href),
-    };
-  };
-
-  // components
-  for (const group of componentGroups) {
-    for (const component of group.components) {
-      commands.push(asCommand(group, component));
-      for (const item of component.items ?? []) {
-        commands.push(asCommand(group, item));
-      }
-    }
-  }
+  const commands: ActionItem[] = [
+    {
+      icon: mdiThemeLightDark,
+      iconClass: 'text-gray-700 dark:text-gray-200',
+      title: 'Toggle theme',
+      description: 'Switch between light and dark theme',
+      shortcuts: [
+        { shift: true, key: 't' },
+        { alt: true, key: 't' },
+      ],
+      onAction: () => toggleTheme(),
+      searchText: asText('Command', 'light', 'dark', 'theme', 'toggle'),
+    },
+  ];
 
   commandPaletteManager.enable();
   commandPaletteManager.setTranslations({
     command_palette_prompt_default: 'Quickly find components, links, and commands',
   });
 </script>
+
+<CommandPaletteProvider
+  providers={[
+    defaultProvider({ name: 'Commands', actions: commands }),
+    defaultProvider({ name: 'Components', actions: componentCommands }),
+    defaultProvider({ name: 'Links', actions: siteCommands }),
+  ]}
+/>
 
 <TooltipProvider>
   <AppShell>
@@ -181,6 +166,4 @@
       <SiteFooter />
     </section>
   </AppShell>
-
-  <CommandPaletteDefaultProvider actions={commands} />
 </TooltipProvider>

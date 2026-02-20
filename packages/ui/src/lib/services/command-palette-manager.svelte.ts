@@ -33,14 +33,25 @@ class CommandPaletteManager {
   #providers: ActionProvider[] = [];
   #isEnabled = false;
   #isOpen = false;
-  #items: Array<ActionItem & { id: string }> = $state([]);
+  #results: Array<{ provider: ActionProvider; items: Array<ActionItem & { id: string }> }> = $state([]);
+  #selectedGroupIndex = $state(0);
+  #selectedItemIndex = $state(0);
 
   get isEnabled() {
     return this.#isEnabled;
   }
 
-  get items() {
-    return this.#items;
+  get results() {
+    return this.#results;
+  }
+
+  get selectedItem() {
+    const group = this.#results[this.#selectedGroupIndex];
+    return group?.items[this.#selectedItemIndex];
+  }
+
+  isSelected(item: { id: string }) {
+    return this.selectedItem?.id === item.id;
   }
 
   enable() {
@@ -64,16 +75,25 @@ class CommandPaletteManager {
   }
 
   async #onSearch(query?: string) {
-    const newItems = await Promise.all(this.#providers.map((provider) => Promise.resolve(provider.onSearch(query))));
-    this.#items = newItems
-      .flat()
-      .filter((item) => isEnabled(item))
-      .map((item) => ({ ...item, id: generateId() }));
+    const newResults = await Promise.all(
+      this.#providers.map(async (provider) => {
+        const items = await provider.onSearch(query);
+
+        return {
+          provider,
+          items: items.filter((item) => isEnabled(item)).map((item) => ({ ...item, id: generateId() })),
+        };
+      }),
+    );
+
+    this.#selectedGroupIndex = 0;
+    this.#selectedItemIndex = 0;
+    this.#results = newResults.filter((result) => result.items.length > 0);
   }
 
   queryUpdate(query: string) {
     if (!query) {
-      this.#items = [];
+      this.#results = [];
       return;
     }
     void this.#onSearch(query);
@@ -112,7 +132,7 @@ class CommandPaletteManager {
   async #onClose(action?: ActionItem) {
     await action?.onAction(action);
     this.#isOpen = false;
-    this.#items = [];
+    this.#results = [];
   }
 
   open(initialQuery?: string) {
@@ -126,6 +146,41 @@ class CommandPaletteManager {
     });
     this.#isOpen = true;
     void onClose.then((action) => this.#onClose(action));
+  }
+
+  navigateUp() {
+    const groups = this.#results;
+    if (groups.length === 0) {
+      return;
+    }
+
+    this.#selectedItemIndex--;
+
+    if (this.#selectedItemIndex < 0) {
+      this.#selectedGroupIndex--; // previous group
+      if (this.#selectedGroupIndex < 0) {
+        this.#selectedGroupIndex = groups.length - 1; // first group
+      }
+      this.#selectedItemIndex = groups[this.#selectedGroupIndex].items.length - 1;
+    }
+  }
+
+  navigateDown() {
+    const groups = this.#results;
+    if (groups.length === 0) {
+      return;
+    }
+    const group = groups[this.#selectedGroupIndex];
+
+    this.#selectedItemIndex++;
+
+    if (this.#selectedItemIndex >= group.items.length) {
+      this.#selectedItemIndex = 0;
+      this.#selectedGroupIndex++; // next group
+      if (this.#selectedGroupIndex >= groups.length) {
+        this.#selectedGroupIndex = 0; // first group
+      }
+    }
   }
 
   loadAllItems() {

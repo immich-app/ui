@@ -1,4 +1,7 @@
+import { goto } from '$app/navigation';
+import { asComponentHref } from '$docs/utilities.js';
 import {
+  asText,
   MenuItemType,
   toastManager,
   type ActionItem,
@@ -297,3 +300,27 @@ export const carouselImageItems: CarouselImageItem[] = [
     alt: 'Sample image',
   },
 ];
+
+const asCommand = (group: ComponentGroup, component: ComponentItem): ActionItem => {
+  const href = asComponentHref(component.name);
+  return {
+    icon: component.icon,
+    iconClass: '',
+    title: component.name,
+    description: `View the ${component.name} component`,
+    onAction: () => goto(href),
+    searchText: asText('Component', group.title, component.name, href),
+  };
+};
+
+export const componentCommands: ActionItem[] = [];
+
+// components
+for (const group of componentGroups) {
+  for (const component of group.components) {
+    componentCommands.push(asCommand(group, component));
+    for (const item of component.items ?? []) {
+      componentCommands.push(asCommand(group, item));
+    }
+  }
+}
