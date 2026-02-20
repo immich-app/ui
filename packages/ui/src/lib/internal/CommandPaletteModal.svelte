@@ -2,6 +2,7 @@
   import { shortcuts } from '$lib/actions/shortcut.js';
   import CloseButton from '$lib/components/CloseButton/CloseButton.svelte';
   import CommandPaletteItem from '$lib/components/CommandPalette/CommandPaletteItem.svelte';
+  import Heading from '$lib/components/Heading/Heading.svelte';
   import Icon from '$lib/components/Icon/Icon.svelte';
   import Input from '$lib/components/Input/Input.svelte';
   import Modal from '$lib/components/Modal/Modal.svelte';
@@ -26,6 +27,10 @@
 
   const { onClose, translations, initialQuery = '' }: Props = $props();
 
+  let query = $state(initialQuery);
+
+  $effect(() => commandPaletteManager.queryUpdate(query));
+
   const handleUp = (event: KeyboardEvent) => handleNavigate(event, 'up');
   const handleDown = (event: KeyboardEvent) => handleNavigate(event, 'down');
   const handleSelect = (event: KeyboardEvent) => handleNavigate(event, 'select');
@@ -34,31 +39,26 @@
 
     switch (direction) {
       case 'up': {
-        selectedIndex = Math.max((selectedIndex === 0 ? commandPaletteManager.items.length : selectedIndex) - 1, 0);
+        commandPaletteManager.navigateUp();
         break;
       }
 
       case 'down': {
-        if (!query && commandPaletteManager.items.length === 0) {
+        if (!query && commandPaletteManager.results.length === 0) {
           commandPaletteManager.loadAllItems();
           break;
         }
 
-        selectedIndex = (selectedIndex + 1) % commandPaletteManager.items.length || 0;
+        commandPaletteManager.navigateDown();
         break;
       }
 
       case 'select': {
-        onClose(commandPaletteManager.items[selectedIndex]);
+        onClose(commandPaletteManager.selectedItem);
         break;
       }
     }
   };
-
-  let selectedIndex = $state(0);
-  let query = $state(initialQuery);
-
-  $effect(() => commandPaletteManager.queryUpdate(query));
 </script>
 
 <svelte:window
@@ -90,25 +90,34 @@
   <ModalBody>
     <Stack gap={2}>
       {#if query}
-        {#if commandPaletteManager.items.length === 0}
+        {#if commandPaletteManager.results.length === 0}
           <Text>{t('search_no_results', translations)}</Text>
         {/if}
       {:else}
         <Text>{t('command_palette_prompt_default', translations)}</Text>
       {/if}
 
-      {#if commandPaletteManager.items.length > 0}
-        <div class="flex flex-col">
-          {#each commandPaletteManager.items as item, i (item.id)}
-            <CommandPaletteItem {item} selected={selectedIndex === i} onSelect={() => onClose(item)} />
-          {/each}
-        </div>
-      {/if}
+      {#each commandPaletteManager.results as result, groupIndex (result.provider.name ?? groupIndex)}
+        {#if result.provider.name}
+          <Heading size="tiny" class="pt-2">{result.provider.name}</Heading>
+        {/if}
+        {#if commandPaletteManager.results.length > 0}
+          <div class="flex flex-col">
+            {#each result.items as item (item.id)}
+              <CommandPaletteItem
+                {item}
+                selected={commandPaletteManager.isSelected(item)}
+                onSelect={() => onClose(item)}
+              />
+            {/each}
+          </div>
+        {/if}
+      {/each}
     </Stack>
   </ModalBody>
   <ModalFooter>
     <div class="flex w-full justify-around">
-      {#if !query && commandPaletteManager.items.length === 0}
+      {#if !query && commandPaletteManager.results.length === 0}
         <div class="flex place-items-center gap-1">
           <span class="flex gap-1 rounded bg-gray-300 p-1 dark:bg-gray-500">
             <Icon icon={mdiArrowDown} size="1rem" />

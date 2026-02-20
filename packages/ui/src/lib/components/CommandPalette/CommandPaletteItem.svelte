@@ -6,7 +6,6 @@
   import Kbd from '$lib/components/Kbd/Kbd.svelte';
   import Text from '$lib/components/Text/Text.svelte';
   import type { ActionItem } from '$lib/types.js';
-  import { cleanClass } from '$lib/utilities/internal.js';
 
   type Props = {
     item: ActionItem;
@@ -63,7 +62,7 @@
       <div class="flex shrink-0 flex-col justify-end gap-1">
         {#each renderedShortcuts as shortcut (shortcut.join('-'))}
           <div class="flex justify-end">
-            <Kbd size="tiny" class={cleanClass(selected && 'border')}>{shortcut.join(' ')}</Kbd>
+            <Kbd size="tiny">{shortcut.join(' ')}</Kbd>
           </div>
         {/each}
       </div>
