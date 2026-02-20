@@ -18,11 +18,11 @@ export type CommandPaletteTranslations = TranslationProps<
 >;
 
 export type ActionProvider = {
-  name: string;
+  name?: string;
   onSearch: (query?: string) => MaybePromise<ActionItem[]>;
 };
 
-export const defaultProvider = ({ name, actions }: { name: string; actions: ActionItem[] }) => ({
+export const defaultProvider = ({ name, actions }: { name?: string; actions: ActionItem[] }) => ({
   name,
   onSearch: (query?: string) =>
     query ? actions.filter((action) => getSearchString(action).includes(query.toLowerCase())) : actions,

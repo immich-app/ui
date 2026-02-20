@@ -182,5 +182,5 @@
     </section>
   </AppShell>
 
-  <CommandPaletteDefaultProvider actions={commands} name="General" />
+  <CommandPaletteDefaultProvider actions={commands} />
 </TooltipProvider>
