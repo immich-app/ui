@@ -1,5 +1,34 @@
 # Changelog
 
+## 0.2.2 (2026-02-28)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+## What's Changed
+### 🌟 Enhancements
+* feat: support locale in DatePicker by @michelheusschen in https://github.com/immich-app/ui/pull/578
+* feat: allow customizing initial modal focus by @michelheusschen in https://github.com/immich-app/ui/pull/586
+* feat: rework select component by @michelheusschen in https://github.com/immich-app/ui/pull/593
+* fix: make action provider names optional by @jrasm91 in https://github.com/immich-app/ui/pull/601
+### 🐛 Bug fixes
+* fix: initial text sizes by @jrasm91 in https://github.com/immich-app/ui/pull/565
+* fix: cursor-not-allowed on disabled button by @meesfrensel in https://github.com/immich-app/ui/pull/568
+* fix: app shell header height by @jrasm91 in https://github.com/immich-app/ui/pull/567
+* fix: avoid invalid label/button nesting in switch by @michelheusschen in https://github.com/immich-app/ui/pull/571
+* perf: remove forceMount from tooltip by @michelheusschen in https://github.com/immich-app/ui/pull/573
+* fix: gate command palette and shortcut fixes by @michelheusschen in https://github.com/immich-app/ui/pull/579
+* fix: update translations by @michelheusschen in https://github.com/immich-app/ui/pull/582
+* fix: properly link date picker label and input by @michelheusschen in https://github.com/immich-app/ui/pull/584
+* fix: keyboard styling for context menu items by @michelheusschen in https://github.com/immich-app/ui/pull/594
+* fix: resize textarea when value changes by @michelheusschen in https://github.com/immich-app/ui/pull/595
+* fix: onAction return type by @jrasm91 in https://github.com/immich-app/ui/pull/596
+* fix: basic modal by @jrasm91 in https://github.com/immich-app/ui/pull/599
+
+## New Contributors
+* @michelheusschen made their first contribution in https://github.com/immich-app/ui/pull/571
+
+**Full Changelog**: https://github.com/immich-app/ui/compare/svelte-markdown-preprocess-v0.2.1...svelte-markdown-preprocess-v0.2.2
+
 ## 0.2.1 (2026-01-30)
 
 <!-- Release notes generated using configuration in .github/release.yml at main -->
