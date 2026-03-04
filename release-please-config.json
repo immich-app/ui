@@ -3,28 +3,20 @@
   "bootstrap-sha": "a331426c1842c86110e49c651af65b95dc437baa",
   "separate-pull-requests": true,
   "always-update": true,
+  "include-v-in-tag": true,
+  "bump-minor-pre-major": true,
+  "bump-patch-for-minor-pre-major": false,
+  "release-type": "node",
+  "draft": false,
+  "prerelease": false,
+  "changelog-type": "default",
+  "changelog-path": "CHANGELOG.md",
   "packages": {
     "packages/ui": {
-      "component": "ui",
-      "changelog-path": "CHANGELOG.md",
-      "changelog-type": "github",
-      "release-type": "node",
-      "include-v-in-tag": true,
-      "bump-minor-pre-major": false,
-      "bump-patch-for-minor-pre-major": false,
-      "draft": false,
-      "prerelease": false
+      "component": "ui"
     },
     "packages/svelte-markdown-preprocess": {
-      "component": "svelte-markdown-preprocess",
-      "changelog-path": "CHANGELOG.md",
-      "changelog-type": "github",
-      "release-type": "node",
-      "include-v-in-tag": true,
-      "bump-minor-pre-major": false,
-      "bump-patch-for-minor-pre-major": false,
-      "draft": false,
-      "prerelease": false
+      "component": "svelte-markdown-preprocess"
     }
   }
 }
