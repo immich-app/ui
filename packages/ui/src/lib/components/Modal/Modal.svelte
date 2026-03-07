@@ -25,6 +25,7 @@
     expandable?: boolean;
     closeOnEsc?: boolean;
     closeOnBackdropClick?: boolean;
+    focusOnOpen?: boolean;
     children: Snippet;
     onClose?: () => void;
     onEscapeKeydown?: (event: KeyboardEvent) => void;
@@ -40,6 +41,7 @@
     class: className,
     closeOnEsc = true,
     closeOnBackdropClick = false,
+    focusOnOpen = false,
     children,
     onOpenAutoFocus,
   }: Props = $props();
@@ -96,6 +98,14 @@
     onEscapeKeydown?.(event);
   };
 
+  const handleOpenAutoFocus = (event: Event) => {
+    if (onOpenAutoFocus) {
+      onOpenAutoFocus(event);
+    } else if (!focusOnOpen) {
+      event.preventDefault();
+    }
+  };
+
   onMount(() => {
     layer = modalState.incrementLayer();
 
@@ -107,7 +117,7 @@
   <Dialog.Portal>
     <Dialog.Overlay class="{zIndex.ModalBackdrop} fixed start-0 top-0  flex h-dvh max-h-dvh w-screen bg-black/30" />
     <Dialog.Content
-      {onOpenAutoFocus}
+      onOpenAutoFocus={handleOpenAutoFocus}
       onEscapeKeydown={handleEscapeKeydown}
       {escapeKeydownBehavior}
       {interactOutsideBehavior}
