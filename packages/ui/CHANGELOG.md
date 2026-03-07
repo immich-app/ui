@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.65.1](https://github.com/immich-app/ui/compare/ui-v0.65.0...ui-v0.65.1) (2026-03-07)
+
+
+### Bug Fixes
+
+* cannot close modal with  on reopened ([3536146](https://github.com/immich-app/ui/commit/35361466790165dfd2a2bffb07518dc968aac19b))
+* cannot close modal with `esc` on reopened ([#615](https://github.com/immich-app/ui/issues/615)) ([3536146](https://github.com/immich-app/ui/commit/35361466790165dfd2a2bffb07518dc968aac19b))
+
 ## 0.65.0 (2026-02-20)
 
 <!-- Release notes generated using configuration in .github/release.yml at main -->
