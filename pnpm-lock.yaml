@@ -70,7 +70,7 @@ importers:
         version: 5.53.5
     devDependencies:
       '@types/node':
-        specifier: ^24.10.14
+        specifier: ^24.11.0
         version: 24.11.0
       vite:
         specifier: ^7.1.12
