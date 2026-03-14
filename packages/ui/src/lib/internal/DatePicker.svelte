@@ -102,16 +102,20 @@
             </DatePicker.Segment>
           {/each}
         </div>
-        <DatePicker.Trigger class="mr-2 rounded-full">
-          <IconButton
-            variant="ghost"
-            shape="round"
-            color="secondary"
-            {size}
-            icon={mdiCalendar}
-            {disabled}
-            aria-label={t('open_calendar')}
-          />
+        <DatePicker.Trigger>
+          {#snippet child({ props })}
+            <IconButton
+              {...props}
+              class="me-2 shrink-0 rounded-full"
+              variant="ghost"
+              shape="round"
+              color="secondary"
+              {size}
+              icon={mdiCalendar}
+              {disabled}
+              aria-label={t('open_calendar')}
+            />
+          {/snippet}
         </DatePicker.Trigger>
       {/snippet}
     </DatePicker.Input>
