@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.65.2](https://github.com/immich-app/ui/compare/ui-v0.65.1...ui-v0.65.2) (2026-03-14)
+
+
+### Bug Fixes
+
+* avoid nested buttons in date picker ([#619](https://github.com/immich-app/ui/issues/619)) ([443b69c](https://github.com/immich-app/ui/commit/443b69cb45d049a39d77f60b654a6c975f269f3f))
+
 ## [0.65.1](https://github.com/immich-app/ui/compare/ui-v0.65.0...ui-v0.65.1) (2026-03-07)
 
 
