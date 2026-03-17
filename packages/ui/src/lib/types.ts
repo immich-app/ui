@@ -195,6 +195,7 @@ export type PasswordInputProps = BaseInputProps<string> & {
 export type TextareaProps = {
   ref?: HTMLTextAreaElement | null;
   containerRef?: HTMLElement | null;
+  variant?: 'input' | 'ghost';
   class?: string;
   value?: string;
   size?: Size;
