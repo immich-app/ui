@@ -192,6 +192,12 @@ export type PasswordInputProps = BaseInputProps<string> & {
   isVisible?: boolean;
 };
 
+export type PinInputProps = BaseInputProps<string> & {
+  length?: number;
+  isVisible?: boolean;
+  onComplete?: (value: string) => void;
+};
+
 export type TextareaProps = {
   ref?: HTMLTextAreaElement | null;
   containerRef?: HTMLElement | null;
