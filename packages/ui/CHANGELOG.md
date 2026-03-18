@@ -1,6 +1,11 @@
 # Changelog
 
-## [0.65.3](https://github.com/immich-app/ui/compare/ui-v0.65.2...ui-v0.65.3) (2026-03-17)
+## [0.66.0](https://github.com/immich-app/ui/compare/ui-v0.65.2...ui-v0.66.0) (2026-03-18)
+
+
+### Features
+
+* ghost textarea ([#627](https://github.com/immich-app/ui/issues/627)) ([1e44ae7](https://github.com/immich-app/ui/commit/1e44ae7a860e12c52a9494f903793f812ddf27d9))
 
 
 ### Reverts
