@@ -11,6 +11,8 @@
   import growExample from './GrowExample.svelte?raw';
   import SizeExample from './SizeExample.svelte';
   import sizeExample from './SizeExample.svelte?raw';
+  import VariantExample from './VariantExample.svelte';
+  import variantExample from './VariantExample.svelte?raw';
 </script>
 
 <ComponentPage name="Textarea" description="A multi-line text input field with auto grow/shrink functionality">
@@ -22,6 +24,7 @@
     examples={[
       { title: 'Form', code: formExample, component: FormExample },
       { title: 'Size', code: sizeExample, component: SizeExample },
+      { title: 'Variant', code: variantExample, component: VariantExample },
       { title: 'Auto Grow/Shrink', code: growExample, component: GrowExample },
     ]}
   />
