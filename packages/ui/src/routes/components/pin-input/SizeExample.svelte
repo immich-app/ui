@@ -7,7 +7,7 @@
   <ComponentSizes>
     {#snippet child({ size, label })}
       <div>
-        <Field {label} {size} class="w-fit">
+        <Field {label} {size}>
           <PinInput value="123" />
         </Field>
       </div>

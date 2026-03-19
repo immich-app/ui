@@ -10,7 +10,7 @@
   import sizeExample from './SizeExample.svelte?raw';
 </script>
 
-<ComponentPage name="PinInput" description="Accept a PIN input from the user">
+<ComponentPage name="PinInput" description="Accept a PIN, 2FA token or OTP input from the user">
   <ComponentFieldCard />
   <ComponentExamples
     examples={[

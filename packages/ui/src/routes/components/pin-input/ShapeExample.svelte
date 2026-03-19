@@ -3,13 +3,13 @@
 </script>
 
 <Stack>
-  <Field label="Round" class="w-fit">
-    <PinInput value="123456" isVisible={false} shape="round" />
+  <Field label="Round">
+    <PinInput value="123456" password shape="round" />
   </Field>
-  <Field label="Semi-round" class="w-fit">
-    <PinInput value="123456" isVisible={false} shape="semi-round" />
+  <Field label="Semi-round">
+    <PinInput value="123456" password shape="semi-round" />
   </Field>
-  <Field label="Rectangle" class="w-fit">
-    <PinInput value="123456" isVisible={false} shape="rectangle" />
+  <Field label="Rectangle">
+    <PinInput value="123456" password shape="rectangle" />
   </Field>
 </Stack>

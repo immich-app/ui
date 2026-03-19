@@ -14,17 +14,20 @@
   <Field label="Empty">
     <PinInput />
   </Field>
-  <Field label="Value binding" class="w-fit">
+  <Field label="Value binding">
     <PinInput bind:value {onComplete} />
     <HelperText>Current value: {value}</HelperText>
   </Field>
-  <Field label="Hidden digits" class="w-fit">
-    <PinInput isVisible={false} />
+  <Field label="Hidden digits">
+    <PinInput password />
   </Field>
-  <Field label="Disabled" disabled class="w-fit">
+  <Field label="Disabled" disabled>
     <PinInput />
   </Field>
-  <Field label="Shorter PIN" class="w-fit">
+  <Field label="Shorter PIN">
     <PinInput length={4} />
+  </Field>
+  <Field label="Center">
+    <PinInput class="items-center" />
   </Field>
 </Stack>

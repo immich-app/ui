@@ -11,9 +11,11 @@
     shape = 'semi-round',
     size: initialSize,
     value = $bindable<string>(''),
-    length,
-    isVisible = true,
+    length = 6,
+    password,
     onComplete,
+    class: className,
+    ...props
   }: PinInputProps = $props();
 
   const context = getFieldContext();
@@ -21,14 +23,13 @@
   const { label, disabled, ...labelProps } = $derived(context());
   const size = $derived(initialSize ?? labelProps.size ?? 'large');
 
-  const inputCommon = `
-    flex items-center justify-center font-mono transition-all duration-75
-    bg-gray-100 dark:bg-gray-800 group-has-disabled:bg-gray-300 dark:group-has-disabled:bg-gray-900
-    group-has-disabled:text-dark dark:group-has-disabled:text-gray-200
-    border-2 data-active:border-3 dark:group-not-has-disabled:border-gray-700 data-active:border-primary dark:data-active:border-primary
-  `;
   const inputStyles = tv({
-    base: cleanClass(inputCommon),
+    base: cleanClass(`
+      flex items-center justify-center font-mono transition-all duration-75
+      bg-gray-100 dark:bg-gray-800 group-has-disabled:bg-gray-300 dark:group-has-disabled:bg-gray-900
+      group-has-disabled:text-dark dark:group-has-disabled:text-gray-200
+      border-2 data-active:border-3 dark:group-not-has-disabled:border-gray-700 data-active:border-primary dark:data-active:border-primary
+    `),
     variants: {
       shape: styleVariants.shape,
       size: {
@@ -50,7 +51,7 @@
   });
 
   const caretStyles = tv({
-    base: 'caret h-1/2 bg-black',
+    base: 'caret bg-dark h-1/2',
     variants: {
       size: {
         tiny: 'w-px',
@@ -67,7 +68,7 @@
   const labelId = `label-${id}`;
 </script>
 
-<div class="flex w-full flex-col gap-1">
+<div class={cleanClass('flex flex-col gap-1', className)}>
   {#if label}
     <Label id={labelId} for={inputId} {label} {...labelProps} {size} />
   {/if}
@@ -77,12 +78,13 @@
     aria-labelledby={label && labelId}
     {disabled}
     aria-disabled={disabled}
-    class="group flex items-center gap-2"
-    maxlength={length ?? 6}
+    class="group flex w-fit items-center gap-2"
+    maxlength={length}
     pattern={REGEXP_ONLY_DIGITS}
-    type={isVisible ? 'text' : 'password'}
+    type={password ? 'password' : 'text'}
     {onComplete}
     bind:value
+    {...props}
   >
     {#snippet children({ cells })}
       {#each cells as cell, i (i)}
@@ -97,7 +99,7 @@
         >
           {#if cell.char !== null}
             <div>
-              {isVisible ? cell.char : '●'}
+              {password ? '●' : cell.char}
             </div>
           {/if}
           {#if cell.hasFakeCaret}

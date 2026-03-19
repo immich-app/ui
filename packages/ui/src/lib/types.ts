@@ -194,7 +194,7 @@ export type PasswordInputProps = BaseInputProps<string> & {
 
 export type PinInputProps = BaseInputProps<string> & {
   length?: number;
-  isVisible?: boolean;
+  password?: boolean;
   onComplete?: (value: string) => void;
 };
 
