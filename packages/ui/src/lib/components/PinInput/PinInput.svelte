@@ -24,12 +24,7 @@
   const size = $derived(initialSize ?? labelProps.size ?? 'large');
 
   const inputStyles = tv({
-    base: cleanClass(`
-      flex items-center justify-center font-mono transition-all duration-75
-      bg-gray-100 dark:bg-gray-800 group-has-disabled:bg-gray-300 dark:group-has-disabled:bg-gray-900
-      group-has-disabled:text-dark dark:group-has-disabled:text-gray-200
-      border-2 data-active:border-3 dark:group-not-has-disabled:border-gray-700 data-active:border-primary dark:data-active:border-primary
-    `),
+    base: 'group-has-disabled:text-dark data-active:border-primary dark:data-active:border-primary flex items-center justify-center border-2 bg-gray-100 font-mono transition-all duration-75 group-has-disabled:bg-gray-300 data-active:border-3 dark:bg-gray-800 dark:group-not-has-disabled:border-gray-700 dark:group-has-disabled:bg-gray-900 dark:group-has-disabled:text-gray-200',
     variants: {
       shape: styleVariants.shape,
       size: {
@@ -58,7 +53,7 @@
         small: 'w-px',
         medium: 'w-[1.5px]',
         large: 'w-[1.5px]',
-        giant: 'w-[2px]',
+        giant: 'w-0.5',
       },
     },
   });
