@@ -54,6 +54,7 @@ import {
   mdiLink,
   mdiListBox,
   mdiListBoxOutline,
+  mdiLockSmart,
   mdiMenu,
   mdiMessageAlert,
   mdiMessageAlertOutline,
@@ -173,6 +174,7 @@ export const componentGroups: ComponentGroup[] = [
       { name: 'Input', icon: mdiFormTextbox },
       { name: 'NumberInput', icon: mdiNumeric },
       { name: 'PasswordInput', icon: mdiFormTextboxPassword },
+      { name: 'PinInput', icon: mdiLockSmart },
       { name: 'ProgressBar', icon: mdiProgressHelper },
       { name: 'LoadingSpinner', icon: mdiDotsCircle },
       {

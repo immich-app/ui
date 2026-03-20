@@ -73,6 +73,7 @@ export { default as NavbarGroup } from '$lib/components/Navbar/NavbarGroup.svelt
 export { default as NavbarItem } from '$lib/components/Navbar/NavbarItem.svelte';
 export { default as NumberInput } from '$lib/components/NumberInput/NumberInput.svelte';
 export { default as PasswordInput } from '$lib/components/PasswordInput/PasswordInput.svelte';
+export { default as PinInput } from '$lib/components/PinInput/PinInput.svelte';
 export { default as ProgressBar } from '$lib/components/ProgressBar/ProgressBar.svelte';
 export { default as Scrollable } from '$lib/components/Scrollable/Scrollable.svelte';
 export { default as Select } from '$lib/components/Select/Select.svelte';
@@ -108,10 +109,10 @@ export * from '$lib/services/theme.svelte.js';
 export * from '$lib/services/toast-manager.svelte.js';
 export * from '$lib/services/translation.svelte.js';
 export * from '$lib/state/locale-state.svelte.js';
+export { isModalOpen } from '$lib/state/modal-state.svelte.js';
 export * from '$lib/types.js';
 export * from '$lib/utilities/byte-units.js';
 export * from '$lib/utilities/common.js';
-export { isModalOpen } from '$lib/state/modal-state.svelte.js';
 
 // site
 export * from '$lib/site/constants.js';
