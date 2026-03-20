@@ -229,7 +229,7 @@ export type MultiSelectProps<T extends string> = SelectCommonProps<T> & {
   onSelect?: (options: SelectOption<T>[]) => void;
 };
 
-export type ToastId = { id: string };
+export type ToastWithId = ToastItem & { id: string };
 
 type ToastCommonProps = {
   color?: Color;
@@ -241,6 +241,7 @@ export type ToastContentProps = ToastCommonProps & {
   icon?: IconLike | false;
   onClose?: () => void;
   children?: Snippet;
+  button?: ToastButton;
 };
 
 export type ToastContainerProps = ToastCommonProps & {
@@ -249,7 +250,7 @@ export type ToastContainerProps = ToastCommonProps & {
 } & Omit<HTMLAttributes<HTMLElement>, 'title' | 'color' | 'size'>;
 
 export type ToastPanelProps = {
-  items: Array<ToastItem & ToastId>;
+  items: Array<ToastWithId>;
 } & HTMLAttributes<HTMLDivElement>;
 
 export type ToastProps = ToastContentProps & ToastContainerProps;
@@ -268,6 +269,7 @@ export type ToastShow = {
   shape?: Shape;
   icon?: IconLike | false;
   size?: ContainerSize;
+  button?: ToastButton;
 };
 
 export type ToastOptions = {

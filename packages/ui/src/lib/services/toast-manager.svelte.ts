@@ -1,6 +1,6 @@
 import ToastPanel from '$lib/components/Toast/ToastPanel.svelte';
 import { t } from '$lib/services/translation.svelte.js';
-import type { ToastCustom, ToastId, ToastItem, ToastOptions, ToastPanelProps, ToastShow } from '$lib/types.js';
+import type { ToastCustom, ToastItem, ToastOptions, ToastPanelProps, ToastShow, ToastWithId } from '$lib/types.js';
 import { generateId } from '$lib/utilities/internal.js';
 import { mount, unmount } from 'svelte';
 
@@ -28,7 +28,7 @@ class ToastManager {
   open(item: ToastItem, options?: ToastOptions) {
     const { timeout = 3000, closable = true, id = generateId() } = options || {};
 
-    const toast = item as ToastId;
+    const toast = item as ToastWithId;
 
     toast.id = id;
 
@@ -84,7 +84,7 @@ class ToastManager {
     this.show({ title: t('toast_danger_title'), color: 'danger', ...expand(item) }, options);
   }
 
-  private remove(target: ToastItem & ToastId) {
+  private remove(target: ToastWithId) {
     this.#props.items = this.#props.items.filter((item) => item.id !== target.id);
   }
 }
