@@ -58,7 +58,7 @@
     {/if}
   </div>
   <div class="ms-1 flex grow justify-between">
-    <div class="flex flex-col p-2">
+    <div class="flex flex-col px-2">
       {#if title}
         <Text fontWeight="semi-bold" class={titleStyles({ color })}>{@render resolve(title)}</Text>
       {/if}

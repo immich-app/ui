@@ -14,7 +14,7 @@
     <ToastContent {title} {description} {icon} {onClose} {...props}>
       {#if button}
         {@const { label, ...rest } = button}
-        <div class="m-2 flex justify-end">
+        <div class="flex justify-end px-3 pt-2">
           <Button color="secondary" size="small" {...rest}>
             {label}
           </Button>
