@@ -15,7 +15,7 @@
   }: ToastContainerProps = $props();
 
   const containerStyles = tv({
-    base: 'bg-light text-dark overflow-hidden border py-1.5 shadow-xs transition-all',
+    base: 'bg-light text-dark overflow-hidden border py-3 shadow-xs transition-all',
     variants: {
       color: {
         primary: 'border-primary-100 bg-primary-50 dark:bg-primary-100 dark:border-primary-200',

@@ -90,6 +90,10 @@
     }
   };
 
+  const handleButton = () => {
+    toastManager.show({ title, description, shape, color, size, button: { label: 'Action!', onClick: () => {} } });
+  };
+
   const handleCustom = () => {
     toastManager.custom({ component: CustomExample, props: {} }, { timeout, closable });
   };
@@ -97,6 +101,7 @@
 
 <div class="flex gap-2">
   <Button onclick={handleClick}>Open color examples</Button>
+  <Button onclick={handleButton}>Open actionable toast</Button>
   <Button onclick={handleCustom}>Open custom content</Button>
 </div>
 
