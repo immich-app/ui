@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.67.1](https://github.com/immich-app/ui/compare/ui-v0.67.0...ui-v0.67.1) (2026-03-23)
+
+
+### Bug Fixes
+
+* better toast manager default color and more lenient type ([#634](https://github.com/immich-app/ui/issues/634)) ([b885612](https://github.com/immich-app/ui/commit/b8856121bd30358e4d32b2833000f143e5ddde2b))
+* expose pin input autofocus property ([#632](https://github.com/immich-app/ui/issues/632)) ([60e6a5b](https://github.com/immich-app/ui/commit/60e6a5b28e7abc0208d4754e83fbf3812a7b012c))
+
 ## [0.67.0](https://github.com/immich-app/ui/compare/ui-v0.66.0...ui-v0.67.0) (2026-03-20)
 
 
