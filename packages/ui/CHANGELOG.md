@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.67.2](https://github.com/immich-app/ui/compare/ui-v0.67.1...ui-v0.67.2) (2026-03-23)
+
+
+### Bug Fixes
+
+* toast button onclick ([#635](https://github.com/immich-app/ui/issues/635)) ([e5c3973](https://github.com/immich-app/ui/commit/e5c3973b41871148b9c90cfcb07df1186874d3e3))
+
 ## [0.67.1](https://github.com/immich-app/ui/compare/ui-v0.67.0...ui-v0.67.1) (2026-03-23)
 
 
