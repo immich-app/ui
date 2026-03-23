@@ -298,7 +298,7 @@ export type ToastButton = {
   color?: Color;
   shape?: Shape;
   variant?: Variants;
-  onClick: () => void;
+  onClick: () => unknown;
 };
 
 export enum MenuItemType {

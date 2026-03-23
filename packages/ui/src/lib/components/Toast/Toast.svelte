@@ -15,7 +15,7 @@
       {#if button}
         {@const { label, ...rest } = button}
         <div class="flex justify-end px-3 pt-2">
-          <Button color="secondary" size="small" {...rest}>
+          <Button color="primary" size="small" {...rest}>
             {label}
           </Button>
         </div>
