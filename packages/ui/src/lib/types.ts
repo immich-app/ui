@@ -198,6 +198,7 @@ export type PinInputProps = {
   size?: Size;
   value?: string;
   shape?: Shape;
+  autofocus?: boolean;
   disabled?: boolean;
   length?: number;
   password?: boolean;
