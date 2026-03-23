@@ -91,7 +91,14 @@
   };
 
   const handleButton = () => {
-    toastManager.show({ title, description, shape, color, size, button: { label: 'Action!', onClick: () => {} } });
+    toastManager.show({
+      title,
+      description,
+      shape,
+      color,
+      size,
+      button: { label: 'Action!', onclick: () => console.log('clicked!') },
+    });
   };
 
   const handleCustom = () => {
