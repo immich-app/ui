@@ -1,6 +1,8 @@
 <script lang="ts">
   import ComponentExamples from '$docs/components/ComponentExamples.svelte';
   import ComponentPage from '$docs/components/ComponentPage.svelte';
+  import CloseExample from './CloseExample.svelte';
+  import closeExample from './CloseExample.svelte?raw';
   import ColorExample from './ColorExample.svelte';
   import colorExample from './ColorExample.svelte?raw';
   import ShapeExample from './ShapeExample.svelte';
@@ -15,6 +17,7 @@
       { title: 'Size', code: sizeExample, component: SizeExample },
       { title: 'Color', code: colorExample, component: ColorExample },
       { title: 'Shape', code: shapeExample, component: ShapeExample },
+      { title: 'Close', code: closeExample, component: CloseExample },
     ]}
   />
 </ComponentPage>

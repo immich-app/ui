@@ -1,7 +1,10 @@
 <script lang="ts">
+  import IconButton from '$lib/components/IconButton/IconButton.svelte';
+  import { t } from '$lib/services/translation.svelte.js';
   import { styleVariants } from '$lib/styles.js';
-  import type { Color, Shape, Size } from '$lib/types.js';
+  import type { Color, Shape, Size, TranslationProps } from '$lib/types.js';
   import { cleanClass } from '$lib/utilities/internal.js';
+  import { mdiClose } from '@mdi/js';
   import type { Snippet } from 'svelte';
   import type { HTMLAttributes } from 'svelte/elements';
   import { tv } from 'tailwind-variants';
@@ -10,8 +13,11 @@
     size?: Size;
     color?: Color;
     shape?: Shape;
-    children?: Snippet;
     class?: string;
+    translations?: TranslationProps<'close'>;
+    onClose?: () => void;
+    close?: Snippet;
+    children?: Snippet;
   } & Omit<HTMLAttributes<HTMLSpanElement>, 'color'>;
 
   let {
@@ -19,12 +25,15 @@
     class: className,
     color = 'primary',
     shape = 'semi-round',
+    translations,
+    onClose,
+    close,
     children,
     ...props
   }: Props = $props();
 
   const styles = tv({
-    base: 'text-light inline-flex items-center font-medium antialiased',
+    base: 'text-light inline-flex items-center gap-1 font-medium antialiased',
     variants: {
       shape: styleVariants.shape,
       color: {
@@ -57,7 +66,6 @@
 <span
   {...props}
   class={cleanClass(
-    className,
     styles({
       color,
       textSize: size,
@@ -65,5 +73,14 @@
       shape,
       roundedSize: shape === 'semi-round' ? size : undefined,
     }),
-  )}>{@render children?.()}</span
+    className,
+  )}
 >
+  {@render children?.()}
+  {#if onClose}
+    <IconButton icon={mdiClose} {color} size="tiny" aria-label={t('close', translations)} onclick={onClose} />
+  {/if}
+  {#if close}
+    {@render close()}
+  {/if}
+</span>
