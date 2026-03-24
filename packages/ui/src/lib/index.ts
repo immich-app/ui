@@ -64,6 +64,7 @@ export { default as ListButton } from '$lib/components/ListButton/ListButton.sve
 export { default as LoadingSpinner } from '$lib/components/LoadingSpinner/LoadingSpinner.svelte';
 export { default as Logo } from '$lib/components/Logo/Logo.svelte';
 export { Markdown } from '$lib/components/Markdown/index.js';
+export { default as Meter } from '$lib/components/Meter/Meter.svelte';
 export { default as Modal } from '$lib/components/Modal/Modal.svelte';
 export { default as ModalBody } from '$lib/components/Modal/ModalBody.svelte';
 export { default as ModalFooter } from '$lib/components/Modal/ModalFooter.svelte';
