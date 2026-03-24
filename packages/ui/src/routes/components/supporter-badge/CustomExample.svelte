@@ -1,9 +1,9 @@
 <script lang="ts">
-  import { Stack, SupporterBadge, Heading, Logo } from '@immich/ui';
+  import { Heading, Logo, Stack, SupporterBadge } from '@immich/ui';
 </script>
 
 <Stack>
-  <Stack class="w-[250px]">
+  <Stack class="w-62.5">
     <SupporterBadge effect="always" text="Buy Immich" />
   </Stack>
 
@@ -13,5 +13,10 @@
       <Logo size="large" variant="icon" />
       <Heading tag="h1" size="large" color="primary">Purchase Immich</Heading>
     </SupporterBadge>
+  </Stack>
+
+  <Stack>
+    <Heading size="tiny">Center</Heading>
+    <SupporterBadge effect="hover" center class="bg-light-200 border-0" />
   </Stack>
 </Stack>
