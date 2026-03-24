@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.68.0](https://github.com/immich-app/ui/compare/ui-v0.67.2...ui-v0.68.0) (2026-03-24)
+
+
+### Features
+
+* closable badge ([#641](https://github.com/immich-app/ui/issues/641)) ([bc4b7df](https://github.com/immich-app/ui/commit/bc4b7df0ff2b9de2b298f0c9d895ac708db0e0ef))
+* supporter badge improvements ([#642](https://github.com/immich-app/ui/issues/642)) ([27f2c5f](https://github.com/immich-app/ui/commit/27f2c5f447a518545d1a45c58366467e535cc11a))
+
 ## [0.67.2](https://github.com/immich-app/ui/compare/ui-v0.67.1...ui-v0.67.2) (2026-03-23)
 
 
