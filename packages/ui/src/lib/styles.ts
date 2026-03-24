@@ -1,3 +1,6 @@
+import { cleanClass } from '$lib/utilities/internal.js';
+import { tv } from 'tailwind-variants';
+
 const color = {
   primary: 'text-primary',
   secondary: 'text-dark',
@@ -102,3 +105,41 @@ export const styleVariants = {
     giant: 'py-4',
   },
 };
+
+export const inputStyles = tv({
+  base: cleanClass(styleVariants.inputCommon, 'w-full flex-1 py-2.5'),
+  variants: {
+    textSize: styleVariants.textSize,
+    leadingPadding: {
+      base: 'pl-4',
+      icon: 'pl-0',
+    },
+    trailingPadding: {
+      base: 'pr-4',
+      icon: 'pr-0',
+    },
+    roundedSize: {
+      tiny: 'rounded-lg',
+      small: 'rounded-lg',
+      medium: 'rounded-lg',
+      large: 'rounded-lg',
+      giant: 'rounded-lg',
+    },
+  },
+});
+
+export const inputContainerStyles = tv({
+  base: cleanClass(styleVariants.inputContainerCommon, 'flex w-full items-center'),
+  variants: {
+    shape: styleVariants.shape,
+    roundedSize: styleVariants.inputRoundedSize,
+    invalid: {
+      true: 'focus-within:ring-danger dark:focus-within:ring-danger dark:ring-danger-300 ring-danger-300 ring-1',
+      false: '',
+    },
+    disabled: {
+      true: 'bg-light-300 dark:bg-gray-900',
+      false: '',
+    },
+  },
+});
