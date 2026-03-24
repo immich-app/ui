@@ -4,8 +4,6 @@
   import ComponentPage from '$docs/components/ComponentPage.svelte';
   import ComponentTipCard from '$docs/components/ComponentTipCard.svelte';
   import { Text } from '@immich/ui';
-  import AnimatedExample from './AnimatedExample.svelte';
-  import animatedExample from './AnimatedExample.svelte?raw';
   import ColorExample from './ColorExample.svelte';
   import colorExample from './ColorExample.svelte?raw';
   import OtherExample from './OtherExample.svelte';
@@ -16,16 +14,15 @@
   import sizeExample from './SizeExample.svelte?raw';
 </script>
 
-<ComponentPage name="ProgressBar" description="A component for displaying progress of a task">
+<ComponentPage name="Meter" description="A component for displaying a static measurement within a known range">
   <ComponentTipCard>
     <Text>
-      Use a progress bar for showing the completion status of a task. See <ComponentLink name="Meter" /> to show static measurements
-      like storage usage.
+      Use a meter to show static measurements like storage usage. See <ComponentLink name="ProgressBar" /> for showing the
+      completion status of a task.
     </Text>
   </ComponentTipCard>
   <ComponentExamples
     examples={[
-      { title: 'Animated Example', code: animatedExample, component: AnimatedExample },
       { title: 'Size', code: sizeExample, component: SizeExample },
       { title: 'Shape', code: shapeExample, component: ShapeExample },
       { title: 'Color', code: colorExample, component: ColorExample },
