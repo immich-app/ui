@@ -11,10 +11,19 @@
     effect?: 'hover' | 'always';
     text?: string;
     size?: Size;
+    class?: string;
+    center?: boolean;
     children?: Snippet;
   };
 
-  const { effect = 'hover', text = t('supporter'), size = 'medium', children }: Props = $props();
+  const {
+    effect = 'hover',
+    text = t('supporter'),
+    size = 'medium',
+    class: className,
+    center,
+    children,
+  }: Props = $props();
 
   const iconSize: Record<Size, Size> = {
     tiny: 'tiny',
@@ -25,8 +34,12 @@
   };
 
   const containerStyles = tv({
-    base: 'bg-secondary flex place-items-center gap-2 overflow-hidden rounded-lg transition-all',
+    base: 'bg-secondary flex place-items-center overflow-hidden rounded-lg transition-all',
     variants: {
+      center: {
+        true: 'justify-around',
+        false: '',
+      },
       size: {
         tiny: 'px-2 py-1',
         small: 'px-2 py-1',
@@ -42,12 +55,14 @@
   });
 </script>
 
-<div class={cleanClass(containerStyles({ effect, size }))}>
+<div class={cleanClass(containerStyles({ effect, size, center }), className)}>
   {#if children}
     {@render children()}
   {:else}
-    <Logo size={iconSize[size]} variant="icon" />
-    <Text fontWeight="normal" color="secondary" {size}>{text}</Text>
+    <div class="flex items-center gap-2">
+      <Logo size={iconSize[size]} variant="icon" />
+      <Text fontWeight="normal" color="secondary" {size}>{text}</Text>
+    </div>
   {/if}
 </div>
 
