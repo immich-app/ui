@@ -7,6 +7,6 @@ on:
 jobs:
   validate-pr-title:
     name: Validate PR Title (conventional commit)
-    uses: immich-app/devtools/.github/workflows/shared-pr-require-conventional-commit.yml@main
+    uses: immich-app/devtools/.github/workflows/shared-pr-require-conventional-commit.yml@d6597891f4ae2a8ca157c4fe4fc04875ff34b9ea # main
     permissions:
       pull-requests: write
