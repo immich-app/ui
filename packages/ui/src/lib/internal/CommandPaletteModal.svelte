@@ -59,6 +59,20 @@
       }
     }
   };
+
+  const groupedCommands = $derived(
+    commandPaletteManager.results.reduce(
+      (acc, { provider: { name = 'unnamed' }, items }) => {
+        if (acc[name]) {
+          acc[name].push(...items);
+        } else {
+          acc[name] = items;
+        }
+        return acc;
+      },
+      {} as Record<string, Array<ActionItem & { id: string }>>,
+    ),
+  );
 </script>
 
 <svelte:window
@@ -97,13 +111,13 @@
         <Text>{t('command_palette_prompt_default', translations)}</Text>
       {/if}
 
-      {#each commandPaletteManager.results as result, groupIndex (result.provider.name ?? groupIndex)}
-        {#if result.provider.name}
-          <Heading size="tiny" class="pt-2">{result.provider.name}</Heading>
+      {#each Object.entries(groupedCommands) as [name, items] (name)}
+        {#if name !== 'unnamed'}
+          <Heading size="tiny" class="pt-2">{name}</Heading>
         {/if}
         {#if commandPaletteManager.results.length > 0}
           <div class="flex flex-col">
-            {#each result.items as item (item.id)}
+            {#each items as item (item.id)}
               <CommandPaletteItem
                 {item}
                 selected={commandPaletteManager.isSelected(item)}
