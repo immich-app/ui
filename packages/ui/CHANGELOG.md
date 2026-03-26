@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.69.0](https://github.com/immich-app/ui/compare/ui-v0.68.0...ui-v0.69.0) (2026-03-26)
+
+
+### Features
+
+* shared progress and meter component ([#644](https://github.com/immich-app/ui/issues/644)) ([706964e](https://github.com/immich-app/ui/commit/706964e5f2282b12b4232c4249ece6a3cd65d729))
+
+
+### Bug Fixes
+
+* command palette providers with duplicate name ([#647](https://github.com/immich-app/ui/issues/647)) ([6507c8d](https://github.com/immich-app/ui/commit/6507c8dfa52628653a6dba8781e96e6effcd1726))
+
 ## [0.68.0](https://github.com/immich-app/ui/compare/ui-v0.67.2...ui-v0.68.0) (2026-03-24)
 
 
