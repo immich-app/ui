@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.0](https://github.com/immich-app/ui/compare/svelte-markdown-preprocess-v0.2.1...svelte-markdown-preprocess-v0.3.0) (2026-03-31)
+
+
+### Features
+
+* markdown image caption ([#654](https://github.com/immich-app/ui/issues/654)) ([fb7e9ae](https://github.com/immich-app/ui/commit/fb7e9aea1f29dbdc20ed49e8d288ab705b6c3254))
+
 ## 0.2.1 (2026-01-30)
 
 <!-- Release notes generated using configuration in .github/release.yml at main -->
