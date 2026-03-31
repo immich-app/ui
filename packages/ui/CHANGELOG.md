@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.70.0](https://github.com/immich-app/ui/compare/ui-v0.69.0...ui-v0.70.0) (2026-03-31)
+
+
+### Features
+
+* markdown image caption ([#654](https://github.com/immich-app/ui/issues/654)) ([fb7e9ae](https://github.com/immich-app/ui/commit/fb7e9aea1f29dbdc20ed49e8d288ab705b6c3254))
+
+
+### Bug Fixes
+
+* scrollbar ui theme colors ([#652](https://github.com/immich-app/ui/issues/652)) ([0088068](https://github.com/immich-app/ui/commit/0088068d0758c55db9c4da952b3fdd6a8f4c5399))
+
 ## [0.69.0](https://github.com/immich-app/ui/compare/ui-v0.68.0...ui-v0.69.0) (2026-03-26)
 
 
