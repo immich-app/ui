@@ -86,7 +86,12 @@ exports[`markup > should render 'image.md' correctly 1`] = `
   "code": "<script lang="ts">
   import { Markdown } from '@immich/ui';
 </script>
-<Markdown.Paragraph>This is an image <img src="https://immich.app/" alt="something"></Markdown.Paragraph>
+<Markdown.Paragraph>This is an image <Markdown.Image src="https://immich.app/"/>
+
+This is an image with alt <Markdown.Image src="https://immich.app/" alt="alt text"/>
+
+This is an image with alt and a title <Markdown.Image src="https://immich.app/," alt="alt text" title="title text"/>
+</Markdown.Paragraph>
 ",
 }
 `;

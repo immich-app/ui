@@ -21,3 +21,14 @@ export const escapeSvelteCode = (text: string) => {
 
   return escaped;
 };
+
+export const createAttributes = (attributes: Record<string, string | null | undefined>) => {
+  const results = Object.entries(attributes)
+    .filter(([, value]) => !!value)
+    .map(([key, value]) => `${key}="${value}"`);
+  if (results.length === 0) {
+    return '';
+  }
+
+  return ' ' + results.join(' ');
+};
