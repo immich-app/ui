@@ -12,7 +12,8 @@
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
     "outDir": "./dist",
-    "types": ["vite/client", "node"]
+    "types": ["vite/client", "node"],
+    "rootDir": "./src"
   },
   "include": ["src"],
   "exclude": ["dist", "test", "**/*.spec.*", "vitest.config.js"]
