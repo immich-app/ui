@@ -1,6 +1,6 @@
 import { MarkedExtension } from 'marked';
 import { emojify } from 'node-emoji';
-import { escapeSvelteCode, getIdFromText } from './utility.js';
+import { createAttributes, escapeSvelteCode, getIdFromText } from './utility.js';
 
 export const markedSvelte = (): MarkedExtension => ({
   tokenizer: {
@@ -70,6 +70,10 @@ export const markedSvelte = (): MarkedExtension => ({
       return token.text;
     },
 
+    image({ href, text: alt, title }) {
+      return `<Markdown.Image${createAttributes({ src: href, alt, title })}/>\n`;
+    },
+
     space() {
       return `<Markdown.Space />\n`;
     },
@@ -113,8 +117,7 @@ export const markedSvelte = (): MarkedExtension => ({
     },
 
     link({ href, title, text }) {
-      const titleAttr = title ? ` title="${title}"` : '';
-      return `<Markdown.Link href="${href}"${titleAttr}>${text}</Markdown.Link>`;
+      return `<Markdown.Link${createAttributes({ href, title })}>${text}</Markdown.Link>`;
     },
 
     codespan({ text }) {

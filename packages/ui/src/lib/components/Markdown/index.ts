@@ -1,6 +1,7 @@
 import BlockQuote from './BlockQuote.svelte';
 import Code from './Code.svelte';
 import Heading from './Heading.svelte';
+import Image from './Image.svelte';
 import LineBreak from './LineBreak.svelte';
 import Link from './Link.svelte';
 import List from './List.svelte';
@@ -21,6 +22,7 @@ export const Markdown = {
   Heading,
   LineBreak,
   Link,
+  Image,
   ListItem,
   List,
   Paragraph,

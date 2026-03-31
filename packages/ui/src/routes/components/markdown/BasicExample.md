@@ -135,7 +135,7 @@ Now a nested list:
 
 ## Image
 
-![example image](/img/social-preview.webp 'Immich share card')
+![This is the alt text for the image](/img/social-preview.webp 'This is the title for the image')
 
 ## Line break
 
