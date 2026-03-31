@@ -1,3 +1,0 @@
-```ts
-const foo = 'bar';
-```
