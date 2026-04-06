@@ -76,6 +76,7 @@ export { default as NumberInput } from '$lib/components/NumberInput/NumberInput.
 export { default as PasswordInput } from '$lib/components/PasswordInput/PasswordInput.svelte';
 export { default as PinInput } from '$lib/components/PinInput/PinInput.svelte';
 export { default as ProgressBar } from '$lib/components/ProgressBar/ProgressBar.svelte';
+export { default as ScreencastOverlay } from '$lib/components/ScreencastOverlay/ScreencastOverlay.svelte';
 export { default as Scrollable } from '$lib/components/Scrollable/Scrollable.svelte';
 export { default as Select } from '$lib/components/Select/Select.svelte';
 export { default as SiteMetadata } from '$lib/components/SiteMetadata/SiteMetadata.svelte';
@@ -106,6 +107,7 @@ export * from '$lib/actions/shortcut.js';
 export * from '$lib/services/command-palette-manager.svelte.js';
 export * from '$lib/services/menu-manager.svelte.js';
 export * from '$lib/services/modal-manager.svelte.js';
+export * from '$lib/services/screencast-manager.svelte.js';
 export * from '$lib/services/theme.svelte.js';
 export * from '$lib/services/toast-manager.svelte.js';
 export * from '$lib/services/translation.svelte.js';

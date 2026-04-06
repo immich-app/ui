@@ -22,6 +22,8 @@
     Logo,
     NavbarGroup,
     NavbarItem,
+    screencastManager,
+    ScreencastOverlay,
     siteCommands,
     SiteFooter,
     Text,
@@ -32,7 +34,7 @@
     type ActionItem,
     type NavbarProps,
   } from '@immich/ui';
-  import { mdiHome, mdiHomeOutline, mdiMagnify, mdiMenu, mdiThemeLightDark } from '@mdi/js';
+  import { mdiHome, mdiHomeOutline, mdiKeyboard, mdiMagnify, mdiMenu, mdiThemeLightDark } from '@mdi/js';
   import { MediaQuery } from 'svelte/reactivity';
   import '../app.css';
 
@@ -64,6 +66,13 @@
       onAction: () => toggleTheme(),
       searchText: asText('Command', 'light', 'dark', 'theme', 'toggle'),
     },
+
+    {
+      title: 'Toggle screencast mode',
+      description: 'Show/hide keyboard and mouse events on the screen',
+      icon: mdiKeyboard,
+      onAction: () => screencastManager.toggle(),
+    },
   ];
 
   commandPaletteManager.enable();
@@ -79,6 +88,8 @@
     defaultProvider({ name: 'Links', actions: siteCommands }),
   ]}
 />
+
+<ScreencastOverlay />
 
 <TooltipProvider>
   <AppShell>
