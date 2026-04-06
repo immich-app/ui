@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.71.0](https://github.com/immich-app/ui/compare/ui-v0.70.0...ui-v0.71.0) (2026-04-06)
+
+
+### Features
+
+* persisted ([#656](https://github.com/immich-app/ui/issues/656)) ([73afb79](https://github.com/immich-app/ui/commit/73afb79c2eddf88b69f122a1e64e9ccb239b3899))
+* screencast overlay ([#658](https://github.com/immich-app/ui/issues/658)) ([f8bf709](https://github.com/immich-app/ui/commit/f8bf709cfa882967b6bf32af22c87c75df102053))
+
 ## [0.70.0](https://github.com/immich-app/ui/compare/ui-v0.69.0...ui-v0.70.0) (2026-03-31)
 
 
