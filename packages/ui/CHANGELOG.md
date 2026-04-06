@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.72.0](https://github.com/immich-app/ui/compare/ui-v0.71.0...ui-v0.72.0) (2026-04-06)
+
+
+### Features
+
+* shortcut rendering ([#660](https://github.com/immich-app/ui/issues/660)) ([e4be19f](https://github.com/immich-app/ui/commit/e4be19ff6984cb189da6ac8805f5514b9217913d))
+
 ## [0.71.0](https://github.com/immich-app/ui/compare/ui-v0.70.0...ui-v0.71.0) (2026-04-06)
 
 
