@@ -1,3 +1,17 @@
+import type { IconLike } from '$lib/types.js';
+import {
+  mdiAppleKeyboardCommand,
+  mdiAppleKeyboardOption,
+  mdiAppleKeyboardShift,
+  mdiArrowDown,
+  mdiArrowLeft,
+  mdiArrowRight,
+  mdiArrowUp,
+  mdiKeyboardReturn,
+  mdiKeyboardTab,
+  mdiKeyboardTabReverse,
+  mdiMicrosoftWindows,
+} from '@mdi/js';
 import type { ActionReturn } from 'svelte/action';
 import { on } from 'svelte/events';
 
@@ -60,35 +74,80 @@ export const matchesShortcut = (event: KeyboardEvent, shortcut: Shortcut) => {
 };
 
 const isMacOS = globalThis.navigator && /Mac(intosh|Intel)/.test(globalThis.navigator.userAgent);
-const displayOverrides: Record<string, string> = {
-  ArrowDown: '↓',
-  ArrowLeft: '←',
-  ArrowRight: '→',
-  ArrowUp: '↑',
-  Delete: '⌦',
+
+type ShortcutItem = { key: string } | { icon: IconLike };
+
+type KeyboardRenderItem = {
+  key: string;
+  code: string;
+  shiftKey?: boolean;
+  altKey?: boolean;
+  metaKey?: boolean;
+  ctrlKey?: boolean;
 };
 
-export const renderShortcut = ({ alt, meta, ctrl, shift, key }: Shortcut) => {
-  const result: string[] = [];
+export const renderKeyboardEvent = (item: KeyboardRenderItem): ShortcutItem => {
+  switch (item.key) {
+    case 'ArrowLeft': {
+      return { icon: mdiArrowLeft };
+    }
+    case 'ArrowRight': {
+      return { icon: mdiArrowRight };
+    }
+    case 'ArrowUp': {
+      return { icon: mdiArrowUp };
+    }
+    case 'ArrowDown': {
+      return { icon: mdiArrowDown };
+    }
+    case 'Enter': {
+      return { icon: mdiKeyboardReturn };
+    }
+    case 'Shift': {
+      return { icon: mdiAppleKeyboardShift };
+    }
+    case 'Tab': {
+      return { icon: item.shiftKey ? mdiKeyboardTabReverse : mdiKeyboardTab };
+    }
+    case 'Space':
+    case ' ': {
+      return { key: 'Space' };
+    }
+  }
+
+  return { key: item.key };
+};
+
+export const renderShortcut = ({ alt, meta, ctrl, shift, key }: Shortcut): ShortcutItem[] => {
+  const results: ShortcutItem[] = [];
   if (alt) {
-    result.push(isMacOS ? '⌥' : 'Alt');
+    results.push(isMacOS ? { icon: mdiAppleKeyboardOption } : { key: 'Alt' });
   }
 
   if (meta) {
-    result.push(isMacOS ? '⌘' : '❖');
+    results.push(isMacOS ? { icon: mdiAppleKeyboardCommand } : { key: mdiMicrosoftWindows });
   }
 
   if (ctrl) {
-    result.push('Ctrl');
+    results.push({ key: 'Ctrl' });
   }
 
   if (shift) {
-    result.push('⇧');
+    results.push({ icon: mdiAppleKeyboardShift });
   }
 
-  result.push(displayOverrides[key] ?? key.toUpperCase());
+  const item = renderKeyboardEvent({
+    key,
+    code: key,
+    shiftKey: shift ?? false,
+    altKey: alt ?? false,
+    metaKey: meta ?? false,
+    ctrlKey: ctrl ?? false,
+  });
 
-  return result;
+  results.push('key' in item ? { key: key.toUpperCase() } : item);
+
+  return results;
 };
 
 /** Bind a single keyboard shortcut to node. */

@@ -1,18 +1,9 @@
 <script lang="ts">
+  import { renderKeyboardEvent } from '$lib/actions/shortcut.js';
   import Icon from '$lib/components/Icon/Icon.svelte';
   import { zIndex } from '$lib/constants.js';
   import { screencastManager } from '$lib/services/screencast-manager.svelte.js';
   import { cleanClass } from '$lib/utilities/internal.js';
-  import {
-    mdiAppleKeyboardShift,
-    mdiArrowDown,
-    mdiArrowLeft,
-    mdiArrowRight,
-    mdiArrowUp,
-    mdiKeyboardReturn,
-    mdiKeyboardTab,
-    mdiKeyboardTabReverse,
-  } from '@mdi/js';
   import { onMount, type Snippet } from 'svelte';
 
   type Props = {
@@ -30,37 +21,6 @@
     const interval = setInterval(() => screencastManager.onTick(), 250);
     return () => clearInterval(interval);
   });
-
-  const resolve = (event: KeyboardEvent): { key: string } | { icon: string } => {
-    switch (event.key) {
-      case 'ArrowLeft': {
-        return { icon: mdiArrowLeft };
-      }
-      case 'ArrowRight': {
-        return { icon: mdiArrowRight };
-      }
-      case 'ArrowUp': {
-        return { icon: mdiArrowUp };
-      }
-      case 'ArrowDown': {
-        return { icon: mdiArrowDown };
-      }
-      case 'Enter': {
-        return { icon: mdiKeyboardReturn };
-      }
-      case 'Shift': {
-        return { icon: mdiAppleKeyboardShift };
-      }
-      case 'Tab': {
-        return { icon: event.shiftKey ? mdiKeyboardTabReverse : mdiKeyboardTab };
-      }
-      case ' ': {
-        return { key: event.code };
-      }
-    }
-
-    return { key: event.key };
-  };
 </script>
 
 <svelte:window
@@ -96,7 +56,7 @@
         {#if child}
           {@render child(event)}
         {:else}
-          {@const item = resolve(event)}
+          {@const item = renderKeyboardEvent(event)}
           <span class="bg-light-400 text-light-900 rounded border px-4 py-2 text-4xl">
             {#if 'icon' in item}
               <Icon icon={item.icon} />
