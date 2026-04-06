@@ -33,4 +33,5 @@ export const zIndex = {
   ToastPanel: 'z-60',
   ContextMenu: 'z-70!',
   Tooltip: 'z-90',
+  ScreencastOverlay: 'z-10000',
 };
