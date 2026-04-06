@@ -17,6 +17,7 @@
 
   const shortcuts =
     item.shortcuts === undefined ? [] : Array.isArray(item.shortcuts) ? item.shortcuts : [item.shortcuts];
+
   const renderedShortcuts = shortcuts.map((shortcut) => renderShortcut(shortcut));
 
   let ref = $state<HTMLElement | null>(null);
@@ -60,9 +61,19 @@
     </div>
     {#if renderedShortcuts.length > 0}
       <div class="flex shrink-0 flex-col justify-end gap-1">
-        {#each renderedShortcuts as shortcut (shortcut.join('-'))}
+        {#each renderedShortcuts as shortcut, i (i)}
           <div class="flex justify-end">
-            <Kbd size="tiny">{shortcut.join(' ')}</Kbd>
+            <Kbd size="tiny" class="flex gap-1">
+              {#each shortcut as item, j (j)}
+                <span>
+                  {#if 'key' in item}
+                    {item.key}
+                  {:else}
+                    <Icon icon={item.icon} />
+                  {/if}
+                </span>
+              {/each}
+            </Kbd>
           </div>
         {/each}
       </div>
