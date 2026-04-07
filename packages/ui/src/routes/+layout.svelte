@@ -18,7 +18,6 @@
     defaultProvider,
     Icon,
     IconButton,
-    initializeTheme,
     Logo,
     NavbarGroup,
     NavbarItem,
@@ -27,9 +26,9 @@
     siteCommands,
     SiteFooter,
     Text,
+    themeManager,
     ThemeSwitcher,
     toastManager,
-    toggleTheme,
     TooltipProvider,
     type ActionItem,
     type NavbarProps,
@@ -37,8 +36,6 @@
   import { mdiHome, mdiHomeOutline, mdiKeyboard, mdiMagnify, mdiMenu, mdiThemeLightDark } from '@mdi/js';
   import { MediaQuery } from 'svelte/reactivity';
   import '../app.css';
-
-  initializeTheme();
 
   let { children } = $props();
 
@@ -51,6 +48,7 @@
     }
   });
 
+  themeManager.initialize();
   toastManager.setOptions({ class: 'top-[58px]' });
 
   const commands: ActionItem[] = [
@@ -63,7 +61,7 @@
         { shift: true, key: 't' },
         { alt: true, key: 't' },
       ],
-      onAction: () => toggleTheme(),
+      onAction: () => themeManager.toggle(),
       searchText: asText('Command', 'light', 'dark', 'theme', 'toggle'),
     },
 

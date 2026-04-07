@@ -108,7 +108,7 @@ export * from '$lib/services/command-palette-manager.svelte.js';
 export * from '$lib/services/menu-manager.svelte.js';
 export * from '$lib/services/modal-manager.svelte.js';
 export * from '$lib/services/screencast-manager.svelte.js';
-export * from '$lib/services/theme.svelte.js';
+export * from '$lib/services/theme-manager.svelte.js';
 export * from '$lib/services/toast-manager.svelte.js';
 export * from '$lib/services/translation.svelte.js';
 export * from '$lib/state/locale-state.svelte.js';

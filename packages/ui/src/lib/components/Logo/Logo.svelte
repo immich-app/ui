@@ -6,7 +6,7 @@
   import stackedDark from '$lib/assets/immich-logo-stacked-dark.svg';
   import stackedLight from '$lib/assets/immich-logo-stacked-light.svg';
   import icon from '$lib/assets/immich-logo.svg';
-  import { theme } from '$lib/services/theme.svelte.js';
+  import { themeManager } from '$lib/services/theme-manager.svelte.js';
   import { Theme, type Size } from '$lib/types.js';
   import { cleanClass } from '$lib/utilities/internal.js';
   import { tv } from 'tailwind-variants';
@@ -22,15 +22,15 @@
   const getUrl = (variant: Props['variant']): string => {
     switch (variant) {
       case 'stacked': {
-        return theme.value === Theme.Light ? stackedLight : stackedDark;
+        return themeManager.value === Theme.Light ? stackedLight : stackedDark;
       }
 
       case 'inline': {
-        return theme.value === Theme.Light ? inlineLight : inlineDark;
+        return themeManager.value === Theme.Light ? inlineLight : inlineDark;
       }
 
       case 'stacked-futo': {
-        return theme.value === Theme.Light ? futoLight : futoDark;
+        return themeManager.value === Theme.Light ? futoLight : futoDark;
       }
 
       default: {
