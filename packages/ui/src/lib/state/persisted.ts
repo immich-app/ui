@@ -64,7 +64,7 @@ const identity = <T>(value: T): T => value;
 export class PersistedLocalStorage<T> extends PersistedBase<T> {
   constructor(key: string, defaultValue: T, options: PersistedLocalStorageOptions<T> = {}) {
     const valid = options.valid || (() => true);
-    const upgrade = options.upgrade === 'merge' ? merge(defaultValue) : identity;
+    const upgrade = options.upgrade === 'merge' ? merge(defaultValue) : (options.upgrade ?? identity);
     const serializer = options.serializer || JSON;
 
     super(key, defaultValue, {
