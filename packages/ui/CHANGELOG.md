@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.73.0](https://github.com/immich-app/ui/compare/ui-v0.72.0...ui-v0.73.0) (2026-04-07)
+
+
+### Features
+
+* theme manager ([#665](https://github.com/immich-app/ui/issues/665)) ([7820111](https://github.com/immich-app/ui/commit/7820111e6870a28ed413a4a39fe87abd1333b525))
+
+
+### Bug Fixes
+
+* **deps:** update typescript-projects ([#662](https://github.com/immich-app/ui/issues/662)) ([4d04003](https://github.com/immich-app/ui/commit/4d0400311f65e961ac49e03cf21acb7316d356d3))
+
 ## [0.72.0](https://github.com/immich-app/ui/compare/ui-v0.71.0...ui-v0.72.0) (2026-04-06)
 
 
