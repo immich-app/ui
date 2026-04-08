@@ -1,7 +1,29 @@
 import { goto } from '$app/navigation';
 import { env } from '$env/dynamic/public';
-import { MenuItemType, type ActionItem, type IfLike } from '$lib/types.js';
+import { MenuItemType, type ActionItem, type GithubLinkProps, type GithubLinkType, type IfLike } from '$lib/types.js';
 import type { DateTime } from 'luxon';
+
+const urlTypes: Record<GithubLinkType, string> = {
+  issue: 'issues',
+  pr: 'pull',
+  discussion: 'discussions',
+};
+
+export const asGithubLink = (options: number | GithubLinkProps) => {
+  if (typeof options === 'number') {
+    options = { number: options };
+  }
+  const { org = 'immich-app', repo = 'immich', number, type = 'pr' } = options ?? {};
+
+  const text =
+    org === 'immich-app' && repo === 'immich'
+      ? `#${number}`
+      : org === 'immich-app' || org === repo
+        ? `${repo}/#${number}`
+        : `${org}/${repo}#${number}`;
+
+  return { href: `https://github.com/${org}/${repo}/${urlTypes[type]}/${number}`, text };
+};
 
 const getImmichApp = (host: string | undefined) => {
   if (!host || !host.endsWith('immich.app')) {

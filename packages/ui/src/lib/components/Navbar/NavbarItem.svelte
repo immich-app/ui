@@ -4,8 +4,8 @@
   import Link from '$lib/components/Link/Link.svelte';
   import NavbarItem from '$lib/components/Navbar/NavbarItem.svelte';
   import { t } from '$lib/services/translation.svelte.js';
-  import type { NavbarProps } from '$lib/types.js';
-  import { cleanClass } from '$lib/utilities/internal.js';
+  import type { IconLike, IconProps, NavbarProps } from '$lib/types.js';
+  import { cleanClass, isIconLike } from '$lib/utilities/internal.js';
   import { mdiChevronDown, mdiChevronRight } from '@mdi/js';
   import { tv } from 'tailwind-variants';
 
@@ -26,8 +26,21 @@
 
   const isActive = $derived(isActiveOverride ?? startsWithHref);
   let active = $derived(activeOverride ?? isActive());
-  const iconProps = $derived(typeof icon === 'string' ? { icon } : icon);
-  const activeIconProps = $derived(typeof activeIcon === 'string' ? { icon: activeIcon } : activeIcon);
+
+  const asIconProps = (icon?: IconLike | IconProps) => {
+    if (typeof icon === 'string') {
+      return { icon };
+    }
+
+    if (isIconLike(icon)) {
+      return { icon: icon.path };
+    }
+
+    return icon;
+  };
+
+  const iconProps = $derived(asIconProps(icon));
+  const activeIconProps = $derived(asIconProps(activeIcon));
 
   const styles = tv({
     base: 'hover:bg-subtle hover:text-primary flex w-full place-items-center gap-4 rounded-e-full ps-5 transition-[padding] delay-100 duration-100',

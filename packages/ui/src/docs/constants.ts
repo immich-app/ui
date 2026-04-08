@@ -7,6 +7,7 @@ import {
   type ActionItem,
   type ActionItemHandler,
   type CarouselImageItem,
+  type IconLike,
   type MenuItems,
   type Theme,
 } from '@immich/ui';
@@ -85,6 +86,7 @@ import {
   mdiViewSequentialOutline,
   mdiWindowMaximize,
 } from '@mdi/js';
+import { siGithub } from 'simple-icons';
 import type { Component } from 'svelte';
 
 export enum DisplayOption {
@@ -111,7 +113,7 @@ export type ComponentItem = {
   name: string;
   title?: string;
   href?: string;
-  icon: string;
+  icon: IconLike;
   activeIcon?: string;
   items?: ComponentItem[];
 };
@@ -198,6 +200,7 @@ export const componentGroups: ComponentGroup[] = [
       { name: 'Badge', icon: mdiTagOutline, activeIcon: mdiTag },
       { name: 'Code', icon: mdiCodeBraces },
       { name: 'CodeBlock', icon: mdiCodeBlockBraces },
+      { name: 'GithubLink', icon: siGithub },
       { name: 'Kbd', icon: mdiKeyboardVariant },
       { name: 'Text', icon: mdiFormatHeaderPound },
       { name: 'Textarea', icon: mdiFormTextarea },

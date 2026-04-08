@@ -57,8 +57,8 @@ export type NavbarProps = {
   active?: boolean;
   variant?: NavbarVariant;
   isActive?: () => boolean;
-  icon?: string | IconProps;
-  activeIcon?: string | IconProps;
+  icon?: IconLike | IconProps;
+  activeIcon?: IconLike | IconProps;
   expanded?: boolean;
   items?: NavbarProps[] | Snippet;
   class?: string;
@@ -415,3 +415,22 @@ export type ActionBarProps = ControlBarProps & {
 export type ChildContext = {
   register: (key: ChildKey, data: () => ChildData) => void;
 };
+
+type LinkCommon = {
+  class?: string;
+  underline?: boolean;
+} & Omit<HTMLAnchorAttributes, 'href'>;
+
+export type LinkProps = {
+  children?: Snippet;
+  href: string;
+} & LinkCommon;
+
+export type GithubLinkType = 'issue' | 'pr' | 'discussion';
+
+export type GithubLinkOptions = { org?: string; repo?: string; number?: number; type?: GithubLinkType };
+
+export type GithubLinkProps = {
+  icon?: boolean;
+} & GithubLinkOptions &
+  LinkCommon;
