@@ -8,7 +8,7 @@
   import basicExample from './BasicExample.svelte?raw';
 </script>
 
-<ComponentPage name="NumberInput" description="Accept number input from the user">
+<ComponentPage name="TimeInput" description="Accept number input from the user">
   <ComponentTipCard>
     <Text>
       See <ComponentLink name="Input" /> for more information about states, shapes, sizes, and more.

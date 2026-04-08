@@ -1,11 +1,11 @@
 <script lang="ts">
   import { getFieldContext } from '$lib/common/context.svelte.js';
-  import Icon from '$lib/components/Icon/Icon.svelte';
   import Label from '$lib/components/Label/Label.svelte';
   import Text from '$lib/components/Text/Text.svelte';
-  import { styleVariants } from '$lib/styles.js';
+  import InputIcon from '$lib/internal/InputIcon.svelte';
+  import { inputContainerStyles, inputStyles } from '$lib/styles.js';
   import type { InputProps } from '$lib/types.js';
-  import { cleanClass, generateId, isIconLike } from '$lib/utilities/internal.js';
+  import { cleanClass, generateId } from '$lib/utilities/internal.js';
   import { tv } from 'tailwind-variants';
 
   let {
@@ -26,57 +26,6 @@
 
   const { label, description, readOnly, required, invalid, disabled, ...labelProps } = $derived(context());
   const size = $derived(initialSize ?? labelProps.size ?? 'small');
-
-  const iconStyles = tv({
-    base: 'flex shrink-0 items-center justify-center',
-    variants: {
-      size: {
-        tiny: 'w-6',
-        small: 'w-8',
-        medium: 'w-10',
-        large: 'w-12',
-        giant: 'w-14',
-      },
-    },
-  });
-
-  const containerStyles = tv({
-    base: cleanClass(styleVariants.inputContainerCommon, 'flex w-full items-center'),
-    variants: {
-      shape: styleVariants.shape,
-      roundedSize: styleVariants.inputRoundedSize,
-      invalid: {
-        true: 'focus-within:ring-danger dark:focus-within:ring-danger dark:ring-danger-300 ring-danger-300 ring-1',
-        false: '',
-      },
-      disabled: {
-        true: 'bg-light-300 dark:bg-gray-900',
-        false: '',
-      },
-    },
-  });
-
-  const inputStyles = tv({
-    base: cleanClass(styleVariants.inputCommon, 'w-full flex-1 py-2.5'),
-    variants: {
-      textSize: styleVariants.textSize,
-      leadingPadding: {
-        base: 'pl-4',
-        icon: 'pl-0',
-      },
-      trailingPadding: {
-        base: 'pr-4',
-        icon: 'pr-0',
-      },
-      roundedSize: {
-        tiny: 'rounded-lg',
-        small: 'rounded-lg',
-        medium: 'rounded-lg',
-        large: 'rounded-lg',
-        giant: 'rounded-lg',
-      },
-    },
-  });
 
   const trailingTextStyles = tv({
     variants: {
@@ -105,7 +54,7 @@
   <div
     bind:this={containerRef}
     class={cleanClass(
-      containerStyles({
+      inputContainerStyles({
         disabled,
         shape,
         roundedSize: shape === 'semi-round' ? size : undefined,
@@ -114,15 +63,7 @@
       className,
     )}
   >
-    {#if leadingIcon}
-      <div tabindex="-1" class={iconStyles({ size })}>
-        {#if isIconLike(leadingIcon)}
-          <Icon size="60%" icon={leadingIcon} />
-        {:else}
-          {@render leadingIcon()}
-        {/if}
-      </div>
-    {/if}
+    <InputIcon icon={leadingIcon} {size} />
 
     <input
       id={inputId}
@@ -151,15 +92,7 @@
       >
     {/if}
 
-    {#if trailingIcon}
-      <div tabindex="-1" class={iconStyles({ size })}>
-        {#if isIconLike(trailingIcon)}
-          <Icon size="60%" icon={trailingIcon} />
-        {:else}
-          {@render trailingIcon()}
-        {/if}
-      </div>
-    {/if}
+    <InputIcon icon={trailingIcon} {size} />
   </div>
 </div>
 
