@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.74.1](https://github.com/immich-app/ui/compare/ui-v0.74.0...ui-v0.74.1) (2026-04-08)
+
+
+### Bug Fixes
+
+* github link size ([#669](https://github.com/immich-app/ui/issues/669)) ([ec28ac4](https://github.com/immich-app/ui/commit/ec28ac4bfb6307856eae51781f7328057bd0fe82))
+
 ## [0.74.0](https://github.com/immich-app/ui/compare/ui-v0.73.0...ui-v0.74.0) (2026-04-08)
 
 
