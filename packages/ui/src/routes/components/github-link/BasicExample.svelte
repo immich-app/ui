@@ -20,7 +20,7 @@
   <ComponentSizes>
     {#snippet child({ size })}
       <Text {size}>
-        For example, issue <GithubLink {size} number={1} /> is an link to github.
+        For example, issue <GithubLink {size} number={1} /> is a link to github.
       </Text>
     {/snippet}
   </ComponentSizes>
