@@ -432,5 +432,6 @@ export type GithubLinkOptions = { org?: string; repo?: string; number?: number; 
 
 export type GithubLinkProps = {
   icon?: boolean;
+  size?: Size;
 } & GithubLinkOptions &
   LinkCommon;
