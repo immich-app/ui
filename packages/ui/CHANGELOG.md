@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.74.0](https://github.com/immich-app/ui/compare/ui-v0.73.0...ui-v0.74.0) (2026-04-08)
+
+
+### Features
+
+* github link ([#668](https://github.com/immich-app/ui/issues/668)) ([2f73975](https://github.com/immich-app/ui/commit/2f7397506c7c4d5fe68eee6f492805ab971d36a6))
+* time input ([#645](https://github.com/immich-app/ui/issues/645)) ([9c96c25](https://github.com/immich-app/ui/commit/9c96c256ef41698e9069fe9016a49bf5647c90e8))
+
 ## [0.73.0](https://github.com/immich-app/ui/compare/ui-v0.72.0...ui-v0.73.0) (2026-04-07)
 
 
