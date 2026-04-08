@@ -1,9 +1,9 @@
 <script lang="ts">
   import { asComponentHref } from '$docs/utilities.js';
-  import { Button, Icon, VStack, Text } from '@immich/ui';
+  import { Button, Icon, Text, VStack, type IconLike } from '@immich/ui';
 
   type Props = {
-    component: { name: string; icon: string };
+    component: { name: string; icon: IconLike };
   };
 
   const { component }: Props = $props();

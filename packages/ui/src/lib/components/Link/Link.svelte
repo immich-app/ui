@@ -1,17 +1,9 @@
 <script lang="ts">
+  import type { LinkProps } from '$lib/types.js';
   import { isExternalLink, resolveUrl } from '$lib/utilities/common.js';
   import { cleanClass } from '$lib/utilities/internal.js';
-  import type { Snippet } from 'svelte';
-  import type { HTMLAnchorAttributes } from 'svelte/elements';
 
-  type Props = {
-    class?: string;
-    children?: Snippet;
-    href: string;
-    underline?: boolean;
-  } & HTMLAnchorAttributes;
-
-  const { href, class: className, underline = true, children, ...restProps }: Props = $props();
+  const { href, class: className, underline = true, children, ...restProps }: LinkProps = $props();
 
   let resolved = $derived(resolveUrl(href));
   let external = $derived(isExternalLink(resolved));
