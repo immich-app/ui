@@ -27,6 +27,7 @@
     SiteFooter,
     Text,
     themeManager,
+    ThemePreference,
     ThemeSwitcher,
     toastManager,
     TooltipProvider,
@@ -48,10 +49,9 @@
     }
   });
 
-  themeManager.initialize();
   toastManager.setOptions({ class: 'top-[58px]' });
 
-  const commands: ActionItem[] = [
+  const commands: ActionItem[] = $derived([
     {
       icon: mdiThemeLightDark,
       iconClass: 'text-gray-700 dark:text-gray-200',
@@ -64,14 +64,20 @@
       onAction: () => themeManager.toggle(),
       searchText: asText('Command', 'light', 'dark', 'theme', 'toggle'),
     },
-
+    {
+      icon: mdiThemeLightDark,
+      iconClass: 'text-gray-700 dark:text-gray-200',
+      title: 'System theme',
+      description: `Use the system theme (${themeManager.prefersDark ? 'dark' : ' light'})`,
+      onAction: () => themeManager.setPreference(ThemePreference.System),
+    },
     {
       title: 'Toggle screencast mode',
       description: 'Show/hide keyboard and mouse events on the screen',
       icon: mdiKeyboard,
       onAction: () => screencastManager.toggle(),
     },
-  ];
+  ]);
 
   commandPaletteManager.enable();
   commandPaletteManager.setTranslations({
