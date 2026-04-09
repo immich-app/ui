@@ -42,6 +42,12 @@ export enum Theme {
   Dark = 'dark',
 }
 
+export enum ThemePreference {
+  Light = 'light',
+  Dark = 'dark',
+  System = 'system',
+}
+
 export type TranslationProps<T extends keyof Translations> = { [K in T]?: string };
 
 export type IconLike = string | { path: string };
