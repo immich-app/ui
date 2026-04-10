@@ -1,6 +1,5 @@
 <script lang="ts">
-  import HelperText from '$lib/components/HelperText/HelperText.svelte';
-  import { Field, PinInput, Stack, toastManager } from '@immich/ui';
+  import { Field, HelperText, PinInput, Stack, toastManager } from '@immich/ui';
 
   let value = $state('123');
 

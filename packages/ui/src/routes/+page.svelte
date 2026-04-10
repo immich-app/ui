@@ -1,36 +1,75 @@
 <script lang="ts">
-  import ComponentCard from '$docs/components/ComponentCard.svelte';
-  import Grid from '$docs/components/Grid.svelte';
-  import { componentGroups, siteMetadata } from '$docs/constants.js';
-  import { Code, Container, Heading, Link, SiteMetadata, Stack, Text } from '@immich/ui';
+  import imageUrl from '$docs/assets/design_placeholder.svg';
+  import { siteMetadata } from '$docs/constants.js';
+  import CommandPaletteButton from '$lib/components/CommandPalette/CommandPaletteButton.svelte';
+  import {
+    AppShell,
+    AppShellHeader,
+    Button,
+    Constants,
+    Container,
+    ControlBar,
+    ControlBarHeader,
+    ControlBarOverflow,
+    Heading,
+    Link,
+    Logo,
+    SiteFooter,
+    SiteMetadata,
+    Text,
+    ThemeSwitcher,
+    VStack,
+  } from '@immich/ui';
+  import { mdiCodeBraces, mdiOpenInNew } from '@mdi/js';
 </script>
 
 <SiteMetadata site={siteMetadata} />
 
-<Container size="large" class="p-2">
-  <Stack class="flex flex-col gap-4 px-8 py-8" gap={8}>
-    <Heading tag="h1" size="title">@immich/ui</Heading>
-    <Text>
-      @immich/ui is a collection of <Link href="https://svelte.dev">Svelte</Link> components that are shared across all Immich
-      projects. It is designed to be a simple and easy-to-use library that provides a consistent look and feel.
-    </Text>
+<AppShell>
+  <AppShellHeader class="w-full">
+    <ControlBar static variant="ghost">
+      <ControlBarHeader class="flex-row items-center">
+        <a href="/">
+          <Logo variant="inline" />
+        </a>
+      </ControlBarHeader>
+      <ControlBarOverflow>
+        <Button href="/getting-started" shape="round" color="secondary" size="small" class="hidden sm:block">
+          Get started
+        </Button>
+        <CommandPaletteButton />
+        <ThemeSwitcher size="medium" />
+      </ControlBarOverflow>
+    </ControlBar>
+  </AppShellHeader>
 
-    <Heading tag="h2" size="large">Install</Heading>
-    <Text>@immich/ui is published as an npm package. You can install it using npm.</Text>
-    <Code color="primary" variant="filled">npm i --save-dev @immich/ui</Code>
+  <Container size="medium" center class="mb-24">
+    <VStack gap={8} class="mt-4 text-center lg:mt-16">
+      <Logo size="giant" variant="logo" class="border" />
+      <div class="flex flex-col gap-2">
+        <Heading size="title" tag="h1">Immich UI</Heading>
+        <Text color="muted" size="large">
+          A collection of <Link href="https://svelte.dev">Svelte</Link> components for building Immich-themed applications,
+          published on <Link href={Constants.Npm.Ui}>npm</Link>.
+        </Text>
+      </div>
+      <Button size="large" href="/components" color="secondary" shape="round" leadingIcon={mdiCodeBraces}
+        >View components</Button
+      >
 
-    <Heading tag="h2" size="large">Components</Heading>
-    <Stack gap={8}>
-      {#each componentGroups as group (group.title)}
-        <Stack>
-          <Heading tag="h3" size="medium" class="mb-4">{group.title}</Heading>
-          <Grid>
-            {#each group.components as component (component.name)}
-              <ComponentCard {component} />
-            {/each}
-          </Grid>
-        </Stack>
-      {/each}
-    </Stack>
-  </Stack>
-</Container>
+      <img src={imageUrl} alt="Designing a website" />
+
+      <div class="flex flex-col gap-2">
+        <Heading tag="h3">Looking for Immich?</Heading>
+        <Text color="muted">
+          Read the Immich Documentation at <Link href={Constants.Sites.Docs}>{Constants.Sites.Docs}</Link>
+        </Text>
+      </div>
+      <Button href={Constants.Sites.Docs} target="_blank" color="secondary" shape="round" leadingIcon={mdiOpenInNew}
+        >Open the Docs</Button
+      >
+    </VStack>
+  </Container>
+
+  <SiteFooter />
+</AppShell>

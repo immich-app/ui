@@ -1,7 +1,6 @@
 <script>
   import ComponentSizes from '$docs/components/ComponentSizes.svelte';
-  import Stack from '$lib/components/Stack/Stack.svelte';
-  import { GithubLink, Heading, Text } from '@immich/ui';
+  import { GithubLink, Heading, Stack, Text } from '@immich/ui';
 </script>
 
 <Heading size="small">Default</Heading>

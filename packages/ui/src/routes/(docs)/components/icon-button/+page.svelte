@@ -1,8 +1,8 @@
 <script lang="ts">
-  import ComponentDescription from '$docs/components/ComponentDescription.svelte';
   import ComponentExamples from '$docs/components/ComponentExamples.svelte';
   import ComponentLink from '$docs/components/ComponentLink.svelte';
   import ComponentPage from '$docs/components/ComponentPage.svelte';
+  import PageDescription from '$docs/components/PageDescription.svelte';
   import BasicExample from './BasicExample.svelte';
   import basicExample from './BasicExample.svelte?raw';
   import ColorExample from './ColorExample.svelte';
@@ -22,7 +22,7 @@
 </script>
 
 <ComponentPage name="IconButton" description="An icon-only version of the Button component">
-  <ComponentDescription>An icon-only version of the <ComponentLink name="Button" /> component</ComponentDescription>
+  <PageDescription>An icon-only version of the <ComponentLink name="Button" /> component</PageDescription>
   <ComponentExamples
     examples={[
       { title: 'Basic', code: basicExample, component: BasicExample },
