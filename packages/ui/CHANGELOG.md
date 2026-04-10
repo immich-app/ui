@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.75.0](https://github.com/immich-app/ui/compare/ui-v0.74.1...ui-v0.75.0) (2026-04-09)
+
+
+### Features
+
+* system theme ([#671](https://github.com/immich-app/ui/issues/671)) ([6a11f6b](https://github.com/immich-app/ui/commit/6a11f6b1334ce25650db9f9632a1a6756136c128))
+
 ## [0.74.1](https://github.com/immich-app/ui/compare/ui-v0.74.0...ui-v0.74.1) (2026-04-08)
 
 
