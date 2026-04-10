@@ -19,14 +19,20 @@ export type CommandPaletteTranslations = TranslationProps<
 
 export type ActionProvider = {
   name?: string;
+  types?: string[];
   onSearch: (query?: string) => MaybePromise<ActionItem[]>;
 };
 
-export const defaultProvider = ({ name, actions }: { name?: string; actions: ActionItem[] }) => ({
+export type ActionDefaultProviderOptions = Omit<ActionProvider, 'onSearch'> & { actions: ActionItem[] };
+
+export const defaultProvider = ({ name, types, actions }: ActionDefaultProviderOptions) => ({
   name,
+  types,
   onSearch: (query?: string) =>
     query ? actions.filter((action) => getSearchString(action).includes(query.toLowerCase())) : actions,
 });
+
+const TYPE_REGEX = /type:("(?<quoted>[^"]+)"|(?<plain>\S+))/g;
 
 class CommandPaletteManager {
   #translations: CommandPaletteTranslations = {};
@@ -75,15 +81,26 @@ class CommandPaletteManager {
   }
 
   async #onSearch(query?: string) {
-    const newResults = await Promise.all(
-      this.#providers.map(async (provider) => {
-        const items = await provider.onSearch(query);
+    let type: string | undefined;
+    if (query) {
+      for (const matches of query.matchAll(TYPE_REGEX)) {
+        query = query.replaceAll(TYPE_REGEX, '');
+        type = matches.groups?.quoted ?? matches.groups?.plain;
+        break;
+      }
+    }
 
-        return {
-          provider,
-          items: items.filter((item) => isEnabled(item)).map((item) => ({ ...item, id: generateId() })),
-        };
-      }),
+    const newResults = await Promise.all(
+      this.#providers
+        .filter(({ types }) => !type || (types && types.includes(type)))
+        .map(async (provider) => {
+          const items = await provider.onSearch(query);
+
+          return {
+            provider,
+            items: items.filter((item) => isEnabled(item)).map((item) => ({ ...item, id: generateId() })),
+          };
+        }),
     );
 
     this.#selectedGroupIndex = 0;

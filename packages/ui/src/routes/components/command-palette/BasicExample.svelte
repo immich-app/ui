@@ -8,7 +8,8 @@
 
 <HStack wrap>
   <Button onclick={() => onSearch('')}>Open</Button>
-  <Button onclick={() => onSearch('site')}>View sites</Button>
-  <Button onclick={() => onSearch('command')}>View commands</Button>
-  <Button onclick={() => onSearch('component')}>View components</Button>
+  <Button onclick={() => onSearch('type:setting')}>View settings</Button>
+  <Button onclick={() => onSearch('type:site')}>View sites</Button>
+  <Button onclick={() => onSearch('type:social')}>View socials</Button>
+  <Button onclick={() => onSearch('type:project')}>View project pages</Button>
 </HStack>

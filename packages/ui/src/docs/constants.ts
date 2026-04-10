@@ -2,6 +2,7 @@ import { goto } from '$app/navigation';
 import { asComponentHref } from '$docs/utilities.js';
 import {
   asText,
+  defaultProvider,
   MenuItemType,
   toastManager,
   type ActionItem,
@@ -319,18 +320,22 @@ const asCommand = (group: ComponentGroup, component: ComponentItem): ActionItem 
     title: component.name,
     description: `View the ${component.name} component`,
     onAction: () => goto(href),
-    searchText: asText('Component', group.title, component.name, href),
+    extraText: asText('Component', group.title, href),
   };
 };
 
-export const componentCommands: ActionItem[] = [];
+export const getComponentProvider = () => {
+  const commands: ActionItem[] = [];
 
-// components
-for (const group of componentGroups) {
-  for (const component of group.components) {
-    componentCommands.push(asCommand(group, component));
-    for (const item of component.items ?? []) {
-      componentCommands.push(asCommand(group, item));
+  // components
+  for (const group of componentGroups) {
+    for (const component of group.components) {
+      commands.push(asCommand(group, component));
+      for (const item of component.items ?? []) {
+        commands.push(asCommand(group, item));
+      }
     }
   }
-}
+
+  return defaultProvider({ name: 'Components', types: ['c', 'component', 'components'], actions: commands });
+};

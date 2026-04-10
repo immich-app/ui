@@ -5,7 +5,7 @@
   import Icon from '$lib/components/Icon/Icon.svelte';
   import Kbd from '$lib/components/Kbd/Kbd.svelte';
   import Text from '$lib/components/Text/Text.svelte';
-  import type { ActionItem } from '$lib/types.js';
+  import type { ActionItem, ActionItemTag } from '$lib/types.js';
 
   type Props = {
     item: ActionItem;
@@ -27,6 +27,9 @@
       ref.scrollIntoView({ block: 'nearest', inline: 'start', behavior: 'smooth' });
     }
   });
+
+  const normalizeTags = (tags: Array<string | ActionItemTag>) =>
+    tags.map((tag) => (typeof tag === 'string' ? { value: tag } : tag)) as ActionItemTag[];
 </script>
 
 <div bind:this={ref} class="p-1">
@@ -53,9 +56,13 @@
           color="muted">{item.description}</Text
         >
       {/if}
-      {#if item.type}
+      {#if item.tags && item.tags.length > 0}
         <div class="mt-2">
-          <Badge color="primary" size="small" shape="round">{item.type}</Badge>
+          {#each normalizeTags(item.tags) as tag (tag.value)}
+            <Badge color={tag.color ?? 'primary'} size="small" shape={tag.shape ?? 'round'} class={tag.class}
+              >{tag.value}</Badge
+            >
+          {/each}
         </div>
       {/if}
     </div>

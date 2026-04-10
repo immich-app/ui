@@ -105,6 +105,7 @@ export { default as TooltipProvider } from '$lib/components/Tooltip/TooltipProvi
 
 // helpers
 export * from '$lib/actions/shortcut.js';
+export * from '$lib/commands.js';
 export * from '$lib/services/command-palette-manager.svelte.js';
 export * from '$lib/services/menu-manager.svelte.js';
 export * from '$lib/services/modal-manager.svelte.js';
