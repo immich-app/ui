@@ -1,6 +1,5 @@
 <script lang="ts">
-  import TimeInput from '$lib/components/TimeInput/TimeInput.svelte';
-  import { Field, IconButton, Stack } from '@immich/ui';
+  import { Field, IconButton, Stack, TimeInput } from '@immich/ui';
   import { Time } from '@internationalized/date';
   import { mdiClockOutline, mdiClose } from '@mdi/js';
   import type { TimeValue } from 'bits-ui';

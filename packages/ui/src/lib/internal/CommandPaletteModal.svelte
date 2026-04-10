@@ -87,7 +87,7 @@
   ]}
 />
 
-<Modal size="large" {onClose} closeOnBackdropClick focusOnOpen class="max-h-[85vh] lg:max-h-[75vh]">
+<Modal size="large" {onClose} closeOnBackdropClick focusOnOpen class="md:max-h-[85vh] lg:max-h-[75vh]">
   <ModalHeader>
     <div class="flex place-items-center gap-1">
       <Input

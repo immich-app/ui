@@ -9,4 +9,4 @@
   const { children }: Props = $props();
 </script>
 
-<Text color="muted">{@render children()}</Text>
+<Text color="muted" size="large" class="mt-2" {children} />

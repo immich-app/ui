@@ -1,8 +1,6 @@
 <script lang="ts">
-  import ComponentDescription from '$docs/components/ComponentDescription.svelte';
-  import { siteMetadata } from '$docs/constants.js';
-  import { Breadcrumbs, Container, Heading, SiteMetadata, type ContainerSize } from '@immich/ui';
-  import { mdiSlashForward } from '@mdi/js';
+  import MarkdownPage from '$docs/components/MarkdownPage.svelte';
+  import { type ContainerSize } from '@immich/ui';
   import type { Snippet } from 'svelte';
 
   type Props = {
@@ -12,25 +10,7 @@
     children?: Snippet;
   };
 
-  const { size = 'medium', name, description, children }: Props = $props();
-
-  const page = $derived({ title: name, description });
+  const { size, name, description, children }: Props = $props();
 </script>
 
-<SiteMetadata site={siteMetadata} {page} />
-
-<div class="flex h-full flex-col">
-  <Breadcrumbs
-    items={[{ title: 'Home', href: '/' }, { title: 'Components' }, { title: name }]}
-    separator={mdiSlashForward}
-    class="border-b p-4"
-  />
-
-  <Container {size} class="flex flex-col p-4">
-    <Heading tag="h1" size="large">{page.title}</Heading>
-    {#if page.description}
-      <ComponentDescription>{page.description}</ComponentDescription>
-    {/if}
-    {@render children?.()}
-  </Container>
-</div>
+<MarkdownPage attributes={{ title: name, description }} {size} {children} />

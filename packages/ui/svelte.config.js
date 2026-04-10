@@ -7,7 +7,14 @@ process.env.PUBLIC_IMMICH_HOSTNAME ??= 'ui.immich.app';
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
   extensions: ['.svelte', '.md'],
-  preprocess: [svelteMarkdownPreprocess(), vitePreprocess()],
+  preprocess: [
+    svelteMarkdownPreprocess({
+      layouts: {
+        default: '$docs/components/MarkdownPage.svelte',
+      },
+    }),
+    vitePreprocess(),
+  ],
   kit: {
     adapter: adapter(),
     alias: {
