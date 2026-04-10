@@ -49,5 +49,6 @@ export const resolveIcon = ({
 
 export const asArray = <T>(items?: MaybeArray<T>) => (Array.isArray(items) ? items : items ? [items] : []);
 
-export const getSearchString = ({ title, description, type, searchText }: ActionItem) =>
-  searchText ?? asText(title, description, type);
+const normalize = <T = unknown>(items: T | T[] | undefined) => (items ? asArray(items) : []);
+export const getSearchString = ({ title, description, tags, extraText }: ActionItem) =>
+  asText(title, description, ...normalize(tags), ...normalize(extraText));

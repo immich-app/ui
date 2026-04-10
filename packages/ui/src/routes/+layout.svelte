@@ -2,7 +2,7 @@
   import { beforeNavigate } from '$app/navigation';
   import { resolve } from '$app/paths';
   import { page } from '$app/state';
-  import { componentCommands, componentGroups } from '$docs/constants.js';
+  import { componentGroups, getComponentProvider } from '$docs/constants.js';
   import { asComponentHref } from '$docs/utilities.js';
   import CommandPaletteProvider from '$lib/components/CommandPalette/CommandPaletteProvider.svelte';
   import '$lib/theme/default.css';
@@ -10,31 +10,25 @@
     AppShell,
     AppShellHeader,
     AppShellSidebar,
-    asText,
     commandPaletteManager,
     ControlBar,
     ControlBarHeader,
     ControlBarOverflow,
-    defaultProvider,
+    getSiteProviders,
     Icon,
     IconButton,
     Logo,
     NavbarGroup,
     NavbarItem,
-    screencastManager,
     ScreencastOverlay,
-    siteCommands,
     SiteFooter,
     Text,
-    themeManager,
-    ThemePreference,
     ThemeSwitcher,
     toastManager,
     TooltipProvider,
-    type ActionItem,
     type NavbarProps,
   } from '@immich/ui';
-  import { mdiHome, mdiHomeOutline, mdiKeyboard, mdiMagnify, mdiMenu, mdiThemeLightDark } from '@mdi/js';
+  import { mdiHome, mdiHomeOutline, mdiMagnify, mdiMenu } from '@mdi/js';
   import { MediaQuery } from 'svelte/reactivity';
   import '../app.css';
 
@@ -51,47 +45,13 @@
 
   toastManager.setOptions({ class: 'top-[58px]' });
 
-  const commands: ActionItem[] = $derived([
-    {
-      icon: mdiThemeLightDark,
-      iconClass: 'text-gray-700 dark:text-gray-200',
-      title: 'Toggle theme',
-      description: 'Switch between light and dark theme',
-      shortcuts: [
-        { shift: true, key: 't' },
-        { alt: true, key: 't' },
-      ],
-      onAction: () => themeManager.toggle(),
-      searchText: asText('Command', 'light', 'dark', 'theme', 'toggle'),
-    },
-    {
-      icon: mdiThemeLightDark,
-      iconClass: 'text-gray-700 dark:text-gray-200',
-      title: 'System theme',
-      description: `Use the system theme (${themeManager.prefersDark ? 'dark' : ' light'})`,
-      onAction: () => themeManager.setPreference(ThemePreference.System),
-    },
-    {
-      title: 'Toggle screencast mode',
-      description: 'Show/hide keyboard and mouse events on the screen',
-      icon: mdiKeyboard,
-      onAction: () => screencastManager.toggle(),
-    },
-  ]);
-
   commandPaletteManager.enable();
   commandPaletteManager.setTranslations({
     command_palette_prompt_default: 'Quickly find components, links, and commands',
   });
 </script>
 
-<CommandPaletteProvider
-  providers={[
-    defaultProvider({ name: 'Commands', actions: commands }),
-    defaultProvider({ name: 'Components', actions: componentCommands }),
-    defaultProvider({ name: 'Links', actions: siteCommands }),
-  ]}
-/>
+<CommandPaletteProvider providers={[getComponentProvider(), ...getSiteProviders()]} />
 
 <ScreencastOverlay />
 

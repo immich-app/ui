@@ -37,6 +37,10 @@ class ThemeManager {
     return this.#darkModeUser.current;
   }
 
+  get preference() {
+    return this.#theme.current;
+  }
+
   get value() {
     switch (this.#theme.current) {
       case ThemePreference.System: {

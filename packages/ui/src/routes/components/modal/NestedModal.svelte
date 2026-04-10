@@ -30,7 +30,7 @@
           description: 'Open nested confirm dialog',
           icon: mdiCheck,
           iconClass: '',
-          type: 'Type',
+          tags: ['Tag'],
         },
       ]}
       name="Example"

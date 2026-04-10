@@ -361,11 +361,24 @@ export type IfLike = { $if?: () => boolean };
 
 export type ActionItemHandler<T extends ActionItem = ActionItem> = (item: T) => unknown | Promise<unknown>;
 
+export type LinkItem = {
+  title: string;
+  description: string;
+  href: string;
+};
+
+export type ActionItemTag = {
+  value: string;
+  color?: Color;
+  shape: Shape;
+  class?: string;
+};
+
 export type ActionItem = {
   title: string;
   description?: string;
-  type?: string;
-  searchText?: string;
+  extraText?: string | string[];
+  tags?: Array<string | ActionItemTag>;
   icon?: IconLike;
   iconClass?: string;
   color?: Color;
