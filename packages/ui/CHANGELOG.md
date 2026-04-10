@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.76.0](https://github.com/immich-app/ui/compare/ui-v0.75.0...ui-v0.76.0) (2026-04-10)
+
+
+### Features
+
+* docs ([#674](https://github.com/immich-app/ui/issues/674)) ([e0c0fa8](https://github.com/immich-app/ui/commit/e0c0fa8d21d5116bdb03ace4835b3291726e2b52))
+
 ## [0.75.0](https://github.com/immich-app/ui/compare/ui-v0.74.1...ui-v0.75.0) (2026-04-09)
 
 
