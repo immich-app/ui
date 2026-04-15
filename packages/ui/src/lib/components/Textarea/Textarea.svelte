@@ -82,25 +82,27 @@
   };
 
   const autogrow = (element: HTMLTextAreaElement | null) => {
-    if (element && grow) {
-      element.style.minHeight = '0';
-      element.style.height = 'auto';
+    if (!element || !grow || element.scrollHeight === 0) {
+      return;
+    }
 
-      const style = getComputedStyle(element);
-      const borderTopWidth = parseStyleNumber(style.borderTopWidth) ?? 0;
-      const borderBottomWidth = parseStyleNumber(style.borderBottomWidth) ?? 0;
-      const height = element.scrollHeight + borderTopWidth + borderBottomWidth;
+    element.style.minHeight = '0';
+    element.style.height = 'auto';
 
-      element.style.height = `${height}px`;
+    const style = getComputedStyle(element);
+    const borderTopWidth = parseStyleNumber(style.borderTopWidth) ?? 0;
+    const borderBottomWidth = parseStyleNumber(style.borderBottomWidth) ?? 0;
+    const height = element.scrollHeight + borderTopWidth + borderBottomWidth;
 
-      // Show scrollbar only if there is a max-height and content exceeds it
-      const maxHeight = parseStyleNumber(style.maxHeight);
-      const hasMaxHeight = maxHeight !== undefined;
-      if (hasMaxHeight && height > maxHeight) {
-        element.style.overflow = 'auto';
-      } else {
-        element.style.overflow = 'hidden';
-      }
+    element.style.height = `${height}px`;
+
+    // Show scrollbar only if there is a max-height and content exceeds it
+    const maxHeight = parseStyleNumber(style.maxHeight);
+    const hasMaxHeight = maxHeight !== undefined;
+    if (hasMaxHeight && height > maxHeight) {
+      element.style.overflow = 'auto';
+    } else {
+      element.style.overflow = 'hidden';
     }
   };
 
