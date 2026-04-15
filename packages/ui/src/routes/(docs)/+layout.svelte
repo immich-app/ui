@@ -80,12 +80,11 @@
       />
       <NavbarItem icon={mdiCompassOutline} activeIcon={mdiCompass} href="/getting-started" title="Getting started" />
       <NavbarItem icon={mdiCodeBraces} href="/components" title="Components" />
-      <NavbarGroup title="Components" variant="compact" />
+      <NavbarGroup title="Components" />
       {#each components as component (component.name)}
         {@const href = asComponentHref(component.name)}
         <NavbarItem
           {href}
-          variant="compact"
           isActive={() => page.url.pathname === href}
           title={component.title ?? component.name}
           icon={component.icon}
