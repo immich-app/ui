@@ -16,7 +16,6 @@ export const Constants = {
     GithubRelease: 'https://github.com/immich-app/immich/releases/latest',
     Download: 'https://immich.app/download',
   },
-
   Sites: {
     Api: 'https://api.immich.app/',
     Buy: 'https://buy.immich.app/',
