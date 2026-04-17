@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.76.1](https://github.com/immich-app/ui/compare/ui-v0.76.0...ui-v0.76.1) (2026-04-17)
+
+
+### Bug Fixes
+
+* command palette ([#681](https://github.com/immich-app/ui/issues/681)) ([38b9ed6](https://github.com/immich-app/ui/commit/38b9ed6c8a9903917b043a26969d0df400ef37aa))
+
 ## [0.76.0](https://github.com/immich-app/ui/compare/ui-v0.75.0...ui-v0.76.0) (2026-04-10)
 
 
