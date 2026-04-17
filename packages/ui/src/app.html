@@ -12,8 +12,9 @@
           document.documentElement.classList.remove('dark');
           document.documentElement.classList.add('light');
         }
-      } catch {
+      } catch (error) {
         // noop
+        console.log(error);
       }
     </script>
 

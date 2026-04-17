@@ -62,13 +62,14 @@
 
   const groupedCommands = $derived(
     commandPaletteManager.results.reduce(
-      (acc, { provider: { name = 'unnamed' }, items }) => {
-        if (acc[name]) {
-          acc[name].push(...items);
-        } else {
-          acc[name] = items;
+      (groups, { provider: { name = 'unnamed' }, items }) => {
+        if (!groups[name]) {
+          groups[name] = [];
         }
-        return acc;
+
+        groups[name].push(...items);
+
+        return groups;
       },
       {} as Record<string, Array<ActionItem & { id: string }>>,
     ),
