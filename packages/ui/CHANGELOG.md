@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.76.2](https://github.com/immich-app/ui/compare/ui-v0.76.1...ui-v0.76.2) (2026-04-17)
+
+
+### Bug Fixes
+
+* **textarea:** dont resize textarea when its not visible ([#679](https://github.com/immich-app/ui/issues/679)) ([b6af0a5](https://github.com/immich-app/ui/commit/b6af0a5e697a969075bae0dbf333081d7b075eaf))
+
 ## [0.76.1](https://github.com/immich-app/ui/compare/ui-v0.76.0...ui-v0.76.1) (2026-04-17)
 
 
