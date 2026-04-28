@@ -35,4 +35,11 @@
   const config = $derived(variants[variant]);
 </script>
 
-<Alert color={config.color} icon={icon ?? config.icon} title={title ?? config.title} shape="rectangle" {children} />
+<Alert
+  color={config.color}
+  icon={icon ?? config.icon}
+  title={title ?? config.title}
+  shape="rectangle"
+  {children}
+  class="my-2"
+/>
