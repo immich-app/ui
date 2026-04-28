@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.77.1](https://github.com/immich-app/ui/compare/ui-v0.77.0...ui-v0.77.1) (2026-04-28)
+
+
+### Bug Fixes
+
+* markdown alert spacing ([#694](https://github.com/immich-app/ui/issues/694)) ([8b56d0f](https://github.com/immich-app/ui/commit/8b56d0fe219e420f544e50cd0b54a33a25016eb5))
+
 ## [0.77.0](https://github.com/immich-app/ui/compare/ui-v0.76.2...ui-v0.77.0) (2026-04-28)
 
 
