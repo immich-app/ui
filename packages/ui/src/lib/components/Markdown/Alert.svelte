@@ -5,6 +5,8 @@
     mdiAlertCircleOutline,
     mdiAlertOctagonOutline,
     mdiAlertOutline,
+    mdiCheckCircleOutline,
+    mdiCloseCircleOutline,
     mdiInformationOutline,
     mdiLightbulbOutline,
   } from '@mdi/js';
@@ -25,6 +27,9 @@
     important: { color: 'primary', icon: mdiAlertCircleOutline, title: 'Important' },
     warning: { color: 'warning', icon: mdiAlertOutline, title: 'Warning' },
     caution: { color: 'danger', icon: mdiAlertOctagonOutline, title: 'Caution' },
+    info: { color: 'info', icon: mdiInformationOutline, title: 'Info' },
+    success: { color: 'success', icon: mdiCheckCircleOutline, title: 'Success' },
+    danger: { color: 'danger', icon: mdiCloseCircleOutline, title: 'Danger' },
   };
 
   const config = $derived(variants[variant]);

@@ -18,11 +18,23 @@
     <Lorem />
   </Markdown.Alert>
 
+  <Markdown.Alert variant="caution">
+    <Lorem />
+  </Markdown.Alert>
+
+  <Markdown.Alert variant="success">
+    <Lorem />
+  </Markdown.Alert>
+
+  <Markdown.Alert variant="info">
+    <Lorem />
+  </Markdown.Alert>
+
   <Markdown.Alert variant="warning">
     <Lorem />
   </Markdown.Alert>
 
-  <Markdown.Alert variant="caution">
+  <Markdown.Alert variant="danger">
     <Lorem />
   </Markdown.Alert>
 </Stack>
