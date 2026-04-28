@@ -4,7 +4,8 @@
   import CloseButton from '$lib/components/CloseButton/CloseButton.svelte';
   import Icon from '$lib/components/Icon/Icon.svelte';
   import Text from '$lib/components/Text/Text.svelte';
-  import type { Color, Size } from '$lib/types.js';
+  import { styleVariants } from '$lib/styles.js';
+  import type { Color, IconLike, Size } from '$lib/types.js';
   import { cleanClass, resolveIcon } from '$lib/utilities/internal.js';
   import {
     mdiAlertOutline,
@@ -13,11 +14,13 @@
     mdiInformationVariantCircleOutline,
   } from '@mdi/js';
   import type { Snippet } from 'svelte';
+  import { tv } from 'tailwind-variants';
 
   type Props = {
     color?: Color;
     size?: Size;
-    icon?: string | false;
+    icon?: IconLike | false;
+    shape?: 'round' | 'rectangle';
     title?: string;
     class?: string;
     duration?: number;
@@ -31,6 +34,7 @@
     color = 'primary',
     icon: iconOverride,
     size = 'large',
+    shape = 'round',
     title,
     class: className,
     duration,
@@ -78,16 +82,40 @@
       fallback: mdiInformationVariantCircleOutline,
     }),
   );
+
+  const styles = tv({
+    variants: {
+      color: {
+        primary: 'border-s-primary-500',
+        secondary: 'border-s-dark',
+        warning: 'border-s-warning-500',
+        success: 'border-s-success-500',
+        danger: 'border-s-danger-500',
+        info: 'border-s-info-500',
+      },
+      shape: {
+        rectangle: 'border-s-4',
+        round: '',
+      },
+    },
+  });
+
+  const iconStyles = tv({
+    base: '',
+    variants: {
+      color: styleVariants.color,
+    },
+  });
 </script>
 
 {#if open}
-  <Card {color} class={cleanClass(className)}>
+  <Card {color} class={cleanClass(styles({ shape, color }), className)} {shape}>
     <CardBody>
       <div class={cleanClass((closable || onClose) && 'flex items-center justify-between')}>
         <div class={cleanClass('flex gap-2')}>
           {#if icon}
             <div>
-              <Icon {icon} size={iconSizes[size]} />
+              <Icon {icon} size={iconSizes[size]} class={iconStyles({ color })} />
             </div>
           {/if}
 

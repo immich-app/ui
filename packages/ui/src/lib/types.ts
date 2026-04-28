@@ -454,3 +454,5 @@ export type GithubLinkProps = {
   size?: Size;
 } & GithubLinkOptions &
   LinkCommon;
+
+export type MarkdownAlertVariant = 'note' | 'tip' | 'important' | 'warning' | 'caution';
