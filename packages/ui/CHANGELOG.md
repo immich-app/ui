@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.77.0](https://github.com/immich-app/ui/compare/ui-v0.76.2...ui-v0.77.0) (2026-04-28)
+
+
+### Features
+
+* admonition variants ([#693](https://github.com/immich-app/ui/issues/693)) ([f9228ee](https://github.com/immich-app/ui/commit/f9228ee5b91e931840bf093d3d4e588caddbea2c))
+* alert tweaks ([#691](https://github.com/immich-app/ui/issues/691)) ([06fd209](https://github.com/immich-app/ui/commit/06fd2099c4cb493900e8396a8ffd6a937e4c1764))
+
 ## [0.76.2](https://github.com/immich-app/ui/compare/ui-v0.76.1...ui-v0.76.2) (2026-04-17)
 
 
