@@ -16,6 +16,8 @@ import {
 import {
   mdiAccountCircle,
   mdiAccountCircleOutline,
+  mdiAlert,
+  mdiAlertOutline,
   mdiApplication,
   mdiApplicationOutline,
   mdiBullhornVariant,
@@ -126,6 +128,7 @@ export type ComponentGroup = {
 export const components: ComponentItem[] = [
   { name: 'AnnouncementBanner', icon: mdiBullhornVariantOutline, activeIcon: mdiBullhornVariant },
   { name: 'AppShell', icon: mdiApplicationOutline, activeIcon: mdiApplication },
+  { name: 'Alert', icon: mdiAlertOutline, activeIcon: mdiAlert },
   { name: 'Avatar', icon: mdiAccountCircleOutline, activeIcon: mdiAccountCircle },
   { name: 'Badge', icon: mdiTagOutline, activeIcon: mdiTag },
   { name: 'Breadcrumbs', icon: mdiSlashForward },

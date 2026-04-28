@@ -1,3 +1,4 @@
+import Alert from './Alert.svelte';
 import BlockQuote from './BlockQuote.svelte';
 import Code from './Code.svelte';
 import Heading from './Heading.svelte';
@@ -17,6 +18,7 @@ import TableRow from './TableRow.svelte';
 import Text from './Text.svelte';
 
 export const Markdown = {
+  Alert,
   BlockQuote,
   Code,
   Heading,
