@@ -8,7 +8,7 @@
   import { siDiscord, siGithub, siReddit, siRss, siWeblate, siX, siYoutube } from 'simple-icons';
 </script>
 
-<div class="mt-16 rounded-t-md bg-gray-50 p-8 lg:p-4 lg:py-8 dark:bg-neutral-900">
+<div class="dark:bg-subtle mt-16 rounded-t-md bg-gray-50 p-8 lg:p-4 lg:py-8">
   <div class="mx-auto max-w-(--breakpoint-lg)">
     <Stack gap={8}>
       <div class="place-center grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
