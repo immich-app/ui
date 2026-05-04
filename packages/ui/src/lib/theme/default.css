@@ -292,7 +292,7 @@
     --immich-ui-light: oklch(0% 0 0);
     --immich-ui-dark: oklch(89% 0 271);
     --immich-ui-muted: oklch(87% 0 271);
-    --immich-ui-gray: oklch(25% 0 271);
+    --immich-ui-gray: oklch(17.89% 0.0104 276.38);
     --immich-ui-default-border: var(--immich-ui-light-200);
   }
 
